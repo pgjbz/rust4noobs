@@ -9,7 +9,7 @@
 <!-- Title -->
 
 <p align="center">
-  <h2 align="center">Rust4noobs</h2>
+  <h2 align="center">Rust4Noobs</h2>
 
   <h1 align="center"><img src="./.github/rust.svg" alt="Imagem da linguagem" width="120"></h1>
   
