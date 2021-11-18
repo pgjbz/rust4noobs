@@ -23,20 +23,14 @@
     <a href="link-para-abrir-issue">Request Feature</a>
   </p>
 </p>
-    
- <!-- ABOUT THE PROJECT -->
 
 ## Sobre o Projeto
 Projeto para introdução a linguagem de programação Rust, o objetivo deste repositório é inserir o leitor aos conceitos da linguagem Rust, como o seu modo de gerenciamento de memória e conceitos da linguagem.
 
-<!-- ROADMAP OF PROJECT -->
-
 ## ROADMAP
 
-- [Ambiente](./basico)
-  
-  
-<!-- CONTRIBUTING -->
+- [Basico](./basic)
+    - [Sobre a linguagem](./basic/01-about.md)
 
 ## Como Contribuir
 
