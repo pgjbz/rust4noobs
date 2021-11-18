@@ -10,6 +10,7 @@ Antes de entrarmos nas estruturas condicionais, precisamos saber os operadores.
 | Subtração            | -       | Subtrai dois valores        |
 | Multiplicação        | *       | Multiplica dois valores      |
 | Divisão              | /       | Divide dois valores          |
+| Mod                  | %       | Resto de divisão          |
 | Soma atribui         | +=      | Soma e atribui o valor       |
 | Subtrai e atribui    | -=      | Subtrai e atribui o valor    |
 | Multiplica e atribui | *=      | Multiplica e atribui o valor |

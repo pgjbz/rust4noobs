@@ -10,3 +10,4 @@ Roadmap:
 - [Tipos de dados](./04-data-types.md)
 - [Operadores](./05-operators.md)
 - [Condicionais](./06-conditions.md)
+- [Loops](./07-loops.md)
