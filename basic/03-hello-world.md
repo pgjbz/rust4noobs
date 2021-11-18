@@ -35,3 +35,5 @@ cargo run
 ```
 
 Teremos nosso primeiro código em Rust sendo executado e a mensagem `Hello, world!` sendo mostrada no nosso console. 
+
+- [Próximo](./04-data-types.md) - Tipos de dados!
