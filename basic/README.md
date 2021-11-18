@@ -5,3 +5,4 @@ Este é o início da nossa caminhada de aprendizado da linguagem de programaçã
 Roadmap:
 
 - [Sobre a linguagem](./01-about.md)
+- [Ambiente](./02-environment.md)
