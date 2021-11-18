@@ -32,6 +32,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
 - [Basico](./basic)
     - [Sobre a linguagem](./basic/01-about.md)
     - [Ambiente](./basic/02-environment.md)
+    - [Hello World](./basic/03-hello-world.md)
 
 ## Como Contribuir
 

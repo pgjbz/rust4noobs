@@ -6,3 +6,4 @@ Roadmap:
 
 - [Sobre a linguagem](./01-about.md)
 - [Ambiente](./02-environment.md)
+- [Hello World](./03-hello-world.md)

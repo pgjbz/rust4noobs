@@ -14,25 +14,25 @@ Para realizar a instalação da linguagem é necessário ter a ferramenta [curl]
 
 Arch Linux:
 
-```
+```bash
 sudo pacman -S curl
 ```
 
 Fedora:
 
-```
+```bash
 sudo dnf install curl
 ```
 
 Ubuntu:
 
-```
+```bash
 sudo apt install curl
 ```
 
 Com a ferramenta `curl` instalada foi utilizado o método de instalação [recomendado](https://www.rust-lang.org/pt-BR/learn/get-started) no site da linguagem:
 
-```
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
@@ -44,7 +44,7 @@ OBS. Método de instalação utilizando o gerenciador de pacotes do Windows ofic
 
 Para instalar o Rust no Windows execute o seguinte comando em um PowerShell como administrador:
 
-```
+```bash
 winget install -e --id Rustlang.rust-gnu-x64
 ```
 
@@ -52,7 +52,7 @@ winget install -e --id Rustlang.rust-gnu-x64
 
 Para validarmos a instalação utilizamos o comando:
 
-```
+```bash
 rustup --version
 ```
 
@@ -73,3 +73,5 @@ Temos algumas [IDE](https://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_in
     - [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) para debug
     - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) linguage server é util para lermos a documentação e termos o intellisense enquanto codamos
     - [crates](https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates) para nos ajudar no gerenciamento de dependência do projeto
+
+- [Próximo](./03-hello-world.md) - Hello World!
