@@ -86,3 +86,5 @@ fn escreve_iss(iss: f32) {
 A primeira instância parece apenas que escrevemos mais, porém com os nomes expressivos conseguimos saber exatamente o que esta acontecendo e podemos chamar estes blocos de códigos de diversos lugares.
 
 As funções são algo muito útil, mas em Rust temos que ter um certo cuidado com elas, mas este cuidado iremos ver na parte intermediaria deste 4Noobs.
+
+- [Próximo](./09-arrays.md) - Arrays
