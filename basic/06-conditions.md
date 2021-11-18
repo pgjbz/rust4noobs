@@ -30,7 +30,7 @@ fn main() {
 }
 ```
 
-Simples né? Mas e se quisermos realizar uma outra checagem caso a primeira condição não de verdadeira? Simples combinamos o `else` e o `if`
+Simples né? E se quisermos realizar outra checagem caso a primeira condição não de verdadeira? Simples combinamos o `else` e o `if`
 
 ```rust
 fn main() {
@@ -47,3 +47,4 @@ fn main() {
     }
 }
 ```
+

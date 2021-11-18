@@ -1,13 +1,13 @@
 # Operadores
 
-Antes de entrarmos nas estruturas condicionais, precisamos saber os oeradores.
+Antes de entrarmos nas estruturas condicionais, precisamos saber os operadores.
 
-## Operadores matematicos
+## Operadores matemáticos
 
 | Tipo                 | Simbolo | Ação                         |
 | ---                  | ---     | ---                          |
 | Soma                 | +       | Soma dois valores            |
-| Subtração            | -       | Substrai dois valores        |
+| Subtração            | -       | Subtrai dois valores        |
 | Multiplicação        | *       | Multiplica dois valores      |
 | Divisão              | /       | Divide dois valores          |
 | Soma atribui         | +=      | Soma e atribui o valor       |
@@ -15,7 +15,7 @@ Antes de entrarmos nas estruturas condicionais, precisamos saber os oeradores.
 | Multiplica e atribui | *=      | Multiplica e atribui o valor |
 | Divide e atribui     | /=      | Divide e atribui o valor     |
 
-No capitulo sobre os [tipos de dados](./04-data-types.md) mostramos como declarar variaveis e também sobre o caso do Rust precisar de uma palavra extra para essas variaveis serem modificadas, mas não a utilizamos, neste capitulo iremos utilizar, nos exemplos dos usos dos operadores matematicos.
+No capítulo sobre os [tipos de dados](./04-data-types.md) mostramos como declarar variáveis e também sobre o caso do Rust precisar de uma palavra extra para essas variáveis serem modificadas, mas não a utilizamos, neste capítulo iremos utilizar, nos exemplos dos usos dos operadores matemáticos.
 
 ```rust
 fn main() {
@@ -46,4 +46,6 @@ fn main() {
 O uso dos operadores lógicos iremos ver na [próxima](./06-conditions.md) parte
 
 - [Próximo](./06-conditions.md) - Condicionais 
+
+
 
