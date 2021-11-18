@@ -18,9 +18,9 @@
     <a href="#ROADMAP"><strong>Explore a documentação »</strong></a>
     <br />
     <br />
-    <a href="link-para-abrir-issue">Report Bug</a>
+    <a href="https://github.com/pgjbz/rust4noobs/issues/new">Report Bug</a>
     ·
-    <a href="link-para-abrir-issue">Request Feature</a>
+    <a href="https://github.com/pgjbz/rust4noobs/issues/new">Request Feature</a>
   </p>
 </p>
 
