@@ -11,3 +11,4 @@ Roadmap:
 - [Operadores](./05-operators.md)
 - [Condicionais](./06-conditions.md)
 - [Loops](./07-loops.md)
+- [Funções](./08-functions.md)

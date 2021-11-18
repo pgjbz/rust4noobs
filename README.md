@@ -37,6 +37,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Operadores](./basic/05-operators.md)
     - [Condicionais](./basic/06-conditions.md)
     - [Loops](./basic/07-loops.md)
+    - [Funções](./basic/08-functions.md)
 
 ## Como Contribuir
 
