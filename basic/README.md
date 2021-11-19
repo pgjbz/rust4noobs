@@ -13,3 +13,4 @@ Roadmap:
 - [Loops](./07-loops.md)
 - [Funções](./08-functions.md)
 - [Arrays](./09-arrays.md)
+- [Exercícios](./10-exercises.md)

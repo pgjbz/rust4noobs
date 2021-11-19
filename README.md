@@ -39,6 +39,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Loops](./basic/07-loops.md)
     - [Funções](./basic/08-functions.md)
     - [Arrays](./basic/09-arrays.md)
+    - [Exercícios](./basic/10-exercises.md)
 
 ## Como Contribuir
 
