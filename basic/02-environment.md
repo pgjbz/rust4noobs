@@ -53,16 +53,25 @@ winget install -e --id Rustlang.rust-gnu-x64
 Para validarmos a instalação utilizamos o comando:
 
 ```bash
-rustup --version
+cargo --version
 ```
 
 Ele deve nos mostrar algo parecido com isso:
 
-<p>
-rustup 1.24.3 (ce5817a94 2021-05-31)
-info: This is the version for the rustup toolchain manager, not the rustc compiler.
-info: The currently active `rustc` version is `rustc 1.56.1 (59eed8a2a 2021-11-01)`
-</p>
+```bash
+cargo 1.56.0 (4ed5d137b 2021-10-04)
+```
+
+E logo em sequencia o comando
+
+```bash
+rustc --version
+```
+O comando deve nos retornar algo parecido com isso:
+
+```bash
+rustc 1.56.0 (09c42c458 2021-10-18)
+```
 
 
 # IDEs
