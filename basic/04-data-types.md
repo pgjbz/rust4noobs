@@ -14,6 +14,8 @@ Rust é uma linguagem fortemente e estaticamente tipada, nela temos alguns tipos
 |  u32 | 4 bytes | 4294967295   | 0            | Numérico |
 |  i64 | 8 bytes | 9223372036854775807   | -9223372036854775808            |Numérico |
 |  u64 | 8 bytes | 18446744073709551615   | 0            | Numérico |
+|  i128 | 16 bytes | 170141183460469231731687303715884105727   | -170141183460469231731687303715884105728            | Numérico |
+|  u128 | 16 bytes | 340282366920938463463374607431768211455   | 0            | Numérico |
 |  f32 | 4 bytes | 340282350... |-340282350... | Numérico |
 |  f64 | 8 bytes | 1797693134862315700... | -1797693134862315700... | Numérico |
 | bool | 1 byte  | true | false | booleano
