@@ -55,3 +55,4 @@ Com o uso de trim: {}", texto, texto.trim());
 
 Não cobrimos alguns pontos importantes sobre este tipo de dado, por conta de alguns conceitos ainda não explicado, futuramente iremos retomar com as `Strings`. 
 
+- [Próximo](./02-pointers-intro.md) - Introdução a ponteiros
