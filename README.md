@@ -43,7 +43,8 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
 - [Intermediario 1](./intermediary-01)
     - [Strings](./intermediary-01/01-strings.md)
     - [Introdução a ponteiros](./intermediary-01/02-pointers-intro.md)
-
+    - [Ownership](./intermediary-01/03-ownership.md)
+    - [Tuplas](./intermediary-01/04-tuples.md)
 ## Como Contribuir
 
 Contribuições fazem com que a comunidade open source seja um lugar incrível para aprender, inspirar e criar. Todas contribuições

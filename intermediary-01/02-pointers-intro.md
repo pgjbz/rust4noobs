@@ -70,3 +70,4 @@ error: aborting due to previous error
 
 Com isso entramos no sistema de ownership do Rust, que daremos continuidade na próxima parte desde 4noobs.
 
+- [Próximo](./03-ownership.md)
