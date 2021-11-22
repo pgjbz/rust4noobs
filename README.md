@@ -40,6 +40,8 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Funções](./basic/08-functions.md)
     - [Arrays](./basic/09-arrays.md)
     - [Exercícios](./basic/10-exercises.md)
+- [Intermediario 1](./intermediary-01)
+    - [Strings](./intermediary-01/01-strings.md)
 
 ## Como Contribuir
 
