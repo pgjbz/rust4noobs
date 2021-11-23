@@ -4,9 +4,10 @@ Vamos a segunda parte do módulo intermediario, o módulo foi divido em duas par
 
 Roadmap:
 
-- [Struct](./)
+- [Struct](./01-structs.md)
 - [Enum](./)
 - [Match](./)
+- [Modulos](./)
 - [Coleções: Vec](./)
 - [Coleções: HashMap](./)
 - [Traits](./)
