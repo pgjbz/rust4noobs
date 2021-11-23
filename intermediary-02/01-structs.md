@@ -1,6 +1,6 @@
 # Structs
 
-Struct no modo mais simples de se falar é um estrutura de valores em "uma única variável". Não consigo pensar em um modo mais fácil de explicar com palavras o que seria uma "struct", sua declaração é simples ela segue o seguinte padrão `struct Nome { campos }`.
+Struct no modo mais simples de se falar é uma estrutura de valores em "uma única variável". Não consigo pensar em um modo mais fácil de explicar com palavras o que seria uma "struct", sua declaração é simples ela segue o seguinte padrão `struct Nome { campos }`.
 
 ```rust
 struct Cliente {
@@ -10,7 +10,7 @@ struct Cliente {
 }
 ```
 
-O modo de declaração dos campos/atributos de uma struct lembra bastante o de um [json](https://en.wikipedia.org/wiki/JSON), para criarmos uma variavel de uma struct podemos fazer da seguinte maneira:
+O modo de declaração dos campos/atributos de uma struct lembra bastante o de um [json](https://en.wikipedia.org/wiki/JSON), para criarmos uma variável de uma struct podemos fazer da seguinte maneira:
 
 ```rust
 //--declaração da estrutura Cliente
@@ -24,7 +24,7 @@ fn main() {
 }
 ```
 
-Podemos acessar os campos da variavel utilizando apenas um ".nome_do_campo".
+Podemos acessar os campos da variável utilizando apenas um ".nome_do_campo".
 
 ```rust
 //--declaração da estrutura Cliente
@@ -41,9 +41,9 @@ fn main() {
 
 ## Declarando comportamento para uma Struct
 
-Em Rust uma struct pode ter funções associadas a ela, essas funções são chamadas de métodos, aqui temos uma das caracteristicas de [Programação Orientada a Objetos]() no Rust, como a linguagem é de multiparadigmas temos alguns recursos desse modo de programação disponiveis.
+Em Rust uma struct pode ter funções associadas a ela, essas funções são chamadas de métodos, aqui temos uma das características de [Programação Orientada a Objetos]() no Rust, como a linguagem é de multiparadigmas temos alguns recursos desse modo de programação disponível.
 
-Para implementarmos métodos para a struct `Cliente` utilizamos a palavra reservada `impl` seguida do nome da estrutura `impl Cliente { implementações }`, vamos começar com a implementação de um método estatico para nos auxiliar na criação de variaveis do tipo `Cliente`.
+Para implementarmos métodos para a struct `Cliente` utilizamos a palavra reservada `impl` seguida do nome da estrutura `impl Cliente { implementações }`, vamos começar com a implementação de um método estático para nos auxiliar na criação de variáveis do tipo `Cliente`.
 
 ```rust
 struct Cliente {
@@ -73,7 +73,7 @@ fn main() {
 
 A palavra `Self` com 'S' maiúsculo é um modo de falar que estamos se referindo a própria struct que esta sendo implementada.
 
-Temos também métodos que dependem de uma [instância](https://en.wikipedia.org/wiki/Instance_(computer_science)) da struct, para este tipo de métodos utilizamos a própria struct utilizando a palavra `self` com 's' minúsculo como parâmetro do método, pode ser uma referencia mutável, imutável ou pode não ser referencia, porém não sendo uma referencia perdemos o ownership da struct e sua memoria é liberada.
+Temos também métodos que dependem de uma [instância](https://en.wikipedia.org/wiki/Instance_(computer_science)) da struct, para este tipo de métodos utilizamos a própria struct utilizando a palavra `self` com 's' minúsculo como parâmetro do método, pode ser uma referência mutável, imutável ou pode não ser referência, porém, não sendo uma referência perdemos o ownership da struct e sua memória é liberada.
 
 ```rust
 struct Cliente {
