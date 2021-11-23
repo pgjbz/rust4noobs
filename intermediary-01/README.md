@@ -9,3 +9,4 @@ Roadmap:
 - [Ownership](./03-ownership.md)
 - [Tuplas](./04-tuples.md)
 - [Slices](./05-slices.md)
+- [Entrada de dados](./06-user-input.md)
