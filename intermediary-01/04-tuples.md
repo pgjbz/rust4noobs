@@ -44,3 +44,5 @@ fn printa_duas_strings(texto1: String, texto2: String) -> (String, String) {
 ```
 
 Conseguimos utilizar a mesma estratégia de retornar os parâmetros para não perder o ownership com uma tupla.
+
+- [Próximo](./05-slices.md) - Slices

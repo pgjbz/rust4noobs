@@ -8,3 +8,4 @@ Roadmap:
 - [Introdução a ponteiros](./02-pointers-intro.md)
 - [Ownership](./03-ownership.md)
 - [Tuplas](./04-tuples.md)
+- [Slices](./05-slices.md)
