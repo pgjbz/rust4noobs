@@ -47,6 +47,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Tuplas](./intermediary-01/04-tuples.md)
     - [Slices](./intermediary-01/05-slices.md)
     - [Entrada de dados](./intermediary-01/06-user-input.md)
+    - [Exercicios](./intermediary-01/07-exercises.md)
 ## Como Contribuir
 
 Contribuições fazem com que a comunidade open source seja um lugar incrível para aprender, inspirar e criar. Todas contribuições
