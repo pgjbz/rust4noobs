@@ -139,7 +139,32 @@ fn main() {
 }
 ```
 
-E se eu tenho, por exemplo  um `u8` eu preciso realizar um 'match' para cada possibilidade? Não eu posso fazer um 'match' com o '_'.
+Claro podemos quebrar em mais 'match' para não perder essas informações.
+
+```rust
+enum Repositorio {
+    Este(String, u16),
+    Outros(String, u16, u8),
+}
+
+fn main() {
+    let url_rust4noobs = String::from("https://github.com/pgjbz/rust4noobs");
+    let qtd_stars_atuais_rust4noobs: u16 = 22;
+    let url_4noobs = String::from("https://github.com/he4rt/4noobs");
+    let qtd_stars_atuais_4noobs: u16 = 1964;
+    let qualquer_numero_so_para_diferenciar: u8 = 20;
+
+    let rust4noobs = Repositorio::Este(url_rust4noobs, qtd_stars_atuais_rust4noobs);
+    let _4noobs = Repositorio::Outros(url_4noobs, qtd_stars_atuais_4noobs, qualquer_numero_so_para_diferenciar);
+
+    match rust4noobs {
+        Repositorio::Este(url, stars) => println!("Repositorio {}, estrelas {}", url, stars),
+        Repositorio::Outros(url, stars, n) => println!("Repositorio {}, estrelas {}, numero aleatório para diferneciar {}", url, stars, n),
+    }
+}
+```
+
+E se eu tenho, por exemplo  um `u8` eu preciso realizar um 'match' para cada possibilidade? Não eu posso fazer um 'match' com o '_' novamente, seria como o 'default' do switch, mas lembre-se quando usamos o '_' ignoramos o valor.
 
 ```rust
 fn main() {
