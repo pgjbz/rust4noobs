@@ -50,7 +50,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Exercicios](./intermediary-01/07-exercises.md)
 - [Intermediario 2](./intermediary-02)
     - [Struct](/intermediary-02/01-structs.md)
-    - [Enum](/intermediary-02)
+    - [Enum](/intermediary-02/02-enums.md)
     - [Match](/intermediary-02)
     - [Modulos](/intermediary-02)
     - [Coleções: Vec](/intermediary-02)
