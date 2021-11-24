@@ -2,7 +2,7 @@
 
 Afinal para que serve um enum?
 
-Um enum é uma forma de declarar constantes, de forma mais semantica, sua declaração é feita da seguinte maneira `enum Nome { valores }`.
+Um enum é uma forma de declarar constantes, de forma mais semântica, sua declaração é feita da seguinte maneira `enum Nome { valores }`.
 
 ```rust
 enum Uf {
@@ -70,3 +70,5 @@ fn main() {
 ```
 
 Na implementação acima temos o método `retorna_sp` que ira retornar um enum já com o valor preenchido, e temos também o método `quem_sou_eu` que iremos implementar na próxima parte deste 4noobs.
+
+- [Próximo](./03-match.md) - Match
