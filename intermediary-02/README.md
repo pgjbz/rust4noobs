@@ -1,6 +1,6 @@
 # Intermediario 2
 
-Vamos a segunda parte do módulo intermediario, o módulo foi divido em duas partes por conta do conteúdo do [Intermediario 1](../intermediary-01) não ser tão basico e nem tão "intermediario", nesta parte iremos falar sobre: struct, enum, match, traits, Option, Result, "if let" 
+Vamos a segunda parte do módulo intermediario, o módulo foi divido em duas partes por conta do conteúdo do [Intermediario 1](../intermediary-01) não ser tão basico e nem tão "intermediario", nesta parte iremos falar sobre: struct, enum, match, traits, Option, Result, "if let", generics
 
 Roadmap:
 
@@ -11,7 +11,7 @@ Roadmap:
 - [Coleções: Vec](./)
 - [Coleções: HashMap](./)
 - [Traits](./)
-- [Traits Usando Generic](./)
+- [Generics](./)
 - [Enum especial Option](./)
 - [Enum especial Result](./)
 - [Captura de Erros](./)
