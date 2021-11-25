@@ -183,3 +183,4 @@ E teríamos a seguinte estrutura de projeto.
 
 O código de `nota_fiscal.rs` é transferido para `mod.rs` na pasta `nota_fiscal` e nada mais é mudado. Temos o mesmo comportamento e o código dividido em módulos.
 
+- [Próximo](./05-generics.md) - Generics
