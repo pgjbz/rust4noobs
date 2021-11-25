@@ -183,4 +183,128 @@ E teríamos a seguinte estrutura de projeto.
 
 O código de `nota_fiscal.rs` é transferido para `mod.rs` na pasta `nota_fiscal` e nada mais é mudado. Temos o mesmo comportamento e o código dividido em módulos.
 
+### Importando e re-exportando modulos
+
+Vamos realizar a criação de um módulo chamado `pedido` dentro de nosso modulo `nota_fiscal` e dentro do módulo `pedido` vamos criar um módulo `produto`.
+
+A estrutura do nosso projeto ficara da seguinte maneira:
+
+```bash
+.
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── main.rs
+    └── nota_fiscal
+        ├── mod.rs
+        └── pedido
+            └── mod.rs
+```
+
+nota_fiscal/mod.rs
+```rust
+pub mod pedido;
+
+#[derive(Debug)]
+pub struct Cliente {
+    pub nome: String,
+    pub ano_de_nascimento: u16,
+    pub documento: String,
+}
+
+impl Cliente {
+    pub fn new(nome: String, ano_de_nascimento: u16, documento: String) -> Self {
+        Self {
+            nome,
+            ano_de_nascimento,
+            documento
+        }
+    }
+}
+```
+nota_fiscal/pedido/mod.rs
+```rust
+use self::produto::Produto;
+
+use super::Cliente;
+
+#[derive(Debug)]
+pub struct Pedido<'a> {
+    pub cliente: Cliente,
+    pub produtos: &'a [Produto]
+}
+
+impl<'a> Pedido<'a> {
+    pub fn new(cliente: Cliente, produtos: &'a [Produto]) -> Self {
+        Self {
+            cliente,
+            produtos
+        }
+    }
+}
+
+pub mod produto {
+    #[derive(Debug)]
+    pub struct Produto {
+        pub nome: String,
+        pub preco: f64
+    }
+
+    impl Produto {
+        pub fn new(nome: String, preco: f64) -> Self {
+            Self {
+                nome,
+                preco
+            }
+        }
+    }
+}
+```
+
+main.rs
+```rust
+mod nota_fiscal;
+
+use nota_fiscal::pedido::{Pedido, produto::Produto};
+
+use crate::nota_fiscal::Cliente;
+
+fn main() {
+    let cliente = Cliente::new(String::from("Rust4Noobs"),
+1999, String::from("Q?"));
+    let produto = Produto::new(String::from("4Noobs"), 0f64);
+    let produtos = &[produto];
+    let pedido = Pedido::new(cliente, produtos);
+    println!("{:#?}", pedido)
+}
+
+```
+Nesse exemplo temos vários modos de imports, temos um impor com a palavra `crate` que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o `super` que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais facil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. 
+
+Futuramente iremos utilizar outro modo de projeto que ira utilizar o arquivo `lib.rs`, onde também podemos declarar os módulos e remover isso do `main.rs`, com esse arquivo podemos importar conforme o nome do projeto no `Cargo.toml`
+
+lib.rs
+```rust
+pub mod nota_fiscal;
+```
+
+main.rs
+```rust
+use modulos::nota_fiscal::pedido::{Pedido, produto::Produto};
+
+use modulos::nota_fiscal::Cliente;
+
+fn main() {
+    let cliente = Cliente::new(String::from("Rust4Noobs"),
+1999, String::from("Q?"));
+    let produto = Produto::new(String::from("4Noobs"), 0f64);
+    let produtos = &[produto];
+    let pedido = Pedido::new(cliente, produtos);
+    println!("{:#?}", pedido)
+}
+
+```
+
+
 - [Próximo](./05-generics.md) - Generics
+
