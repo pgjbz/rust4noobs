@@ -9,7 +9,7 @@ Roadmap:
 - [Match](./03-match.md)
 - [Modulos](./04-modules.md)
 - [Generics](./05-generics.md)
-- [Traits](./)
+- [Traits](./06-traits.md)
 - [Enum especial Option](./)
 - [Coleções: Vec](./)
 - [Coleções: HashSet](./)
