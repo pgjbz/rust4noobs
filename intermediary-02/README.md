@@ -7,7 +7,7 @@ Roadmap:
 - [Struct](./01-structs.md)
 - [Enum](./02-enums.md)
 - [Match](./03-match.md)
-- [Modulos](./)
+- [Modulos](./04-modules.md)
 - [Coleções: Vec](./)
 - [Coleções: HashMap](./)
 - [Traits](./)
