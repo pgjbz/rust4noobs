@@ -20,7 +20,7 @@ No capítulo sobre os [tipos de dados](./04-data-types.md) mostramos como declar
 
 ```rust
 fn main() {
-    let mut n = 10 - 1; //n = 10
+    let mut n = 10 - 1; //n = 9
     n = 1 + 2; //n = 3
     n = 10 * 2; //n = 20
     n = 10 / 2; //n = 5
