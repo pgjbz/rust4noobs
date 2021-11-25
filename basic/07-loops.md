@@ -92,4 +92,20 @@ fn main() {
 }
 ```
 
+## Palavra continue
+
+Utilizamos a palavra `continue` quando queremos pular uma parte do loop, por exemplo. Temos um loop de 0 a 99 onde queremos escrever no console todos os números, exceto os múltiplos de 4 e 6 ao mesmo tempo. Podemos usar um continue para isso.
+
+```rust
+fn main() {
+    for i in 0..100 {
+        if i % 4 == 0 && i % 6 == 0 {
+            continue;
+        }
+        println!("Numero atual {}", i);
+    }
+}
+```
+
+Claro isso não se aplica somente ao for, é possível utilizar com `while` e com `loop` também
 - [Próximo](./08-functions.md) - Funções
