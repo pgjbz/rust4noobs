@@ -102,3 +102,4 @@ fn main() {
 
 O código acima, esta quaaase funcionando, mas para funcionar precisamos explicar outro conceito, as 'traits'
 
+- [Próximo](./06-traits.md) - Traits
