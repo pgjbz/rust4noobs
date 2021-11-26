@@ -333,3 +333,5 @@ Maior elemento: 11
 ```
 
 Este capitulo sobre `traits` ficou maior que do eu esperava, mas espero que tenha ficado claro o uso delas e a importância dessa funcionalidade.
+
+- [Próximo](./07-option.md) - Enum especial Option
