@@ -55,15 +55,13 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Modulos](/intermediary-02/04-modules.md)
     - [Generics](/intermediary-02/05-generics.md)
     - [Traits](/intermediary-02/06-traits.md)
-    - [Enum especial Option](/intermediary-02)
+    - [Enum especial Option](/intermediary-02/07-option.md)
     - [Coleções: Vec](/intermediary-02)
     - [Coleções: HashSet](/intermediary-02)
     - [Coleções: HashMap](/intermediary-02)
-    - [Enum especial Result](/intermediary-02)
-    - [Captura de Erros](/intermediary-02)
+    - [Tratamento de erros](./)
     - [Macro panic!](/intermediary-02)
-    - [if let](/intermediary-02)
-    - [while let](/intermediary-02)
+    
 ## Como Contribuir
 
 Contribuições fazem com que a comunidade open source seja um lugar incrível para aprender, inspirar e criar. Todas contribuições
