@@ -295,6 +295,10 @@ Numero atual: 99
 Numero atual: 100
 ```
 
+### Derive
+
+O comando `#[derive(AlgumaCoisaAqui)]`, é um macro para implementação de algumas `traits`, quando usamos o `#[Derive(Debug)]` estamos informando ao compilador que queremos que aquela `struct/enum` ira implementar a trait `Debug`, porém isso é gerado de forma automática pelo compilador.
+
 ### Voltando ao problema inicial.
 
 Agora que entendemos como as `traits` funcionam vamos retomar o problema que deixamos no fim da [parte anterior](./05-generics.md)
