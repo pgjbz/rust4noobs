@@ -179,3 +179,5 @@ fn main() {
 ```
 
 O enum `Option`, nos da um controle muito grande, e nos possibilita vários modos de tratar valores inexistentes, vale a pena se aprofundar mais nele.
+
+- [Próximo](./08-vec.md) - Coleção Vec
