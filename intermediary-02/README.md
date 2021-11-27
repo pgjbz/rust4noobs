@@ -11,7 +11,7 @@ Roadmap:
 - [Generics](./05-generics.md)
 - [Traits](./06-traits.md)
 - [Enum especial Option](./07-option.md)
-- [Coleções: Vec](./)
+- [Coleções: Vec](./08-vec.md)
 - [Coleções: HashSet](./)
 - [Coleções: HashMap](./)
 - [Tratamento de erros](./)
