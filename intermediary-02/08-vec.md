@@ -20,7 +20,7 @@ O compilador do Rust é inteligente o suficiente para saber o tipo de um `Vec` p
 
 ## Métodos de Vec
 
-Em Vec temos diversos métodos, mas agora iremos falar sobre os seguintes métodos: push, pop, len, clear, is_empty, contains, get, insert
+Em Vec temos diversos métodos, mas agora iremos falar sobre os seguintes métodos: push, pop, len, clear, is_empty, contains, get, get_mut, insert e remove.
 
 ### Método push
 
@@ -74,6 +74,31 @@ fn main() {
     let lista = vec![1,2,3];
     let primeiro_elemento: Option<i32> = lista.get(0);
     // let invalido = lista[1000]; //esta linha ira parar a execução do programa
+}
+```
+
+### Método get_mut
+
+O método `get_mut`, tem um comportamento parecido com o do método `get` a principal diferença é que este método nos retorna uma referncia mutável, sendo assim, podemos alterar o valor contido no index. Para que este método possa ser executado, o `Vec` deve ser mutável
+
+```rust
+fn main() {
+    let mut lista = vec![1, 2, 3];
+    let r = lista.get_mut(0).unwrap();
+    *r = 10;
+    println!("{:?}", lista);
+}
+```
+
+### Método remove
+
+Com o método remove, podemos remover um item do `Vec` informando a sua posição. Claro para isso o `Vec` deve ser mutável.
+
+```rust
+fn main() {
+    let mut lista = vec![1, 2, 3];
+    lista.remove(0);
+    println!("{:?}", lista);
 }
 ```
 
