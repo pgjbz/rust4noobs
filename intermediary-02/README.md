@@ -12,7 +12,7 @@ Roadmap:
 - [Traits](./06-traits.md)
 - [Enum especial Option](./07-option.md)
 - [Coleções: Vec](./08-vec.md)
-- [Coleções: HashSet](./)
+- [Coleções: HashSet](./09-hashset.md)
 - [Coleções: HashMap](./)
 - [Tratamento de erros](./)
 - [Macro panic!](./)
