@@ -170,3 +170,5 @@ fn main() {
 ```
 
 Agora podemos utilizar a nossa struct em um `HashSet`
+
+- [Próximo](./10-hashmap.md) - HashMap

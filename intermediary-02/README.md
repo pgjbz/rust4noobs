@@ -13,6 +13,6 @@ Roadmap:
 - [Enum especial Option](./07-option.md)
 - [Coleções: Vec](./08-vec.md)
 - [Coleções: HashSet](./09-hashset.md)
-- [Coleções: HashMap](./)
+- [Coleções: HashMap](./10-hashmap.md)
 - [Tratamento de erros](./)
 - [Macro panic!](./)
