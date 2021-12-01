@@ -14,5 +14,7 @@ Roadmap:
 - [Coleções: Vec](./08-vec.md)
 - [Coleções: HashSet](./09-hashset.md)
 - [Coleções: HashMap](./10-hashmap.md)
-- [Tratamento de erros](./)
+- [Tratamento de erros](./11-result.md)
 - [Macro panic!](./)
+- [Testes](./)
+- [Mini projeto - TBD](./)
