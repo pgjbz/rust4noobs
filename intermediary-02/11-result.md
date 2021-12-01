@@ -106,3 +106,5 @@ fn main() {
 O uso do meu próprio `Enum` e é algo que facilita a minha leitura, por saber que se trata especificamente de um erro de `Parse`, assim como as `exceções`em `Java` ou qualquer outra linguagem, use algo que faça sentido, não retorne um erro de parse o erro for sobre não conseguir vender maçãs.
 
 Claro como `Result<T, E>` é um tipo genérico, não é obrigatório que o meu erro seja um `Enum` ou qualquer coisa, posso retornar um `i32`, `String`, qualquer coisa.
+
+- [Próximo](./12-panic.md) - Macro Panic
