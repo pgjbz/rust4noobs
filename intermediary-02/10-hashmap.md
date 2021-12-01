@@ -124,3 +124,5 @@ fn main() {
     println!("Tamanho do HashSet = {}", map.len());
 }
 ```
+
+- [Próximo](./11-result.md) - Tratamento de erros
