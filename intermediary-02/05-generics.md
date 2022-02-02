@@ -67,7 +67,7 @@ struct Cliente<T, U> {
     documento: T
 }
 
-impl<T, U> Cliente {
+impl<T, U> Cliente<T, U> {
      fn new(nome: String, ano_nascimento: U, documento: T) -> Self {
         Self {
             nome,

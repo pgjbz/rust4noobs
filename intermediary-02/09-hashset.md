@@ -144,6 +144,8 @@ fn main() {
 Essas traits servem para comparação e geração do Hash, ou podemos também implementar por nós mesmos.
 
 ```rust
+use std::hash::Hash;
+
 struct Cliente {
     id: i32,
     nome: String
