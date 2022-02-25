@@ -61,7 +61,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Coleções: HashMap](./intermediary-02/10-hashmap.md)
     - [Tratamento de erros](./intermediary-02/11-result.md)
     - [Macro panic!](./intermediary-02/12-panic.md)
-    - [Testes](./intermediary-02)
+    - [Testes](./intermediary-02/13-tests.md)
     - [Mini projeto - TBD](./intermediary-02)
     
 ## Como Contribuir

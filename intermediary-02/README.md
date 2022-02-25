@@ -16,5 +16,5 @@ Roadmap:
 - [Coleções: HashMap](./10-hashmap.md)
 - [Tratamento de erros](./11-result.md)
 - [Macro panic!](./12-panic.md)
-- [Testes](./)
+- [Testes](./13-tests.md)
 - [Mini projeto - TBD](./)
