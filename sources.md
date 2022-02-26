@@ -17,3 +17,4 @@
 - https://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_integrado
 - https://en.wikipedia.org/wiki/Array_data_structure
 - https://doc.rust-lang.org/book/ch19-06-macros.html
+- https://blog.scottlogic.com/2020/10/08/lets-build-snake-with-rust.html

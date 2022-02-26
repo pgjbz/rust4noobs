@@ -62,7 +62,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Tratamento de erros](./intermediary-02/11-result.md)
     - [Macro panic!](./intermediary-02/12-panic.md)
     - [Testes](./intermediary-02/13-tests.md)
-    - [Mini projeto - TBD](./intermediary-02)
+    - [Mini projeto - Snake Game](./intermediary-02)
     
 ## Como Contribuir
 
