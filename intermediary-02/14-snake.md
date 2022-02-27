@@ -12,20 +12,6 @@ Teremos a estrutura padrão do projeto
     └── main.rs
 ```
 
-No arquivo Cargo.toml adicionaremos algumas dependencia para facilitar a nossa vida, serão elas [rand](https://rust-random.github.io/book/) e [crossterm](https://docs.rs/crossterm/0.23.0/crossterm/). Nosso Cargo.toml deve ficar parecido com isso:
-
-```toml
-[package]
-name = "snake-game"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-
-crossterm = "0.23.0"
-rand = "0.8.5"
-```
-
 Vamos adicionar um arquivo chamado `lib.rs` dentro da pasta `src`, este arquivo sera usado para declarar os nosso módulos. Em seguida vamos criar um arquivo chamado "ponto.rs" e nele iremos criar uma [struct](./01-structs.md) para as localizações no nosso jogo, vamos criar uma implementação a essa struct para facilitar a instanciação dessa `strutc`.
 
 ```rust
