@@ -20,10 +20,10 @@ impl Snake {
 
     fn move_head(&mut self, board: &(usize, usize)) -> Result<(), &'static str> {
         match self.direction {
-            Direction::Up if self.head.y == 0 => Err("game over, dump in top wall"),
-            Direction::Down if self.head.y >= board.1 => Err("game over, dump in down wall"),
-            Direction::Left if self.head.x == 0 => Err("game over, dump in left wall"),
-            Direction::Right if self.head.x >= board.0 => Err("game over, dump in right wall"),
+            Direction::Up if self.head.y == 0 => Err("game over, hit in top wall"),
+            Direction::Down if self.head.y >= board.1 => Err("game over, hit in down wall"),
+            Direction::Left if self.head.x == 0 => Err("game over, hit in left wall"),
+            Direction::Right if self.head.x >= board.0 => Err("game over, hit in right wall"),
             _ => {
                 self.head.transform(self.direction);
                 Ok(())
@@ -104,8 +104,8 @@ mod snake_tests {
     }
 
     #[test]
-    #[should_panic(expected = "game over")]
-    fn move_snake_head_to_right_in_board_should_bump_into_the_wall() {
+    #[should_panic(expected = "game over, hit in right wall")]
+    fn move_snake_head_to_right_in_board_should_hit_into_the_wall() {
         let mut snake = Snake {
             head: Point::new(7, 7),
             body: vec![],
@@ -115,8 +115,8 @@ mod snake_tests {
     }
 
     #[test]
-    #[should_panic(expected = "game over")]
-    fn move_snake_head_to_left_in_board_should_bump_into_the_wall() {
+    #[should_panic(expected = "game over, hit in left wall")]
+    fn move_snake_head_to_left_in_board_should_hit_into_the_wall() {
         let mut snake = Snake {
             head: Point::new(0, 7),
             body: vec![],
@@ -126,8 +126,8 @@ mod snake_tests {
     }
 
     #[test]
-    #[should_panic(expected = "game over")]
-    fn move_snake_head_to_down_in_board_should_bump_into_the_wall() {
+    #[should_panic(expected = "game over, hit in down wall")]
+    fn move_snake_head_to_down_in_board_should_hit_into_the_wall() {
         let mut snake = Snake {
             head: Point::new(0, 7),
             body: vec![],
@@ -137,8 +137,8 @@ mod snake_tests {
     }
 
     #[test]
-    #[should_panic(expected = "game over")]
-    fn move_snake_head_to_up_in_board_should_bump_into_the_wall() {
+    #[should_panic(expected = "game over, hit in top wall")]
+    fn move_snake_head_to_up_in_board_should_hit_into_the_wall() {
         let mut snake = Snake {
             head: Point::new(0, 0),
             body: vec![],

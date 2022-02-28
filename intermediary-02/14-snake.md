@@ -88,8 +88,6 @@ Agora quando rodarmos o projeto com `cargo run`, teremos um tabuleiro no console
 Agora vamos criar a `struct` da nossa cobrinha, para isso vamos adicionar a cabeça - que é um ponto - e uma lista de pontos para o corpo. Criamos o arquivo "cobra.rs" e adicionamos o `pub mod cobra` no arquivo `lib.rs`, e no arquivo "cobra.rs" adicionamos a struct
 
 ```rust
-use crate::ponto::Ponto;
-
 pub struct Cobra {
     pub cabeca: Ponto,
     pub corpo: Vec<Ponto>,
@@ -97,10 +95,10 @@ pub struct Cobra {
 
 impl Default for Cobra {
     fn default() -> Self {
-        Self { cabeca: Ponto::new(7, 7), corpo: vec![
-            Ponto::new(6,7),
-            Ponto::new(5,7),
-        ] }
+        Self { 
+            cabeca: Ponto::new(7, 7), 
+            corpo: vec![Ponto::new(6,7), Ponto::new(5,7)]
+        }
     }
 }
 ```
@@ -156,3 +154,294 @@ Após executar o comando `cargo run` temos o outpu:
 ```
 
 Agora temos a cabeça e o corpo, precismos começar a definir uma direção que a cobra irá seguir e movimentar o corpo da cobra.
+
+Para isso criamos um enumarado de direções, seguimos o mesmo passo a passo, criamos um arquivo "direcao.rs" e adicionamos no arquivo `lib.rs` a declaração do módulo `pub mob direcao`.
+
+Então adicionamos as 4 direções possiveis ao nosso enum.
+
+```rust
+#[derive(Clone, Copy)]
+pub enum Direcao {
+    Cima,
+    Baixo,
+    Direita,
+    Esquerda,
+}
+
+impl Default for Direcao {
+    fn default() -> Self {
+        Self::Direita
+    }
+}
+```
+
+Criamos o enum já implementando a `trait default` para nos auxiliar, como o padrão de inicio da cobra sempre vai ser para a direita, colocamos o retorno do método o valor `Self::Direita`. Já derivamos as `traits`, `Clone` e `Copy` para não precisar passar esse enum como referencia todas as vezes.
+
+Agora na nossa `struct` da cobra, vamos adicionar o atributo da direção.
+
+```rust
+pub struct Cobra {
+    pub cabeca: Ponto,
+    pub corpo: Vec<Ponto>,
+    direcao: Direcao
+}
+
+impl Default for Cobra {
+    fn default() -> Self {
+        Self { 
+            cabeca: Ponto::new(7, 7), 
+            corpo: vec![Ponto::new(6,7), Ponto::new(5,7)],
+            direcao: Default::default() 
+        }
+    }
+}
+```
+
+Agora temos um modo de saber para qual direção a cobra esta andando.
+
+Na nossa `struct Ponto` vamos adicionar a função para alterar o valor do ponto.
+
+```rust
+
+impl Point {
+   ...
+
+    pub fn alterar(&mut self, direction: Direction) {
+        match direction {
+            Direction::Right => self.x += 1,
+            Direction::Left => self.x -= 1,
+            Direction::Up => self.y -= 1,
+            Direction::Down => self.y += 1,
+        }
+    }
+}
+```
+
+Vamos aproveitar e adicionar testes unitarios para o método de alterar:
+
+```rust
+#[cfg(test)]
+mod ponto_tests {
+    use super::*;
+
+    #[test]
+    fn alterar_para_cima() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Cima);
+        assert_eq!(Ponto::new(1, 0), ponto);
+    }
+
+    #[test]
+    fn alterar_para_baixo() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Baixo);
+        assert_eq!(Ponto::new(1, 2), ponto);
+    }
+    
+    #[test]
+    fn alterar_para_direita() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Direita);
+        assert_eq!(Ponto::new(2, 1), ponto);
+    }
+
+
+    #[test]
+    fn alterar_para_esquerda() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Esquerda);
+        assert_eq!(Ponto::new(0, 1), ponto);
+    }
+
+}
+```
+
+Agora iremos adicionar a lógica para a cobra se mover, precisaremos de um método para mover a cabeça que é quem vai definir se o movimento é valido, se vai bater na parede, se vamos alterar a direção e já vamos adicionar os testes que consiste em, encerrar o jogo caso bata na parede, validar a posição dos pontos após algum movimento, etc.
+
+```rust
+impl Cobra {
+    pub fn passo(&mut self, tabuleiro: (usize, usize)) -> Result<(), &'static str> {
+        let posicao_anterior_cabeca = self.cabeca;
+        self.mover_cabeca(&tabuleiro)?;
+        self.mover_corpo(posicao_anterior_cabeca);
+        Ok(())
+    }
+
+    pub fn change_direction(&mut self, direction: Direction) {
+        self.direction = direction;
+    }
+
+    fn mover_cabeca(&mut self, board: &(usize, usize)) -> Result<(), &'static str> {
+        match self.direction {
+            Direcao::Cima if self.cabeca.y == 0 => Err("game over, dump in top wall"),
+            Direcao::Baixo if self.cabeca.y >= board.1 => Err("game over, dump in down wall"),
+            Direcao::Esquerda if self.cabeca.x == 0 => Err("game over, dump in left wall"),
+            Direcao::Direita if self.cabeca.x >= board.0 => Err("game over, dump in right wall"),
+            _ => {
+                self.cabeca.alterar(self.direcao);
+                Ok(())
+            }
+        }
+    }
+
+    fn mover_corpo(&mut self, posicao_anterior_cabeca: Ponto) {
+        let corpo = &mut self.corpo;
+        let mut posicao_anterior = posicao_anterior_cabeca;
+        for ponto in corpo.iter_mut() {
+            std::mem::swap(&mut posicao_anterior, ponto);
+        }
+    }
+}
+
+...
+
+#[cfg(test)]
+mod cobra_tests {
+
+    use super::*;
+
+    #[test]
+    fn mover_cabeca_cobra_para_direita_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Snake {
+            head: Point::new(7, 7),
+            body: vec![],
+            direction: Direction::Right,
+        };
+        let expected_point = Point::new(8, 7);
+        snake.move_head(&(8, 8)).unwrap();
+        assert_eq!(expected_point, snake.head);
+    }
+
+    #[test]
+    fn mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![],
+            direction: Direction::Left,
+        };
+        let expected_point = Point::new(6, 7);
+        snake.move_head(&(8, 8)).unwrap();
+        assert_eq!(expected_point, snake.head);
+    }
+
+    #[test]
+    fn mover_cabeca_cobra_para_cima_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![],
+            direction: Direction::Up,
+        };
+        let expected_point = Point::new(7, 6);
+        snake.move_head(&(8, 8)).unwrap();
+        assert_eq!(expected_point, snake.head);
+    }
+
+    #[test]
+    fn mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![],
+            direction: Direction::Down,
+        };
+        let expected_point = Point::new(7, 8);
+        snake.move_head(&(8, 8)).unwrap();
+        assert_eq!(expected_point, snake.head);
+    }
+
+    #[test]
+    #[should_panic(expected = "game over")]
+    fn mover_cabeca_cobra_para_direita_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![],
+            direction: Direction::Right,
+        };
+        snake.move_head(&(7, 7)).unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = "game over")]
+    fn move_snake_head_to_left_in_board_should_bump_into_the_wall() {
+        let mut snake = Snake {
+            head: Point::new(0, 7),
+            body: vec![],
+            direction: Direction::Left,
+        };
+        snake.move_head(&(7, 7)).unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = "game over")]
+    fn move_snake_head_to_down_in_board_should_bump_into_the_wall() {
+        let mut snake = Snake {
+            head: Point::new(0, 7),
+            body: vec![],
+            direction: Direction::Down,
+        };
+        snake.move_head(&(7, 7)).unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = "game over")]
+    fn move_snake_head_to_up_in_board_should_bump_into_the_wall() {
+        let mut snake = Snake {
+            head: Point::new(0, 0),
+            body: vec![],
+            direction: Direction::Up,
+        };
+        snake.move_head(&(7, 7)).unwrap();
+    }
+
+    #[test]
+    fn move_entire_snake_to_right_should_be_move() {
+        let board = (15, 15);
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![Point::new(6, 7)],
+            direction: Direction::Right,
+        };
+        snake.step(board).unwrap();
+        assert_eq!(Point::new(8, 7), snake.head);
+        assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+    }
+
+    #[test]
+    fn move_entire_snake_to_left_should_be_move() {
+        let board = (15, 15);
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![Point::new(6, 7)],
+            direction: Direction::Left,
+        };
+        snake.step(board).unwrap();
+        assert_eq!(Point::new(6, 7), snake.head);
+        assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+    }
+
+    #[test]
+    fn move_entire_snake_to_up_should_be_move() {
+        let board = (15, 15);
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![Point::new(6, 7)],
+            direction: Direction::Up,
+        };
+        snake.step(board).unwrap();
+        assert_eq!(Point::new(7, 6), snake.head);
+        assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+    }
+
+    #[test]
+    fn move_entire_snake_to_down_should_be_move() {
+        let board = (15, 15);
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![Point::new(6, 7)],
+            direction: Direction::Down,
+        };
+        snake.step(board).unwrap();
+        assert_eq!(Point::new(7, 8), snake.head);
+        assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+    }
+}
+```
