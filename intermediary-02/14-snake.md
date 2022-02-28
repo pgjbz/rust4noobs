@@ -84,3 +84,75 @@ Agora quando rodarmos o projeto com `cargo run`, teremos um tabuleiro no console
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - -
 ```
+
+Agora vamos criar a `struct` da nossa cobrinha, para isso vamos adicionar a cabeça - que é um ponto - e uma lista de pontos para o corpo. Criamos o arquivo "cobra.rs" e adicionamos o `pub mod cobra` no arquivo `lib.rs`, e no arquivo "cobra.rs" adicionamos a struct
+
+```rust
+use crate::ponto::Ponto;
+
+pub struct Cobra {
+    pub cabeca: Ponto,
+    pub corpo: Vec<Ponto>,
+}
+
+impl Default for Cobra {
+    fn default() -> Self {
+        Self { cabeca: Ponto::new(7, 7), corpo: vec![
+            Ponto::new(6,7),
+            Ponto::new(5,7),
+        ] }
+    }
+}
+```
+
+A implementação da `trait` [default](https://doc.rust-lang.org/std/default/trait.Default.html) serve para termos um valor padrão para a `struct`. Vamos separar a nossa função de desenhar o tabuleiro e vamos passar uma referencia para a `struct` da `cobra`, então com base nos dados passados ali vamos desenhar a nossa cobra.
+
+```rust
+fn print_board(cobra: &Cobra) {
+    let (x, y) = (15, 15);
+    for y in 0..y {
+        for x in 0..x {
+            if cobra.cabeca == (x, y) {
+                print!("0 ")
+            } else if cobra.body.contains(&Ponto::new(x, y)) {
+                print!("# ");   
+            } else {
+                print!("- ");   
+            }
+        }
+        println!();
+    }
+}
+```
+
+Temos a função e agora é só chamar ela na nossa função `main`.
+
+```rust
+fn main() {
+    print_board(&Snake::default())
+}
+```
+
+Após executar o comando `cargo run` temos o outpu:
+
+```bash
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/snake-game`
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - # # 0 - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+```
+
+Agora temos a cabeça e o corpo, precismos começar a definir uma direção que a cobra irá seguir e movimentar o corpo da cobra.

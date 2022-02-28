@@ -1,13 +1,18 @@
-use snake_game::point::Point;
+use snake_game::{point::Point, snake::Snake};
 
 fn main() {
-    let point = Point::new(7, 7);
+    print_board(&Snake::default())
+}
+
+fn print_board(snake: &Snake) {
     let (x, y) = (15, 15);
-    for x in 0..x {
-        for y in 0..y {
-            if point == (x, y) {
-                print!("# ")
-            }  else {
+    for y in 0..y {
+        for x in 0..x {
+            if snake.head == (x, y) {
+                print!("0 ")
+            } else if snake.body.contains(&Point::new(x, y)) {
+                print!("# ");   
+            } else {
                 print!("- ");   
             }
         }
