@@ -15,6 +15,9 @@ impl Snake {
     }
 
     pub fn change_direction(&mut self, direction: Direction) {
+        if Direction::reverse_direction(self.direction) == direction {
+            return;
+        }
         self.direction = direction;
     }
 
@@ -197,5 +200,27 @@ mod snake_tests {
         snake.step(board).unwrap();
         assert_eq!(Point::new(7, 8), snake.head);
         assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+    }
+
+    #[test]
+    fn dont_change_direction_if_reverse_direction() {
+        assert_directions(vec![
+            (Direction::Down, Direction::Up),
+            (Direction::Up, Direction::Down),
+            (Direction::Left, Direction::Right),
+            (Direction::Right, Direction::Left),
+        ])
+    }
+
+    fn assert_directions(directions: Vec<(Direction, Direction)>) {
+        for (expected, change) in directions {
+            let mut snake = Snake {
+                head: Point::new(7, 7),
+                body: vec![Point::new(6, 7)],
+                direction: expected,
+            };
+            snake.change_direction(change);
+            assert_eq!(expected, snake.direction);
+        }
     }
 }

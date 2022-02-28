@@ -44,7 +44,7 @@ mod point_tests {
         point.transform(Direction::Down);
         assert_eq!(Point::new(1, 2), point);
     }
-    
+
     #[test]
     fn move_to_right() {
         let mut point = Point::new(1, 1);
@@ -52,12 +52,10 @@ mod point_tests {
         assert_eq!(Point::new(2, 1), point);
     }
 
-
     #[test]
     fn move_to_left() {
         let mut point = Point::new(1, 1);
         point.transform(Direction::Left);
         assert_eq!(Point::new(0, 1), point);
     }
-
 }

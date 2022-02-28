@@ -36,7 +36,7 @@ Vamos printar o campo onde a cobrinha ira andar, e para testar vamos adicionar u
 
 ```rust
 fn main() {
-    let point = Point::new(7, 7);
+    let point = Ponto::new(7, 7);
     let (x, y) = (15, 15);
     for x in 0..x {
         for y in 0..y {
@@ -112,7 +112,7 @@ fn print_board(cobra: &Cobra) {
         for x in 0..x {
             if cobra.cabeca == (x, y) {
                 print!("0 ")
-            } else if cobra.body.contains(&Ponto::new(x, y)) {
+            } else if cobra.corpo.contains(&Ponto::new(x, y)) {
                 print!("# ");   
             } else {
                 print!("- ");   
@@ -206,12 +206,12 @@ Na nossa `struct Ponto` vamos adicionar a função para alterar o valor do ponto
 impl Point {
    ...
 
-    pub fn alterar(&mut self, direction: Direction) {
-        match direction {
-            Direction::Right => self.x += 1,
-            Direction::Left => self.x -= 1,
-            Direction::Up => self.y -= 1,
-            Direction::Down => self.y += 1,
+    pub fn alterar(&mut self, direcao: Direcao) {
+        match Direcao {
+            Direcao::Right => self.x += 1,
+            Direcao::Left => self.x -= 1,
+            Direcao::Up => self.y -= 1,
+            Direcao::Down => self.y += 1,
         }
     }
 }
@@ -267,16 +267,16 @@ impl Cobra {
         Ok(())
     }
 
-    pub fn change_direction(&mut self, direction: Direction) {
-        self.direction = direction;
+    pub fn alterar_direcao(&mut self, direcao: Direcao) {
+        self.direcao = direcao;
     }
 
     fn mover_cabeca(&mut self, board: &(usize, usize)) -> Result<(), &'static str> {
-        match self.direction {
-            Direcao::Cima if self.cabeca.y == 0 => Err("game over, dump in top wall"),
-            Direcao::Baixo if self.cabeca.y >= board.1 => Err("game over, dump in down wall"),
-            Direcao::Esquerda if self.cabeca.x == 0 => Err("game over, dump in left wall"),
-            Direcao::Direita if self.cabeca.x >= board.0 => Err("game over, dump in right wall"),
+        match self.direcao {
+            Direcao::Cima if self.cabeca.y == 0 => Err("fim de jogo, esbarrou na parede de cima"),
+            Direcao::Baixo if self.cabeca.y >= board.1 => Err("fim de jogo, esbarrou na parede de baixo"),
+            Direcao::Esquerda if self.cabeca.x == 0 => Err("fim de jogo, esbarrou na parede da esquerda"),
+            Direcao::Direita if self.cabeca.x >= board.0 => Err("fim de jogo, esbarrou na parede da direita"),
             _ => {
                 self.cabeca.alterar(self.direcao);
                 Ok(())
@@ -302,146 +302,203 @@ mod cobra_tests {
 
     #[test]
     fn mover_cabeca_cobra_para_direita_no_tabuleiro_deve_mover_com_sucesso() {
-        let mut cobra = Snake {
-            head: Point::new(7, 7),
-            body: vec![],
-            direction: Direction::Right,
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Right,
         };
-        let expected_point = Point::new(8, 7);
-        snake.move_head(&(8, 8)).unwrap();
-        assert_eq!(expected_point, snake.head);
+        let expected_point = Ponto::new(8, 7);
+        cobra.mover_cabeca(&(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
     }
 
     #[test]
     fn mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_mover_com_sucesso() {
-        let mut snake = Snake {
-            head: Point::new(7, 7),
-            body: vec![],
-            direction: Direction::Left,
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Left,
         };
-        let expected_point = Point::new(6, 7);
-        snake.move_head(&(8, 8)).unwrap();
-        assert_eq!(expected_point, snake.head);
+        let expected_point = Ponto::new(6, 7);
+        cobra.mover_cabeca(&(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
     }
 
     #[test]
     fn mover_cabeca_cobra_para_cima_no_tabuleiro_deve_mover_com_sucesso() {
-        let mut snake = Snake {
-            head: Point::new(7, 7),
-            body: vec![],
-            direction: Direction::Up,
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Up,
         };
-        let expected_point = Point::new(7, 6);
-        snake.move_head(&(8, 8)).unwrap();
-        assert_eq!(expected_point, snake.head);
+        let expected_point = Ponto::new(7, 6);
+        cobra.mover_cabeca(&(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
     }
 
     #[test]
     fn mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_mover_com_sucesso() {
-        let mut snake = Snake {
-            head: Point::new(7, 7),
-            body: vec![],
-            direction: Direction::Down,
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Down,
         };
-        let expected_point = Point::new(7, 8);
-        snake.move_head(&(8, 8)).unwrap();
-        assert_eq!(expected_point, snake.head);
+        let expected_point = Ponto::new(7, 8);
+        cobra.mover_cabeca(&(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
     }
 
     #[test]
-    #[should_panic(expected = "game over")]
+    #[should_panic(expected = "fim de jogo, esbarrou na parede da direita")]
     fn mover_cabeca_cobra_para_direita_no_tabuleiro_deve_esbarrar_na_parede() {
-        let mut snake = Snake {
-            head: Point::new(7, 7),
-            body: vec![],
-            direction: Direction::Right,
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Right,
         };
-        snake.move_head(&(7, 7)).unwrap();
+        cobra.mover_cabeca(&(7, 7)).unwrap();
     }
 
     #[test]
-    #[should_panic(expected = "game over")]
-    fn move_snake_head_to_left_in_board_should_bump_into_the_wall() {
-        let mut snake = Snake {
-            head: Point::new(0, 7),
-            body: vec![],
-            direction: Direction::Left,
+    #[should_panic(expected = "fim de jogo, esbarrou na parede da esquerda")]
+    fn mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 7),
+            corpo: vec![],
+            direcao: Direcao::Left,
         };
-        snake.move_head(&(7, 7)).unwrap();
+        cobra.mover_cabeca(&(7, 7)).unwrap();
     }
 
     #[test]
-    #[should_panic(expected = "game over")]
-    fn move_snake_head_to_down_in_board_should_bump_into_the_wall() {
-        let mut snake = Snake {
-            head: Point::new(0, 7),
-            body: vec![],
-            direction: Direction::Down,
+    #[should_panic(expected = "fim de jogo, esbarrou na parede de baixo")]
+    fn mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 7),
+            corpo: vec![],
+            direcao: Direcao::Down,
         };
-        snake.move_head(&(7, 7)).unwrap();
+        cobra.mover_cabeca(&(7, 7)).unwrap();
     }
 
     #[test]
-    #[should_panic(expected = "game over")]
-    fn move_snake_head_to_up_in_board_should_bump_into_the_wall() {
-        let mut snake = Snake {
-            head: Point::new(0, 0),
-            body: vec![],
-            direction: Direction::Up,
+    #[should_panic(expected = "fim de jogo, esbarrou na parede de cima")]
+    fn mover_cabeca_cobra_para_cima_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 0),
+            corpo: vec![],
+            direcao: Direcao::Up,
         };
-        snake.move_head(&(7, 7)).unwrap();
+        cobra.mover_cabeca(&(7, 7)).unwrap();
     }
 
     #[test]
-    fn move_entire_snake_to_right_should_be_move() {
-        let board = (15, 15);
-        let mut snake = Snake {
-            head: Point::new(7, 7),
-            body: vec![Point::new(6, 7)],
-            direction: Direction::Right,
+    fn mover_cobra_inteira_para_a_direita_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
+            direcao: Direcao::Right,
         };
-        snake.step(board).unwrap();
-        assert_eq!(Point::new(8, 7), snake.head);
-        assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+        cobra.passo(board).unwrap();
+        assert_eq!(Ponto::new(8, 7), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
     }
 
     #[test]
-    fn move_entire_snake_to_left_should_be_move() {
-        let board = (15, 15);
-        let mut snake = Snake {
-            head: Point::new(7, 7),
-            body: vec![Point::new(6, 7)],
-            direction: Direction::Left,
+    fn mover_cobra_inteira_para_a_esquerda_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
+            direcao: Direcao::Left,
         };
-        snake.step(board).unwrap();
-        assert_eq!(Point::new(6, 7), snake.head);
-        assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+        cobra.passo(board).unwrap();
+        assert_eq!(Ponto::new(6, 7), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
     }
 
     #[test]
-    fn move_entire_snake_to_up_should_be_move() {
-        let board = (15, 15);
-        let mut snake = Snake {
-            head: Point::new(7, 7),
-            body: vec![Point::new(6, 7)],
-            direction: Direction::Up,
+    fn mover_cobra_inteira_para_cima_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
+            direcao: Direcao::Up,
         };
-        snake.step(board).unwrap();
-        assert_eq!(Point::new(7, 6), snake.head);
-        assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+        cobra.passo(board).unwrap();
+        assert_eq!(Ponto::new(7, 6), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
     }
 
     #[test]
-    fn move_entire_snake_to_down_should_be_move() {
-        let board = (15, 15);
-        let mut snake = Snake {
-            head: Point::new(7, 7),
-            body: vec![Point::new(6, 7)],
-            direction: Direction::Down,
+    fn mover_cobra_inteira_para_baixo_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
+            direcao: Direcao::Down,
         };
-        snake.step(board).unwrap();
-        assert_eq!(Point::new(7, 8), snake.head);
-        assert_eq!(Point::new(7, 7), *snake.body.first().unwrap());
+        cobra.passo(board).unwrap();
+        assert_eq!(Ponto::new(7, 8), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
     }
 }
 ```
+
+Notem o método de mover a cabeça da cobra:
+
+```rust
+fn mover_cabeca(&mut self, board: &(usize, usize)) -> Result<(), &'static str> {
+    match self.direcao {
+        Direcao::Cima if self.cabeca.y == 0 => Err("fim de jogo, esbarrou na parede de cima"),
+        Direcao::Baixo if self.cabeca.y >= board.1 => Err("fim de jogo, esbarrou na parede de baixo"),
+        Direcao::Esquerda if self.cabeca.x == 0 => Err("fim de jogo, esbarrou na parede da esquerda"),
+        Direcao::Direita if self.cabeca.x >= board.0 => Err("fim de jogo, esbarrou na parede da direita"),
+        _ => {
+            self.cabeca.alterar(self.direcao);
+            Ok(())
+        }
+    }
+}
+```
+
+Temos nessa implementação o uso de um `if` que segue o valor do [enum](./02-enums.md), afinal o que é isso?
+
+Isso faz parte do [Pattern Match](./03-match.md), é algo que chamamos de [guards](https://doc.rust-lang.org/rust-by-example/flow_control/match/guard.html), do modo em que essa implementação é feita, temos duas validações para cair nesse ponto, o `enum` deve bater ali e a condição deve ser verdadeira, caso uma das duas condições falhe ele segue para o próximo `match`.
+
+
+Na função de mover o corpo temos a lógica para mover o restante da cobra, guardamos a posição do ponto antes de ser alterada e fazemos o próximo item a ser iterado a obter essa posição. para isso usamos o método da biblioteca padrão do Rust, `swap`, esse método troca o valor de duas referencias que são passadas.
+
+```rust
+fn mover_corpo(&mut self, posicao_anterior_cabeca: Ponto) {
+    let corpo = &mut self.corpo;
+    let mut posicao_anterior = posicao_anterior_cabeca;
+    for ponto in corpo.iter_mut() {
+        std::mem::swap(&mut posicao_anterior, ponto);
+    }
+}
+```
+
+Agora temos a lógica de mover a cobra, mas temos um problema nela, no método de alterar a direção, não temos uma validação para saber se o jogador, selecionou a opção de direção contraria da que a cobra esta seguindo, vamos adicionar agora.
+
+No nosso enum de direção, vamos adicionar um método para pegar a direção contraria.
+
+```rust
+impl Direcao {
+    pub fn direcao_inversa(outro: Self) -> Self {
+        match outro {
+            Self::Cima => Self::Baixo,
+            Self::Baixo => Self::Cima,
+            Self::Direita => Self::Esquerda,
+            Self::Esquerda => Self::Direita
+        }
+    }
+}
+```
+
+Deixo o teste deste método por sua conta.
+
+E agora no nosso método de alterar a direção, faremos a validação, também deixo por sua conta esta alteração, e os testes da mesma.
+
+Agora que temos o tabuleiro do jogo sendo desenhado, e temos a movimentação da cobra programada, vamos adicionar o petisco que iremos ter que pegar no jogo
