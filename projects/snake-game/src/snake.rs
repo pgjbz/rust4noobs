@@ -24,9 +24,9 @@ impl Snake {
     fn move_head(&mut self, board: &(usize, usize)) -> Result<(), &'static str> {
         match self.direction {
             Direction::Up if self.head.y == 0 => Err("game over, hit in top wall"),
-            Direction::Down if self.head.y >= board.1 => Err("game over, hit in down wall"),
+            Direction::Down if self.head.y >= board.1 - 1 => Err("game over, hit in down wall"),
             Direction::Left if self.head.x == 0 => Err("game over, hit in left wall"),
-            Direction::Right if self.head.x >= board.0 => Err("game over, hit in right wall"),
+            Direction::Right if self.head.x >= board.0 - 1 => Err("game over, hit in right wall"),
             _ => {
                 self.head.transform(self.direction);
                 Ok(())
@@ -43,7 +43,7 @@ impl Snake {
     }
 
     pub fn increase_snake_size(&mut self) {
-        let last = self.body.last().unwrap().clone();
+        let last = *self.body.last().unwrap();
         self.body.push(last);
     }
 }
@@ -237,8 +237,8 @@ mod snake_tests {
             direction: Default::default(),
         };
         snake.increase_snake_size();
-        snake.step((15,15)).unwrap();
+        snake.step((15, 15)).unwrap();
         assert_eq!(2, snake.body.len());
-        assert_eq!(Point::new(6,7), *snake.body.last().unwrap());
+        assert_eq!(Point::new(6, 7), *snake.body.last().unwrap());
     }
 }
