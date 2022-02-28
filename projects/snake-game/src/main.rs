@@ -1,37 +1,35 @@
-use snake_game::{direction::Direction, point::Point, snake::Snake};
+use rand::Rng;
+use snake_game::{point::Point, snake::Snake};
 
 fn main() {
-    let mut snake: Snake = Default::default();
+    let snake: Snake = Default::default();
     let board = (15, 15);
-    print_board(&snake, board);
-    println!("after move");
-    snake.step(board).unwrap();
-    println!("after move");
-    print_board(&snake, board);
-    snake.change_direction(Direction::Up);
-    println!("after move");
-    snake.step(board).unwrap();
-    println!("after move");
-    print_board(&snake, board);
-    snake.step(board).unwrap();
-    println!("after move");
-    print_board(&snake, board);
-    snake.change_direction(Direction::Left);
-    snake.step(board).unwrap();
-    println!("after move");
-    print_board(&snake, board);
-    snake.step(board).unwrap();
-    println!("after move");
-    print_board(&snake, board);
+    let snack = gen_snack(&snake, &board);
+    print_board(&snake, snack, board);
 }
 
-fn print_board(snake: &Snake, board: (usize, usize)) {
+fn gen_snack(snake: &Snake, board: &(usize, usize)) -> Point {
+    let mut snack;
+    loop {
+        let x = rand::thread_rng().gen_range(0..=board.0 - 1);
+        let y = rand::thread_rng().gen_range(0..=board.1 - 1);
+        snack = Point::new(x, y);
+        if snake.head != snack && !snake.body.contains(&snack) {
+            break;
+        }
+    }
+    snack
+}
+
+fn print_board(snake: &Snake, snack: Point, board: (usize, usize)) {
     for y in 0..board.1 {
         for x in 0..board.0 {
             if snake.head == (x, y) {
                 print!("0 ")
             } else if snake.body.contains(&Point::new(x, y)) {
                 print!("# ");
+            } else if snack == (x, y) {
+                print!("+ ");
             } else {
                 print!("- ");
             }

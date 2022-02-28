@@ -36,11 +36,11 @@ Vamos printar o campo onde a cobrinha ira andar, e para testar vamos adicionar u
 
 ```rust
 fn main() {
-    let point = Ponto::new(7, 7);
+    let ponto = Ponto::new(7, 7);
     let (x, y) = (15, 15);
     for x in 0..x {
         for y in 0..y {
-            if point == (x, y) {
+            if ponto == (x, y) {
                 print!("# ")
             }  else {
                 print!("- ");   
@@ -501,4 +501,21 @@ Deixo o teste deste método por sua conta.
 
 E agora no nosso método de alterar a direção, faremos a validação, também deixo por sua conta esta alteração, e os testes da mesma.
 
-Agora que temos o tabuleiro do jogo sendo desenhado, e temos a movimentação da cobra programada, vamos adicionar o petisco que iremos ter que pegar no jogo
+Agora que temos o tabuleiro do jogo sendo desenhado, e temos a movimentação da cobra programada, vamos adicionar o petisco que iremos ter que pegar no jogo. O petisco é um ponto, então não precisamos criar uma outra `struct` para ela, apenas vamos gerar um ponto aleatório e fazer o nosso render renderiza-lo.
+
+```rust
+fn gerar_petisco(cobra: &Cobra, tabuleiro: &(usize, usize)) -> Point {
+    let mut petisco;
+    loop {
+        let x = rand::thread_rng().gen_range(0..=tabuleiro.0 - 1);
+        let y = rand::thread_rng().gen_range(0..=tabuleiro.1 - 1);
+        petisco = Point::new(x, y);
+        if cobra.cabeca != petisco && !cobra.corpo.contains(&petisco) {
+            break;
+        }
+    }
+    petisco
+}
+```
+
+Para esse [rand](https://crates.io/crates/rand) funcionar precisamos ir em nosso Cargo.toml e adicionar a seguinte dependencia `rand = "0.8.5"` logo abaixo do `[dependencies]`, nesse método temos validações para não gerar um petisco em cima da cobra, ou seja, se o valor aleatório cair na cabeça ou em alguma parte do corpo da cobra, outro valor sera gerado. Quando o valor respeitar essa condição o `loop` para.
