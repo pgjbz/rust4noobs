@@ -519,3 +519,19 @@ fn gerar_petisco(cobra: &Cobra, tabuleiro: &(usize, usize)) -> Point {
 ```
 
 Para esse [rand](https://crates.io/crates/rand) funcionar precisamos ir em nosso Cargo.toml e adicionar a seguinte dependencia `rand = "0.8.5"` logo abaixo do `[dependencies]`, nesse método temos validações para não gerar um petisco em cima da cobra, ou seja, se o valor aleatório cair na cabeça ou em alguma parte do corpo da cobra, outro valor sera gerado. Quando o valor respeitar essa condição o `loop` para.
+
+Agora precisamos aumentar o tamanho da cobra, para isso adicionamos um método que ira adicionar um ponto, no fim do corpo da cobra.
+
+
+```rust
+impl Cobra
+    ...
+    pub fn aumentar_tamanho(&mut self) {
+        let ultimo = self.body.last().unwrap().clone();
+        self.body.push(ultimo);
+    }
+
+}
+```
+
+Para testar esse método é interessante, validarmos o tamnho do corpo e se a posição do ponto adicionado, é igual a posição do ultimo ponto anterior após a cobra se mover.

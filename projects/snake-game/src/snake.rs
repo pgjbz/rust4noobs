@@ -41,6 +41,11 @@ impl Snake {
             std::mem::swap(&mut previews_pos, point);
         }
     }
+
+    pub fn increase_snake_size(&mut self) {
+        let last = self.body.last().unwrap().clone();
+        self.body.push(last);
+    }
 }
 
 impl Default for Snake {
@@ -222,5 +227,18 @@ mod snake_tests {
             snake.change_direction(change);
             assert_eq!(expected, snake.direction);
         }
+    }
+
+    #[test]
+    fn test_increate_size() {
+        let mut snake = Snake {
+            head: Point::new(7, 7),
+            body: vec![Point::new(6, 7)],
+            direction: Default::default(),
+        };
+        snake.increase_snake_size();
+        snake.step((15,15)).unwrap();
+        assert_eq!(2, snake.body.len());
+        assert_eq!(Point::new(6,7), *snake.body.last().unwrap());
     }
 }
