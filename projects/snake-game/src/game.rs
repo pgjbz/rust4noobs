@@ -1,67 +1,53 @@
 use std::{
-    io::{stdout, Write, Read},
+    io::{self, Write},
     thread,
     time::Duration,
 };
 
 use rand::Rng;
-use termion::async_stdin;
+use termion::event::Key;
 use termion::{input::TermRead, raw::IntoRawMode};
 
 use crate::{direction::Direction, point::Point, snake::Snake};
 
 pub struct Game;
 
-enum GameCommand {
-    GenSnack,
-    Continue,
-    Finish,
-    ChangeDirection(Direction),
-}
-
 impl Game {
     pub fn run() -> Result<(), &'static str> {
         let mut snake: Snake = Default::default();
         let board = (15, 15);
         let mut snack = Self::gen_snack(&snake, &board);
+        let mut stdin = termion::async_stdin().keys();
         loop {
-            match Self::check_conditions(&mut snake, &snack, &board)? {
-                GameCommand::GenSnack => snack = Self::gen_snack(&snake, &board),
-                GameCommand::Finish => break,
-                GameCommand::ChangeDirection(direction) => snake.change_direction(direction),
-                _ => {}
+            if snake.head == snack {
+                snake.increase_snake_size();
+                snack = Self::gen_snack(&snake, &board);
+            } else if snake.body.contains(&snake.head) {
+                return Err("game over, snake hit yourself");
             }
-            Self::gen_board(&snake, &snack, &board);
+            let board_game = Self::gen_board(&snake, &snack, &board);
+            print!(
+                "{}{}{}",
+                termion::clear::All,
+                termion::cursor::Goto(1, 1),
+                termion::cursor::Hide
+            );
+            println!("{}", board_game);
+            let stdout = io::stdout().into_raw_mode().unwrap();
+            let input = stdin.next();
+            if let Some(Ok(key)) = input {
+                match key {
+                    Key::Char('a') | Key::Left => snake.change_direction(Direction::Left),
+                    Key::Char('w') | Key::Up => snake.change_direction(Direction::Up),
+                    Key::Char('s') | Key::Down => snake.change_direction(Direction::Down),
+                    Key::Char('d') | Key::Right => snake.change_direction(Direction::Right),
+                    key => println!("{:?}", key),
+                }
+            }
+            stdout.lock().flush().unwrap();
             thread::sleep(Duration::from_millis(500));
             snake.step(board)?;
         }
-        Ok(())
-    }
-
-    fn read_keys(board: String) -> GameCommand {
-        print!("{}{}{}", termion::clear::All, termion::cursor::Goto(1, 1),  termion::cursor::Hide);
-        println!("{}", board);
-        
-        let stdout = stdout();
-        let mut stdout = stdout.into_raw_mode().unwrap();
-        let mut stdin = async_stdin().bytes();
-        let input = stdin.next();
-        // let input = input.next();
-        
-        let game_command = if let Some(Ok(key)) = input {
-            match key {
-                b'q' => GameCommand::Finish,
-                b'w' => GameCommand::ChangeDirection(Direction::Up),
-                b's' => GameCommand::ChangeDirection(Direction::Down),
-                b'a' => GameCommand::ChangeDirection(Direction::Left),
-                b'd' => GameCommand::ChangeDirection(Direction::Right),
-                _ => GameCommand::Continue,
-            }
-        } else {
-            GameCommand::Continue
-        };
-        stdout.flush().unwrap();
-        game_command
     }
 
     fn gen_snack(snake: &Snake, board: &(usize, usize)) -> Point {
@@ -94,21 +80,5 @@ impl Game {
             buffer.push('\n');
         }
         buffer
-    }
-
-    fn check_conditions(
-        snake: &mut Snake,
-        snack: &Point,
-        board: &(usize, usize),
-    ) -> Result<GameCommand, &'static str> {
-        if snake.head == *snack {
-            snake.increase_snake_size();
-            Ok(GameCommand::GenSnack)
-        } else if snake.body.contains(&snake.head) {
-            Err("game over, snake hit yourself")
-        } else {
-            let board = Self::gen_board(snake, snack, board);
-            Ok(Self::read_keys(board))
-        }
     }
 }
