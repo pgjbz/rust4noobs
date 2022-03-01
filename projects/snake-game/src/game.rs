@@ -41,7 +41,7 @@ impl Game {
                     Key::Char('w') | Key::Up => snake.change_direction(Direction::Up),
                     Key::Char('s') | Key::Down => snake.change_direction(Direction::Down),
                     Key::Char('d') | Key::Right => snake.change_direction(Direction::Right),
-                    key => println!("{:?}", key),
+                    _ => {},
                 }
             }
             stdout.lock().flush().unwrap();
