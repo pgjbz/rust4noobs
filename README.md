@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/he4rt/4noobs" target="_blank">
-    <img src="./.github/header_4noobs.svg">
+    <img src="./assets/header_4noobs.svg">
   </a>
 </p>
 
@@ -11,7 +11,7 @@
 <p align="center">
   <h2 align="center">Rust4Noobs</h2>
 
-  <h1 align="center"><img src="./.github/rust.svg" alt="Imagem da linguagem" width="120"></h1>
+  <h1 align="center"><img src="./assets/rust.svg" alt="Imagem da linguagem" width="120"></h1>
   
   <p align="center">
     <br />
@@ -85,7 +85,7 @@ $ honkit pdf nome.pdf
 $ honkit mobi nome.mobi
 $ honkit serve
 ```
-Ou acesse [este link](https://pgjbz.github.io/rust4noobs) para ter acesso ao livro online
+Ou acesse [este link](https://pgjbzassets.io/rust4noobs) para ter acesso ao livro online
 ## Autores
 
 - Paulo Gabriel Justino Bezerra - Desenvolvedor Java - [Linkedin](https://www.linkedin.com/in/paulogjbezerra/)
@@ -94,6 +94,6 @@ Ou acesse [este link](https://pgjbz.github.io/rust4noobs) para ter acesso ao liv
 
 <p align="center">
   <a href="https://github.com/he4rt/4noobs" target="_blank">
-    <img src="./.github/footer_4noobs.svg" width="380">
+    <img src="./assets/footer_4noobs.svg" width="380">
   </a>
 </p>

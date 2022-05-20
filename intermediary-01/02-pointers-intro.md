@@ -6,7 +6,7 @@ Fazendo uma analogia com o mundo real, a sua casa seria uma variável do tipo Ca
 
 Ta não foi um bom exemplo, mas creio que fique mais fácil de entender com um desenho.
 
- <h1 align="center"><img src="../.github/pointer.svg" alt="arrays" width="100%"></h1>
+ <h1 align="center"><img src="../assets/pointer.svg" alt="arrays" width="100%"></h1>
 
 Resumidamente os ponteiros simplismente dizem ~~"olha eu sei onde você mora, fica esperto!"~~ "Eu conheço o endereço daquele cara ali".
 

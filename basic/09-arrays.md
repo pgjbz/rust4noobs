@@ -6,7 +6,7 @@ Chegou o momento daquele assunto que é um dos terrores para quem esta começand
 
 Array é uma estrutura de dados sequencial que armazena o mesmo tipo de dados, seriam como uma sequência de células de memória indexadas. Geralmente iniciamos sua contagem a partir do número 0.
 
- <h1 align="center"><img src="../.github/arrays.svg" alt="arrays" width="100%"></h1>
+ <h1 align="center"><img src="../assets/arrays.svg" alt="arrays" width="100%"></h1>
 
 Em Rust declaramos arrays da seguinte maneira `let nome: [tipo; tamanho] = [valor; tamanho]`, Rust nos obriga a inicializar o array, então faremos da seguinte maneira.
 
