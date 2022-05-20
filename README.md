@@ -75,6 +75,17 @@ são **extremamente apreciadas**
 4. Realize o Push no Branch (`git push origin feature/featureBraba`)
 5. Abra um Pull Request
 
+## [Honkit](https://honkit.netlify.app/ebook.html)
+
+Para realizar o build do projeto em livro você pode utilizar a ferramenta [honkit](https://honkit.netlify.app/ebook.html). Assim fica mais facil a leitura e você pode exportar até mesmo para o kindle. Para isso use um dos comandos abaixo:
+
+```sh
+$ honkit build
+$ honkit pdf nome.pdf
+$ honkit mobi nome.mobi
+$ honkit serve
+```
+Ou acesse [este link](https://pgjbz.github.io/rust4noobs) para ter acesso ao livro online
 ## Autores
 
 - Paulo Gabriel Justino Bezerra - Desenvolvedor Java - [Linkedin](https://www.linkedin.com/in/paulogjbezerra/)
