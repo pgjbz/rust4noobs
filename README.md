@@ -85,7 +85,7 @@ $ honkit pdf nome.pdf
 $ honkit mobi nome.mobi
 $ honkit serve
 ```
-Ou acesse [este link](https://pgjbzassets.io/rust4noobs) para ter acesso ao livro online
+Ou acesse [este link](https://rust4noobs.pgjbz.dev/) para ter acesso ao livro online
 ## Autores
 
 - Paulo Gabriel Justino Bezerra - Desenvolvedor Java - [Linkedin](https://www.linkedin.com/in/paulogjbezerra/)
