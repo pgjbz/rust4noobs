@@ -1,668 +1,206 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="en" class="sidebar-visible no-js light">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Mini projeto * Snake Game · HonKit</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Mini projeto * Snake Game</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.7.1">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
-
-    
-    
-    <link rel="prev" href="13-tests.html" />
-    
+        <!-- Custom theme stylesheets -->
 
     </head>
     <body>
-        
-<div class="book honkit-cloak">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-            
-                <nav role="navigation">
-                
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
 
-<ul class="summary">
-    
-    
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
 
-    
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
 
-    
-        
-        <li class="header">Sobre</li>
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    Introdução
-            
-                </a>
-            
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
 
-            
-        </li>
-    
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basico</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/01-about.html"><strong aria-hidden="true">2.1.</strong> Sobre a linguagem</a></li><li class="chapter-item expanded "><a href="../basic/02-environment.html"><strong aria-hidden="true">2.2.</strong> Ambiente</a></li><li class="chapter-item expanded "><a href="../basic/03-hello-world.html"><strong aria-hidden="true">2.3.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="../basic/04-data-types.html"><strong aria-hidden="true">2.4.</strong> Tipos de dados</a></li><li class="chapter-item expanded "><a href="../basic/05-operators.html"><strong aria-hidden="true">2.5.</strong> Operadores</a></li><li class="chapter-item expanded "><a href="../basic/06-conditions.html"><strong aria-hidden="true">2.6.</strong> Condicionais</a></li><li class="chapter-item expanded "><a href="../basic/07-loops.html"><strong aria-hidden="true">2.7.</strong> Loops</a></li><li class="chapter-item expanded "><a href="../basic/08-functions.html"><strong aria-hidden="true">2.8.</strong> Funções</a></li><li class="chapter-item expanded "><a href="../basic/09-arrays.html"><strong aria-hidden="true">2.9.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../basic/10-exercises.html"><strong aria-hidden="true">2.10.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-01/index.html"><strong aria-hidden="true">3.</strong> Intermediario 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-01/01-strings.html"><strong aria-hidden="true">3.1.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../intermediary-01/02-pointers-intro.html"><strong aria-hidden="true">3.2.</strong> Introdução a ponteiros</a></li><li class="chapter-item expanded "><a href="../intermediary-01/03-ownership.html"><strong aria-hidden="true">3.3.</strong> Ownership</a></li><li class="chapter-item expanded "><a href="../intermediary-01/04-tuples.html"><strong aria-hidden="true">3.4.</strong> Tuplas</a></li><li class="chapter-item expanded "><a href="../intermediary-01/05-slices.html"><strong aria-hidden="true">3.5.</strong> Slices</a></li><li class="chapter-item expanded "><a href="../intermediary-01/06-user-input.html"><strong aria-hidden="true">3.6.</strong> Entrada de dados</a></li><li class="chapter-item expanded "><a href="../intermediary-01/07-exercises.html"><strong aria-hidden="true">3.7.</strong> Exercicios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-02/index.html"><strong aria-hidden="true">4.</strong> Intermediario 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-02/01-structs.html"><strong aria-hidden="true">4.1.</strong> Struct</a></li><li class="chapter-item expanded "><a href="../intermediary-02/02-enums.html"><strong aria-hidden="true">4.2.</strong> Enum</a></li><li class="chapter-item expanded "><a href="../intermediary-02/03-match.html"><strong aria-hidden="true">4.3.</strong> Match</a></li><li class="chapter-item expanded "><a href="../intermediary-02/04-modules.html"><strong aria-hidden="true">4.4.</strong> Modulos</a></li><li class="chapter-item expanded "><a href="../intermediary-02/05-generics.html"><strong aria-hidden="true">4.5.</strong> Generics</a></li><li class="chapter-item expanded "><a href="../intermediary-02/06-traits.html"><strong aria-hidden="true">4.6.</strong> Traits</a></li><li class="chapter-item expanded "><a href="../intermediary-02/07-option.html"><strong aria-hidden="true">4.7.</strong> Enum especial Option</a></li><li class="chapter-item expanded "><a href="../intermediary-02/08-vec.html"><strong aria-hidden="true">4.8.</strong> Coleções: Vec</a></li><li class="chapter-item expanded "><a href="../intermediary-02/09-hashset.html"><strong aria-hidden="true">4.9.</strong> Coleções: HashSet</a></li><li class="chapter-item expanded "><a href="../intermediary-02/10-hashmap.html"><strong aria-hidden="true">4.10.</strong> Coleções: HashMap</a></li><li class="chapter-item expanded "><a href="../intermediary-02/11-result.html"><strong aria-hidden="true">4.11.</strong> Tratamento de erros</a></li><li class="chapter-item expanded "><a href="../intermediary-02/12-panic.html"><strong aria-hidden="true">4.12.</strong> Macro panic!</a></li><li class="chapter-item expanded "><a href="../intermediary-02/13-tests.html"><strong aria-hidden="true">4.13.</strong> Testes</a></li><li class="chapter-item expanded "><a href="../intermediary-02/14-snake.html" class="active"><strong aria-hidden="true">4.14.</strong> Mini projeto * Snake Game</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
 
-    
-        
-        <li class="header">Capítulos</li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="../basic/">
-            
-                <a href="../basic/">
-            
-                    
-                    Basico
-            
-                </a>
-            
+        <div id="page-wrapper" class="page-wrapper">
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="../basic/01-about.html">
-            
-                <a href="../basic/01-about.html">
-            
-                    
-                    Sobre a linguagem
-            
-                </a>
-            
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.2" data-path="../basic/02-environment.html">
-            
-                <a href="../basic/02-environment.html">
-            
-                    
-                    Ambiente
-            
-                </a>
-            
+                    <h1 class="menu-title"></h1>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.3" data-path="../basic/03-hello-world.html">
-            
-                <a href="../basic/03-hello-world.html">
-            
-                    
-                    Hello World
-            
-                </a>
-            
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.4" data-path="../basic/04-data-types.html">
-            
-                <a href="../basic/04-data-types.html">
-            
-                    
-                    Tipos de dados
-            
-                </a>
-            
+                    </div>
+                </div>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="../basic/05-operators.html">
-            
-                <a href="../basic/05-operators.html">
-            
-                    
-                    Operadores
-            
-                </a>
-            
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6" data-path="../basic/06-conditions.html">
-            
-                <a href="../basic/06-conditions.html">
-            
-                    
-                    Condicionais
-            
-                </a>
-            
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" data-path="../basic/07-loops.html">
-            
-                <a href="../basic/07-loops.html">
-            
-                    
-                    Loops
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.8" data-path="../basic/08-functions.html">
-            
-                <a href="../basic/08-functions.html">
-            
-                    
-                    Funções
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.9" data-path="../basic/09-arrays.html">
-            
-                <a href="../basic/09-arrays.html">
-            
-                    
-                    Arrays
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.10" data-path="../basic/10-exercises.html">
-            
-                <a href="../basic/10-exercises.html">
-            
-                    
-                    Exercícios
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2" data-path="../intermediary-01/">
-            
-                <a href="../intermediary-01/">
-            
-                    
-                    Intermediario 1
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.2.1" data-path="../intermediary-01/01-strings.html">
-            
-                <a href="../intermediary-01/01-strings.html">
-            
-                    
-                    Strings
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.2" data-path="../intermediary-01/02-pointers-intro.html">
-            
-                <a href="../intermediary-01/02-pointers-intro.html">
-            
-                    
-                    Introdução a ponteiros
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.3" data-path="../intermediary-01/03-ownership.html">
-            
-                <a href="../intermediary-01/03-ownership.html">
-            
-                    
-                    Ownership
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.4" data-path="../intermediary-01/04-tuples.html">
-            
-                <a href="../intermediary-01/04-tuples.html">
-            
-                    
-                    Tuplas
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.5" data-path="../intermediary-01/05-slices.html">
-            
-                <a href="../intermediary-01/05-slices.html">
-            
-                    
-                    Slices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.6" data-path="../intermediary-01/06-user-input.html">
-            
-                <a href="../intermediary-01/06-user-input.html">
-            
-                    
-                    Entrada de dados
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.7" data-path="../intermediary-01/07-exercises.html">
-            
-                <a href="../intermediary-01/07-exercises.html">
-            
-                    
-                    Exercicios
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Intermediario 2
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.3.1" data-path="01-structs.html">
-            
-                <a href="01-structs.html">
-            
-                    
-                    Struct
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.2" data-path="02-enums.html">
-            
-                <a href="02-enums.html">
-            
-                    
-                    Enum
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.3" data-path="03-match.html">
-            
-                <a href="03-match.html">
-            
-                    
-                    Match
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.4" data-path="04-modules.html">
-            
-                <a href="04-modules.html">
-            
-                    
-                    Modulos
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.5" data-path="05-generics.html">
-            
-                <a href="05-generics.html">
-            
-                    
-                    Generics
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.6" data-path="06-traits.html">
-            
-                <a href="06-traits.html">
-            
-                    
-                    Traits
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.7" data-path="07-option.html">
-            
-                <a href="07-option.html">
-            
-                    
-                    Enum especial Option
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.8" data-path="08-vec.html">
-            
-                <a href="08-vec.html">
-            
-                    
-                    Coleções: Vec
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.9" data-path="09-hashset.html">
-            
-                <a href="09-hashset.html">
-            
-                    
-                    Coleções: HashSet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.10" data-path="10-hashmap.html">
-            
-                <a href="10-hashmap.html">
-            
-                    
-                    Coleções: HashMap
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.11" data-path="11-result.html">
-            
-                <a href="11-result.html">
-            
-                    
-                    Tratamento de erros
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.12" data-path="12-panic.html">
-            
-                <a href="12-panic.html">
-            
-                    
-                    Macro panic!
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.13" data-path="13-tests.html">
-            
-                <a href="13-tests.html">
-            
-                    
-                    Testes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="2.3.14" data-path="14-snake.html">
-            
-                <a href="14-snake.html">
-            
-                    
-                    Mini projeto * Snake Game
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
-            Published with HonKit
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Mini projeto * Snake Game</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="snake-game">Snake Game</h1>
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="snake-game"><a class="header" href="#snake-game">Snake Game</a></h1>
 <p>Eu estava em dúvida em que projeto fazer neste ponto, foi difícil pensar em algo e, porque não  algo que eu nunca fiz?</p>
 <p>Então vamos lá fazer o &quot;jogo da cobrinha&quot;, vamos começar criando o projeto, usando o comando <code>cargo new snake-game</code>.</p>
 <p>Teremos a estrutura padrão do projeto:</p>
-<pre><code class="lang-bash">├── Cargo.toml
+<pre><code class="language-bash">├── Cargo.toml
 └── src
     └── main.rs
 </code></pre>
-<p>Vamos adicionar um arquivo chamado <code>lib.rs</code> na pasta <code>src</code>, este arquivo sera usado para declarar os nossos módulos. Em seguida criamos um arquivo chamado &quot;ponto.rs&quot; e nele iremos criar uma <a href="01-structs.html">struct</a> para as localizações no nosso jogo, vamos criar uma implementação a essa struct para facilitar a instanciação dessa <code>strutc</code>.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Ponto</span></span> {
-    <span class="hljs-keyword">pub</span> x: <span class="hljs-built_in">usize</span>,
-    <span class="hljs-keyword">pub</span> y: <span class="hljs-built_in">usize</span>
+<p>Vamos adicionar um arquivo chamado <code>lib.rs</code> na pasta <code>src</code>, este arquivo sera usado para declarar os nossos módulos. Em seguida criamos um arquivo chamado &quot;ponto.rs&quot; e nele iremos criar uma <a href="./01-structs.html">struct</a> para as localizações no nosso jogo, vamos criar uma implementação a essa struct para facilitar a instanciação dessa <code>strutc</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Ponto {
+    pub x: usize,
+    pub y: usize
 }
 
-<span class="hljs-keyword">impl</span> Ponto {
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>(x: <span class="hljs-built_in">usize</span>, y: <span class="hljs-built_in">usize</span>) -&gt; <span class="hljs-keyword">Self</span> {
-        <span class="hljs-keyword">Self</span> {
+impl Ponto {
+    pub fn new(x: usize, y: usize) -&gt; Self {
+        Self {
             x,
             y
         }
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Para que este arquivo seja reconhecido no projeto, vamos adicionar no nosso arquivo <code>lib.rs</code> a seguinte linha <code>pub mod point;</code>. Note que tanto a <code>struct</code> quanto seus atributos e a implementação do método <code>new</code> estão com a palavra <code>pub</code>, que faz eles serem visíveis fora desse módulo.</p>
 <p>Vamos printar o campo onde a cobrinha ira andar, e para testar vamos adicionar um ponto nesse tabuleiro.</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
-    <span class="hljs-keyword">let</span> ponto = Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>);
-    <span class="hljs-keyword">let</span> (x, y) = (<span class="hljs-number">15</span>, <span class="hljs-number">15</span>);
-    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..x {
-        <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..y {
-            <span class="hljs-keyword">if</span> ponto == (x, y) {
-                <span class="hljs-built_in">print!</span>(<span class="hljs-string">&quot;# &quot;</span>)
-            }  <span class="hljs-keyword">else</span> {
-                <span class="hljs-built_in">print!</span>(<span class="hljs-string">&quot;- &quot;</span>);   
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let ponto = Ponto::new(7, 7);
+    let (x, y) = (15, 15);
+    for x in 0..x {
+        for y in 0..y {
+            if ponto == (x, y) {
+                print!(&quot;# &quot;)
+            }  else {
+                print!(&quot;- &quot;);   
             }
         }
-        <span class="hljs-built_in">println!</span>();
+        println!();
     }
 }
-</code></pre>
-<p>Note que comparamos a nossa <code>struct</code> Ponto, com uma tupla de (x, y), para isso ser possível, precisamos implementar uma <a href="06-traits.html">trait</a> chamada <a href="https://doc.rust-lang.org/std/cmp/trait.PartialEq.html" target="_blank">PartialEq</a> a implementação para isso é relativamente simples. A <code>trait</code> recebe um parâmetro <a href="05-generics.html">genérico</a> na implementação vamos falar que esse parâmetro genérico é uma <code>tupla (usize, usize)</code>. E a partir dai implementamos nossa comparação.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">impl</span> <span class="hljs-built_in">PartialEq</span>&lt;(<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">usize</span>)&gt; <span class="hljs-keyword">for</span> Ponto {
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">eq</span></span>(&amp;<span class="hljs-keyword">self</span>, other: &amp;(<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">usize</span>)) -&gt; <span class="hljs-built_in">bool</span> {
-        <span class="hljs-keyword">self</span>.x == other.<span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">self</span>.y == other.<span class="hljs-number">1</span>
+
+</code></pre></pre>
+<p>Note que comparamos a nossa <code>struct</code> Ponto, com uma tupla de (x, y), para isso ser possível, precisamos implementar uma <a href="./06-traits.html">trait</a> chamada <a href="https://doc.rust-lang.org/std/cmp/trait.PartialEq.html">PartialEq</a> a implementação para isso é relativamente simples. A <code>trait</code> recebe um parâmetro <a href="./05-generics.html">genérico</a> na implementação vamos falar que esse parâmetro genérico é uma <code>tupla (usize, usize)</code>. E a partir dai implementamos nossa comparação.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl PartialEq&lt;(usize, usize)&gt; for Ponto {
+    fn eq(&amp;self, other: &amp;(usize, usize)) -&gt; bool {
+        self.x == other.0 &amp;&amp; self.y == other.1
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Agora quando rodarmos o projeto com <code>cargo run</code>, teremos um tabuleiro no console com um ponto na posição (7, 7).</p>
-<pre><code class="lang-bash">   Compiling snake-game v0.1.0 (/home/paulo.bezerra/workspace/ws-rust/rust4noobs/projects/snake-game)
-    Finished dev [unoptimized + debuginfo] target(s) <span class="hljs-keyword">in</span> 0.31s
+<pre><code class="language-bash">   Compiling snake-game v0.1.0 (/home/paulo.bezerra/workspace/ws-rust/rust4noobs/projects/snake-game)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.31s
      Running `target/debug/snake-game`
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
@@ -671,7 +209,7 @@
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
-- - - - - - - <span class="hljs-comment"># - - - - - - - </span>
+- - - - - - - # - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
@@ -681,44 +219,52 @@
 - - - - - - - - - - - - - - -
 </code></pre>
 <p>Agora vamos criar a <code>struct</code> da nossa cobrinha, para isso vamos adicionar a cabeça - que é um ponto - e uma lista de pontos para o corpo. Criamos o arquivo &quot;cobra.rs&quot; e adicionamos o <code>pub mod cobra</code> no arquivo <code>lib.rs</code>, e no arquivo &quot;cobra.rs&quot; adicionamos a struct.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Cobra</span></span> {
-    <span class="hljs-keyword">pub</span> cabeca: Ponto,
-    <span class="hljs-keyword">pub</span> corpo: <span class="hljs-built_in">Vec</span>&lt;Ponto&gt;,
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Cobra {
+    pub cabeca: Ponto,
+    pub corpo: Vec&lt;Ponto&gt;,
 }
 
-<span class="hljs-keyword">impl</span> <span class="hljs-built_in">Default</span> <span class="hljs-keyword">for</span> Cobra {
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">default</span></span>() -&gt; <span class="hljs-keyword">Self</span> {
-        <span class="hljs-keyword">Self</span> { 
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>), 
-            corpo: <span class="hljs-built_in">vec!</span>[Ponto::new(<span class="hljs-number">6</span>,<span class="hljs-number">7</span>), Ponto::new(<span class="hljs-number">5</span>,<span class="hljs-number">7</span>)]
+impl Default for Cobra {
+    fn default() -&gt; Self {
+        Self { 
+            cabeca: Ponto::new(7, 7), 
+            corpo: vec![Ponto::new(6,7), Ponto::new(5,7)]
         }
     }
 }
-</code></pre>
-<p>A implementação da <code>trait</code> <a href="https://doc.rust-lang.org/std/default/trait.Default.html" target="_blank">default</a> serve para termos um valor padrão para a <code>struct</code>. Vamos separar a nossa função de desenhar o tabuleiro e vamos passar uma referência para a <code>struct</code> da <code>cobra</code>, então com base nos dados passados ali vamos desenhar a nossa cobra.</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">print_board</span></span>(cobra: &amp;Cobra) {
-    <span class="hljs-keyword">let</span> (x, y) = (<span class="hljs-number">15</span>, <span class="hljs-number">15</span>);
-    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..y {
-        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..x {
-            <span class="hljs-keyword">if</span> cobra.cabeca == (x, y) {
-                <span class="hljs-built_in">print!</span>(<span class="hljs-string">&quot;0 &quot;</span>)
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> cobra.corpo.contains(&amp;Ponto::new(x, y)) {
-                <span class="hljs-built_in">print!</span>(<span class="hljs-string">&quot;# &quot;</span>);   
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-built_in">print!</span>(<span class="hljs-string">&quot;- &quot;</span>);   
+<span class="boring">}
+</span></code></pre></pre>
+<p>A implementação da <code>trait</code> <a href="https://doc.rust-lang.org/std/default/trait.Default.html">default</a> serve para termos um valor padrão para a <code>struct</code>. Vamos separar a nossa função de desenhar o tabuleiro e vamos passar uma referência para a <code>struct</code> da <code>cobra</code>, então com base nos dados passados ali vamos desenhar a nossa cobra.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn print_board(cobra: &amp;Cobra) {
+    let (x, y) = (15, 15);
+    for y in 0..y {
+        for x in 0..x {
+            if cobra.cabeca == (x, y) {
+                print!(&quot;0 &quot;)
+            } else if cobra.corpo.contains(&amp;Ponto::new(x, y)) {
+                print!(&quot;# &quot;);   
+            } else {
+                print!(&quot;- &quot;);   
             }
         }
-        <span class="hljs-built_in">println!</span>();
+        println!();
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Temos a função e agora é só chamar ela na nossa função <code>main</code>.</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+<pre><pre class="playground"><code class="language-rust">fn main() {
     print_board(&amp;Cobra::default())
 }
-</code></pre>
+</code></pre></pre>
 <p>Após executar o comando <code>cargo run</code> temos o output:</p>
-<pre><code class="lang-bash">    Finished dev [unoptimized + debuginfo] target(s) <span class="hljs-keyword">in</span> 0.00s
+<pre><code class="language-bash">    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
      Running `target/debug/snake-game`
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
@@ -727,319 +273,350 @@
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
-- - - - - <span class="hljs-comment"># # 0 - - - - - - - </span>
+- - - - - # # 0 - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - 
-- - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - 
 </code></pre>
 <p>Agora temos a cabeça e o corpo, precismos começar a definir uma direção que a cobra irá seguir e movimentar o corpo da cobra.</p>
 <p>Para isso criamos um enumarado de direções, seguimos o mesmo passo a passo, criamos um arquivo &quot;direcao.rs&quot; e adicionamos no arquivo <code>lib.rs</code> a declaração do módulo <code>pub mob direcao</code>.</p>
 <p>Então adicionamos as 4 direções possíveis ao nosso enum.</p>
-<pre><code class="lang-rust"><span class="hljs-meta">#[derive(Clone, Copy)]</span>
-<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Direcao</span></span> {
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[derive(Clone, Copy)]
+pub enum Direcao {
     Cima,
     Baixo,
     Direita,
     Esquerda,
 }
 
-<span class="hljs-keyword">impl</span> <span class="hljs-built_in">Default</span> <span class="hljs-keyword">for</span> Direcao {
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">default</span></span>() -&gt; <span class="hljs-keyword">Self</span> {
+impl Default for Direcao {
+    fn default() -&gt; Self {
         Self::Direita
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Criamos o enum já implementando a <code>trait default</code> para nos auxiliar, como o padrão de início da cobra sempre vai ser para a direita, colocamos o retorno do método o valor <code>Self::Direita</code>. Já derivamos as <code>traits</code>, <code>Clone</code> e <code>Copy</code> para não precisar passar esse enum como referência todas às vezes.</p>
 <p>Agora na nossa <code>struct</code> da cobra, vamos adicionar o atributo da direção.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Cobra</span></span> {
-    <span class="hljs-keyword">pub</span> cabeca: Ponto,
-    <span class="hljs-keyword">pub</span> corpo: <span class="hljs-built_in">Vec</span>&lt;Ponto&gt;,
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Cobra {
+    pub cabeca: Ponto,
+    pub corpo: Vec&lt;Ponto&gt;,
     direcao: Direcao
 }
 
-<span class="hljs-keyword">impl</span> <span class="hljs-built_in">Default</span> <span class="hljs-keyword">for</span> Cobra {
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">default</span></span>() -&gt; <span class="hljs-keyword">Self</span> {
-        <span class="hljs-keyword">Self</span> { 
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>), 
-            corpo: <span class="hljs-built_in">vec!</span>[Ponto::new(<span class="hljs-number">6</span>,<span class="hljs-number">7</span>), Ponto::new(<span class="hljs-number">5</span>,<span class="hljs-number">7</span>)],
-            direcao: <span class="hljs-built_in">Default</span>::default() 
+impl Default for Cobra {
+    fn default() -&gt; Self {
+        Self { 
+            cabeca: Ponto::new(7, 7), 
+            corpo: vec![Ponto::new(6,7), Ponto::new(5,7)],
+            direcao: Default::default() 
         }
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Agora temos um modo de saber para qual direção a cobra está andando.</p>
 <p>Na nossa <code>struct Ponto</code> vamos adicionar a função para alterar o valor do ponto.</p>
-<pre><code class="lang-rust">
-<span class="hljs-keyword">impl</span> Point {
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span>
+<span class="boring">fn main() {
+</span>impl Point {
    ...
 
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">alterar</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, direcao: Direcao) {
-        <span class="hljs-keyword">match</span> Direcao {
-            Direcao::Right =&gt; <span class="hljs-keyword">self</span>.x += <span class="hljs-number">1</span>,
-            Direcao::Left =&gt; <span class="hljs-keyword">self</span>.x -= <span class="hljs-number">1</span>,
-            Direcao::Up =&gt; <span class="hljs-keyword">self</span>.y -= <span class="hljs-number">1</span>,
-            Direcao::Down =&gt; <span class="hljs-keyword">self</span>.y += <span class="hljs-number">1</span>,
+    pub fn alterar(&amp;mut self, direcao: Direcao) {
+        match Direcao {
+            Direcao::Right =&gt; self.x += 1,
+            Direcao::Left =&gt; self.x -= 1,
+            Direcao::Up =&gt; self.y -= 1,
+            Direcao::Down =&gt; self.y += 1,
         }
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Vamos aproveitar e adicionar testes unitários para o método de alterar:</p>
-<pre><code class="lang-rust"><span class="hljs-meta">#[cfg(test)]</span>
-<span class="hljs-keyword">mod</span> ponto_tests {
-    <span class="hljs-keyword">use</span> super::*;
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(test)]
+mod ponto_tests {
+    use super::*;
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">alterar_para_cima</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> ponto = Ponto::new(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+    #[test]
+    fn alterar_para_cima() {
+        let mut ponto = Ponto::new(1, 1);
         ponto.alterar(Direcao::Cima);
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), ponto);
+        assert_eq!(Ponto::new(1, 0), ponto);
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">alterar_para_baixo</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> ponto = Ponto::new(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+    #[test]
+    fn alterar_para_baixo() {
+        let mut ponto = Ponto::new(1, 1);
         ponto.alterar(Direcao::Baixo);
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), ponto);
+        assert_eq!(Ponto::new(1, 2), ponto);
     }
-
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">alterar_para_direita</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> ponto = Ponto::new(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+    
+    #[test]
+    fn alterar_para_direita() {
+        let mut ponto = Ponto::new(1, 1);
         ponto.alterar(Direcao::Direita);
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>), ponto);
+        assert_eq!(Ponto::new(2, 1), ponto);
     }
 
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">alterar_para_esquerda</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> ponto = Ponto::new(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+    #[test]
+    fn alterar_para_esquerda() {
+        let mut ponto = Ponto::new(1, 1);
         ponto.alterar(Direcao::Esquerda);
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>), ponto);
+        assert_eq!(Ponto::new(0, 1), ponto);
     }
 
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Agora iremos adicionar a lógica para a cobra se mover, precisaremos de um método para mover a cabeça que é quem vai definir se o movimento é valido, se vai bater na parede, se vamos alterar a direção e já vamos adicionar os testes que consiste em, encerrar o jogo caso bata na parede, validar a posição dos pontos após algum movimento, etc.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">impl</span> Cobra {
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">passo</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, tabuleiro: (<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">usize</span>)) -&gt; <span class="hljs-built_in">Result</span>&lt;(), &amp;<span class="hljs-symbol">&apos;static</span> <span class="hljs-built_in">str</span>&gt; {
-        <span class="hljs-keyword">let</span> posicao_anterior_cabeca = <span class="hljs-keyword">self</span>.cabeca;
-        <span class="hljs-keyword">self</span>.mover_cabeca(&amp;tabuleiro)?;
-        <span class="hljs-keyword">self</span>.mover_corpo(posicao_anterior_cabeca);
-        <span class="hljs-literal">Ok</span>(())
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Cobra {
+    pub fn passo(&amp;mut self, tabuleiro: (usize, usize)) -&gt; Result&lt;(), &amp;'static str&gt; {
+        let posicao_anterior_cabeca = self.cabeca;
+        self.mover_cabeca(&amp;tabuleiro)?;
+        self.mover_corpo(posicao_anterior_cabeca);
+        Ok(())
     }
 
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">alterar_direcao</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, direcao: Direcao) {
-        <span class="hljs-keyword">self</span>.direcao = direcao;
+    pub fn alterar_direcao(&amp;mut self, direcao: Direcao) {
+        self.direcao = direcao;
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, board: &amp;(<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">usize</span>)) -&gt; <span class="hljs-built_in">Result</span>&lt;(), &amp;<span class="hljs-symbol">&apos;static</span> <span class="hljs-built_in">str</span>&gt; {
-        <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.direcao {
-            Direcao::Cima <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cabeca.y == <span class="hljs-number">0</span> =&gt; <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, esbarrou na parede de cima&quot;</span>),
-            Direcao::Baixo <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cabeca.y &gt;= board.<span class="hljs-number">1</span> =&gt; <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, esbarrou na parede de baixo&quot;</span>),
-            Direcao::Esquerda <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cabeca.x == <span class="hljs-number">0</span> =&gt; <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, esbarrou na parede da esquerda&quot;</span>),
-            Direcao::Direita <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cabeca.x &gt;= board.<span class="hljs-number">0</span> =&gt; <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, esbarrou na parede da direita&quot;</span>),
+    fn mover_cabeca(&amp;mut self, board: &amp;(usize, usize)) -&gt; Result&lt;(), &amp;'static str&gt; {
+        match self.direcao {
+            Direcao::Cima if self.cabeca.y == 0 =&gt; Err(&quot;fim de jogo, esbarrou na parede de cima&quot;),
+            Direcao::Baixo if self.cabeca.y &gt;= board.1 =&gt; Err(&quot;fim de jogo, esbarrou na parede de baixo&quot;),
+            Direcao::Esquerda if self.cabeca.x == 0 =&gt; Err(&quot;fim de jogo, esbarrou na parede da esquerda&quot;),
+            Direcao::Direita if self.cabeca.x &gt;= board.0 =&gt; Err(&quot;fim de jogo, esbarrou na parede da direita&quot;),
             _ =&gt; {
-                <span class="hljs-keyword">self</span>.cabeca.alterar(<span class="hljs-keyword">self</span>.direcao);
-                <span class="hljs-literal">Ok</span>(())
+                self.cabeca.alterar(self.direcao);
+                Ok(())
             }
         }
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_corpo</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, posicao_anterior_cabeca: Ponto) {
-        <span class="hljs-keyword">let</span> corpo = &amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>.corpo;
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> posicao_anterior = posicao_anterior_cabeca;
-        <span class="hljs-keyword">for</span> ponto <span class="hljs-keyword">in</span> corpo.iter_mut() {
-            std::mem::swap(&amp;<span class="hljs-keyword">mut</span> posicao_anterior, ponto);
+    fn mover_corpo(&amp;mut self, posicao_anterior_cabeca: Ponto) {
+        let corpo = &amp;mut self.corpo;
+        let mut posicao_anterior = posicao_anterior_cabeca;
+        for ponto in corpo.iter_mut() {
+            std::mem::swap(&amp;mut posicao_anterior, ponto);
         }
     }
 }
 
 ...
 
-<span class="hljs-meta">#[cfg(test)]</span>
-<span class="hljs-keyword">mod</span> cobra_tests {
+#[cfg(test)]
+mod cobra_tests {
 
-    <span class="hljs-keyword">use</span> super::*;
+    use super::*;
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca_cobra_para_direita_no_tabuleiro_deve_mover_com_sucesso</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[],
+    #[test]
+    fn mover_cabeca_cobra_para_direita_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
             direcao: Direcao::Right,
         };
-        <span class="hljs-keyword">let</span> expected_point = Ponto::new(<span class="hljs-number">8</span>, <span class="hljs-number">7</span>);
-        cobra.mover_cabeca(&amp;(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>)).unwrap();
-        <span class="hljs-built_in">assert_eq!</span>(expected_point, cobra.cabeca);
+        let expected_point = Ponto::new(8, 7);
+        cobra.mover_cabeca(&amp;(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_mover_com_sucesso</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[],
+    #[test]
+    fn mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
             direcao: Direcao::Left,
         };
-        <span class="hljs-keyword">let</span> expected_point = Ponto::new(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>);
-        cobra.mover_cabeca(&amp;(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>)).unwrap();
-        <span class="hljs-built_in">assert_eq!</span>(expected_point, cobra.cabeca);
+        let expected_point = Ponto::new(6, 7);
+        cobra.mover_cabeca(&amp;(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca_cobra_para_cima_no_tabuleiro_deve_mover_com_sucesso</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[],
+    #[test]
+    fn mover_cabeca_cobra_para_cima_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
             direcao: Direcao::Up,
         };
-        <span class="hljs-keyword">let</span> expected_point = Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">6</span>);
-        cobra.mover_cabeca(&amp;(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>)).unwrap();
-        <span class="hljs-built_in">assert_eq!</span>(expected_point, cobra.cabeca);
+        let expected_point = Ponto::new(7, 6);
+        cobra.mover_cabeca(&amp;(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_mover_com_sucesso</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[],
+    #[test]
+    fn mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
             direcao: Direcao::Down,
         };
-        <span class="hljs-keyword">let</span> expected_point = Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">8</span>);
-        cobra.mover_cabeca(&amp;(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>)).unwrap();
-        <span class="hljs-built_in">assert_eq!</span>(expected_point, cobra.cabeca);
+        let expected_point = Ponto::new(7, 8);
+        cobra.mover_cabeca(&amp;(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-meta">#[should_panic(expected = <span class="hljs-meta-string">&quot;fim de jogo, esbarrou na parede da direita&quot;</span>)]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca_cobra_para_direita_no_tabuleiro_deve_esbarrar_na_parede</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[],
+    #[test]
+    #[should_panic(expected = &quot;fim de jogo, esbarrou na parede da direita&quot;)]
+    fn mover_cabeca_cobra_para_direita_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
             direcao: Direcao::Right,
         };
-        cobra.mover_cabeca(&amp;(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>)).unwrap();
+        cobra.mover_cabeca(&amp;(7, 7)).unwrap();
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-meta">#[should_panic(expected = <span class="hljs-meta-string">&quot;fim de jogo, esbarrou na parede da esquerda&quot;</span>)]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_esbarrar_na_parede</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">0</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[],
+    #[test]
+    #[should_panic(expected = &quot;fim de jogo, esbarrou na parede da esquerda&quot;)]
+    fn mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 7),
+            corpo: vec![],
             direcao: Direcao::Left,
         };
-        cobra.mover_cabeca(&amp;(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>)).unwrap();
+        cobra.mover_cabeca(&amp;(7, 7)).unwrap();
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-meta">#[should_panic(expected = <span class="hljs-meta-string">&quot;fim de jogo, esbarrou na parede de baixo&quot;</span>)]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_esbarrar_na_parede</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">0</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[],
+    #[test]
+    #[should_panic(expected = &quot;fim de jogo, esbarrou na parede de baixo&quot;)]
+    fn mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 7),
+            corpo: vec![],
             direcao: Direcao::Down,
         };
-        cobra.mover_cabeca(&amp;(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>)).unwrap();
+        cobra.mover_cabeca(&amp;(7, 7)).unwrap();
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-meta">#[should_panic(expected = <span class="hljs-meta-string">&quot;fim de jogo, esbarrou na parede de cima&quot;</span>)]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca_cobra_para_cima_no_tabuleiro_deve_esbarrar_na_parede</span></span>() {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[],
+    #[test]
+    #[should_panic(expected = &quot;fim de jogo, esbarrou na parede de cima&quot;)]
+    fn mover_cabeca_cobra_para_cima_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 0),
+            corpo: vec![],
             direcao: Direcao::Up,
         };
-        cobra.mover_cabeca(&amp;(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>)).unwrap();
+        cobra.mover_cabeca(&amp;(7, 7)).unwrap();
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cobra_inteira_para_a_direita_deve_mover</span></span>() {
-        <span class="hljs-keyword">let</span> tabuleiro = (<span class="hljs-number">15</span>, <span class="hljs-number">15</span>);
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[Ponto::new(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>)],
+    #[test]
+    fn mover_cobra_inteira_para_a_direita_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
             direcao: Direcao::Right,
         };
         cobra.passo(board).unwrap();
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">8</span>, <span class="hljs-number">7</span>), cobra.cabeca);
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>), *cobra.corpo.first().unwrap());
+        assert_eq!(Ponto::new(8, 7), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cobra_inteira_para_a_esquerda_deve_mover</span></span>() {
-        <span class="hljs-keyword">let</span> tabuleiro = (<span class="hljs-number">15</span>, <span class="hljs-number">15</span>);
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[Ponto::new(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>)],
+    #[test]
+    fn mover_cobra_inteira_para_a_esquerda_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
             direcao: Direcao::Left,
         };
         cobra.passo(board).unwrap();
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>), cobra.cabeca);
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>), *cobra.corpo.first().unwrap());
+        assert_eq!(Ponto::new(6, 7), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cobra_inteira_para_cima_deve_mover</span></span>() {
-        <span class="hljs-keyword">let</span> tabuleiro = (<span class="hljs-number">15</span>, <span class="hljs-number">15</span>);
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[Ponto::new(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>)],
+    #[test]
+    fn mover_cobra_inteira_para_cima_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
             direcao: Direcao::Up,
         };
         cobra.passo(board).unwrap();
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">6</span>), cobra.cabeca);
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>), *cobra.corpo.first().unwrap());
+        assert_eq!(Ponto::new(7, 6), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
     }
 
-    <span class="hljs-meta">#[test]</span>
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cobra_inteira_para_baixo_deve_mover</span></span>() {
-        <span class="hljs-keyword">let</span> tabuleiro = (<span class="hljs-number">15</span>, <span class="hljs-number">15</span>);
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra = Cobra {
-            cabeca: Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>),
-            corpo: <span class="hljs-built_in">vec!</span>[Ponto::new(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>)],
+    #[test]
+    fn mover_cobra_inteira_para_baixo_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
             direcao: Direcao::Down,
         };
         cobra.passo(board).unwrap();
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">8</span>), cobra.cabeca);
-        <span class="hljs-built_in">assert_eq!</span>(Ponto::new(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>), *cobra.corpo.first().unwrap());
+        assert_eq!(Ponto::new(7, 8), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Notem o método de mover a cabeça da cobra:</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_cabeca</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, board: &amp;(<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">usize</span>)) -&gt; <span class="hljs-built_in">Result</span>&lt;(), &amp;<span class="hljs-symbol">&apos;static</span> <span class="hljs-built_in">str</span>&gt; {
-    <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.direcao {
-        Direcao::Cima <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cabeca.y == <span class="hljs-number">0</span> =&gt; <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, esbarrou na parede de cima&quot;</span>),
-        Direcao::Baixo <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cabeca.y &gt;= board.<span class="hljs-number">1</span> =&gt; <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, esbarrou na parede de baixo&quot;</span>),
-        Direcao::Esquerda <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cabeca.x == <span class="hljs-number">0</span> =&gt; <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, esbarrou na parede da esquerda&quot;</span>),
-        Direcao::Direita <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cabeca.x &gt;= board.<span class="hljs-number">0</span> =&gt; <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, esbarrou na parede da direita&quot;</span>),
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn mover_cabeca(&amp;mut self, board: &amp;(usize, usize)) -&gt; Result&lt;(), &amp;'static str&gt; {
+    match self.direcao {
+        Direcao::Cima if self.cabeca.y == 0 =&gt; Err(&quot;fim de jogo, esbarrou na parede de cima&quot;),
+        Direcao::Baixo if self.cabeca.y &gt;= board.1 =&gt; Err(&quot;fim de jogo, esbarrou na parede de baixo&quot;),
+        Direcao::Esquerda if self.cabeca.x == 0 =&gt; Err(&quot;fim de jogo, esbarrou na parede da esquerda&quot;),
+        Direcao::Direita if self.cabeca.x &gt;= board.0 =&gt; Err(&quot;fim de jogo, esbarrou na parede da direita&quot;),
         _ =&gt; {
-            <span class="hljs-keyword">self</span>.cabeca.alterar(<span class="hljs-keyword">self</span>.direcao);
-            <span class="hljs-literal">Ok</span>(())
+            self.cabeca.alterar(self.direcao);
+            Ok(())
         }
     }
 }
-</code></pre>
-<p>Temos nessa implementação o uso de um <code>if</code> que segue o valor do <a href="02-enums.html">enum</a>, afinal o que é isso?</p>
-<p>Isso faz parte do <a href="03-match.html">Pattern Match</a>, é algo que chamamos de <a href="https://doc.rust-lang.org/rust-by-example/flow_control/match/guard.html" target="_blank">guards</a>, do modo em que essa implementação é feita, temos duas validações para cair nesse ponto, o <code>enum</code> deve bater ali e a condição deve ser verdadeira, caso uma das duas condições falhe ele segue para o próximo <code>match</code>.</p>
+<span class="boring">}
+</span></code></pre></pre>
+<p>Temos nessa implementação o uso de um <code>if</code> que segue o valor do <a href="./02-enums.html">enum</a>, afinal o que é isso?</p>
+<p>Isso faz parte do <a href="./03-match.html">Pattern Match</a>, é algo que chamamos de <a href="https://doc.rust-lang.org/rust-by-example/flow_control/match/guard.html">guards</a>, do modo em que essa implementação é feita, temos duas validações para cair nesse ponto, o <code>enum</code> deve bater ali e a condição deve ser verdadeira, caso uma das duas condições falhe ele segue para o próximo <code>match</code>.</p>
 <p>Na função de mover o corpo temos a lógica para mover o restante da cobra, guardamos a posição do ponto antes de ser alterada e fazemos o próximo item a ser iterado a obter essa posição. Para isso usamos o método da biblioteca padrão do Rust, <code>swap</code>, esse método troca o valor de duas referencias que são passadas.</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mover_corpo</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, posicao_anterior_cabeca: Ponto) {
-    <span class="hljs-keyword">let</span> corpo = &amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>.corpo;
-    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> posicao_anterior = posicao_anterior_cabeca;
-    <span class="hljs-keyword">for</span> ponto <span class="hljs-keyword">in</span> corpo.iter_mut() {
-        std::mem::swap(&amp;<span class="hljs-keyword">mut</span> posicao_anterior, ponto);
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn mover_corpo(&amp;mut self, posicao_anterior_cabeca: Ponto) {
+    let corpo = &amp;mut self.corpo;
+    let mut posicao_anterior = posicao_anterior_cabeca;
+    for ponto in corpo.iter_mut() {
+        std::mem::swap(&amp;mut posicao_anterior, ponto);
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Agora temos a lógica de mover a cobra, mas temos um problema nela, no método de alterar a direção, não temos uma validação para saber se o jogador, selecionou a opção de direção contraria da que a cobra esta seguindo, vamos adicionar agora.</p>
 <p>No nosso enum de direção, vamos adicionar um método para pegar a direção contraria.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">impl</span> Direcao {
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">direcao_inversa</span></span>(outro: <span class="hljs-keyword">Self</span>) -&gt; <span class="hljs-keyword">Self</span> {
-        <span class="hljs-keyword">match</span> outro {
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Direcao {
+    pub fn direcao_inversa(outro: Self) -&gt; Self {
+        match outro {
             Self::Cima =&gt; Self::Baixo,
             Self::Baixo =&gt; Self::Cima,
             Self::Direita =&gt; Self::Esquerda,
@@ -1047,138 +624,166 @@
         }
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Deixo o teste deste método por sua conta.</p>
 <p>E agora no nosso método de alterar a direção, faremos a validação, também deixo por sua conta esta alteração, e os testes da mesma.</p>
 <p>Agora que temos o tabuleiro do jogo sendo desenhado, e temos a movimentação da cobra programada, vamos adicionar o petisco que iremos ter que pegar no jogo. O petisco é um ponto, então não precisamos criar outra <code>struct</code> para ela, apenas vamos gerar um ponto aleatório e fazer o nosso render renderiza-lo.</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">gerar_petisco</span></span>(cobra: &amp;Cobra, tabuleiro: &amp;(<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">usize</span>)) -&gt; Point {
-    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> petisco;
-    <span class="hljs-keyword">loop</span> {
-        <span class="hljs-keyword">let</span> x = rand::thread_rng().gen_range(<span class="hljs-number">0</span>..=tabuleiro.<span class="hljs-number">0</span> - <span class="hljs-number">1</span>);
-        <span class="hljs-keyword">let</span> y = rand::thread_rng().gen_range(<span class="hljs-number">0</span>..=tabuleiro.<span class="hljs-number">1</span> - <span class="hljs-number">1</span>);
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn gerar_petisco(cobra: &amp;Cobra, tabuleiro: &amp;(usize, usize)) -&gt; Point {
+    let mut petisco;
+    loop {
+        let x = rand::thread_rng().gen_range(0..=tabuleiro.0 - 1);
+        let y = rand::thread_rng().gen_range(0..=tabuleiro.1 - 1);
         petisco = Point::new(x, y);
-        <span class="hljs-keyword">if</span> cobra.cabeca != petisco &amp;&amp; !cobra.corpo.contains(&amp;petisco) {
-            <span class="hljs-keyword">break</span>;
+        if cobra.cabeca != petisco &amp;&amp; !cobra.corpo.contains(&amp;petisco) {
+            break;
         }
     }
     petisco
 }
-</code></pre>
-<p>Para esse <a href="https://crates.io/crates/rand" target="_blank">rand</a> funcionar precisamos ir em nosso Cargo.toml e adicionar a seguinte dependência <code>rand = &quot;0.8.5&quot;</code> logo abaixo do <code>[dependencies]</code>, nesse método temos validações para não gerar um petisco em cima da cobra, ou seja, se o valor aleatório cair na cabeça ou em alguma parte do corpo da cobra, outro valor sera gerado. Quando o valor respeitar essa condição o <code>loop</code> para.</p>
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para esse <a href="https://crates.io/crates/rand">rand</a> funcionar precisamos ir em nosso Cargo.toml e adicionar a seguinte dependência <code>rand = &quot;0.8.5&quot;</code> logo abaixo do <code>[dependencies]</code>, nesse método temos validações para não gerar um petisco em cima da cobra, ou seja, se o valor aleatório cair na cabeça ou em alguma parte do corpo da cobra, outro valor sera gerado. Quando o valor respeitar essa condição o <code>loop</code> para.</p>
 <p>Agora precisamos aumentar o tamanho da cobra, para isso adicionamos um método que ira adicionar um ponto, no fim do corpo da cobra.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">impl</span> Cobra
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Cobra
     ...
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">aumentar_tamanho</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
-        <span class="hljs-keyword">let</span> ultimo = <span class="hljs-keyword">self</span>.body.last().unwrap().clone();
-        <span class="hljs-keyword">self</span>.body.push(ultimo);
+    pub fn aumentar_tamanho(&amp;mut self) {
+        let ultimo = self.body.last().unwrap().clone();
+        self.body.push(ultimo);
     }
 
 }
-</code></pre>
+
+<span class="boring">}
+</span></code></pre></pre>
 <p>Para testar esse método é interessante, validarmos o tamanho do corpo e se a posição do ponto adicionado, é igual à posição do último ponto anterior após a cobra se mover.</p>
 <p>Agora temos que fazer o jogo funcionar, estamos quase lá.</p>
 <p>Vamos criar um arquivo <code>jogo</code> onde teremos a <code>struct Jogo</code>. Aquele mesmo processo de sempre, cria o arquivo, adiciona na <code>lib.rs</code>.</p>
 <p>A struct é a mais simples possível, ela é apenas.</p>
-<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Jogo</span></span>;
-</code></pre>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Jogo;
+<span class="boring">}
+</span></code></pre></pre>
 <p>Então vamos alterar o método que desenha o tabuleiro para gerar uma <a href="../intermediary-01/01-strings.html">String</a>, vamos usa-la para desenhar o tabuleiro inteiro de uma vez e também vamos movê-la para a <code>struct Jogo</code>.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">impl</span> Jogo {
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">gerar_tabuleuro</span></span>(cobra: &amp;Cobra, petisco: &amp;Ponto, tabuleiro: &amp;(<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">usize</span>)) -&gt; <span class="hljs-built_in">String</span> {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> buffer = <span class="hljs-built_in">String</span>::new();
-        <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..tabuleiro.<span class="hljs-number">1</span> {
-            <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..tabuleiro.<span class="hljs-number">0</span> {
-                <span class="hljs-keyword">if</span> cobra.cabeca == (x, y) {
-                    buffer.push_str(<span class="hljs-string">&quot;0 &quot;</span>)
-                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> cobra.corpo.contains(&amp;Ponto::new(x, y)) {
-                    buffer.push_str(<span class="hljs-string">&quot;# &quot;</span>);
-                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> *petisco == (<span class="hljs-number">1</span>x, y) {
-                    buffer.push_str(<span class="hljs-string">&quot;+ &quot;</span>);
-                } <span class="hljs-keyword">else</span> {
-                    buffer.push_str(<span class="hljs-string">&quot;- &quot;</span>);
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Jogo {
+    fn gerar_tabuleuro(cobra: &amp;Cobra, petisco: &amp;Ponto, tabuleiro: &amp;(usize, usize)) -&gt; String {
+        let mut buffer = String::new();
+        for y in 0..tabuleiro.1 {
+            for x in 0..tabuleiro.0 {
+                if cobra.cabeca == (x, y) {
+                    buffer.push_str(&quot;0 &quot;)
+                } else if cobra.corpo.contains(&amp;Ponto::new(x, y)) {
+                    buffer.push_str(&quot;# &quot;);
+                } else if *petisco == (1x, y) {
+                    buffer.push_str(&quot;+ &quot;);
+                } else {
+                    buffer.push_str(&quot;- &quot;);
                 }
             }
-            buffer.push(<span class="hljs-string">&apos;\n&apos;</span>);
+            buffer.push('\n');
         }
         buffer
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Agora que fizemos essa alteração, vamos jogar o gerador do petisco para essa mesma struct.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">impl</span> Jogo {
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Jogo {
     ...
-    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">gerar_petisco</span></span>(cobra: &amp;Cobra, tabuleiro: &amp;(<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">usize</span>)) -&gt; Point {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> petisco;
-        <span class="hljs-keyword">loop</span> {
-            <span class="hljs-keyword">let</span> x = rand::thread_rng().gen_range(<span class="hljs-number">0</span>..=tabuleiro.<span class="hljs-number">0</span> - <span class="hljs-number">1</span>);
-            <span class="hljs-keyword">let</span> y = rand::thread_rng().gen_range(<span class="hljs-number">0</span>..=tabuleiro.<span class="hljs-number">1</span> - <span class="hljs-number">1</span>);
+    fn gerar_petisco(cobra: &amp;Cobra, tabuleiro: &amp;(usize, usize)) -&gt; Point {
+        let mut petisco;
+        loop {
+            let x = rand::thread_rng().gen_range(0..=tabuleiro.0 - 1);
+            let y = rand::thread_rng().gen_range(0..=tabuleiro.1 - 1);
             petisco = Point::new(x, y);
-            <span class="hljs-keyword">if</span> cobra.cabeca != petisco &amp;&amp; !cobra.corpo.contains(&amp;petisco) {
-                <span class="hljs-keyword">break</span>;
+            if cobra.cabeca != petisco &amp;&amp; !cobra.corpo.contains(&amp;petisco) {
+                break;
             }
         }
         petisco
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>E estamos quase lá, falta apenas um loop infinito, onde, movemos a cobra, limpamos a tela anterior, redesenhamos a tela e capturamos a tecla acionada.
-Para facilitar o processo vamos adicionar mais uma dependência no arquivo <code>Cargo.toml</code>, sera dependência <a href="https://crates.io/crates/termion" target="_blank">termion</a>.</p>
+Para facilitar o processo vamos adicionar mais uma dependência no arquivo <code>Cargo.toml</code>, sera dependência <a href="https://crates.io/crates/termion">termion</a>.</p>
 <p>Então nosso arquivo ficará parecido com isso:</p>
-<pre><code class="lang-toml"><span class="hljs-section">[package]</span>
-<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;snake-game&quot;</span>
-<span class="hljs-attr">version</span> = <span class="hljs-string">&quot;0.1.0&quot;</span>
-<span class="hljs-attr">edition</span> = <span class="hljs-string">&quot;2021&quot;</span>
+<pre><code class="language-toml">[package]
+name = &quot;snake-game&quot;
+version = &quot;0.1.0&quot;
+edition = &quot;2021&quot;
 
-<span class="hljs-section">[dependencies]</span>
+[dependencies]
 
-<span class="hljs-attr">rand</span> = <span class="hljs-string">&quot;0.8.5&quot;</span>
-<span class="hljs-attr">termion</span> = <span class="hljs-string">&quot;1.5.6&quot;</span>
+rand = &quot;0.8.5&quot;
+termion = &quot;1.5.6&quot;
 </code></pre>
 <p>Vamos adicionar o método estático na <code>struct Jogo</code> que ira fazer a &quot;mágica&quot; acontecer.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">impl</span> Jogo {
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">run</span></span>() -&gt; <span class="hljs-built_in">Result</span>&lt;(), &amp;<span class="hljs-symbol">&apos;static</span> <span class="hljs-built_in">str</span>&gt; {
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> cobra: Cobra = <span class="hljs-built_in">Default</span>::default();
-        <span class="hljs-keyword">let</span> tabuleiro = (<span class="hljs-number">15</span>, <span class="hljs-number">15</span>);
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> petisco = Self::gerar_petisco(&amp;snake, &amp;tabuleiro);
-        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> stdin = termion::async_stdin().keys();
-        <span class="hljs-keyword">loop</span> {
-            <span class="hljs-keyword">if</span> cobra.cabeca == snack {
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Jogo {
+    pub fn run() -&gt; Result&lt;(), &amp;'static str&gt; {
+        let mut cobra: Cobra = Default::default();
+        let tabuleiro = (15, 15);
+        let mut petisco = Self::gerar_petisco(&amp;snake, &amp;tabuleiro);
+        let mut stdin = termion::async_stdin().keys();
+        loop {
+            if cobra.cabeca == snack {
                 cobra.aumentar_tamanho();
                 petisco = Self::gerar_petisco(&amp;cobra, &amp;tabuleiro);
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> cobra.corpo.contains(&amp;cobra.cabeca) {
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">Err</span>(<span class="hljs-string">&quot;fim de jogo, a cobra bateu nela mesma&quot;</span>);
+            } else if cobra.corpo.contains(&amp;cobra.cabeca) {
+                return Err(&quot;fim de jogo, a cobra bateu nela mesma&quot;);
             }
-            <span class="hljs-keyword">let</span> tabuleiro_jogo = Self::gerar_tabuleuro(&amp;cobra, &amp;petisco, &amp;tabuleiro);
-            <span class="hljs-built_in">print!</span>(
-                <span class="hljs-string">&quot;{}{}{}&quot;</span>,
+            let tabuleiro_jogo = Self::gerar_tabuleuro(&amp;cobra, &amp;petisco, &amp;tabuleiro);
+            print!(
+                &quot;{}{}{}&quot;,
                 termion::clear::All,
-                termion::cursor::Goto(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),
+                termion::cursor::Goto(1, 1),
                 termion::cursor::Hide
             );
-            <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, tabuleiro_jogo);
-            <span class="hljs-keyword">let</span> stdout = io::stdout().into_raw_mode().unwrap();
-            <span class="hljs-keyword">let</span> input = stdin.next();
-            <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> <span class="hljs-literal">Some</span>(<span class="hljs-literal">Ok</span>(key)) = input {
-                <span class="hljs-keyword">match</span> key {
-                    Key::Char(<span class="hljs-string">&apos;a&apos;</span>) | Key::Left =&gt; cobra.alterar_direcao(Direcao::Esquerda),
-                    Key::Char(<span class="hljs-string">&apos;w&apos;</span>) | Key::Up =&gt; cobra.alterar_direcao(Direcao::Cima),
-                    Key::Char(<span class="hljs-string">&apos;s&apos;</span>) | Key::Down =&gt; cobra.alterar_direcao(Direcao::Baixo),
-                    Key::Char(<span class="hljs-string">&apos;d&apos;</span>) | Key::Right =&gt; cobra.alterar_direcao(Direcao::Direita),
+            println!(&quot;{}&quot;, tabuleiro_jogo);
+            let stdout = io::stdout().into_raw_mode().unwrap();
+            let input = stdin.next();
+            if let Some(Ok(key)) = input {
+                match key {
+                    Key::Char('a') | Key::Left =&gt; cobra.alterar_direcao(Direcao::Esquerda),
+                    Key::Char('w') | Key::Up =&gt; cobra.alterar_direcao(Direcao::Cima),
+                    Key::Char('s') | Key::Down =&gt; cobra.alterar_direcao(Direcao::Baixo),
+                    Key::Char('d') | Key::Right =&gt; cobra.alterar_direcao(Direcao::Direita),
                     _ =&gt; {},
                 }
             }
             stdout.lock().flush().unwrap();
-            thread::sleep(Duration::from_millis(<span class="hljs-number">500</span>));
+            thread::sleep(Duration::from_millis(500));
             cobra.passo(tabuleiro)?;
         }
     }
 }
-</code></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>Esse método agrupa tudo o que nós precisamos, criamos a cobra, criamos o primeiro petisco, definimos o tamanho do tabuleiro e começamos a trabalhar.</p>
-<p>Na linha <code>let mut stdin = termion::async_stdin().keys();</code> criamos um modo <a href="https://en.wikipedia.org/wiki/Async/await" target="_blank">assincrono</a> de capturar as teclas digitadas pelo usuário, utilizando a dependencia do <code>termion</code>, assim que entramos no loop, fazemos as primeiras verificações, que são:</p>
+<p>Na linha <code>let mut stdin = termion::async_stdin().keys();</code> criamos um modo <a href="https://en.wikipedia.org/wiki/Async/await">assincrono</a> de capturar as teclas digitadas pelo usuário, utilizando a dependencia do <code>termion</code>, assim que entramos no loop, fazemos as primeiras verificações, que são:</p>
 <ul>
-<li>Validar se a cabeça da cobra está na mesma posição de um petisco<ul>
+<li>Validar se a cabeça da cobra está na mesma posição de um petisco
+<ul>
 <li>Se sim =&gt; seu tamanho aumenta e outro petisco é gerado.</li>
-<li>Se não =&gt; valida se a cabeça está na mesma posição de seu corpo<ul>
+<li>Se não =&gt; valida se a cabeça está na mesma posição de seu corpo
+<ul>
 <li>Se sim =&gt; encerra o jogo com a mensagem de fim de jogo</li>
 <li>Se não =&gt; continua a execução</li>
 </ul>
@@ -1186,14 +791,14 @@ Para facilitar o processo vamos adicionar mais uma dependência no arquivo <code
 </ul>
 </li>
 </ul>
-<p>Então geramos o tabuleiro e armazenamos em uma variável. Com um método do <code>termion</code>, limpamos o terminal, posicionamos o mouse na primeira posição e escondemos o cursor. Logo em sequência desenhamos tabuleiro do jogo. Transformamos a saída em <a href="https://en.wikipedia.org/wiki/Terminal_mode" target="_blank">raw mode</a>, lemos uma tecla e caso alguma tecla tenha sido pressionada validamos qual foi, em um <code>match</code> assim alteramos a direção que a cobra esta andando caso necessário. Limpamos a saída, esperamos meio segundo com o método <code>thread::sleep(Duration::from_milis(500))</code> e então fazemos a cobra dar mais um passo. O processo todo se repete.</p>
+<p>Então geramos o tabuleiro e armazenamos em uma variável. Com um método do <code>termion</code>, limpamos o terminal, posicionamos o mouse na primeira posição e escondemos o cursor. Logo em sequência desenhamos tabuleiro do jogo. Transformamos a saída em <a href="https://en.wikipedia.org/wiki/Terminal_mode">raw mode</a>, lemos uma tecla e caso alguma tecla tenha sido pressionada validamos qual foi, em um <code>match</code> assim alteramos a direção que a cobra esta andando caso necessário. Limpamos a saída, esperamos meio segundo com o método <code>thread::sleep(Duration::from_milis(500))</code> e então fazemos a cobra dar mais um passo. O processo todo se repete.</p>
 <p>Adicionamos a o nosso <code>main</code> a chamada a esse método:</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(){
-    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> <span class="hljs-literal">Err</span>(msg) = Game::run() {
-        eprintln!(<span class="hljs-string">&quot;{}&quot;</span>, msg)
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    if let Err(msg) = Game::run() {
+        eprintln!(&quot;{}&quot;, msg)
     }
 }
-</code></pre>
+</code></pre></pre>
 <p>E pronto, temos nosso jogo da cobrinha feito e funcionando, deixo para você os testes finais e adiciono alguns desafios:</p>
 <ul>
 <li>Faça o jogo pausar</li>
@@ -1201,118 +806,47 @@ Para facilitar o processo vamos adicionar mais uma dependência no arquivo <code
 <li>Quando a cobra alcançar o tamanho máximo (x * y) mostre uma mensagem de vitória e encerre o jogo</li>
 </ul>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
+                    </main>
 
-                        </div>
-                    </div>
-                
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../intermediary-02/13-tests.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="13-tests.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Testes">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-            
-        
-    </div>
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../intermediary-02/13-tests.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Mini projeto * Snake Game","level":"2.3.14","depth":2,"previous":{"title":"Testes","level":"2.3.13","depth":2,"path":"intermediary-02/13-tests.md","ref":"./intermediary-02/13-tests.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"intermediary-02/14-snake.md","mtime":"2022-03-01T01:43:42.920Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-05-20T23:01:51.127Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+            </nav>
 
-        
-    <noscript>
-        <style>
-            .honkit-cloak {
-                display: block !important;
-            }
-        </style>
-    </noscript>
-    <script>
-        // Restore sidebar state as critical path for prevent layout shift
-        function __init__getSidebarState(defaultValue){
-            var baseKey = "";
-            var key = baseKey + ":sidebar";
-            try {
-                var value = localStorage[key];
-                if (value === undefined) {
-                    return defaultValue;
-                }
-                var parsed = JSON.parse(value);
-                return parsed == null ? defaultValue : parsed;
-            } catch (e) {
-                return defaultValue;
-            }
-        }
-        function __init__restoreLastSidebarState() {
-            var isMobile = window.matchMedia("(max-width: 600px)").matches;
-            if (isMobile) {
-                // Init last state if not mobile
-                return;
-            }
-            var sidebarState = __init__getSidebarState(true);
-            var book = document.querySelector(".book");
-            // Show sidebar if it enabled
-            if (sidebarState && book) {
-                book.classList.add("without-animation", "with-summary");
-            }
-        }
+        </div>
 
-        try {
-            __init__restoreLastSidebarState();
-        } finally {
-            var book = document.querySelector(".book");
-            book.classList.remove("honkit-cloak");
-        }
-    </script>
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
 
     </body>
 </html>
-

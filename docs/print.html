@@ -1,0 +1,3777 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="basic/index.html"><strong aria-hidden="true">2.</strong> Basico</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="basic/01-about.html"><strong aria-hidden="true">2.1.</strong> Sobre a linguagem</a></li><li class="chapter-item expanded "><a href="basic/02-environment.html"><strong aria-hidden="true">2.2.</strong> Ambiente</a></li><li class="chapter-item expanded "><a href="basic/03-hello-world.html"><strong aria-hidden="true">2.3.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="basic/04-data-types.html"><strong aria-hidden="true">2.4.</strong> Tipos de dados</a></li><li class="chapter-item expanded "><a href="basic/05-operators.html"><strong aria-hidden="true">2.5.</strong> Operadores</a></li><li class="chapter-item expanded "><a href="basic/06-conditions.html"><strong aria-hidden="true">2.6.</strong> Condicionais</a></li><li class="chapter-item expanded "><a href="basic/07-loops.html"><strong aria-hidden="true">2.7.</strong> Loops</a></li><li class="chapter-item expanded "><a href="basic/08-functions.html"><strong aria-hidden="true">2.8.</strong> Funções</a></li><li class="chapter-item expanded "><a href="basic/09-arrays.html"><strong aria-hidden="true">2.9.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="basic/10-exercises.html"><strong aria-hidden="true">2.10.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="intermediary-01/index.html"><strong aria-hidden="true">3.</strong> Intermediario 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="intermediary-01/01-strings.html"><strong aria-hidden="true">3.1.</strong> Strings</a></li><li class="chapter-item expanded "><a href="intermediary-01/02-pointers-intro.html"><strong aria-hidden="true">3.2.</strong> Introdução a ponteiros</a></li><li class="chapter-item expanded "><a href="intermediary-01/03-ownership.html"><strong aria-hidden="true">3.3.</strong> Ownership</a></li><li class="chapter-item expanded "><a href="intermediary-01/04-tuples.html"><strong aria-hidden="true">3.4.</strong> Tuplas</a></li><li class="chapter-item expanded "><a href="intermediary-01/05-slices.html"><strong aria-hidden="true">3.5.</strong> Slices</a></li><li class="chapter-item expanded "><a href="intermediary-01/06-user-input.html"><strong aria-hidden="true">3.6.</strong> Entrada de dados</a></li><li class="chapter-item expanded "><a href="intermediary-01/07-exercises.html"><strong aria-hidden="true">3.7.</strong> Exercicios</a></li></ol></li><li class="chapter-item expanded "><a href="intermediary-02/index.html"><strong aria-hidden="true">4.</strong> Intermediario 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="intermediary-02/01-structs.html"><strong aria-hidden="true">4.1.</strong> Struct</a></li><li class="chapter-item expanded "><a href="intermediary-02/02-enums.html"><strong aria-hidden="true">4.2.</strong> Enum</a></li><li class="chapter-item expanded "><a href="intermediary-02/03-match.html"><strong aria-hidden="true">4.3.</strong> Match</a></li><li class="chapter-item expanded "><a href="intermediary-02/04-modules.html"><strong aria-hidden="true">4.4.</strong> Modulos</a></li><li class="chapter-item expanded "><a href="intermediary-02/05-generics.html"><strong aria-hidden="true">4.5.</strong> Generics</a></li><li class="chapter-item expanded "><a href="intermediary-02/06-traits.html"><strong aria-hidden="true">4.6.</strong> Traits</a></li><li class="chapter-item expanded "><a href="intermediary-02/07-option.html"><strong aria-hidden="true">4.7.</strong> Enum especial Option</a></li><li class="chapter-item expanded "><a href="intermediary-02/08-vec.html"><strong aria-hidden="true">4.8.</strong> Coleções: Vec</a></li><li class="chapter-item expanded "><a href="intermediary-02/09-hashset.html"><strong aria-hidden="true">4.9.</strong> Coleções: HashSet</a></li><li class="chapter-item expanded "><a href="intermediary-02/10-hashmap.html"><strong aria-hidden="true">4.10.</strong> Coleções: HashMap</a></li><li class="chapter-item expanded "><a href="intermediary-02/11-result.html"><strong aria-hidden="true">4.11.</strong> Tratamento de erros</a></li><li class="chapter-item expanded "><a href="intermediary-02/12-panic.html"><strong aria-hidden="true">4.12.</strong> Macro panic!</a></li><li class="chapter-item expanded "><a href="intermediary-02/13-tests.html"><strong aria-hidden="true">4.13.</strong> Testes</a></li><li class="chapter-item expanded "><a href="intermediary-02/14-snake.html"><strong aria-hidden="true">4.14.</strong> Mini projeto * Snake Game</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Logo 4noobs -->
+<p align="center">
+  <a href="https://github.com/he4rt/4noobs" target="_blank">
+    <img src="./assets/header_4noobs.svg">
+  </a>
+</p>
+<!-- Title -->
+<p align="center">
+  <h2 align="center">Rust4Noobs</h2>
+<h1 align="center"><img src="./assets/rust.svg" alt="Imagem da linguagem" width="120"></h1>
+<p align="center">
+    <br />
+    <a href="index.html#ROADMAP"><strong>Explore a documentação »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/pgjbz/rust4noobs/issues/new">Report Bug</a>
+    ·
+    <a href="https://github.com/pgjbz/rust4noobs/issues/new">Request Feature</a>
+  </p>
+</p>
+<h2 id="sobre-o-projeto"><a class="header" href="#sobre-o-projeto">Sobre o Projeto</a></h2>
+<p>Projeto para introdução a linguagem de programação Rust, o objetivo deste repositório é inserir o leitor aos conceitos da linguagem Rust, como o seu modo de gerenciamento de memória e conceitos da linguagem.</p>
+<h2 id="roadmap"><a class="header" href="#roadmap">ROADMAP</a></h2>
+<ul>
+<li><a href="./basic">Basico</a>
+<ul>
+<li><a href="./basic/01-about.html">Sobre a linguagem</a></li>
+<li><a href="./basic/02-environment.html">Ambiente</a></li>
+<li><a href="./basic/03-hello-world.html">Hello World</a></li>
+<li><a href="./basic/04-data-types.html">Tipos de dados</a></li>
+<li><a href="./basic/05-operators.html">Operadores</a></li>
+<li><a href="./basic/06-conditions.html">Condicionais</a></li>
+<li><a href="./basic/07-loops.html">Loops</a></li>
+<li><a href="./basic/08-functions.html">Funções</a></li>
+<li><a href="./basic/09-arrays.html">Arrays</a></li>
+<li><a href="./basic/10-exercises.html">Exercícios</a></li>
+</ul>
+</li>
+<li><a href="./intermediary-01">Intermediario 1</a>
+<ul>
+<li><a href="./intermediary-01/01-strings.html">Strings</a></li>
+<li><a href="./intermediary-01/02-pointers-intro.html">Introdução a ponteiros</a></li>
+<li><a href="./intermediary-01/03-ownership.html">Ownership</a></li>
+<li><a href="./intermediary-01/04-tuples.html">Tuplas</a></li>
+<li><a href="./intermediary-01/05-slices.html">Slices</a></li>
+<li><a href="./intermediary-01/06-user-input.html">Entrada de dados</a></li>
+<li><a href="./intermediary-01/07-exercises.html">Exercicios</a></li>
+</ul>
+</li>
+<li><a href="./intermediary-02">Intermediario 2</a>
+<ul>
+<li><a href="./intermediary-02/01-structs.html">Struct</a></li>
+<li><a href="./intermediary-02/02-enums.html">Enum</a></li>
+<li><a href="./intermediary-02/03-match.html">Match</a></li>
+<li><a href="./intermediary-02/04-modules.html">Modulos</a></li>
+<li><a href="./intermediary-02/05-generics.html">Generics</a></li>
+<li><a href="./intermediary-02/06-traits.html">Traits</a></li>
+<li><a href="./intermediary-02/07-option.html">Enum especial Option</a></li>
+<li><a href="./intermediary-02/08-vec.html">Coleções: Vec</a></li>
+<li><a href="./intermediary-02/09-hashset.html">Coleções: HashSet</a></li>
+<li><a href="./intermediary-02/10-hashmap.html">Coleções: HashMap</a></li>
+<li><a href="./intermediary-02/11-result.html">Tratamento de erros</a></li>
+<li><a href="./intermediary-02/12-panic.html">Macro panic!</a></li>
+<li><a href="./intermediary-02/13-tests.html">Testes</a></li>
+<li><a href="./intermediary-02/14-snake.html">Mini projeto - Snake Game</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="como-contribuir"><a class="header" href="#como-contribuir">Como Contribuir</a></h2>
+<p>Contribuições fazem com que a comunidade open source seja um lugar incrível para aprender, inspirar e criar. Todas contribuições
+são <strong>extremamente apreciadas</strong></p>
+<ol>
+<li>Realize um Fork do projeto</li>
+<li>Crie um branch com a nova feature (<code>git checkout -b feature/featureBraba</code>)</li>
+<li>Realize o Commit (<code>git commit -m 'Adicionado conteudo brabo'</code>)</li>
+<li>Realize o Push no Branch (<code>git push origin feature/featureBraba</code>)</li>
+<li>Abra um Pull Request</li>
+</ol>
+<h2 id="honkit"><a class="header" href="#honkit"><a href="https://honkit.netlify.app/ebook.html">Honkit</a></a></h2>
+<p>Para realizar o build do projeto em livro você pode utilizar a ferramenta <a href="https://honkit.netlify.app/ebook.html">honkit</a>. Assim fica mais facil a leitura e você pode exportar até mesmo para o kindle. Para isso use um dos comandos abaixo:</p>
+<pre><code class="language-sh">$ honkit build
+$ honkit pdf nome.pdf
+$ honkit mobi nome.mobi
+$ honkit serve
+</code></pre>
+<p>Ou acesse <a href="https://rust4noobs.pgjbz.dev/">este link</a> para ter acesso ao livro online</p>
+<h2 id="autores"><a class="header" href="#autores">Autores</a></h2>
+<ul>
+<li>Paulo Gabriel Justino Bezerra - Desenvolvedor Java - <a href="https://www.linkedin.com/in/paulogjbezerra/">Linkedin</a></li>
+</ul>
+<hr />
+<p align="center">
+  <a href="https://github.com/he4rt/4noobs" target="_blank">
+    <img src="./assets/footer_4noobs.svg" width="380">
+  </a>
+</p><div style="break-before: page; page-break-before: always;"></div><h1 id="basico"><a class="header" href="#basico">Basico</a></h1>
+<p>Este é o início da nossa caminhada de aprendizado da linguagem de programação Rust, nesta seção você encontrara coisas como configurações de ambiente, tipos, estrutura de decisão, loops e funções.</p>
+<p>Roadmap:</p>
+<ul>
+<li><a href="basic/./01-about.html">Sobre a linguagem</a></li>
+<li><a href="basic/./02-environment.html">Ambiente</a></li>
+<li><a href="basic/./03-hello-world.html">Hello World</a></li>
+<li><a href="basic/./04-data-types.html">Tipos de dados</a></li>
+<li><a href="basic/./05-operators.html">Operadores</a></li>
+<li><a href="basic/./06-conditions.html">Condicionais</a></li>
+<li><a href="basic/./07-loops.html">Loops</a></li>
+<li><a href="basic/./08-functions.html">Funções</a></li>
+<li><a href="basic/./09-arrays.html">Arrays</a></li>
+<li><a href="basic/./10-exercises.html">Exercícios</a></li>
+</ul>
+<hr>
+<p><a href="basic/../intermediary-01/">Próximo Nivel</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="breve-resumo-sobre-a-linguagem-rust"><a class="header" href="#breve-resumo-sobre-a-linguagem-rust">Breve resumo sobre a linguagem Rust</a></h1>
+<p><a href="https://www.rust-lang.org/pt-BR">Rust</a> é uma linguagem de programação de código aberto, desenvolvida pela Mozilla, seu desenvolvimento iniciou em meados de 2006. No ano de 2010 foi anunciado o Rust 1.0, de lá para cá já aconteceram diversas melhorias e mudanças na linguagem, sua última versão no momento em que este repositório começou a ser escrito é a versão <a href="https://github.com/rust-lang/rust/releases/tag/1.56.1">1.56.1 - Stable</a>.</p>
+<p>Rust é rápido, compilado, gerencia a memória de maneira muito eficiente, sem Garbage Collector, sem runtime, é rico em conteudo e tem uma comunidade gigantesca.</p>
+<ul>
+<li><a href="basic/./02-environment.html">Próximo</a> - Ambiente</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ambiente"><a class="header" href="#ambiente">Ambiente</a></h1>
+<h2 id="instalação-do-rust"><a class="header" href="#instalação-do-rust">Instalação do Rust</a></h2>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<p>As distribuições Linux testadas para a instalação de Rust foram:</p>
+<ul>
+<li>Arch Linux</li>
+<li>Fedora</li>
+<li>Ubuntu</li>
+</ul>
+<p>Para realizar a instalação da linguagem é necessário ter a ferramenta <a href="https://curl.se/">curl</a> instalada no sistema, para a instalação do <code>curl</code> nas distribuições testadas foram utilizados os seguintes métodos:</p>
+<p>Arch Linux:</p>
+<pre><code class="language-bash">sudo pacman -S curl
+</code></pre>
+<p>Fedora:</p>
+<pre><code class="language-bash">sudo dnf install curl
+</code></pre>
+<p>Ubuntu:</p>
+<pre><code class="language-bash">sudo apt install curl
+</code></pre>
+<p>Com a ferramenta <code>curl</code> instalada foi utilizado o método de instalação <a href="https://www.rust-lang.org/pt-BR/learn/get-started">recomendado</a> no site da linguagem:</p>
+<pre><code class="language-bash">curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre>
+<p>Este comando ira baixar o instalador do Rust e executa-lo no shell, para seguir escolha a opção 1 aperte enter. A instalação seria realizada.</p>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<p>OBS. Método de instalação utilizando o gerenciador de pacotes do Windows oficial da Microsoft <a href="https://winget.run/">winget</a>.</p>
+<p>Para instalar o Rust no Windows execute o seguinte comando em um PowerShell como administrador:</p>
+<pre><code class="language-bash">winget install -e --id Rustlang.rust-gnu-x64
+</code></pre>
+<h3 id="validando-instalação"><a class="header" href="#validando-instalação">Validando instalação</a></h3>
+<p>Para validarmos a instalação utilizamos o comando:</p>
+<pre><code class="language-bash">cargo --version
+</code></pre>
+<p>Ele deve nos mostrar algo parecido com isso:</p>
+<pre><code class="language-bash">cargo 1.56.0 (4ed5d137b 2021-10-04)
+</code></pre>
+<p>E logo em sequencia o comando</p>
+<pre><code class="language-bash">rustc --version
+</code></pre>
+<p>O comando deve nos retornar algo parecido com isso:</p>
+<pre><code class="language-bash">rustc 1.56.0 (09c42c458 2021-10-18)
+</code></pre>
+<h1 id="ides"><a class="header" href="#ides">IDEs</a></h1>
+<p>Temos algumas <a href="https://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_integrado">IDE</a>'s que podem facilitar a nossa vida no desenvolvimento utilizando Rust</p>
+<ul>
+<li>
+<p><a href="https://www.jetbrains.com/pt-br/idea/download/">IntelliJ</a> com o Plugin para Rust</p>
+</li>
+<li>
+<p><a href="https://code.visualstudio.com/">VSCode</a> com os seguintes plugins:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">CodeLLDB</a> para debug</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer">rust-analyzer</a> linguage server é util para lermos a documentação e termos o intellisense enquanto codamos</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates">crates</a> para nos ajudar no gerenciamento de dependência do projeto</li>
+</ul>
+</li>
+<li>
+<p><a href="basic/./03-hello-world.html">Próximo</a> - Hello World!</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nosso-primeiro-hello-world"><a class="header" href="#nosso-primeiro-hello-world">Nosso primeiro &quot;Hello World&quot;</a></h1>
+<p>Após a instalação de um compilador nada melhor que iniciarmos com o famoso &quot;Hello World!&quot;, a instalação da linguagem nos fornece a ferramenta <code>cargo</code> com esta ferramenta conseguimos criar  projetos em Rust, gerenciar dependências, rodar testes, rodar a aplicação e dar build na aplicação.</p>
+<p>Para criarmos nosso primeiro projeto, iremos utilizar o seguinte comando:</p>
+<pre><code class="language-bash">cargo new hello-rust
+</code></pre>
+<p>Este comando ira criar um projeto com a seguinte estrutura:</p>
+<pre><code class="language-bash">├── Cargo.toml
+└── src
+    └── main.rs
+</code></pre>
+<p>O arquivo <code>Cargo.toml</code> é o arquivo onde temos as informações sobre o projeto, como nome, versão, autor(es), dependências, opções de build, edição, etc.</p>
+<p>Na pasta <code>src</code> temos o código-fonte do nosso projeto, neste caso o como o nosso projeto é de um executável temos o arquivo <code>main.rs</code>,  nele esta o início de nossa jornada em códigos Rust.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre></pre>
+<p>Temos a palavra reservada <code>fn</code> que é palavra que define uma função, temos o <a href="https://doc.rust-lang.org/book/ch19-06-macros.html">macro</a> <code>println!</code> que é o responsável por escrever no nosso console.</p>
+<p>Executando o comando</p>
+<pre><code class="language-bash">cargo run
+</code></pre>
+<p>Teremos nosso primeiro código em Rust sendo executado e a mensagem <code>Hello, world!</code> sendo mostrada no nosso console. </p>
+<ul>
+<li><a href="basic/./04-data-types.html">Próximo</a> - Tipos de dados!</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tipos-de-dados"><a class="header" href="#tipos-de-dados">Tipos de dados</a></h1>
+<p>Rust é uma linguagem fortemente e estaticamente tipada, nela temos alguns tipos</p>
+<h3 id="tipos"><a class="header" href="#tipos">Tipos</a></h3>
+<table><thead><tr><th>Tipo</th><th>Tamanho</th><th>Valor Máximo</th><th>Valor Mínimo</th><th></th></tr></thead><tbody>
+<tr><td>i8</td><td>1 byte</td><td>127</td><td>-128</td><td>Numérico</td></tr>
+<tr><td>u8</td><td>1 byte</td><td>255</td><td>0</td><td>Numérico</td></tr>
+<tr><td>i16</td><td>2 bytes</td><td>32767</td><td>-32768</td><td>Numérico</td></tr>
+<tr><td>u16</td><td>2 bytes</td><td>65535</td><td>0</td><td>Numérico</td></tr>
+<tr><td>i32</td><td>4 bytes</td><td>2147483647</td><td>-2147483648</td><td>Numérico</td></tr>
+<tr><td>u32</td><td>4 bytes</td><td>4294967295</td><td>0</td><td>Numérico</td></tr>
+<tr><td>i64</td><td>8 bytes</td><td>9223372036854775807</td><td>-9223372036854775808</td><td>Numérico</td></tr>
+<tr><td>u64</td><td>8 bytes</td><td>18446744073709551615</td><td>0</td><td>Numérico</td></tr>
+<tr><td>i128</td><td>16 bytes</td><td>170141183460469231731687303715884105727</td><td>-170141183460469231731687303715884105728</td><td>Numérico</td></tr>
+<tr><td>u128</td><td>16 bytes</td><td>340282366920938463463374607431768211455</td><td>0</td><td>Numérico</td></tr>
+<tr><td>f32</td><td>4 bytes</td><td>340282350...</td><td>-340282350...</td><td>Numérico</td></tr>
+<tr><td>f64</td><td>8 bytes</td><td>1797693134862315700...</td><td>-1797693134862315700...</td><td>Numérico</td></tr>
+<tr><td>bool</td><td>1 byte</td><td>true</td><td>false</td><td>booleano</td></tr>
+<tr><td>char</td><td>depende</td><td>depende</td><td>depende</td><td>character</td></tr>
+</tbody></table>
+<p>Temos também o tipo <code>usize</code> que vai dependender da arquitetura do sistema operacional.</p>
+<h3 id="variáveis"><a class="header" href="#variáveis">Variáveis</a></h3>
+<p>Para declararmos &quot;variáveis&quot; em Rust utilizamos a palavra reservada <code>let</code>, mas o uso de apenas essa palavra para a declaração das &quot;variáveis&quot; armazena tipos imutáveis, para termos variáveis que podem ser alteradas temos que utilizar outra palavra reservada <code>mut</code>.</p>
+<p>Temos dois modos de declarar variáveis, uma em que falamos o tipo para o compilador e outra que o compilador &quot;decide o tipo&quot; para nós. Para a declaração que informamos o tipo temos a seguinte sintaxe <code>let nome: tipo = valor</code> e para a que o compilador decide temos a sintaxe <code>let nome = valor</code>;</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let idade_atual: u8 = 22;
+    let ano_nascimento = 1999; //inferencia de tipo
+
+    println!(&quot;Idade atual {}, ano de nascimento: {}&quot;, idade_atual, ano_nascimento);
+}
+</code></pre></pre>
+<p>No exemplo acima utilizamos a declaração do tipo e inferência do mesmo, mas também podemos dar uma dica ao compilador ao tipo que iremos utilizar, o tipo padrão para números inteiros é <code>i32</code>, mas é um disperdicio de alguns bytes, podemos fazer da seguinte maneira.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let idade_atual: u8 = 22;
+    let ano_nascimento = 1999_u16;
+
+    println!(&quot;Idade atual {}, ano de nascimento: {}&quot;, idade_atual, ano_nascimento);
+}
+</code></pre></pre>
+<p>Deste modo temos outro jeito de informar ao compilador que tipos queremos utilizar, porém, para este exemplo não faz muito sentido.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let crab_power = 100_f32;
+
+    println!(&quot;Poder do carangueijo {}%&quot;, crab_power);
+}
+</code></pre></pre>
+<p>Mas para casos como este, esse tipo de abordagem faz mais sentido.</p>
+<ul>
+<li><a href="basic/./05-operators.html">Próximo</a> - Operadores</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="operadores"><a class="header" href="#operadores">Operadores</a></h1>
+<p>Antes de entrarmos nas estruturas condicionais, precisamos saber os operadores.</p>
+<h2 id="operadores-matemáticos"><a class="header" href="#operadores-matemáticos">Operadores matemáticos</a></h2>
+<table><thead><tr><th>Tipo</th><th>Simbolo</th><th>Ação</th></tr></thead><tbody>
+<tr><td>Soma</td><td>+</td><td>Soma dois valores</td></tr>
+<tr><td>Subtração</td><td>-</td><td>Subtrai dois valores</td></tr>
+<tr><td>Multiplicação</td><td>*</td><td>Multiplica dois valores</td></tr>
+<tr><td>Divisão</td><td>/</td><td>Divide dois valores</td></tr>
+<tr><td>Mod</td><td>%</td><td>Resto de divisão</td></tr>
+<tr><td>Soma atribui</td><td>+=</td><td>Soma e atribui o valor</td></tr>
+<tr><td>Subtrai e atribui</td><td>-=</td><td>Subtrai e atribui o valor</td></tr>
+<tr><td>Multiplica e atribui</td><td>*=</td><td>Multiplica e atribui o valor</td></tr>
+<tr><td>Divide e atribui</td><td>/=</td><td>Divide e atribui o valor</td></tr>
+</tbody></table>
+<p>No capítulo sobre os <a href="basic/./04-data-types.html">tipos de dados</a> mostramos como declarar variáveis e também sobre o caso do Rust precisar de uma palavra extra para essas variáveis serem modificadas, mas não a utilizamos, neste capítulo iremos utilizar, nos exemplos dos usos dos operadores matemáticos.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut n = 10 - 1; //n = 9
+    n = 1 + 2; //n = 3
+    n = 10 * 2; //n = 20
+    n = 10 / 2; //n = 5
+    /*
+    Agora temos o valor de n = a 5, iremos realizar operações de atribuições com base neste valor.
+    */
+    n += 1; //n = 6
+    n -= 2; //n = 4
+    n *= 3; //n = 12
+    n /= 4; //n = 3
+}
+</code></pre></pre>
+<h2 id="operadores-lógicos"><a class="header" href="#operadores-lógicos">Operadores lógicos</a></h2>
+<table><thead><tr><th>Tipo</th><th>Simbolo</th><th>Ação</th></tr></thead><tbody>
+<tr><td>Igual</td><td>==</td><td>Compara se dois valores são iguais</td></tr>
+<tr><td>Diferente</td><td>!=</td><td>Verifica se dois valores são diferentes</td></tr>
+<tr><td>Maior</td><td>&gt;</td><td>Verifica se um valor é maior que outro</td></tr>
+<tr><td>Menor</td><td>&lt;</td><td>Verifica se um valor é menor que outro</td></tr>
+<tr><td>Maior igual</td><td>&gt;=</td><td>Verifica se um valor é maior ou igual a outro</td></tr>
+<tr><td>Maior igual</td><td>&lt;=</td><td>Verifica se um valor é menor ou igual a outro</td></tr>
+</tbody></table>
+<p>O uso dos operadores lógicos iremos ver na <a href="basic/./06-conditions.html">próxima</a> parte</p>
+<ul>
+<li><a href="basic/./06-conditions.html">Próximo</a> - Condicionais </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="condições"><a class="header" href="#condições">Condições</a></h1>
+<p>Em Rust como em todas as linguagens de programação, ou pelo menos a maioria, temos estruturas de decisões, são bem parecidas, com base em uma condição tomamos uma decisão.</p>
+<p>Para utilizar estruturas condicionais em Rust devemos utilizar a palavra reservada <code>if</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = 20;
+    let b = 10;
+    
+    if a &gt; b {
+        println!(&quot;'a' é maior que 'b'&quot;);
+    }
+}
+</code></pre></pre>
+<p>E se quisermos executar algo caso a condição não seja verdadeira?? Utilizamos a palavra <code>else</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = 10;
+    let b = 20;
+    
+    if a &gt; b {
+        println!(&quot;'a' é maior que 'b'&quot;);
+    } else {
+        println!(&quot;'b' é maior que 'a'&quot;);
+    }
+}
+</code></pre></pre>
+<p>Simples né? E se quisermos realizar outra checagem caso a primeira condição não de verdadeira? Simples combinamos o <code>else</code> e o <code>if</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = 10;
+    let b = 20;
+    let c = 15;
+    
+    if a &gt; b {
+        println!(&quot;'a' é maior que 'b'&quot;);
+    } else if b &gt; c {
+        println!(&quot;'b' é maior que 'a'&quot;);
+    } else { //caso não aconteça nenhum dos casos cai aqui
+        println!(&quot;'c' é maior que 'b'&quot;);
+    }
+}
+</code></pre></pre>
+<ul>
+<li><a href="basic/./07-loops.html">Próximo</a> - Loops</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="loops"><a class="header" href="#loops">Loops</a></h1>
+<p>Caso queiramos repetir alguma instrução, várias e várias vezes, o que fazemos? Escrevemos o mesmo código inúmeras vezes? Claro que não, para fazermos isso utilizamos loops.</p>
+<p>Em Rust temos 3 tipos de loops <code>for</code>, <code>while</code> e <code>loop</code>, todos de fácil utilização, todos com suas peculiaridades, mas no fim utilizamos para a mesma coisa, repetir coisas. </p>
+<h2 id="loop-for"><a class="header" href="#loop-for">Loop FOR</a></h2>
+<p>O loop <code>for</code>, provavelmente é o mais utilizado, não necessariamente do modo que iremos aprender agora, mas isso vem depois, agora iremos focar no básico de sua utilização.</p>
+<p>Sua declaração é feita da seguinte maneira <code>for variavel in de..até</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    for i in 0..10 {
+        println!(&quot;{}&quot;, i);
+    }
+}
+</code></pre></pre>
+<p>Agora temos um loop for que vai de 0 até 9, pode não ser muito intuitivo logo de início, lendo o código parece que iria ir de 0 até 10, todavia sempre sera <code>valor até - 1</code></p>
+<h2 id="loop-while"><a class="header" href="#loop-while">Loop WHILE</a></h2>
+<p>O loop <code>while</code> é uma estrutura de repetição que se repete por tempo indeterminado, diferente do loop <code>for</code> ela ira se repetir infinitamente enquanto a condição for verdadeira.</p>
+<p>Sua declaração é <code>while condicao</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut i = 0;
+    while i &lt;= 10 {
+        println!(&quot;{}&quot;, i);
+        i += 1;
+    }
+}
+</code></pre></pre>
+<p>Agora temos um loop <code>while</code>que ira repetir enquanto i for menor ou igual a 10, a partir do momento que esta condição não for satisfeita, o loop ira ser encerrado. </p>
+<p>Em alguns momentos queremos loops infinitos, o que você faria? Utilizaria um <code>while true</code>? Não é necessário no Rust temos...</p>
+<h2 id="loop-loop"><a class="header" href="#loop-loop">Loop &quot;loop&quot;</a></h2>
+<p>Quando queremos ter um loop infinito podemos utilizar a palavra reservada loop, esta palavra cria um bloco que se repete infinitamente</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    loop {
+        println!(&quot;Rust4Noobs&quot;);
+    }
+}
+</code></pre></pre>
+<p>Agora temos um bloco que irá escrever &quot;Rust4Noobs&quot; infinitamente.</p>
+<h2 id="palavra-break"><a class="header" href="#palavra-break">Palavra break</a></h2>
+<p>Nem sempre queremos que um loop execute completamente antes de encerrar, para isso temos a palavra <code>break</code> ela tem a função de parar uma estrutura de repetição. Serve tanto para blocos for, while e loop</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    for i in 1..100 {
+        println!(&quot;{}&quot;, i);
+        if i % 3 == 0 &amp;&amp; i % 9 == 0 {
+            println!(&quot;Parou!&quot;);
+            break;
+        }
+    }
+
+    let mut i = 0;
+    while i &lt;= 100 {
+        println!(&quot;{}&quot;, i);
+        if i == 10 {
+            println!(&quot;Parou!&quot;);
+            break;
+        }
+        i+= 1;
+
+    }
+
+    i = 0;
+
+    loop {
+        println!(&quot;{}&quot;, i);
+        if i == 10 {
+            println!(&quot;Parou!&quot;);
+            break;
+        }
+        i+= 1;
+    }
+}
+</code></pre></pre>
+<h2 id="palavra-continue"><a class="header" href="#palavra-continue">Palavra continue</a></h2>
+<p>Utilizamos a palavra <code>continue</code> quando queremos pular uma parte do loop, por exemplo. Temos um loop de 0 a 99 onde queremos escrever no console todos os números, exceto os múltiplos de 4 e 6 ao mesmo tempo. Podemos usar um continue para isso.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    for i in 0..100 {
+        if i % 4 == 0 &amp;&amp; i % 6 == 0 {
+            continue;
+        }
+        println!(&quot;Numero atual {}&quot;, i);
+    }
+}
+</code></pre></pre>
+<p>Claro isso não se aplica somente ao for, é possível utilizar com <code>while</code> e com <code>loop</code> também</p>
+<ul>
+<li><a href="basic/./08-functions.html">Próximo</a> - Funções</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="funções"><a class="header" href="#funções">Funções</a></h1>
+<p>Em Rust já vimos a função <code>main</code> a função responsável por ser o ponto de partida da nossa aplicação, porém não é muito legal realizarmos todas as operações dentro desta única função, porque além de causar a repetição de código ainda temos um grande problema, ela ficará <strong>GIGANTESCA</strong>, para resolver este problema podemos criar funções menores, que fazem pequenas coisas. </p>
+<h2 id="funções-sem-argumento"><a class="header" href="#funções-sem-argumento">Funções sem argumento</a></h2>
+<p>Temos funções com e sem argumentos, com e sem retorno, agora iremos falar das sem argumentos e com ou sem retorno.</p>
+<p>A declaração de uma função em Rust é simples, utilizamos o seguinte padrão <code>fn nome()</code> ou <code>fn nome() -&gt; tipo retorno</code></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn quanto_e_um_mais_dois() -&gt; u8 {
+    3
+}
+
+fn escreve_hello_world_dez_vezes() {
+    for i in 0..10 {
+        println!(&quot;Hello World!&quot;);
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="retorno-de-funções"><a class="header" href="#retorno-de-funções">Retorno de funções</a></h2>
+<p>Temos dois modos de realizar o retorno de uma função em Rust, um deles é o retorno sendo a última linha do bloco da função sem a palavra <code>return</code> e sem o <code>;</code> o segundo modo é utilizarmos a palavra <code>return</code> propriamente dita.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn retorno_implicito() -&gt; bool {
+    true
+}
+
+fn retorno_explicito() -&gt; u8 {
+    if 10 &gt; 1 {
+        return 200; //a palavra return encerra a função e retorna o valor
+    }
+    1 //retorno implicito na mesma função
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="funções-com-parâmetros"><a class="header" href="#funções-com-parâmetros">Funções com parâmetros</a></h2>
+<p>Temos também podemos passar argumentos nas funções, para isso utilizamos o seguinte padrão de assinatura <code>fn nome_funcao(parametros com seus tipos)</code> ou <code>fn nome_funcao(parametros com seus tipos) -&gt; tipo retorno</code>.</p>
+<p>Por exemplo, precisamos de um programa que faça o cálculo de impostos para uma nota fiscal e no fim deste cálculo nos exiba no console o valor destes impostos.</p>
+<p>O modo mais ingenuo de fazer isso com o que aprendemos até agora seria da seguinte maneira:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let valor = 100.0;
+    let icms = valor * 0.01;
+    let iss = valor * 0.10;
+    println!(&quot;Icms: {}&quot;, icms);
+    println!(&quot;Iss: {}&quot;, iss);
+}
+</code></pre></pre>
+<p>Porém, temos um problema aí, e se eu quiser calcular vários valores diferentes, eu iria repetir este o bloco do cálculo? Não, eu posso extrair este calculo para uma função, a mesma coisa para exibir no console. Ficando da seguinte maneira:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let valor = 100.0;
+    let icms = calcula_icms(valor);
+    let iss = calcula_iss(valor);
+    escreve_icms(icms);
+    escreve_iss(iss);
+}
+
+fn calcula_icms(valor: f32) -&gt; f32 {
+    valor * 0.01
+}
+
+fn calcula_iss(valor: f32) -&gt; f32 {
+    valor * 0.10
+}
+
+fn escreve_icms(icms: f32) {
+    println!(&quot;Icms: {}&quot;, icms);
+}
+
+fn escreve_iss(iss: f32) { 
+    println!(&quot;Iss: {}&quot;, iss);
+}
+</code></pre></pre>
+<p>A primeira instância parece apenas que escrevemos mais, porém com os nomes expressivos conseguimos saber exatamente o que esta acontecendo e podemos chamar estes blocos de códigos de diversos lugares.</p>
+<p>As funções são algo muito útil, mas em Rust temos que ter um certo cuidado com elas, mas este cuidado iremos ver na parte intermediaria deste 4Noobs.</p>
+<ul>
+<li><a href="basic/./09-arrays.html">Próximo</a> - Arrays</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="arrays"><a class="header" href="#arrays">Arrays</a></h1>
+<h1 id="arrays-1"><a class="header" href="#arrays-1">Arrays</a></h1>
+<p>Chegou o momento daquele assunto que é um dos terrores para quem esta começando a programar, os <a href="https://en.wikipedia.org/wiki/Array_data_structure">arrays</a>.</p>
+<p>Array é uma estrutura de dados sequencial que armazena o mesmo tipo de dados, seriam como uma sequência de células de memória indexadas. Geralmente iniciamos sua contagem a partir do número 0.</p>
+<h1 align="center"><img src="basic/../assets/arrays.svg" alt="arrays" width="100%"></h1>
+<p>Em Rust declaramos arrays da seguinte maneira <code>let nome: [tipo; tamanho] = [valor; tamanho]</code>, Rust nos obriga a inicializar o array, então faremos da seguinte maneira.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let array: [u8; 7] = [0; 7];
+}
+</code></pre></pre>
+<p>Deste modo temos um array de 7 posições preenchido com o valor 0, para acessarmos valores específicos dentro do array utilizamos os colchetes <code>[posicao]</code>, para modificarmos qualquer valor dentro do array também precisamos do uso da palavra <code>mut</code>.</p>
+<p>Em um array temos o método <code>len</code> onde conseguimos saber o tamanho do array, este método é muito util para realizar um <a href="basic/./07-loops.html">loop for</a> para percorrer o array.</p>
+<p>Iremos realizar uma simples operação com um array, teremos um array de 10 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut array: [u8; 7] = [0; 7];
+    for i in 0..array.len() {
+        array[i] = i as u8 + 10u8;
+    }
+
+    for i in 0..array.len() {
+        println!(&quot;Pos: {}, val: {}&quot;, i, array[i]);
+    }
+}
+</code></pre></pre>
+<p>O uso da palavra <code>as</code> será discutido depois, após a execução do código acima temos o resultado:</p>
+<pre><code class="language-bash">Pos: 0, val: 10
+Pos: 1, val: 11
+Pos: 2, val: 12
+Pos: 3, val: 13
+Pos: 4, val: 14
+Pos: 5, val: 15
+Pos: 6, val: 16
+</code></pre>
+<p>Também temos outro modo de executar este loop para realizar o print dos valores:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut array: [u8; 7] = [0; 7];
+    for i in 0..array.len() {
+        array[i] = i as u8 + 10u8;
+    }
+
+    for val in array {
+        println!(&quot;Val: {}&quot;, val);
+    }
+}
+</code></pre></pre>
+<p>Do modo em que fizemos perdemos a informação do índice que estamos percorrendo, mas temos o seguinte resultado:</p>
+<pre><code class="language-bash">Val: 10
+Val: 11
+Val: 12
+Val: 13
+Val: 14
+Val: 15
+Val: 16
+</code></pre>
+<p>Para termos o índice de volta podemos fazer da seguinte maneira:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut array: [u8; 7] = [0; 7];
+    for i in 0..array.len() {
+        array[i] = i as u8 + 10u8;
+    }
+
+    for (i, val) in array.iter().enumerate() {
+        println!(&quot;pos: {}, val: {}&quot;, i, val);
+    }
+}
+</code></pre></pre>
+<p>Assim temos a saída:</p>
+<pre><code class="language-bash">pos: 0, val: 10
+pos: 1, val: 11
+pos: 2, val: 12
+pos: 3, val: 13
+pos: 4, val: 14
+pos: 5, val: 15
+pos: 6, val: 16
+</code></pre>
+<ul>
+<li><a href="basic/./10-exercises.html">Próximo</a> - Exercícios</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercícios"><a class="header" href="#exercícios">Exercícios</a></h1>
+<p>Nada melhor que exercícios para praticar o que aprendemos até agora, loops, arrays, operadores, tipos de dados e funções.</p>
+<p>1 - Faça um programa que tenha uma função que recebe um array de inteiros com sinal (aceite números negativos) e devolva a soma dos valores deste array e exiba no console.</p>
+<p>2 - Faça um programa que calcule a média entre quatro notas e informe se foi aprovado ou não e a média, para ser aprovado a média deve ser maior ou igual a 7.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="módulo-intermediário-1"><a class="header" href="#módulo-intermediário-1">Módulo intermediário 1</a></h1>
+<p>Decidi dividir o módulo intermediário em dois, esta parte do módulo intermediário iremos falar sobre as strings, introdução aos ponteiros, sistema de ownership, tuplas, tipos <code>slice</code>, parse e casting.</p>
+<p>Roadmap:</p>
+<ul>
+<li><a href="intermediary-01/./01-strings.html">Strings</a></li>
+<li><a href="intermediary-01/./02-pointers-intro.html">Introdução a ponteiros</a></li>
+<li><a href="intermediary-01/./03-ownership.html">Ownership</a></li>
+<li><a href="intermediary-01/./04-tuples.html">Tuplas</a></li>
+<li><a href="intermediary-01/./05-slices.html">Slices</a></li>
+<li><a href="intermediary-01/./06-user-input.html">Entrada de dados</a></li>
+<li><a href="intermediary-01/./07-exercises.html">Exercicios</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="strings"><a class="header" href="#strings">Strings</a></h1>
+<p>Lembra dos <a href="intermediary-01/../basic/09-arrays.html">Arrays</a>? String são arrays, porém de um tipo específico <code>char</code>, existem varias formas de representar strings em Rust, nesta parte do 4Noobs, iremos utilizar um modo específico com o tipo <a href="https://doc.rust-lang.org/stable/std/string/struct.String.html">String</a>.</p>
+<p>Para declararmos uma String utilizamos o seguinte padrão <code>let nome: String = String::from(texto entre aspas)</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() { 
+    let texto = String::from(&quot;Hello World!&quot;); 
+} 
+</code></pre></pre>
+<p>Acima temos a declaração da nossa String, nela temos alguns métodos, mas nesta parte iremos falar sobre os seguintes métodos len, push, push_str, trim.</p>
+<p>Sendo os métodos <code>push</code> e <code>push_str</code> específicos para Strings mutáveis.</p>
+<h2 id="string-len"><a class="header" href="#string-len">String len</a></h2>
+<p>O método <code>len</code> nos retorna o tamanho da String, seu modo de uso é bem simples, apenas colocamos um <code>.len()</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let texto = String::from(&quot;Rust4Noobs&quot;);
+    let tamanho_texto = texto.len();
+    println!(&quot;O tamanho do texto é: {}&quot;, tamanho_texto);
+}
+</code></pre></pre>
+<h2 id="string-push-e-push_str"><a class="header" href="#string-push-e-push_str">String push e push_str</a></h2>
+<p>Com o método <code>push</code>, conseguimos adicionar um caractere a nossa <code>String</code> e com o <code>push_str</code> conseguimos adicionar outra String.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut texto = String::from(&quot;Rust&quot;);
+    texto.push('4');
+    texto.push_str(&quot;Noobs&quot;);
+    println!(&quot;{}&quot;, texto);
+}
+</code></pre></pre>
+<h2 id="string-trim"><a class="header" href="#string-trim">String trim</a></h2>
+<p>O método <code>trim</code> remove os espaços do início e no fim de uma String, porém não modifica o texto original, ele nos retorna outra String sem estes espaços. O método é bem útil para quando formos realizar algum tipo conversão, mas iremos falar sobre isso posteriormente, por enquanto iremos focar apenas neste método.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let texto = String::from(&quot;   Rust4Noobs   &quot;);
+    println!(&quot;Sem trim: {}
+Com o uso de trim: {}&quot;, texto, texto.trim());
+    println!(&quot;A string original se mantém: {}&quot;, texto);
+}
+</code></pre></pre>
+<p>Não cobrimos alguns pontos importantes sobre este tipo de dado, por conta de alguns conceitos ainda não explicado, futuramente iremos retomar com as <code>Strings</code>. </p>
+<ul>
+<li><a href="intermediary-01/./02-pointers-intro.html">Próximo</a> - Introdução a ponteiros</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introdução-a-ponteiros"><a class="header" href="#introdução-a-ponteiros">Introdução a Ponteiros</a></h1>
+<p>Afinal, o que são <a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">ponteiros</a>? Ponteiros seriam como váriaveis, porém elas armazenam outro tipo de informação, o endereço de memória de outro dado.</p>
+<p>Fazendo uma analogia com o mundo real, a sua casa seria uma variável do tipo Casa, você consegue realizar ações e modifica-la como você deseja <del>desde que não, afete a integridade de sua moradia</del>, mas você tem um conhecido que também pode modificar sua casa, porém ele não mora nela e tem o seu endereço, ele sabe como chegar a sua casa para fazer esta modificação, este seria um ponteiro.</p>
+<p>Ta não foi um bom exemplo, mas creio que fique mais fácil de entender com um desenho.</p>
+<h1 align="center"><img src="intermediary-01/../assets/pointer.svg" alt="arrays" width="100%"></h1>
+<p>Resumidamente os ponteiros simplismente dizem <del>&quot;olha eu sei onde você mora, fica esperto!&quot;</del> &quot;Eu conheço o endereço daquele cara ali&quot;.</p>
+<h2 id="ponteiros-em-rust"><a class="header" href="#ponteiros-em-rust">Ponteiros em Rust</a></h2>
+<p>Lembra que acabamos de ver as <a href="intermediary-01/./01-strings.html">strings</a>, o tipo String é de certa forma um ponteiro, ele aponta para um endereço de memória localizado no <a href="https://blog.pantuza.com/artigos/heap-vs-stack">heap</a>, é um &quot;tipo especial&quot; de ponteiro, mas agora iremos utilizar exemplos mais fáceis de manipular.</p>
+<h3 id="referencia-em-rust"><a class="header" href="#referencia-em-rust">Referencia em Rust</a></h3>
+<p>Para representarmos ponteiros em Rust utilizamos o caractere <code>&amp;</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a: u8 = 10;
+    let b: &amp;u8 = &amp;a;
+    println!(&quot;Valor de a: {}\nvalor de a a partir de b:{}&quot;, a, b)
+}
+</code></pre></pre>
+<p>No exemplo acima a variável 'b' faz referência a variável 'a' do tipo <code>u8</code>. </p>
+<p>Podemos também ter referencias mutáveis, porém existem duas regras, a primeira é a variável referenciada também deve ser mutável, assim podemos alterar o valor de uma variável a partir de outra que a referência, mas para isso realizamos uma &quot;desreferenciação&quot; com o caractere <code>*</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut a: u8 = 10;
+    let b: &amp;mut u8 = &amp;mut a;
+    *b = 20u8;
+    println!(&quot;Valor de a: {}&quot;, a);
+}
+</code></pre></pre>
+<p>A outra regra é, só podemos ter uma única referência mutável para a variável:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut a: u8 = 10;
+    let b: &amp;mut u8 = &amp;mut a;
+    let _c: &amp;mut u8 = &amp;mut a;
+    *b = 20u8;
+    println!(&quot;Valor de a: {}&quot;, a);
+}
+</code></pre></pre>
+<p>Ao tentar compilar o código acima temos o seguinte erro:</p>
+<pre><code class="language-bash">error[E0499]: cannot borrow `a` as mutable more than once at a time
+ --&gt; main.rs:4:23
+  |
+3 |     let b: &amp;mut u8 = &amp;mut a;
+  |                      ------ first mutable borrow occurs here
+4 |     let _c: &amp;mut u8 = &amp;mut a;
+  |                       ^^^^^^ second mutable borrow occurs here
+5 |     *b = 20u8;
+  |     --------- first borrow later used here
+
+error: aborting due to previous error
+</code></pre>
+<p>Com isso entramos no sistema de ownership do Rust, que daremos continuidade na próxima parte desse 4noobs.</p>
+<ul>
+<li><a href="intermediary-01/./03-ownership.html">Próximo</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ownership"><a class="header" href="#ownership">Ownership</a></h1>
+<p>Ownership é o método que Rust usa para o seu gerenciamento de memória, basicamente enquanto algum <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">escopo</a> do código tem aquele pedaço de memória ele é da nossa aplicação, quando esse pedaço de memória sai deste escopo ela é devolvida para o <a href="https://simple.wikipedia.org/wiki/Operating_system">Sistema Operacional</a>.</p>
+<p>Vamos entender um pouco melhor como funciona o escopo de uma variável.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+
+    let a = 10;
+    if a == 10 {
+        let b = 1;
+        /*
+            Neste ponto do código as variaveis 'a' e 'b' existem
+        */
+    }
+    /*
+        a partir deste ponto não é possivel acessar a variavel 'b',
+        pois ela esta fora de escopo
+    */
+    println!(&quot;Valor de b {}&quot;, b);
+}
+</code></pre></pre>
+<p>Ao tentar compilar o código acima temos o seguinte erro:</p>
+<pre><code class="language-bash">error[E0425]: cannot find value `b` in this scope
+  --&gt; main.rs:14:31
+   |
+14 |     println!(&quot;Valor de b {}&quot;, b);
+   |                               ^ help: a local variable with a similar name exists: `a`
+
+error: aborting due to previous error
+</code></pre>
+<p>Neste caso 'b' pertence a um escopo menor do que 'a', a partir do momento que sai do bloco <code>if</code> a variável 'b' desaparece.</p>
+<p>E como isso funciona no sistema de ownership? Para explicar isso iremos utilizar o tipo que aprendemos no começo deste módulo, as <a href="intermediary-01/./01-strings.html">Strings</a>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut meu_texto = String::from(&quot;Rust4Noobs&quot;);
+    printa_string(meu_texto);
+    /*
+        Vamos tentar fazer outra coisa com essa String
+    */
+    meu_texto.push_str(&quot;, é legal!&quot;);
+}
+
+fn printa_string(string: String) {
+    println!(&quot;{}&quot;, string);
+}
+</code></pre></pre>
+<p>Espera... Não compila, temos o seguinte erro:</p>
+<pre><code class="language-bash">error[E0382]: borrow of moved value: `meu_texto`
+ --&gt; main.rs:7:5
+  |
+2 |     let mut meu_texto = String::from(&quot;Rust4Noobs&quot;);
+  |         ------------- move occurs because `meu_texto` has type `String`, which does not implement the `Copy` trait
+3 |     printa_string(meu_texto);
+  |                   --------- value moved here
+...
+7 |     meu_texto.push_str(&quot;, é legal!&quot;);
+  |     ^^^^^^^^^ value borrowed here after move
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0382`.
+</code></pre>
+<p>Vamos entender o que aconteceu aqui.</p>
+<p>O tipo <code>String</code> é um &quot;tipo especial&quot;, ele sempre é passado por referência, nunca é feito uma cópia de seu valor, quando chamamos a função <code>printa_string</code> e em seu parâmetro passamos nossa String, a posse de sua memória é transferida para a função, quando a função termina a memória é devolvida para o Sistema Operacional.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut meu_texto = String::from(&quot;Rust4Noobs&quot;);
+    printa_string(meu_texto);
+    /*
+        Vamos tentar fazer outra coisa com essa String
+    */
+    meu_texto.push_str(&quot;, é legal!&quot;);
+}
+
+fn printa_string(string: String) {
+    println!(&quot;{}&quot;, string);
+} //a partir daqui a memoria foi devolvida para o sistema
+</code></pre></pre>
+<p>Mas se ainda quisermos utilizar a variável <code>meu_texto</code>? Podemos fazer a função <code>printa_string</code> retornar a String passada por argumento e pegar o ownership de volta.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut meu_texto = String::from(&quot;Rust4Noobs&quot;);
+    meu_texto = printa_string(meu_texto);
+    meu_texto.push_str(&quot;, é legal!&quot;);
+    println!(&quot;{}&quot;, meu_texto);
+}
+
+fn printa_string(string: String) -&gt; String {
+    println!(&quot;{}&quot;, string);
+    string
+}
+</code></pre></pre>
+<p>Agora o código ira compilar, todavia esta não é a única maneira de fazer isso, lembra dos <a href="intermediary-01/./02-pointers-intro.html">ponteiros</a>? Vamos utilizar aqui.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut meu_texto = String::from(&quot;Rust4Noobs&quot;);
+    printa_string(&amp;meu_texto);
+    meu_texto.push_str(&quot;, é legal!&quot;);
+    println!(&quot;{}&quot;, meu_texto);
+}
+
+fn printa_string(string: &amp;String) {
+    println!(&quot;{}&quot;, string);
+}
+</code></pre></pre>
+<p>E também funcionou, por enquanto vamos tentar pensar da seguinte maneira, como eu utilizei o ponteiro, eu emprestei a esta função a variável, ela fez o que tinha que fazer e me devolveu. Não perdemos o ownership da variável.</p>
+<p>Utilizando esta estratégia de <a href="https://en.wikipedia.org/wiki/Reference_(computer_science)">passagem por referência</a> conseguimos utilizar algumas outras coisas como as referências mutáveis, modificar o valor sem perder o ownership</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut meu_texto = String::from(&quot;Rust4Noobs&quot;);
+    printa_string(&amp;meu_texto);
+    adiciona_texto(&amp;mut meu_texto);
+    println!(&quot;{}&quot;, meu_texto);
+}
+
+fn printa_string(string: &amp;String) {
+    println!(&quot;{}&quot;, string);
+}
+
+fn adiciona_texto(string: &amp;mut String) {
+    string.push_str(&quot;, é legal!&quot;);
+}
+</code></pre></pre>
+<p>E temos sucesso novamente. </p>
+<ul>
+<li><a href="intermediary-01/./04-tuples.html">Próximo</a> - Tuplas</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuplas"><a class="header" href="#tuplas">Tuplas</a></h1>
+<p>Aprendemos sobre <a href="intermediary-01/../basic/09-arrays.html">arrays</a> no módulo básico, agora iremos falar sobre as tuplas.</p>
+<p>Tuplas é uma &quot;coleção&quot; de dados de tipos diferentes, em uma tupla podemos ter um <code>u8</code>, uma <code>String</code>, um <code>char</code>... Todos juntos, sua declaração é feita da seguinte maneira <code>let tuple: (tipo1, tipo2, tipo3...) = (valor1, valor2, valor3...)</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let tuple: (u8, i32, String, char) = (10, 25, String::from(&quot;Rust4noobs&quot;), 'a');
+    println!(&quot;{:?}&quot;, tuple);
+}
+</code></pre></pre>
+<p>E agora, ainda utilizando o exemplo acima, como eu faço para acessar o valor <code>i32</code> da tupla? Ou seja, o segundo item. Assim como no array começamos a contagem por <code>0</code> nas tuplas também fazemos isso, porém ao invés de utilizarmos os colchetes para acessar, utilizamos o <code>.0</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+              //0,  1, , 2     , 3
+    let tuple: (u8, i32, String, char) = (10, 25, String::from(&quot;Rust4noobs&quot;), 'a');
+    println!(&quot;Valor i32: {}&quot;, tuple.1);
+}
+</code></pre></pre>
+<p>Acessamos o valor i32 e printamos ele.</p>
+<p>Na parte sobre <a href="intermediary-01/./03-ownership.html">ownership</a> utilizamos da estratégia de retornar o que foi passado por parâmetro para não perdemos a posse de memória da variável, podemos fazer isso com tuplas também.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let texto1 = String::from(&quot;Rust&quot;);
+    let texto2 = String::from(&quot;4Noob&quot;);
+    let (mut devolve1, mut devolve2) = printa_duas_strings(texto1, texto2);
+    devolve1.push_str(&quot; qualquercoisasópraterexemplo&quot;);
+    devolve2.push_str(&quot; sérionaotiveideianenhuma&quot;);
+    println!(&quot;{}&quot;, devolve1);
+    println!(&quot;{}&quot;, devolve2);
+}
+
+fn printa_duas_strings(texto1: String, texto2: String) -&gt; (String, String) {
+    println!(&quot;{}&quot;, texto1);
+    println!(&quot;{}&quot;, texto2);
+    (texto1, texto2)
+}
+</code></pre></pre>
+<p>Conseguimos utilizar a mesma estratégia de retornar os parâmetros para não perder o ownership com uma tupla.</p>
+<ul>
+<li><a href="intermediary-01/./05-slices.html">Próximo</a> - Slices</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="slices"><a class="header" href="#slices">Slices</a></h1>
+<p>Nesta parte do 4Noobs, iremos falar sobre os <a href="https://doc.rust-lang.org/rust-by-example/primitives/array.html">Slices</a> e para isso iremos utilizar <a href="intermediary-01/./01-strings.html">String</a> <del>sim, ainda falando sobre esse tipo zZzzzZZZ</del>, claro não é algo exclusivo de String, é apenas um pedaço de algo <del>literalmente</del>, mas como já falamos sobre este cara, vamos usar ele mesmo. <del>Não eu não estou com preguiça</del>.</p>
+<p>Temos o seguinte trecho de código:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let texto: String = String::from(&quot;Rust 4 noobs&quot;);
+}
+</code></pre></pre>
+<p>A partir da String acima, eu quero pegar os 4 primeiros caracteres desta String, como faríamos isso? Utilizaríamos um <code>slice</code>, e com isso vamos ver outro modo de representar uma String.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let texto: String = String::from(&quot;Rust 4 noobs&quot;);
+    let slice = quatro_primeiros(&amp;texto);
+    println!(&quot;{}&quot;, slice);
+}
+
+fn quatro_primeiros(texto: &amp;String) -&gt; &amp;str {
+    &amp;texto[0..4]
+}
+</code></pre></pre>
+<p>Para criar um <code>slice</code> utilizamos os colchetes, e dentro dos colchetes informamos o valor <code>de</code> e o valor <code>até</code>, deste modo criamos um slice da nossa String. Vamos entrar com outro exemplo agora, vamos achar o primeiro espaço e retornar a primeira palavra, com algumas coisas que já vimos até aqui:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let texto: String = String::from(&quot;Rust 4 noobs&quot;);
+    let slice = primeira_palavra(&amp;texto);
+    println!(&quot;{}&quot;, slice);
+}
+
+fn primeira_palavra(texto: &amp;String) -&gt; &amp;str {
+    let bytes = texto.as_bytes();
+    for (i, &amp;item) in bytes.iter().enumerate() {
+        if item == b' ' { //b' ' transforma o espaço em um byte
+            return &amp;texto[0..i]
+        }
+    }
+    &amp;texto[..] //caso não ache retorna a string inteira como um slice
+}
+</code></pre></pre>
+<h1 id="referencia-perdurada"><a class="header" href="#referencia-perdurada">Referencia &quot;perdurada&quot;</a></h1>
+<p>Sendo sincero não encontrei um modo melhor de traduzir &quot;dangling reference&quot;, mas ela ocorre quando tentamos retornar uma referência de algo que já foi devolvido ao Sistema Operacional. Vamos utilizar o nosso primeiro exemplo para demonstrar, vamos remover a passagem por referência da nossa função, pegar o ownership e tentar devolver o <code>slice</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let texto: String = String::from(&quot;Rust 4 noobs&quot;);
+    let slice = quatro_primeiros(&amp;texto);
+    println!(&quot;{}&quot;, slice);
+}
+
+fn quatro_primeiros(texto: String) -&gt; &amp;str {
+    &amp;texto[0..4]
+}
+</code></pre></pre>
+<p>Ao tentar compilar o código acima, tentamos devolver um pedaço da String que foi passada como parâmetro, porém quando esta função sai do escopo devolvemos a memória para o Sistema Operacional, então o slice iria apontar para nada, lembra que Rust é <code>memory safe</code>? Então, o compilador não deixa compilar nos devolvendo o seguinte erro</p>
+<pre><code class="language-bash">error[E0106]: missing lifetime specifier
+ --&gt; main.rs:7:39
+  |
+7 | fn quatro_primeiros(texto: String) -&gt; &amp;str {
+  |                                       ^ expected named lifetime parameter
+  |
+  = help: this function's return type contains a borrowed value with an elided lifetime, but the lifetime cannot be derived from the arguments
+help: consider using the `'static` lifetime
+  |
+7 | fn quatro_primeiros(texto: String) -&gt; &amp;'static str {
+  |                                       ~~~~~~~~
+
+error: aborting due to previous error
+</code></pre>
+<ul>
+<li><a href="intermediary-01/./06-user-input.html">Próximo</a> - Entrada de dados</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="entrada-de-dados"><a class="header" href="#entrada-de-dados">Entrada de dados</a></h1>
+<p>Agora que conhecemos as <a href="intermediary-01/./01-strings.html">Strings</a>, sabemos sobre os ponteiros, sistema de ownership podemos falar sobre a entrada de dados pelo terminal em nossa aplicação. Isso não foi passado antes, pois precisávamos entender alguns conceitos antes de utilizarmos o input de dados.</p>
+<p>Para aceitarmos os dados a partir do console, usamos o seguinte código</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut string = String::new();
+    println!(&quot;Entre com o seu texto: &quot;);
+    std::io::stdin().read_line(&amp;mut string).unwrap();
+    println!(&quot;Voce digitou {}&quot;, string);
+}
+</code></pre></pre>
+<p>Da biblioteca padrão do Rust utilizamos o <code>stdin</code>, ou seja, a entrada padrão de dados, precisamos de um <a href="https://en.wikipedia.org/wiki/Data_buffer">buffer</a>, neste caso utilizamos uma <code>String</code> mutável e vazia, para isso utilizamos o método <code>new</code> e passamos esse <code>buffer</code> como uma referencia mutável para o método <code>read_line</code>, o método <code>unwrap</code> ira fazer a nossa aplicação parar caso a leitura da entrada padrão falhe.</p>
+<h2 id="parse"><a class="header" href="#parse">Parse</a></h2>
+<p>Agora que sabemos como ler uma entrada do usuário, vamos aprender como transformar este texto em um tipo inteiro, por exemplo.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut string = String::new();
+    println!(&quot;Entre com um número: &quot;);
+    std::io::stdin().read_line(&amp;mut string).unwrap();
+    let numero = string.trim().parse::&lt;i32&gt;().unwrap();
+    if numero &gt;= 10 {
+        println!(&quot;Seu número é maior ou igual a 10&quot;);
+    } else {
+        println!(&quot;Seu número é menor que 10&quot;);
+    }
+}
+</code></pre></pre>
+<p>Lembra do método <code>trim</code> sem ele não iramos conseguir fazer esta conversão. O método <code>parse</code> é o responsável por converter de um texto para um tipo inteiro, ou um tipo com ponto flutuante. O tipo entre o sinal de menor e maior é o tipo que iremos fazer o parse.</p>
+<p>Não iremos nos aprofundar tanto neste ponto, mostrando exemplos com todos os tipos de numéricos, mas iremos demonstrar essa conversão com uma inferência de tipo.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut string = String::new();
+    println!(&quot;Entre com um número: &quot;);
+    std::io::stdin().read_line(&amp;mut string).unwrap();
+    let numero = string.trim().parse().unwrap();
+    numero_maior_igual_a_dez(numero);
+}
+
+fn numero_maior_igual_a_dez(numero: i32) {
+    if numero &gt;= 10 {
+        println!(&quot;Seu número é maior ou igual a 10&quot;);
+    } else {
+        println!(&quot;Seu número é menor que 10&quot;);
+    }
+}
+</code></pre></pre>
+<p>O compilador do Rust é inteligente o suficiente para saber que estamos fazendo um parse para o tipo <code>i32</code>, por estarmos chamando a função <code>numero_maior_igual_a_dez</code> que recebe um <code>i32</code> por parâmetro, e este parâmetro é a variável que ira receber o valor do parse.</p>
+<h3 id="casting"><a class="header" href="#casting">Casting</a></h3>
+<p>Se lembra da parte sobre <a href="intermediary-01/../basic/09-arrays.html">arrays</a> quando utilizamos o seguinte trecho de código</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>...
+    let mut array: [u8; 7] = [0; 7];
+    for i in 0..array.len() {
+        array[i] = i as u8 + 10u8;
+    }
+...
+<span class="boring">}
+</span></code></pre></pre>
+<p>Aquela palavra <code>as</code> foi a responsável em transformar um tipo <code>usize</code> em um tipo <code>u8</code>, chamamos este tipo de operação de <a href="https://en.wikipedia.org/wiki/Type_conversion">casting</a>, nem sempre este tipo de operação funciona, como nosso exemplo era um número bem pequeno conseguimos converter para um tipo <code>u8</code>, mas se o valor fosse maior que 255 esta conversão iria falhar, pois ocupara mais do que 1 byte. Então tome cuidado ao utilizar este tipo de operação, exemplo de código que ira falhar, nos dando um resultado não esperado.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a: usize = 10000;
+    let b: u8 = a as u8;
+    println!(&quot;Valor convertido: {}&quot;, b);
+}
+</code></pre></pre>
+<p>Lembrando este exemplo é apenas para tipos primitivos, futuramente iremos aprender outros tipos e iremos ver que nem sempre é possível realizar esta operação.</p>
+<ul>
+<li><a href="intermediary-01/./07-exercises.html">Próximo</a> - Exercicios</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercicios"><a class="header" href="#exercicios">Exercicios</a></h1>
+<p>Esta na hora de praticar com base no que vimos neste módulo.</p>
+<p>1 - Faça um programa que receba um número de no máximo 255 como entrada do usuario e informe em qual grau o numero esta encaixado, conforme as especificações:</p>
+<ul>
+<li>1° grau entre 0 e 50</li>
+<li>2° grau entre 51 e 120</li>
+<li>3° grau entre 121 e 200</li>
+<li>4° grau acima de 200</li>
+</ul>
+<p>2 - Faça um programa que tenha a String &quot;Rust4Noobs&quot; e receba do usuario outra String que sera adicionada a String já existente. E escreva no console.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="intermediario-2"><a class="header" href="#intermediario-2">Intermediario 2</a></h1>
+<p>Vamos a segunda parte do módulo intermediario, o módulo foi divido em duas partes por conta do conteúdo do <a href="intermediary-02/../intermediary-01">Intermediario 1</a> não ser tão basico e nem tão &quot;intermediario&quot;, nesta parte iremos falar sobre: struct, enum, match, traits, Option, Result, &quot;if let&quot;, generics e algumas colecoes</p>
+<p>Roadmap:</p>
+<ul>
+<li><a href="intermediary-02/./01-structs.html">Struct</a></li>
+<li><a href="intermediary-02/./02-enums.html">Enum</a></li>
+<li><a href="intermediary-02/./03-match.html">Match</a></li>
+<li><a href="intermediary-02/./04-modules.html">Modulos</a></li>
+<li><a href="intermediary-02/./05-generics.html">Generics</a></li>
+<li><a href="intermediary-02/./06-traits.html">Traits</a></li>
+<li><a href="intermediary-02/./07-option.html">Enum especial Option</a></li>
+<li><a href="intermediary-02/./08-vec.html">Coleções: Vec</a></li>
+<li><a href="intermediary-02/./09-hashset.html">Coleções: HashSet</a></li>
+<li><a href="intermediary-02/./10-hashmap.html">Coleções: HashMap</a></li>
+<li><a href="intermediary-02/./11-result.html">Tratamento de erros</a></li>
+<li><a href="intermediary-02/./12-panic.html">Macro panic!</a></li>
+<li><a href="intermediary-02/./13-tests.html">Testes</a></li>
+<li><a href="intermediary-02/./14-snake.html">Mini projeto - Snake Game</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="structs"><a class="header" href="#structs">Structs</a></h1>
+<p>Struct no modo mais simples de se falar é uma estrutura de valores em &quot;uma única variável&quot;. Não consigo pensar em um modo mais fácil de explicar com palavras o que seria uma &quot;struct&quot;, sua declaração é simples ela segue o seguinte padrão <code>struct Nome { campos }</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Cliente {
+    nome: String,
+    ano_de_nascimento: u16,
+    documento: String,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>O modo de declaração dos campos/atributos de uma struct lembra bastante o de um <a href="https://en.wikipedia.org/wiki/JSON">json</a>, para criarmos uma variável de uma struct podemos fazer da seguinte maneira:</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração da estrutura Cliente
+
+fn main() {
+    let cliente: Cliente = Cliente { 
+        nome: String::from(&quot;Paulo&quot;),
+        ano_de_nascimento: 1999, 
+        documento: String::from(&quot;Onde?&quot;) 
+    };
+}
+</code></pre></pre>
+<p>Podemos acessar os campos da variável utilizando apenas um &quot;.nome_do_campo&quot;.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração da estrutura Cliente
+
+fn main() {
+    let cliente = Cliente { 
+        nome: String::from(&quot;Paulo&quot;),
+        ano_de_nascimento: 1999, 
+        documento: String::from(&quot;Onde?&quot;) 
+    };
+    println!(&quot;Nome do cliente: {}&quot;, cliente.nome);
+}
+</code></pre></pre>
+<h2 id="declarando-comportamento-para-uma-struct"><a class="header" href="#declarando-comportamento-para-uma-struct">Declarando comportamento para uma Struct</a></h2>
+<p>Em Rust uma struct pode ter funções associadas a ela, essas funções são chamadas de métodos, aqui temos uma das características de <a href="intermediary-02/">Programação Orientada a Objetos</a> no Rust, como a linguagem é de multiparadigmas temos alguns recursos desse modo de programação disponível.</p>
+<p>Para implementarmos métodos para a struct <code>Cliente</code> utilizamos a palavra reservada <code>impl</code> seguida do nome da estrutura <code>impl Cliente { implementações }</code>, vamos começar com a implementação de um método estático para nos auxiliar na criação de variáveis do tipo <code>Cliente</code>.</p>
+<pre><pre class="playground"><code class="language-rust">struct Cliente {
+    nome: String,
+    ano_de_nascimento: u16,
+    documento: String,
+}
+
+impl Cliente {
+    fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+        Self {
+            nome: nome,
+            ano_de_nascimento,
+            /*
+                Como o atributo tem o mesmo nome do parametro/variavel eu não preciso colocar o padrão chave:valor
+            */
+            documento
+        }
+    }
+}
+
+fn main() {
+    let cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+    println!(&quot;Nome do cliente: {}&quot;, cliente.nome);
+}
+</code></pre></pre>
+<p>A palavra <code>Self</code> com 'S' maiúsculo é um modo de falar que estamos se referindo a própria struct que esta sendo implementada.</p>
+<p>Temos também métodos que dependem de uma <a href="https://en.wikipedia.org/wiki/Instance_(computer_science)">instância</a> da struct, para este tipo de métodos utilizamos a própria struct utilizando a palavra <code>self</code> com 's' minúsculo como parâmetro do método, pode ser uma referência mutável, imutável ou pode não ser referência, porém, não sendo uma referência perdemos o ownership da struct e sua memória é liberada.</p>
+<pre><pre class="playground"><code class="language-rust">struct Cliente {
+    nome: String,
+    ano_de_nascimento: u16,
+    documento: String,
+}
+
+impl Cliente {
+    fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+        Self {
+            nome: nome,
+            ano_de_nascimento,
+            /*
+                Como o atributo tem o mesmo nome do 
+                parametro/variavel eu não preciso 
+                colocar o padrão chave:valor
+            */
+            documento
+        }
+    }
+
+    fn diz_oi(&amp;self) {
+        println!(&quot;{} disse oi&quot;, self.nome);
+    }
+    
+    fn diz_tchau(self) {
+        println!(&quot;{} disse tchau e foi embora&quot;, self.nome);
+    } 
+
+    fn mudar_nome(&amp;mut self, novo_nome: String) {
+        //para utilizar este método a instância de 
+        //cliente deve ser mutável
+        self.nome = novo_nome;
+    }
+}
+
+fn main() {
+    let mut cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+    cliente.diz_oi();
+    cliente.mudar_nome(String::from(&quot;Novo nome&quot;)); 
+    cliente.diz_oi();
+    cliente.diz_tchau(); //a partir daqui a memoria deste               //cliente foi liberada não conseguimos mais utilizar
+}
+</code></pre></pre>
+<p>Caso tentarmos utilizar a instância de cliente após a chamada do método <code>diz_tchau</code> teremos o seguinte erro</p>
+<pre><code class="language-bash">  --&gt; main.rs:42:5
+   |
+37 |     let mut cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+   |         ----------- move occurs because `cliente` has type `Cliente`, which does not implement the `Copy` trait
+...
+41 |     cliente.diz_tchau(); //a partir daqui a memoria deste      
+   |             ----------- `cliente` moved due to this method call
+42 |     cliente.diz_oi();         //cliente foi liberada não conseguimos mais utilizar
+   |     ^^^^^^^ value borrowed here after move
+   |
+note: this function takes ownership of the receiver `self`, which moves `cliente`
+  --&gt; main.rs:25:18
+   |
+25 |     fn diz_tchau(self) {
+   |                  ^^^^
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0382`.
+</code></pre>
+<ul>
+<li><a href="intermediary-02/./02-enums.html">Próximo</a> - Enum</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="enum"><a class="header" href="#enum">Enum</a></h1>
+<p>Afinal para que serve um enum?</p>
+<p>Um enum é uma forma de declarar constantes, de forma mais semântica, sua declaração é feita da seguinte maneira <code>enum Nome { valores }</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Uf {
+    Sp,
+    Rj,
+    Ce,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Os enums em Rust, podem também armazenar valores de forma parecida com uma <a href="intermediary-02/../intermediary-01/04-tuples.html">tupla</a>, mas o modo de recuperar o valor sera mais explicado com mais detalhes na próxima parte.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Uf {
+    Sp(String),
+    Rj(String),
+    Ce(String),
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Por enquanto vamos fazer a seguinte alteração neste <code>enum</code> para conseguirmos escrever no console o valor do Enum</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[derive(Debug)]
+enum Uf {
+    Sp(String),
+    Rj(String),
+    Ce(String),
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Esta alteração que fizemos também pode ser aplicada as <a href="intermediary-02/./01-structs.html">structs</a>, para tirarmos proveito desta modificação iremos usar o macro <code>println!</code> da seguinte maneira.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+fn main() {
+    let uf = Uf::Sp(String::from(&quot;São Paulo&quot;));
+    println!(&quot;{:?}&quot;, uf);
+    println!(&quot;{:#?}&quot;, uf);
+}
+</code></pre></pre>
+<p>Este modo de uso ira escrever no console o modo em que a estrutura foi declarada, tanto para os enums quanto para as <a href="intermediary-02/./01-structs.html">structs</a>.</p>
+<h2 id="métodos-em-enums"><a class="header" href="#métodos-em-enums">Métodos em enums.</a></h2>
+<p>Também conseguimos implementar métodos para nossos enums, do mesmo modo que fazemos com as <code>structs</code>.</p>
+<pre><pre class="playground"><code class="language-rust">//--Declaração do enum
+impl Uf {
+    fn retorna_sp() -&gt; Self {
+        Self::Sp(String::from(&quot;São Paulo&quot;))
+    }
+
+    fn quem_sou_eu(&amp;self) {
+        todo!()
+    }
+}
+
+fn main() {
+    let uf = Uf::retorna_sp();
+    println!(&quot;{:?}&quot;, uf);
+    println!(&quot;{:#?}&quot;, uf);
+}
+</code></pre></pre>
+<p>Na implementação acima temos o método <code>retorna_sp</code> que ira retornar um enum já com o valor preenchido, e temos também o método <code>quem_sou_eu</code> que iremos implementar na próxima parte deste 4noobs.</p>
+<ul>
+<li><a href="intermediary-02/./03-match.html">Próximo</a> - Match</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="match"><a class="header" href="#match">Match</a></h1>
+<p>Em Rust não temos a estrutura de decisão <a href="https://en.wikipedia.org/wiki/Switch_statement">switch</a>, em seu lugar temos a expressão <code>match</code>, o seu comportamento é parecido, porém, com alguns recursos a mais. Vamos retomar aquele código dos <a href="intermediary-02/./02-enums.html">enums</a>.</p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+enum Uf {
+    Sp(String),
+    Rj(String),
+    Ce(String),
+}
+
+impl Uf {
+    fn retorna_sp() -&gt; Self {
+        Self::Sp(String::from(&quot;São Paulo&quot;))
+    }
+
+    fn quem_sou_eu(&amp;self) {
+        todo!()
+    }
+}
+
+fn main() {
+    let uf = Uf::retorna_sp();
+    println!(&quot;{:?}&quot;, uf);
+    println!(&quot;{:#?}&quot;, uf);
+}
+</code></pre></pre>
+<p>Ficamos de implementar o método <code>quem_sou_eu</code> de propósito, nele iremos utilizar a estrutura de decisão <code>match</code>. </p>
+<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+impl Uf {
+    //--outros métodos
+    fn quem_sou_eu(&amp;self) {
+        match self {
+            Sp(_) =&gt; println!(&quot;Eu sou São Paulo&quot;),
+        }
+    }
+}
+
+fn main() {
+    let uf = Uf::retorna_sp();
+    uf.quem_sou_eu();
+}
+</code></pre></pre>
+<p>Caso tentarmos compilar o código, teremos o seguinte erro:</p>
+<pre><code class="language-bash">error[E0004]: non-exhaustive patterns: `&amp;Rj(_)` and `&amp;Ce(_)` not covered
+  --&gt; main.rs:14:15
+   |
+2  | / enum Uf {
+3  | |     Sp(String),
+4  | |     Rj(String),
+   | |     -- not covered
+5  | |     Ce(String),
+   | |     -- not covered
+6  | | }
+   | |_- `Uf` defined here
+...
+14 |           match self {
+   |                 ^^^^ patterns `&amp;Rj(_)` and `&amp;Ce(_)` not covered
+   |
+   = help: ensure that all possible cases are being handled, possibly by adding wildcards or more match arms
+   = note: the matched value is of type `&amp;Uf`
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0004`.
+</code></pre>
+<p>O porquê deste erro?</p>
+<p>Rust nos obriga a cobrir todos os casos que podem acontecer. Para isso vamos fazer a seguinte alteração.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+impl Uf {
+    //--outros métodos
+    fn quem_sou_eu(&amp;self) {
+        match self {
+            Uf::Sp(_) =&gt; println!(&quot;Eu sou São Paulo&quot;),
+            Uf::Rj(_) =&gt; println!(&quot;Eu sou Rio de Janeiro&quot;),
+            Uf::Ce(_) =&gt; println!(&quot;Eu sou Ceará&quot;),
+        }
+    }
+}
+
+fn main() {
+    let uf = Uf::retorna_sp();
+    uf.quem_sou_eu();
+}
+</code></pre></pre>
+<p>Agora nosso código ira rodar, mas reparem que eu posso criar uma instância de <code>enum</code> com um valor e o código se repete nos 3 casos. Eu posso melhorar isso um pouco, realizando a troca do '_' por um nome, e também posso deixar todos no mesmo 'match' utilizando um pipe '|'.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+impl Uf {
+    //--outros métodos
+    fn quem_sou_eu(&amp;self) {
+        match self {
+            Uf::Sp(nome) | Uf::Rj(nome) | Uf::Ce(nome) =&gt; println!(&quot;Eu sou {}&quot;, nome),
+        }
+    }
+}
+
+fn main() {
+    let uf = Uf::retorna_sp();
+    uf.quem_sou_eu();
+}
+</code></pre></pre>
+<p>E temos o mesmo resultado. Porém se tivermos várias e várias opções e eu não precisar capturar os valores e terem a mesma tratativa. Porém, caso quisermos utilizar o mesmo modo acima e tivermos enum com quantidade de valores diferentes ou incompatíveis precisamos ignorar todos os valores não correspondentes para isso usamos o '_'.</p>
+<pre><pre class="playground"><code class="language-rust">enum Repositorio {
+    Este(String, u16),
+    Outros(String, u16, u8),
+}
+
+fn main() {
+    let url_rust4noobs = String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;);
+    let qtd_stars_atuais_rust4noobs: u16 = 22;
+    let url_4noobs = String::from(&quot;https://github.com/he4rt/4noobs&quot;);
+    let qtd_stars_atuais_4noobs: u16 = 1964;
+    let qualquer_numero_so_para_diferenciar: u8 = 20;
+
+    let rust4noobs = Repositorio::Este(url_rust4noobs, qtd_stars_atuais_rust4noobs);
+    let _4noobs = Repositorio::Outros(url_4noobs, qtd_stars_atuais_4noobs, qualquer_numero_so_para_diferenciar);
+
+    match rust4noobs {
+        Repositorio::Este(url, stars) | Repositorio::Outros(url, stars, _) =&gt; println!(&quot;Repositorio {}, estrelas {}&quot;, url, stars),
+    }
+}
+</code></pre></pre>
+<p>Claro podemos quebrar em mais 'match' para não perder essas informações.</p>
+<pre><pre class="playground"><code class="language-rust">enum Repositorio {
+    Este(String, u16),
+    Outros(String, u16, u8),
+}
+
+fn main() {
+    let url_rust4noobs = String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;);
+    let qtd_stars_atuais_rust4noobs: u16 = 22;
+    let url_4noobs = String::from(&quot;https://github.com/he4rt/4noobs&quot;);
+    let qtd_stars_atuais_4noobs: u16 = 1964;
+    let qualquer_numero_so_para_diferenciar: u8 = 20;
+
+    let rust4noobs = Repositorio::Este(url_rust4noobs, qtd_stars_atuais_rust4noobs);
+    let _4noobs = Repositorio::Outros(url_4noobs, qtd_stars_atuais_4noobs, qualquer_numero_so_para_diferenciar);
+
+    match rust4noobs {
+        Repositorio::Este(url, stars) =&gt; println!(&quot;Repositorio {}, estrelas {}&quot;, url, stars),
+        Repositorio::Outros(url, stars, n) =&gt; println!(&quot;Repositorio {}, estrelas {}, numero aleatório para diferneciar {}&quot;, url, stars, n),
+    }
+}
+</code></pre></pre>
+<p>E se eu tenho, por exemplo  um <code>u8</code> eu preciso realizar um 'match' para cada possibilidade? Não eu posso fazer um 'match' com o '<em>' novamente, seria como o 'default' do switch, mas lembre-se quando usamos o '</em>' ignoramos o valor.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let numero: u8 = 10;
+    match numero {
+        1 =&gt; println!(&quot;Um&quot;),
+        2 =&gt; println!(&quot;Dois&quot;),
+        3 =&gt; println!(&quot;Três&quot;),
+        _ =&gt; println!(&quot;Qualquer outro numero&quot;)
+    }
+}
+</code></pre></pre>
+<p>Com o código acima cobrimos todas as possibilidades possíveis e qualquer valor que não seja 1, 2 ou 3 teremos a mesma tratativa. </p>
+<p>A expressão match também pode ser utilizada comparar por uma faixa de valor. Utilizando a o 'match' da seguinte maneira 'inicio..=fim'</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let numero = 20;
+    match numero {
+        0..=9 =&gt; println!(&quot;Menor que 10&quot;),
+        _ =&gt; println!(&quot;Igual ou maior que 10&quot;)
+    }
+}
+</code></pre></pre>
+<p>Ou podemos também utilizar o match para retornar algum valor de qualquer tipo. Mas todos os pontos de retornos tem que ser do mesmo tipo, ou algum tipo de expressão como <code>continue</code>, <code>return</code>, vamos usar o mesmo exemplo anterior, contudo retornando um boolean e armazenando em uma variável.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let numero = 20;
+    let menor_que_10 = match numero {
+        0..=9 =&gt; true,
+        _ =&gt; false
+    };
+    if menor_que_10 {
+        println!(&quot;Menor que 10&quot;);
+    } else {
+        println!(&quot;Igual ou maior que 10&quot;);
+    }
+}
+</code></pre></pre>
+<p>Match é uma estrutura bem poderosa, e seu uso é relativamente simples <del>por enquanto</del></p>
+<ul>
+<li><a href="intermediary-02/./04-modules.html">Próximo</a> - Módulos</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="módulos"><a class="header" href="#módulos">Módulos</a></h1>
+<p>Os módulos são a forma em que o Rust tem para organizar o código, eles podem ser feitos no mesmo arquivo, em arquivos diferentes, ou em até subdiretórios do projeto.</p>
+<p>Vamos pegar aquele primeiro exemplo utilizado nas <a href="intermediary-02/./01-structs.html">structs</a> e colocar ele dentro de um módulo, para declarar um módulo fazemos da seguinte maneira <code>mod NomeDoModulo { conteudo }</code>.</p>
+<pre><pre class="playground"><code class="language-rust">mod nota_fiscal {
+    struct Cliente {
+        nome: String,
+        ano_de_nascimento: u16,
+        documento: String,
+    }
+
+    impl Cliente {
+        fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+            Self {
+                nome,
+                ano_de_nascimento,
+                documento
+            }
+        }
+    }
+}
+
+fn main() {
+    let cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+}
+</code></pre></pre>
+<p>Separamos a struct <code>Cliente</code> em outro módulo, agora vamos tentar compilar este código... Espera temos um erro.</p>
+<pre><code class="language-bash">error[E0433]: failed to resolve: use of undeclared type `Cliente`
+  --&gt; src/main.rs:20:23
+   |
+20 |     let mut cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+   |                       ^^^^^^^ not found in this scope
+   |
+help: consider importing this struct
+   |
+1  | use crate::nota_fiscal::Cliente;
+   |
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `modulos` due to previous error
+</code></pre>
+<p>A struct não foi encontrada no escopo. O compilador esta dizendo para importamos o cliente, vamos importar utilizando o que o compilador diz para importar <code>use crate::nota_fiscal::Cliente;</code></p>
+<pre><pre class="playground"><code class="language-rust">//--declaração do modulo
+
+use crate::nota_fiscal::Cliente;
+
+use crate::nota_fiscal::Cliente;
+
+fn main() {
+    let cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+}
+</code></pre></pre>
+<p>E compilamos... Outro erro.</p>
+<pre><code class="language-bash">error[E0603]: struct `Cliente` is private
+  --&gt; src/main.rs:19:24
+   |
+19 | use crate::nota_fiscal::Cliente;
+   |                        ^^^^^^^ private struct
+   |
+note: the struct `Cliente` is defined here
+  --&gt; src/main.rs:2:5
+   |
+2  |     struct Cliente {
+   |     ^^^^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0603`.
+error: could not compile `modulos` due to previous error
+</code></pre>
+<p>Por padrão todas as declarações dentro de um módulo são privadas, para resolvermos este problema utilizamos a palavra <code>pub</code>, vamos adicionar isso tanto para a struct quanto para a implementação do método estático <code>new</code>, porque ele também é privado.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod nota_fiscal {
+    pub struct Cliente {
+        nome: String,
+        ano_de_nascimento: u16,
+        documento: String,
+    }
+
+    impl Cliente {
+        pub fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+            Self {
+                nome,
+                ano_de_nascimento,
+                documento
+            }
+        }
+    }
+}
+
+//--método main
+<span class="boring">}
+</span></code></pre></pre>
+<p>Os atributos também são privados, caso tentarmos acessar qualquer um deles teremos outro erro de compilação, podemos acessar através de outros métodos públicos, ou deixando os atributos públicos.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod nota_fiscal {
+    pub struct Cliente {
+        pub nome: String,
+        pub ano_de_nascimento: u16,
+        pub documento: String,
+    }
+//--métodos
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="separando-módulos-em-outros-arquivos"><a class="header" href="#separando-módulos-em-outros-arquivos">Separando módulos em outros arquivos</a></h2>
+<p>Não adianta muito criamos módulos para organizar o nosso código e mantermos tudo no mesmo arquivo. Vamos começar criando um arquivo <code>nota_fiscal.rs</code> e jogando o código do Cliente para este arquivo.</p>
+<p>A estrutura do nosso projeto fica da seguinte maneira.</p>
+<pre><code class="language-bash">.
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── main.rs
+    └── nota_fiscal.rs
+</code></pre>
+<p>main.rs</p>
+<pre><pre class="playground"><code class="language-rust">mod nota_fiscal;
+
+use crate::nota_fiscal::Cliente;
+
+fn main() {
+    let cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+    println!(
+        &quot;Nome: {}\nAno de nascimento: {}, Documento: {}&quot;,
+        cliente.nome, cliente.ano_de_nascimento, cliente.documento
+    );
+}
+</code></pre></pre>
+<p>nota_fiscal.rs</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Cliente {
+    pub nome: String,
+    pub ano_de_nascimento: u16,
+    pub documento: String,
+}
+
+impl Cliente {
+    pub fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+        Self {
+            nome,
+            ano_de_nascimento,
+            documento,
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Agora o projeto dividido. Porém, esta não é a única maneira, podemos utilizar uma pasta com o mesmo nome <code>nota_fiscal</code> e dentro da pasta um arquivo <code>mod.rs</code>, para termos o mesmo efeito.</p>
+<p>E teríamos a seguinte estrutura de projeto.</p>
+<pre><code class="language-bash">.
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── main.rs
+    └── nota_fiscal
+        └── mod.rs
+</code></pre>
+<p>O código de <code>nota_fiscal.rs</code> é transferido para <code>mod.rs</code> na pasta <code>nota_fiscal</code> e nada mais é mudado. Temos o mesmo comportamento e o código dividido em módulos.</p>
+<h3 id="importando-e-re-exportando-modulos"><a class="header" href="#importando-e-re-exportando-modulos">Importando e re-exportando modulos</a></h3>
+<p>Vamos realizar a criação de um módulo chamado <code>pedido</code> dentro de nosso modulo <code>nota_fiscal</code> e dentro do módulo <code>pedido</code> vamos criar um módulo <code>produto</code>.</p>
+<p>A estrutura do nosso projeto ficara da seguinte maneira:</p>
+<pre><code class="language-bash">.
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── main.rs
+    └── nota_fiscal
+        ├── mod.rs
+        └── pedido
+            └── mod.rs
+</code></pre>
+<p>nota_fiscal/mod.rs</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub mod pedido;
+
+#[derive(Debug)]
+pub struct Cliente {
+    pub nome: String,
+    pub ano_de_nascimento: u16,
+    pub documento: String,
+}
+
+impl Cliente {
+    pub fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+        Self {
+            nome,
+            ano_de_nascimento,
+            documento
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>nota_fiscal/pedido/mod.rs</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use self::produto::Produto;
+
+use super::Cliente;
+
+#[derive(Debug)]
+pub struct Pedido&lt;'a&gt; {
+    pub cliente: Cliente,
+    pub produtos: &amp;'a [Produto]
+}
+
+impl&lt;'a&gt; Pedido&lt;'a&gt; {
+    pub fn new(cliente: Cliente, produtos: &amp;'a [Produto]) -&gt; Self {
+        Self {
+            cliente,
+            produtos
+        }
+    }
+}
+
+pub mod produto {
+    #[derive(Debug)]
+    pub struct Produto {
+        pub nome: String,
+        pub preco: f64
+    }
+
+    impl Produto {
+        pub fn new(nome: String, preco: f64) -&gt; Self {
+            Self {
+                nome,
+                preco
+            }
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>main.rs</p>
+<pre><pre class="playground"><code class="language-rust">mod nota_fiscal;
+
+use nota_fiscal::pedido::{Pedido, produto::Produto};
+
+use crate::nota_fiscal::Cliente;
+
+fn main() {
+    let cliente = Cliente::new(String::from(&quot;Rust4Noobs&quot;),
+1999, String::from(&quot;Q?&quot;));
+    let produto = Produto::new(String::from(&quot;4Noobs&quot;), 0f64);
+    let produtos = &amp;[produto];
+    let pedido = Pedido::new(cliente, produtos);
+    println!(&quot;{:#?}&quot;, pedido)
+}
+
+</code></pre></pre>
+<p>Nesse exemplo temos vários modos de imports, temos um impor com a palavra <code>crate</code> que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o <code>super</code> que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais facil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. </p>
+<p>Futuramente iremos utilizar outro modo de projeto que ira utilizar o arquivo <code>lib.rs</code>, onde também podemos declarar os módulos e remover isso do <code>main.rs</code>, com esse arquivo podemos importar conforme o nome do projeto no <code>Cargo.toml</code></p>
+<p>lib.rs</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub mod nota_fiscal;
+<span class="boring">}
+</span></code></pre></pre>
+<p>main.rs</p>
+<pre><pre class="playground"><code class="language-rust">use modulos::nota_fiscal::pedido::{Pedido, produto::Produto};
+
+use modulos::nota_fiscal::Cliente;
+
+fn main() {
+    let cliente = Cliente::new(String::from(&quot;Rust4Noobs&quot;),
+1999, String::from(&quot;Q?&quot;));
+    let produto = Produto::new(String::from(&quot;4Noobs&quot;), 0f64);
+    let produtos = &amp;[produto];
+    let pedido = Pedido::new(cliente, produtos);
+    println!(&quot;{:#?}&quot;, pedido)
+}
+
+</code></pre></pre>
+<ul>
+<li><a href="intermediary-02/./05-generics.html">Próximo</a> - Generics</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generics"><a class="header" href="#generics">Generics</a></h1>
+<p>Afinal o que são Generics?</p>
+<p>Generics é um modo de reaproveitar um código substituindo um tipo 'T' por um tipo concreto. O compilador de Rust, gera implementações com o tipo concreto para cada uso do generic, ele faz isso para não perdemos performance em tempo de execução.</p>
+<h2 id="declaração-de-um-generic"><a class="header" href="#declaração-de-um-generic">Declaração de um Generic</a></h2>
+<p>Para declarar um generic. Utilizamos o seguinte padrão <code>struct Nome&lt;T&gt; { implementacao }</code></p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+struct Cliente&lt;T&gt; {
+    nome: String,
+    ano_nascimento: u16,
+    documento: T
+}
+
+fn main() {
+    let cliente: Cliente&lt;String&gt; = Cliente::&lt;String&gt; { 
+        nome: String::from(&quot;Rust4Noobs&quot;), 
+        ano_nascimento: 2021,
+        documento: String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;) 
+    }; 
+
+    println!(&quot;{:#?}&quot;, cliente);
+}
+</code></pre></pre>
+<p>Do modo acima, o documento do <code>Cliente</code>, pode ser, uma String, um inteiro, um Enum, outra <code>struct</code>.</p>
+<h3 id="implementando-um-método-genérico"><a class="header" href="#implementando-um-método-genérico">Implementando um método genérico.</a></h3>
+<p>Continuando o exemplo acima, lembra da parte sobre as <a href="intermediary-02/./01-structs.html">structs</a> onde implementamos o método estático <code>new</code>, como que ficaria para este exemplo usando generic?</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+impl&lt;T&gt; Cliente&lt;T&gt; {
+    fn new(nome: String, ano_nascimento: u16, documento: T) -&gt; Self {
+        Self {
+            nome,
+            ano_nascimento,
+            documento
+        }
+    }
+}
+
+fn main() {
+    let cliente = Cliente::new(String::from(&quot;Rust4Noobs&quot;), 
+        2021, 
+        String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;));
+    println!(&quot;{:#?}&quot;, cliente);
+    let cliente2 = Cliente::new(String::from(&quot;Rust4Noobs&quot;), 
+        2021, 
+        123456789);
+    println!(&quot;{:#?}&quot;, cliente2);
+}
+</code></pre></pre>
+<p>Eu não necessariamente tenho um limite de quantidade de Generics em uma struct. Por exemplo, e se nessa minha struct de Cliente eu quiser que o <code>ano_nascimento</code> possa ter outro tipo além de <code>u16</code>?</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[derive(Debug)]
+struct Cliente&lt;T, U&gt; {
+    nome: String,
+    ano_nascimento: U,
+    documento: T
+}
+
+impl&lt;T, U&gt; Cliente&lt;T, U&gt; {
+     fn new(nome: String, ano_nascimento: U, documento: T) -&gt; Self {
+        Self {
+            nome,
+            ano_nascimento,
+            documento
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="funcõesmétodos-com-generics"><a class="header" href="#funcõesmétodos-com-generics">Funcões/Métodos com Generics</a></h3>
+<p>Claro generics não apenas para structs, métodos/funções também podem ter. Vamos para o seguinte exemplo.</p>
+<pre><pre class="playground"><code class="language-rust">fn maior&lt;T&gt;(lista: &amp;[T]) -&gt; T {
+    let mut maior = lista[0];
+    for &amp;item in lista {
+        if item &gt; maior {
+            maior = item;
+        }
+    } 
+    maior
+}
+
+fn main() {
+    let arr: [u8; 4] = [2,4,1,11];
+    let maior = maior(&amp;arr);
+    println!(&quot;Maior elemento: {}&quot;, maior);
+}
+</code></pre></pre>
+<p>O código acima, esta quaaase funcionando, mas para funcionar precisamos explicar outro conceito, as 'traits'</p>
+<ul>
+<li><a href="intermediary-02/./06-traits.html">Próximo</a> - Traits</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="traits"><a class="header" href="#traits">Traits</a></h1>
+<p>Na parte sobre <a href="intermediary-02/./05-generics.html">generics</a> deixamos o seguinte código por terminar.</p>
+<pre><pre class="playground"><code class="language-rust">fn maior&lt;T&gt;(lista: &amp;[T]) -&gt; T {
+    let mut maior = lista[0];
+    for &amp;item in lista {
+        if item &gt; maior {
+            maior = item;
+        }
+    } 
+    maior
+}
+
+fn main() {
+    let arr: [u8; 4] = [2,4,1,11];
+    let maior = maior(&amp;arr);
+    println!(&quot;Maior elemento: {}&quot;, maior);
+}
+</code></pre></pre>
+<p>Afinal o que falta para esse código funciona? Falta determinamos que 'T' deve implementar algumas traits. O que são essas <code>traits</code>?? Elas são como contratos, um tipo deve implementar certas funções/métodos definidas por essa <code>trait</code>. E como declaramos uma? Seguimos o seguinte padrão <code>trait nome { assinaturas/metodos }</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Pagavel  {
+    fn total(&amp;self) -&gt; f64;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Assim definimos uma <code>trait</code>, agora precisamos implementar, vamos criar uma <code>struct Pedido</code> que ira implementar essa <code>trait</code>. Para dizer que algo implementa uma <code>trait</code> usamos o seguinte padrão <code>impl NomeTrait for NomeStruct { implementação }</code></p>
+<pre><pre class="playground"><code class="language-rust">//--definição trait Pagavel
+
+struct Pedido {
+    quantidade_items: u8,
+    valor_items: f64
+}
+
+impl Pagavel for Pedido {
+    fn total(&amp;self) -&gt; f64 {
+        self.valor_items * self.quantidade_items as f64
+    }
+}
+
+fn main() {
+    let pedido = Pedido {
+        quantidade_items: 10,
+        valor_items: 10.5
+    };
+    let total = pedido.total();
+    println!(&quot;Total do pedido: {}&quot;, total);
+}
+</code></pre></pre>
+<p>Agora podemos falar que nossa struct de Pedido implementa esta Trait. E agora se vamos utilizar um método genérico que tenha 'T' como parâmetro, porém queremos que 'T' seja pagável. Como faríamos isso? Temos dois modos, sendo eles:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn pagar&lt;T: Pagavel&gt;(pagavel: T) {
+    println!(&quot;Valor {} pago&quot;, pagavel.total());
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Ou com a palavra 'where'</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn pagar&lt;T&gt;(pagavel: T)
+where
+    T: Pagavel,
+{
+    println!(&quot;Valor {} pago&quot;, pagavel.total());
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Então podemos chamar o método genérico pagar passando o pedido como argumento.</p>
+<pre><pre class="playground"><code class="language-rust">//--Definição pedido, trait e implementação
+fn main() {
+    let pedido = Pedido {
+        quantidade_items: 10,
+        valor_items: 10.5,
+    };
+    pagar(pedido);
+}
+</code></pre></pre>
+<p>E o programa ira compilar. </p>
+<p>Podemos implementar mais de uma trait para algo.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração trait pagavel, struct e impl Pagavel
+trait Cancelavel {
+    fn cancelar(self);
+}
+
+impl Cancelavel for Pedido {
+    fn cancelar(self) {
+        println!(&quot;Pedido com {} itens cancelado&quot;, self.quantidade_items)
+    }
+}
+
+fn main() {
+    let pedido = Pedido {
+        quantidade_items: 10,
+        valor_items: 10.5,
+    };
+    pedido.cancelar();
+}
+</code></pre></pre>
+<p>Uma trait pode ter um método já implementado, que pode ou não ser sobrescrito.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração trait pagavel, struct e impl Pagavel e cancelavel
+
+trait Tributavel {
+    fn calcular_imposto(&amp;self) -&gt; f64 {
+        0.01 * 200.0
+    }
+}
+
+impl Tributavel for Pedido {} 
+
+fn main() {
+    let pedido = Pedido {
+        quantidade_items: 10,
+        valor_items: 10.5,
+    };
+    pedido.cancelar();
+}
+</code></pre></pre>
+<p>Caso queira sobrescrever a implementação de <code>Tributavel</code> seria feito como a implementação de qualquer outra trait.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Tributavel for Pedido {
+    fn calcular_imposto(&amp;self) -&gt; f64 {
+        self.valor_items * 0.01 
+    }
+} 
+<span class="boring">}
+</span></code></pre></pre>
+<p>E se eu quiser que para implementar <code>Tributavel</code> e <code>Cancelavel</code> eu precise implementar a <code>trait</code> <code>Pagavel</code>? Seria usado uma estratégia parecida com a dos generics <code>trait NomeTrait: TraitQuePrecisaImplementar</code></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Pagavel {
+    fn total(&amp;self) -&gt; f64;
+}
+
+trait Cancelavel: Pagavel {
+    fn cancelar(self);
+}
+
+trait Tributavel: Pagavel {
+    fn calcular_imposto(&amp;self) -&gt; f64 {
+        0.01 * 200.0
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Do modo acima para implementar <code>Cancelavel</code> ou <code>Tributavel</code> precisamos implementar <code>Pagavel</code>, assim nos dando um novo poder nas implementações, PODER USAR OS MÉTODOS DEFINIDOS EM PAGAVEL.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Cancelavel for Pedido {
+    fn cancelar(self) {
+        println!(&quot;Pedido custando {} cancelado&quot;, self.total())
+    }
+}
+
+impl Tributavel for Pedido {
+    fn calcular_imposto(&amp;self) -&gt; f64 {
+        0.01 * self.total()   
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>E se eu implementar duas traits com métodos iguais? Não podemos chamar diretamente o método implementado.</p>
+<pre><pre class="playground"><code class="language-rust">struct Cachorro {}
+
+trait Animal {
+    fn comer(&amp;self);
+}
+
+trait Fome {
+    fn comer(&amp;self);
+}
+
+impl Animal for Cachorro {
+    fn comer(&amp;self) {
+        println!(&quot;Cachorro comendo... animal&quot;);
+    }
+}
+
+impl Fome for Cachorro {
+    fn comer(&amp;self) {
+        println!(&quot;Cachorro comendo por estar com fome&quot;);
+    }
+}
+
+fn main() {
+    let cachorro = Cachorro {};
+    cachorro.comer();
+}
+</code></pre></pre>
+<p>Perdão pelo exemplo bobo, mas o código acima daria o seguinte erro.</p>
+<pre><code class="language-bash">error[E0034]: multiple applicable items in scope
+  --&gt; src/main.rs:25:14
+   |
+25 |     cachorro.comer();
+   |              ^^^^^ multiple `comer` found
+   |
+</code></pre>
+<p>Este erro acontece por termos múltiplas implementações de método com a mesma assinatura. Para chamar o método <code>comer</code> podemos fazer da seguinte maneira <code>trait::metodo(&amp;instancia)</code>.</p>
+<pre><pre class="playground"><code class="language-rust">//--declarações e implementações
+fn main() {
+    let cachorro = Cachorro {};
+    Animal::comer(&amp;cachorro);
+    Fome::comer(&amp;cachorro);
+}
+</code></pre></pre>
+<p>Podemos também implementar traits para tipos já existentes.</p>
+<pre><pre class="playground"><code class="language-rust">impl Fome for i32 {
+    fn comer(&amp;self) {
+        println!(&quot;Um numero esta comendo por estar com fome? Isso faz sentido?&quot;)
+    }
+}
+
+fn main() {
+    a.comer();
+}
+</code></pre></pre>
+<p>Claro essa implementação de uma trait teria que fazer sentido, não é mesmo?</p>
+<h3 id="traits-já-existentes"><a class="header" href="#traits-já-existentes">Traits já existentes</a></h3>
+<p>Em Rust já temos uma boa quantidade de traits já existentes, como, por exemplo, a trait <code>Iterator</code>, com essa <code>trait</code> podemos criar nossas próprias implementações de algo iterável e utilizar os recursos da linguagem, como um loop for, por exemplo.</p>
+<pre><pre class="playground"><code class="language-rust">struct Contador {
+    contagem: u64
+}
+
+impl Iterator for Contador {
+    type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso, 
+    mas considere que é um modo de usar Generics de uma forma que impedimos multiplas implementações da mesma trait pra mesma coisa */
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        if self.contagem &gt;= 100 {
+            None
+        } else {
+            self.contagem += 1;
+            Some(self.contagem)
+        }
+    }
+}
+
+fn main() {
+    let contador = Contador { contagem: 0 };
+
+    for i in contador {
+        println!(&quot;Numero atual: {}&quot;, i);
+    }
+}
+</code></pre></pre>
+<p>Ao executar o código acima teremos a saída.</p>
+<pre><code class="language-bash">...
+Numero atual: 89
+Numero atual: 90
+Numero atual: 91
+Numero atual: 92
+Numero atual: 93
+Numero atual: 94
+Numero atual: 95
+Numero atual: 96
+Numero atual: 97
+Numero atual: 98
+Numero atual: 99
+Numero atual: 100
+</code></pre>
+<h3 id="derive"><a class="header" href="#derive">Derive</a></h3>
+<p>O comando <code>#[derive(AlgumaCoisaAqui)]</code>, é um macro para implementação de algumas <code>traits</code>, quando usamos o <code>#[Derive(Debug)]</code> estamos informando ao compilador que queremos que aquela <code>struct/enum</code> ira implementar a trait <code>Debug</code>, porém isso é gerado de forma automática pelo compilador.</p>
+<h3 id="voltando-ao-problema-inicial"><a class="header" href="#voltando-ao-problema-inicial">Voltando ao problema inicial.</a></h3>
+<p>Agora que entendemos como as <code>traits</code> funcionam vamos retomar o problema que deixamos no fim da <a href="intermediary-02/./05-generics.html">parte anterior</a></p>
+<p>Precisamos limitar 'T' para duas <code>traits</code> especificas, essas <code>traits</code> já são existentes na linguagem, sendo elas <code>PartialOrd</code> e <code>Copy</code>, para falar que o argumento precisa implementar mais de uma <code>trait</code> utilizamos o '+', com o seguinte padrão 'T: Trait1 + Trait2 + Trait3....`</p>
+<pre><pre class="playground"><code class="language-rust">fn maior&lt;T&gt;(lista: &amp;[T]) -&gt; T
+where
+    T: PartialOrd + Copy,
+{
+    let mut maior = lista[0];
+    for &amp;item in lista {
+        if item &gt; maior {
+            maior = item;
+        }
+    }
+    maior
+}
+
+fn main() {
+    let arr: [u8; 4] = [2, 4, 1, 11];
+    let maior = maior(&amp;arr);
+    println!(&quot;Maior elemento: {}&quot;, maior);
+}
+</code></pre></pre>
+<p>Ao executar o nosso código finalmente terá sucesso e a seguinte saída no console.</p>
+<pre><code class="language-bash">Maior elemento: 11
+</code></pre>
+<p>Este capitulo sobre <code>traits</code> ficou maior que do eu esperava, mas espero que tenha ficado claro o uso delas e a importância dessa funcionalidade.</p>
+<ul>
+<li><a href="intermediary-02/./07-option.html">Próximo</a> - Enum especial Option</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="enum-especial-optiont"><a class="header" href="#enum-especial-optiont">Enum especial <code>Option&lt;T&gt;</code></a></h1>
+<p>Em Rust não temos <strong>nulo</strong>, isso mesmo a linguagem não aplica o <a href="https://en.wikipedia.org/wiki/Null_pointer">conceito de ponteiros nulos</a>, para dizer se algo existe ou não temos o enum <code>Option&lt;T&gt;</code>, este <code>enum</code>, os valores possíveis para este <code>enum</code> são <code>Some(T)</code> e <code>None</code>. Temos alguns métodos neste enum, como <code>is_none</code>, <code>is_some</code>, <code>unwrap</code>, <code>expected</code>, <code>or_else</code>, <code>or</code>.</p>
+<h2 id="extraindo-o-valor-de-dentro-de-um-optiont"><a class="header" href="#extraindo-o-valor-de-dentro-de-um-optiont">Extraindo o valor de dentro de um <code>Option&lt;T&gt;</code></a></h2>
+<p>Podemos extrair o valor de um <code>Option</code>, pelos métodos, <code>unwrap</code>, <code>expect</code>, por um <code>match</code>, ou por um <code>if let</code>. Cada modo de extrair tem sua peculiaridade, com o <code>unwrap</code> ou com o <code>expect</code> caso o valor seja <code>None</code> temos uma falha na aplicação e sua execução é abortada.</p>
+<pre><pre class="playground"><code class="language-rust">struct Cliente {
+    nome: String,
+    idade: Option&lt;u8&gt;,
+}
+
+fn main() {
+    let cliente = Cliente {
+        nome: &quot;Rust4Noobs&quot;.to_string(),
+        idade: None,
+    };
+    cliente.idade.unwrap();
+}
+</code></pre></pre>
+<p>Ao executar o código acima teremos a execução do programa abortada e a mensagem de erro:</p>
+<pre><code class="language-bash">thread 'main' panicked at 'called `Option::unwrap()` on a `None` value', src/main.rs:9:19
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</code></pre>
+<p>A diferença entre o <code>unwrap</code>e o <code>expect</code>, é que com o <code>expect</code> podemos definir uma mensagem para este erro</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+fn main() {
+    let cliente = Cliente {
+        nome: &quot;Rust4Noobs&quot;.to_string(),
+        idade: None,
+    };
+    cliente.idade.expect(&quot;idade não informada&quot;);
+}
+</code></pre></pre>
+<p>O código acima causa um erro a mensagem informada.</p>
+<pre><code class="language-bash">thread 'main' panicked at 'idade não informada', src/main.rs:8:19
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</code></pre>
+<p>Mas se quisermos evitar este erro, como fazemos isso? Podemos utilizar os métodos <code>is_none</code> ou <code>is_some</code> para verificar isso.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+fn main() {
+    let cliente = Cliente {
+        nome: &quot;Rust4Noobs&quot;.to_string(),
+        idade: Some(21),
+    };
+    if cliente.idade.is_some() {
+        let idade = cliente.idade.unwrap();
+        println!(&quot;O cliente {} tem {} anos&quot;, cliente.nome, idade);
+    } 
+}
+</code></pre></pre>
+<p>Agora temos uma checagem se o valor existe, podemos usar o <code>is_none</code> para adicionar um tratamento para caso a idade não exista.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+fn main() {
+    let mut cliente = Cliente {
+        nome: &quot;Rust4Noobs&quot;.to_string(),
+        idade: None,
+    };
+    if cliente.idade.is_none() {
+        println!(&quot;Idade do cliente não informada, favor informar:&quot;);
+        let mut buffer = String::new();
+        std::io::stdin().read_line(&amp;mut buffer).unwrap();
+        cliente.idade = Some(buffer.trim().parse().unwrap());
+    }
+}
+</code></pre></pre>
+<p>Mas esse talvez não seja o melhor modo de fazer isso.</p>
+<h2 id="extraindo-o-valor-com-um-match"><a class="header" href="#extraindo-o-valor-com-um-match">Extraindo o valor com um match</a></h2>
+<p>O operador <a href="intermediary-02/./03-match.html">match</a> pode ser utilizado para <a href="intermediary-02/./02-enums.html">enums</a>, lembra dos <code>enums</code> com valores associados? O <code>Option</code> é um <code>enum</code> com valores associados. Então podemos utilizar o <code>match</code> para chegar se o valor existe.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+fn main() {
+    let cliente = Cliente {
+        nome: &quot;Rust4Noobs&quot;.to_string(),
+        idade: None,
+    };
+    match cliente.idade {
+        Some(idade) =&gt; println!(&quot;A idade do cliente {} é {}&quot;, cliente.nome, idade),
+        None =&gt; println!(&quot;Idade do cliente {} não foi informada&quot;, cliente.nome)
+    }
+}
+</code></pre></pre>
+<p>Claro podemos utilizar de todos os aspectos do <code>match</code> nessa abordagem</p>
+<h2 id="operador-if-let"><a class="header" href="#operador-if-let">Operador if let</a></h2>
+<p>O operador <code>if let</code> é geralmente usado para tratativas pequenas. Onde realizamos uma validação e já atribuímos o valor a uma variável. Podendo ser feito da seguinte maneira <code>if let Some(nome ou ignora o valor) = expressao teste { codigo } else { se nao }</code>.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+fn main() {
+    let cliente = Cliente {
+        nome: &quot;Rust4Noobs&quot;.to_string(),
+        idade: None,
+    };
+    if let Some(idade) = cliente.idade {
+        println!(&quot;A idade do cliente {} é {}&quot;, cliente.nome, idade)
+    } else {
+        println!(&quot;Idade do cliente {} não foi informada&quot;, cliente.nome)
+    }
+}
+</code></pre></pre>
+<p>O código acima tem o mesmo resultado do código com o <code>match</code>, claro o <code>if let</code> também pode retornar algo, assim como o <code>match</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let cliente = Cliente {
+        nome: &quot;Rust4Noobs&quot;.to_string(),
+        idade: None,
+    };
+    let idade = if let Some(idade) =  cliente.idade {
+        idade
+    } else {
+        34 + 35
+    };
+    println!(&quot;A idade do cliente {} é {}&quot;, cliente.nome, idade);
+}
+</code></pre></pre>
+<p>E temos sucesso, caso o valor exista é retornado o valor dentro de <code>Some(idade)</code> caso não exista é retornado o resultado da soma de <code>34 + 35</code>.</p>
+<h2 id="operador-while-let"><a class="header" href="#operador-while-let">Operador while let</a></h2>
+<p>O operador <code>if let</code> tem um irmão o <code>while let</code>, seu comportamento é parecido, lembram da implementação de da <a href="intermediary-02/./06-traits.html">trait</a> <code>Iterator</code> que realizamos? Caso não lembre aqui esta ela.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Contador {
+    contagem: u64
+}
+
+impl Iterator for Contador {
+    type Item = u64;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        if self.contagem &gt;= 100 {
+            None
+        } else {
+            self.contagem += 1;
+            Some(self.contagem)
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Ao implementar essa trait, temos o método <code>next</code> que nos retorna um <code>Option</code>, podemos utilizar esse retorno para ir iterando o nosso contador.</p>
+<pre><pre class="playground"><code class="language-rust">//--declaração do contador
+fn main() {
+    let mut contador = Contador { contagem: 0 };
+
+    while let Some(n) = contador.next() {
+        println!(&quot;Contador atual {}&quot;, n)
+    }
+}
+</code></pre></pre>
+<p>O enum <code>Option</code>, nos da um controle muito grande, e nos possibilita vários modos de tratar valores inexistentes, vale a pena se aprofundar mais nele.</p>
+<ul>
+<li><a href="intermediary-02/./08-vec.html">Próximo</a> - Coleção Vec</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="coleção-vec"><a class="header" href="#coleção-vec">Coleção Vec</a></h1>
+<p>Em Rust já temos coleções implementadas, uma delas é a <code>Vec&lt;T&gt;</code>, é uma coleção que armazena uma quantidade de elementos. A vantagem de usar essa coleção é que diferente de um <a href="intermediary-02/../basic/09-arrays.html">array</a> é que seu tamanho é flexível. O que nos da certa vantagem. Podemos criar um <code>Vec</code> com os métodos estáticos <code>new</code> ou <code>with_capacity</code>, ou com o macro <code>vec!</code>, sendo a opção com o macro um <code>Vec</code> já inicializado com valores. Podemos declarar o <code>Vec</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut vec = Vec::&lt;i32&gt;::new();
+    let mut vec2: Vec&lt;i32&gt; = Vec::new();
+    let mut vec3 = Vec::&lt;i32&gt;::with_capacity(10); //inicia o Vec já com uma capacidade
+    let mut vec4: Vec&lt;i32&gt; = Vec::with_capacity(10); //inicia o Vec já com uma capacidade
+    let mut vec5 = vec![1,2,3];
+}
+</code></pre></pre>
+<p>Iniciar um <code>Vec</code> já com uma capacidade o que nos da vantagem de deixar mais rápido a inserção de novos elementos nesse <code>Vec</code>, mas não vamos confundir a capacidade dele, com o tamanho dele, a capacidade é &quot;o quanto cabe&quot; e o tamanho é o &quot;o quanto tem&quot;.</p>
+<p>Note que declaramos todos os <code>Vec</code> como mutáveis, não é obrigatório serem declarados como mutáveis, nós só utilizamos isso caso queiramos realizar qualquer modificação no <code>Vec</code>, como adicionar, ou remover valores do mesmo.</p>
+<p>O compilador do Rust é inteligente o suficiente para saber o tipo de um <code>Vec</code> pelo primeiro elemento adicionado. </p>
+<h2 id="métodos-de-vec"><a class="header" href="#métodos-de-vec">Métodos de Vec</a></h2>
+<p>Em Vec temos diversos métodos, mas agora iremos falar sobre os seguintes métodos: push, pop, len, clear, is_empty, contains, get, get_mut, insert e remove.</p>
+<h3 id="método-push"><a class="header" href="#método-push">Método push</a></h3>
+<p>O método <code>push</code> é responsável por adicionar um elemento ao <code>Vec</code>, o método ira falhar caso a capacidade do <code>Vec</code> ultrapasse o valor máximo de um <code>isize</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut lista = Vec::new();
+    lista.push(10);
+}
+</code></pre></pre>
+<h3 id="método-insert"><a class="header" href="#método-insert">Método insert</a></h3>
+<p>Com o método insert conseguimos adicionar um valor na posição escolhida</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut lista = vec![1, 2, 3];
+    lista.insert(0, 4);
+}
+</code></pre></pre>
+<h3 id="método-pop"><a class="header" href="#método-pop">Método pop</a></h3>
+<p>O método <code>pop</code> remove o último elemento do <code>Vec</code> e nos retornar um <code>Option&lt;T&gt;</code>, sendo o <code>Some</code> caso tenha algum elemento e <code>None</code> caso o <code>Vec</code> esteja vazio.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut lista = vec![1, 2, 3];
+    let ultimo: Option&lt;i32&gt; = lista.pop();
+}
+</code></pre></pre>
+<h3 id="método-len"><a class="header" href="#método-len">Método len</a></h3>
+<p>O método <code>len</code> retorna o tamanho do <code>Vec</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let lista = vec![1,2,3];
+    let tamanho = lista.len();
+}
+</code></pre></pre>
+<h3 id="método-get"><a class="header" href="#método-get">Método get</a></h3>
+<p>O método <code>get</code> retorna um <code>Option&lt;&amp;T&gt;</code> caso a posição solicitada exista, caso não exista é retornado um <code>None</code>, a vantagem de utilizar este método ao invés de um colchete e a posição <code>[pos]</code> é que se tentarmos acessar uma posição inexistente não paramos a execução da aplicação.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let lista = vec![1,2,3];
+    let primeiro_elemento: Option&lt;i32&gt; = lista.get(0);
+    // let invalido = lista[1000]; //esta linha ira parar a execução do programa
+}
+</code></pre></pre>
+<h3 id="método-get_mut"><a class="header" href="#método-get_mut">Método get_mut</a></h3>
+<p>O método <code>get_mut</code>, tem um comportamento parecido com o do método <code>get</code> a principal diferença é que este método nos retorna uma referncia mutável, sendo assim, podemos alterar o valor contido no index. Para que este método possa ser executado, o <code>Vec</code> deve ser mutável</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut lista = vec![1, 2, 3];
+    let r = lista.get_mut(0).unwrap();
+    *r = 10;
+    println!(&quot;{:?}&quot;, lista);
+}
+</code></pre></pre>
+<h3 id="método-remove"><a class="header" href="#método-remove">Método remove</a></h3>
+<p>Com o método remove, podemos remover um item do <code>Vec</code> informando a sua posição. Claro para isso o <code>Vec</code> deve ser mutável.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut lista = vec![1, 2, 3];
+    lista.remove(0);
+    println!(&quot;{:?}&quot;, lista);
+}
+</code></pre></pre>
+<h3 id="método-clear"><a class="header" href="#método-clear">Método clear</a></h3>
+<p>O método <code>clear</code> limpa o <code>Vec</code> o deixando vazio</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut lista = vec![1,2,3];
+    lista.clear();
+    println!(&quot;Tamanho da lista {}&quot;, lista.len());
+}
+</code></pre></pre>
+<h3 id="método-is_empty"><a class="header" href="#método-is_empty">Método is_empty</a></h3>
+<p>O método <code>is_empty</code> retorna um boleano, sendo true caso esteja vazio e false caso o tenha algum elemento</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let lista = Vec::&lt;i32&gt;::new();
+    if lista.is_empty() {
+        println!(&quot;A lista esta vazia&quot;);
+    }
+}
+</code></pre></pre>
+<h3 id="método-contains"><a class="header" href="#método-contains">Método contains</a></h3>
+<p>O método <code>contains</code>retorna um boleano, sendo true caso o valor exista e false caso não exista.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let lista = vec![1, 2, 3];
+    if lista.contains(&amp;3) {
+        println!(&quot;O numero 3 existe na lista&quot;);
+    }
+}
+</code></pre></pre>
+<ul>
+<li><a href="intermediary-02/./09-hashset.html">Próximo</a> - HashSet</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hashset"><a class="header" href="#hashset">HashSet</a></h1>
+<p>O <code>HashSet</code> é uma das coleções da biblioteca padrão do Rust, esta biblioteca é parecida com o <a href="intermediary-02/./08-vec.html">Vec</a>, porém ela não permite repetições. Ela utiliza algum algorítimo de <a href="intermediary-02/./https://en.wikipedia.org/wiki/Hash_function">Hash</a> para garantir que os elementos inseridos serão únicos.</p>
+<h2 id="usando-um-hashset"><a class="header" href="#usando-um-hashset">Usando um HashSet</a></h2>
+<p>Um <code>HashSet</code> é uma coleção genérica, e assim como o ela armazena dados de vários tipo, porém para tais dados serem armazenados eles precisam implementar certas <a href="intermediary-02/./06-traits.html">traits</a>, para começar vamos utilizar os tipos primitivos.</p>
+<h3 id="criando-um-hashset"><a class="header" href="#criando-um-hashset">Criando um HashSet</a></h3>
+<p>Temos alguns modos para criar um <code>HashSet</code>. </p>
+<p>Temos um modo declarando o tipo e instanciando que segue o padrão <code>let nome: HashSet&lt;tipo&gt; = HashSet::new()</code>, o modo por inferência, <code>let nome = HashSet::&lt;tipo&gt;::new()</code>, claro podemos fazer <code>let nome: HashSet&lt;tipo&gt; = HashSet::&lt;tipo&gt;::new()</code> ou <code>let nome = HashSet::new()</code> e o tipo é definido pelo primeiro uso.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut hashSet: HashSet&lt;i32&gt; = HashSet::new();
+    let mut hashSet2 = HashSet::&lt;i32&gt;::new();
+    let mut hashSet3 = HashSet::new();
+    hashSet3.insert(10);
+}
+</code></pre></pre>
+<p><small>No exemplo acima só utilizamos <code>mut</code> para poder manipular o <code>HashSet</code></small><br><br>
+Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exemplo, <code>insert</code>, <code>contains</code>, <code>remove</code>, <code>get</code></p>
+<h3 id="método-insert-1"><a class="header" href="#método-insert-1">Método insert</a></h3>
+<p>O método <code>insert</code> funciona para inserirmos um elemento ao <code>HashSet</code>. Já o utilizamos no exemplo de criação de um <code>HashSet</code>, este método nos retorna um booleano com <code>true</code> caso consiga inserir com sucesso e false caso não consiga.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut set = HashSet::new();
+    if set.insert(10) {
+        println!(&quot;Eitcha lele&quot;);
+    }
+    if !set.insert(10) {
+        println!(&quot;Que coisa nao&quot;);
+    }
+}
+</code></pre></pre>
+<h3 id="método-contains-1"><a class="header" href="#método-contains-1">Método contains</a></h3>
+<p>O método contains, serve para verificarmos se um elemento existe no <code>HashSet</code> nos retornando um <code>true</code> caso exista e <code>false</code> caso não.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut set = HashSet::new();
+    set.insert(10);
+    if set.contains(&amp;10) {
+        println!(&quot;EXISTEEEEEEEEEEEEEEEEEEEEE&quot;);
+    }
+}
+</code></pre></pre>
+<h3 id="método-remove-1"><a class="header" href="#método-remove-1">Método remove</a></h3>
+<p>O método remove como o seu nome diz, remove um elemento da coleção. Nos retornando <code>true</code> caso consiga remover e <code>false</code> caso não.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut set = HashSet::new();
+    set.insert(10);
+    if set.remove(&amp;10) {
+        println!(&quot;Removido&quot;);
+    }
+}
+</code></pre></pre>
+<h3 id="método-get-1"><a class="header" href="#método-get-1">Método get</a></h3>
+<p>O método get recupera um valor da coleção, nos retornando um <a href="intermediary-02/./07-option.html">Option</a>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut set = HashSet::new();
+    set.insert(10);
+    let num = set.get(&amp;10);
+}
+</code></pre></pre>
+<p>Temos alguns métodos com funcionamentos iguais aos de um <a href="intermediary-02/./08-vec.html">Vec</a> como <code>is_empty</code>, <code>clear</code>, <code>len</code>.</p>
+<h1 id="usando-um-hashset-com-um-tipo-nosso"><a class="header" href="#usando-um-hashset-com-um-tipo-nosso">Usando um HashSet com um &quot;tipo nosso&quot;</a></h1>
+<p>Nem sempre é tão simples utilizar um <code>HashSet</code>, para tipos que criamos, como <a href="intermediary-02/./02-enums.html">enums</a> ou <a href="intermediary-02/./01-structs.html">structs</a>, como no exemplo abaixo:</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+struct Cliente {
+    id: i32,
+    nome: String
+}
+
+fn main() {
+    let mut set = HashSet::&lt;Cliente&gt;::new();
+    set.insert(Cliente { id: 10, nome: &quot;Rust4Noob&quot;.to_string() });
+}
+</code></pre></pre>
+<p>Ao tentarmos utilizar o método <code>insert</code> teremos um problema.</p>
+<pre><code class="language-bash">error[E0599]: the method `insert` exists for struct `HashSet&lt;Cliente&gt;`, but its trait bounds were not satisfied
+  --&gt; src/main.rs:10:9
+   |
+3  | struct Cliente {
+   | --------------
+   | |
+   | doesn't satisfy `Cliente: Eq`
+   | doesn't satisfy `Cliente: Hash`
+...
+10 |     set.insert(Cliente { id: 10, nome: &quot;Rust4Noob&quot;.to_string() });
+   |         ^^^^^^ method cannot be called on `HashSet&lt;Cliente&gt;` due to unsatisfied trait bounds
+   |
+   = note: the following trait bounds were not satisfied:
+           `Cliente: Eq`
+           `Cliente: Hash`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `traits` due to previous error
+</code></pre>
+<p>Para utilizarmos um <code>HashSet</code> nossa struct precisa implementar duas traits, sendo elas <code>Eq</code> e <code>Hash</code>, porém para implementar <code>Eq</code> é necessário implementar <code>PartialEq</code>, essas traits podem ser geradas por macros como no exemplo abaixo.</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+#[derive(PartialEq, Eq, Hash)]
+struct Cliente {
+    id: i32,
+    nome: String
+}
+
+fn main() {
+    let mut set = HashSet::&lt;Cliente&gt;::new();
+    set.insert(Cliente { id: 10, nome: &quot;Rust4Noob&quot;.to_string() });
+}
+</code></pre></pre>
+<p>Essas traits servem para comparação e geração do Hash, ou podemos também implementar por nós mesmos.</p>
+<pre><pre class="playground"><code class="language-rust">use std::hash::Hash;
+
+struct Cliente {
+    id: i32,
+    nome: String
+}
+
+impl PartialEq for Cliente {
+    fn eq(&amp;self, other: &amp;Self) -&gt; bool {
+        self.id == other.id //decidimos comparar apenas o id, ignorando o nome
+    }
+}
+
+impl Hash for Cliente {
+    fn hash&lt;H: std::hash::Hasher&gt;(&amp;self, state: &amp;mut H) {
+        self.id.hash(state); //geramos o hash apenas com o id
+    }
+}
+
+impl Eq for Cliente {}
+
+fn main() {
+    let mut set = HashSet::&lt;Cliente&gt;::new();
+    set.insert(Cliente { id: 10, nome: &quot;Rust4Noob&quot;.to_string() });
+}
+</code></pre></pre>
+<p>Agora podemos utilizar a nossa struct em um <code>HashSet</code></p>
+<ul>
+<li><a href="intermediary-02/./10-hashmap.html">Próximo</a> - HashMap</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hashmap"><a class="header" href="#hashmap">HashMap</a></h1>
+<p>A última coleção que iremos falar é o <code>HashMap</code>, esta coleção funciona como um <a href="intermediary-02/./09-hashset.html">HashSet</a>, porém com o conceito de <a href="intermediary-02/./https://hazelcast.com/glossary/key-value-store/">chave-valor</a>, onde temos uma chave associada a um valor, esta chave <strong>NÃO</strong> se repete, assim como um valor em um <code>HashSet</code>, porém para inserirmos e recuperarmos valores, utilizamos a chave. Assim como no <code>HashSet</code>, essa chaved deve implementar <code>Eq</code> e <code>Hash</code> e para implementar <code>Eq</code> é necessário implementar <code>PartialEq</code>.</p>
+<h2 id="criando-um-hashmap"><a class="header" href="#criando-um-hashmap">Criando um HashMap</a></h2>
+<p>Para criar um <code>HashMap</code>, precisamos informar dois tipos genéricos.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut map1 = HashMap::&lt;String, i32&gt;::new();
+    let mut map2: HashMap&lt;String, i32&gt; = HashMap::new();
+    let mut map3 = HashMap::new();
+    map3.insert(&quot;Rust4Noobs&quot;.to_string(), i32::MAX);
+}
+</code></pre></pre>
+<p>Temos vários métodos para criar um <code>HashMap</code>, acima temos alguns exemplos. Os métodos que iremos falar serão, <code>insert</code>, <code>remove</code>, <code>get</code>, <code>get_mut</code>, <code>len</code>, <code>remove</code>, <code>clear</code>.</p>
+<h3 id="método-insert-2"><a class="header" href="#método-insert-2">Método insert</a></h3>
+<p>Para inserirmos uma chave e valor em um <code>HashMap</code> precisamos utilizar o método <code>insert</code> passando como argumentos uma <code>chave</code>e um <code>valor</code> este método nos retorna um <a href="intermediary-02/./07-option.html">Option</a>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut map = HashMap::new();
+    map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
+}
+</code></pre></pre>
+<p>O método <code>insert</code> tem uma peculiaridade, ao inserir um valor e este valor ainda não existe, o <code>Option</code> retornado sera um <code>None</code> e o valor será inserido no <code>HashMap</code>, caso o valor já exista o <code>Option</code> retornado sera um <code>Some</code> com o valor antigo e este valor é substituído na coleção.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut map = HashMap::new();
+    let inserido = map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
+    println!(&quot;{:?}&quot;, inserido);
+    let inserido = map.insert(&quot;Rust4Noobs&quot;, i32::MIN);
+    println!(&quot;{:?}&quot;, inserido);
+}
+</code></pre></pre>
+<h3 id="método-get-2"><a class="header" href="#método-get-2">Método get</a></h3>
+<p>O método <code>get</code> funciona de maneira parecida com o <code>Vec</code> e o <code>Set</code>, porém passamos uma chave e nos é devolvido um <code>Option</code>. Caso o valor exista temos um <code>Some</code> com o valor caso não temos um <code>None</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut map = HashMap::new();
+    map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
+    let rust4_noobs = map.get(&quot;Rust4Noobs&quot;);
+    let rust4_experts = map.get(&quot;Rust4Experts&quot;);
+
+    println!(&quot;{:?}&quot;, rust4_noobs);
+    println!(&quot;{:?}&quot;, rust4_experts);
+}
+</code></pre></pre>
+<h3 id="métogo-get_mut"><a class="header" href="#métogo-get_mut">Métogo get_mut</a></h3>
+<p>O método <code>get_mut</code> do mesmo modo que o método <code>get</code>, com a diferença de nos retornar uma referência mutável do valor e somente pode ser usado caso o <code>HashMap</code> seja mutável.</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+#[derive(PartialEq, Eq, Hash, Debug)]
+struct Cliente {
+    id: i32,
+    nome: String
+}
+
+fn main() {
+    let mut map = HashMap::new();
+    map.insert(&quot;Rust4Noobs&quot;, Cliente { id: 0, nome: &quot;https://github.com/pgjbz/rust4noobs&quot;.to_string()});
+    let rust4_noobs = map.get_mut(&quot;Rust4Noobs&quot;);
+    println!(&quot;{:?}&quot;, rust4_noobs);
+    if let Some(rust) = rust4_noobs {
+        rust.nome = &quot;Nome Brabo&quot;.to_string();
+    }
+    let rust4_noobs = map.get_mut(&quot;Rust4Noobs&quot;);
+    println!(&quot;{:?}&quot;, rust4_noobs);
+}
+</code></pre></pre>
+<p><small>Sim, podemos redeclarar uma variável com um nome já existente e eu só mostrei isso agora, eu errei, eu sei</small></p>
+<h3 id="método-len-1"><a class="header" href="#método-len-1">Método len</a></h3>
+<p>O método <code>len</code> nos retorna o tamanho do <code>HashMap</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut map = HashMap::new();
+    map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
+    let len = map.len();
+    println!(&quot;len = {}&quot;, len);
+}
+</code></pre></pre>
+<h3 id="método-remove-2"><a class="header" href="#método-remove-2">Método remove</a></h3>
+<p>Utilizamos o método <code>remove</code> quando queremos remover alguma chave do nosso <code>HashMap</code>, nos retornando um <code>Option</code>, sendo <code>Some</code> contendo o valor removido, caso o valor exista e tenha sido removido e <code>None</code> caso o valor removido não exista.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut map = HashMap::new();
+    map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
+    let rust4_noobs = map.get(&quot;Rust4Noobs&quot;);
+    println!(&quot;Rust4Noobs {:?}&quot;, rust4_noobs);
+    let valor_removido = map.remove(&quot;Rust4Noobs&quot;);
+    println!(&quot;Valor removido {:?}&quot;, valor_removido);
+    let rust4_noobs = map.get(&quot;Rust4Noobs&quot;);
+    println!(&quot;Rust4Noobs {:?}&quot;, rust4_noobs);
+}
+</code></pre></pre>
+<h3 id="método-clear-1"><a class="header" href="#método-clear-1">Método clear</a></h3>
+<p>O método <code>clear</code> é o mais simples dentre todos, este método apenas, limpa o nosso <code>HashSet</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut map = HashMap::new();
+    map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
+    map.clear();
+    println!(&quot;Tamanho do HashSet = {}&quot;, map.len());
+}
+</code></pre></pre>
+<ul>
+<li><a href="intermediary-02/./11-result.html">Próximo</a> - Tratamento de erros</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tratamento-de-erros"><a class="header" href="#tratamento-de-erros">Tratamento de erros</a></h1>
+<p>Em Rust não temos exceções, não temos <code>nulos</code>, temos <a href="intermediary-02/./07-option.html">Option</a> e para tratar erros temos <code>Result&lt;T, E&gt;</code>, o tipo <code>Result</code> assim como o tipo <code>Option</code> é um <a href="intermediary-02/./02-enums.html">Enum</a>, contendo dois valores <code>Ok(T)</code> e <code>Err(E)</code>, sendo <code>Ok</code> o e <code>Err</code> quando tivermos uma falha.</p>
+<p>Assim como <code>Option</code> o <code>Result</code> também tem alguns métodos. Iremos fazer algo um pouco diferente neste capítulo, ele sera mais prático, porém nada muito complexo.</p>
+<p>Tendo o código abaixo.</p>
+<pre><pre class="playground"><code class="language-rust">use std::fs::File;
+
+fn main() {
+    let file = File::open(&quot;rust4noobs.txt&quot;);
+}
+</code></pre></pre>
+<p>A variável file, esta recebendo um <code>Result&lt;File, std::io::Error&gt;</code>, podemos realizar apenas um <code>.unwrap()</code> para caso o arquivo não exista, ou não termos permissão para acesso, ou qualquer outro erro aconteça encerarmos a execução do programa, ou caso de sucesso prosseguirmos com a solução do problema. Mas não queremos fazer isso. Caso o tivermos algum erro, mais específico, o arquivo não existir, vamos criar este arquivo e escrever nele &quot;Rust4Noobs&quot;, caso qualquer um destes processos do tratamento falhe, iremos simplesmente encerrar o programa.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let file = abre_arquivo(&quot;rust4noobs.txt&quot;);
+}
+
+fn abre_arquivo(caminho: &amp;str) -&gt; File {
+    match File::open(caminho) {
+        Ok(file) =&gt; file,
+        Err(e) =&gt; match e.kind() {
+            std::io::ErrorKind::NotFound =&gt; {
+                let mut file = File::create(&quot;rust4noobs.txt&quot;).unwrap();
+                file.write_all(b&quot;Rust4Noobs&quot;).unwrap();
+                file
+            },
+            e =&gt; {
+                eprintln!(&quot;Tivemos um probleminha aqui {:?}&quot;, e);
+                process::exit(1)
+            }
+        }
+    }
+}
+</code></pre></pre>
+<p>No código acima, tentamos abrir o arquivo, caso tenhamos sucesso, retornamos o arquivo, caso aconteça algum erro executamos o procedimento de validar o tipo do erro, caso o erro seja do tipo &quot;NotFound&quot;, então criamos o arquivo e escrevemos nele, já dando <code>.unwrap</code> caso de algum erro, após isso já retornamos o arquivo, para ser utilizado. Caso o erro não seja do tipo <code>NotFound</code> apenas escrevemos o erro e finalizamos o processo.</p>
+<p>Agora vamos eliminar esses <code>unwrap</code> com o operador <code>?</code>, para isso precisamos realizar algumas modificações. </p>
+<pre><pre class="playground"><code class="language-rust">fn main() -&gt; Result&lt;(), io::Error&gt; {
+    let file = abre_arquivo(&quot;rust4noobs.txt&quot;)?;
+    Ok(())
+}
+
+fn abre_arquivo(caminho: &amp;str) -&gt; Result&lt;File, io::Error&gt; {
+    match File::open(caminho) {
+        Ok(file) =&gt; Ok(file),
+        Err(e) =&gt; match e.kind() {
+            std::io::ErrorKind::NotFound =&gt; {
+                let mut file = File::create(&quot;rust4noobs.txt&quot;)?;
+                file.write_all(b&quot;Rust4Noobs&quot;)?;
+                Ok(file)
+            },
+            e =&gt; {
+                eprintln!(&quot;Tivemos um probleminha aqui {:?}&quot;, e);
+                process::exit(1)
+            }
+        }
+    }
+}
+</code></pre></pre>
+<p>No nosso <code>main</code> adicionamos <code>-&gt; Result&lt;(), io::Error&gt;</code> e no fim retornamos  <code>Ok(())</code> no método <code>abre_arquivo</code> agora ao invés de retornarmos o arquivo diretamente, retornamos um <code>Result&lt;File, io::Error&gt;</code> e substituímos os <code>.unwrap()</code> por um <code>?</code>, o operador <code>?</code> realiza o processo de <code>unwrap</code> e caso não tenha sucesso ele propaga o erro para quem o chamou, por isso precisamos retornar um <code>Result</code>, quando chegamos no método <code>main</code>, não queremos tratar então só propagamos o erro.</p>
+<h2 id="criando-nossos-próprios-erros"><a class="header" href="#criando-nossos-próprios-erros">Criando nossos próprios erros.</a></h2>
+<p>Enquanto eu aprendo mais sobre Rust e escrevo este 4Noobs, eu estou aprendendo mais sobre interpretadores. Em alguns pontos código do meu interpretador eu preciso de <code>Result</code> ao invés de <code>Option</code>, isso quando é algo que pode falhar e ter tratativas diferentes dependendo do  erro. Por exemplo, no meu interpretador eu considero o fim do arquivo como um erro. Porém, não é um erro que para a execução do interpretador, é um erro que significa que não tenho mais tokens, então posso seguir para a próxima parte. Agora caso tenhamos um erro de sintaxe, salvamos isso em um erro para informar a quem estiver usando a linguagem.</p>
+<p>Temos abaixo um exemplo simples desse caso.</p>
+<pre><pre class="playground"><code class="language-rust">enum ParseError {
+    Eof,
+    Inaceitavel(String)
+}
+
+fn faz_o_parse_ai(mock: u8) -&gt; Result&lt;(), ParseError&gt; {
+    
+    if mock &gt;= 100 &amp;&amp; mock &lt;= 199 {
+        return Err(ParseError::Inaceitavel(&quot;como assim vc me deu esse valor?&quot;.to_string()));
+    } else if mock &gt; 200 {
+        return Err(ParseError::Eof)
+    }
+    Ok(())
+}
+
+fn main() {
+    let mut erros = Vec::new();
+    match faz_o_parse_ai(35 + 34) {
+        Ok(()) =&gt; {},
+        Err(e) =&gt; match e {
+            ParseError::Eof =&gt; {/* só continua para a próxima parte */},
+            ParseError::Inaceitavel(msg) =&gt; erros.push(msg),
+        }
+    }
+}
+</code></pre></pre>
+<p>O uso do meu próprio <code>Enum</code> e é algo que facilita a minha leitura, por saber que se trata especificamente de um erro de <code>Parse</code>, assim como as <code>exceções</code>em <code>Java</code> ou qualquer outra linguagem, use algo que faça sentido, não retorne um erro de parse o erro for sobre não conseguir vender maçãs.</p>
+<p>Claro como <code>Result&lt;T, E&gt;</code> é um tipo genérico, não é obrigatório que o meu erro seja um <code>Enum</code> ou qualquer coisa, posso retornar um <code>i32</code>, <code>String</code>, qualquer coisa.</p>
+<ul>
+<li><a href="intermediary-02/./12-panic.html">Próximo</a> - Macro Panic</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="macro-panic"><a class="header" href="#macro-panic">Macro panic!</a></h1>
+<p>O macro <code>panic!</code> é utilizado quando queremos encerrar a execução de um programa com ou sem uma mensagem, quando utilizamos o <code>.unwrap</code> ou <code>.expect</code> em um <a href="intermediary-02/./02-enums.html">enum</a> <code>None</code> ou algum <a href="intermediary-02/./11-result.html">Result</a> com <code>Erro</code> basicamente o que acontece por trás dos panos ele executa a ação do <code>panic</code> encerrando a execução do programa, com ou sem uma mensagem, cabe ao programador decidir usar ou não esta feature.</p>
+<h2 id="utilizando-o-macro-panic"><a class="header" href="#utilizando-o-macro-panic">Utilizando o macro panic!</a></h2>
+<p>Para utilizar o macro seguimos os seguintes padrões <code>panic!()</code> ou <code>panic!(mensagem)</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    panic!();
+}
+</code></pre></pre>
+<p>Ao executar o código acima temos a saida</p>
+<pre><code class="language-bash">thread 'main' panicked at 'explicit panic', src/main.rs:2:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrac
+</code></pre>
+<p>Ou executando o código abaixo</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    panic!(&quot;Rust4Noobs&quot;);
+}
+</code></pre></pre>
+<p>Temos a saida com a mensagem abaixo:</p>
+<pre><code class="language-bash">thread 'main' panicked at 'Rust4Noobs', src/main.rs:2:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</code></pre>
+<ul>
+<li><a href="intermediary-02/./13-tests.html">Próximo</a> - Testes</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testes"><a class="header" href="#testes">Testes</a></h1>
+<p>Em Rust temos opções já temos macros para testarmos nossas features, como os macros para &quot;<a href="https://en.wikipedia.org/wiki/Assertion">assertions</a>&quot; sendo eles <code>assert!</code>, <code>assert_eq!</code> e <code>assert_ne!</code>. Podemos utiliza-los em nosso código para testar as nossas funcionalidades, utilizando a ideia de <a href="intermediary-02/./04-modules.html">módulos</a> podemos criar um módulo especifico para os testes. E para isso utilizamos o <code>macro procedural #[cfg(test)]</code>, sendo um macro que vai definir que aquele módulo é um módulo para testes e nesse módulo nós adicionamos nossos códigos de testes, e para informar que são testes utilizamos outro macro <code>#[test]</code>.
+Este módulo de testes NÃO é compilado em nosso executável final.</p>
+<p>Abaixo temos um exemplo da declaração de um módulo de testes já contendo dois testes, utilizando os macros <code>assert!</code>, <code>assert_eq!</code> e <code>assert_ne!</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(test)]
+mod tests {
+
+    #[test]
+    fn deve_ser_verdadeiro() {
+        let maior = 1 &gt; 0;
+        assert!(maior)
+    }
+
+    #[test]
+    fn devem_ser_iguais() {
+        assert_eq!(2 + 2, 4)
+    }
+
+    #[test]
+    fn devem_ser_diferentes() {
+        assert_ne!(1 + 1, 10)
+    }
+
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Com apenas esses 3 macros de <code>assert</code>, conseguimos testar muitas coisas, vamos a um exemplo mais complexo.</p>
+<p>Temos um cliente que deseja fazer a integração de pagamentos com outro serviço e antes de enviar a requisição para realizar a integração, deve ser feito algumas validações, sendo elas:</p>
+<ul>
+<li>O valor a ser pago deve ser maior que 0.0</li>
+<li>O valor a ser pago deve ser menor ou igual a 1000.0</li>
+</ul>
+<p>Vamos começar a escrever os nossos testes, antes de escrevemos nosso código.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod integracao_de_pagamento {
+
+    pub fn valor_eh_valido(valor: f64) -&gt; bool {
+        todo!()
+    }
+
+}
+
+#[cfg(test)]
+mod tests {
+
+    use super::integracao_de_pagamento;
+
+    #[test]
+    fn valida_valor_pagamento_acima_de_dez_deve_retornar_verdadeiro() {
+        let valor_valido = integracao_de_pagamento::valor_eh_valido(10.0);
+        assert!(valor_valido);
+    }
+
+    #[test]
+    fn valida_valor_pagamento_abaixo_de_zero_deve_retornar_falso() {
+        let valor_valido = integracao_de_pagamento::valor_eh_valido(-10.0);
+        assert!(!valor_valido);
+    }
+
+    #[test]
+    fn valida_valor_pagamento_acima_de_mil_deve_retornar_falso() {
+        let valor_valido = integracao_de_pagamento::valor_eh_valido(1001.0);
+        assert!(!valor_valido)
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>NOTA: Como <code>tests</code>é um módulo ele deve importar os outros módulos
+NOTA 2: O nome do módulo não necessariamente deve ser &quot;tests&quot;</p>
+<p>Para executar o código acima, devemos usar o comando <code>cargo test</code>, este comando ira executar todos os testes do projeto. Como esperado todos os testes vão falhar! Vamos escrever o nosso código.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod integracao_de_pagamento {
+
+    pub fn valor_eh_valido(value: f64) -&gt; bool {
+        valor &gt; 0.0
+    }
+
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Ao executar o comando <code>cargo test</code> temos a seguinte saída:</p>
+<pre><code class="language-bash">running 3 tests
+test tests::valida_valor_pagamento_acima_de_dez_deve_retornar_verdadeiro ... ok
+test tests::valida_valor_pagamento_abaixo_de_zero_deve_retornar_falso ... ok
+test tests::valida_valor_pagamento_acima_de_mil_deve_retornar_falso ... FAILED
+
+failures:
+
+---- tests::valida_valor_pagamento_acima_de_mil_deve_retornar_falso stdout ----
+thread 'tests::valida_valor_pagamento_acima_de_mil_deve_retornar_falso' panicked at 'assertion failed: !valor_valido', src/lib.rs:29:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    tests::valida_valor_pagamento_acima_de_mil_deve_retornar_falso
+
+test result: FAILED. 2 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+</code></pre>
+<p>Dois testes passaram e um teste falhou, pelas regras, devemos validar se o valor é menor ou igual a 1000.00 para ser valido.
+Vamos alterar a implementação.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod integracao_de_pagamento {
+
+    pub fn valor_eh_valido(value: f64) -&gt; bool {
+        valor &gt; 0.0 &amp;&amp; valor &lt;= 1000.0
+    }
+
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>E agora temos todos os testes funcionando.</p>
+<pre><code class="language-bash">    Finished test [unoptimized + debuginfo] target(s) in 0.37s
+     Running unittests (target/debug/deps/testes-83f2e46ed2822f78)
+
+running 3 tests
+test tests::valida_valor_pagamento_acima_de_mil_deve_retornar_falso ... ok
+test tests::valida_valor_pagamento_acima_de_dez_deve_retornar_verdadeiro ... ok
+test tests::valida_valor_pagamento_abaixo_de_zero_deve_retornar_falso ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests testes
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+</code></pre>
+<p>Usamos apenas uma opção de <code>assert</code>, vamos utilizar outro teste.</p>
+<p>Vamos usar aquela conta que todo mundo ama fazer no ensino médio, encontrar os valores de uma equação de segundo grau, e para isso usaremos a <a href="https://www.infoescola.com/matematica/formula-de-bhaskara/">Fórmula de Bhaskara</a> e também iremos aproveitar para explicar outro conceito que é quando um teste deve causar um <code>panic</code>.</p>
+<p>Vamos às regras da Fórmula de Bhaskara:</p>
+<ul>
+<li>Para calcular Delta usaremos a fórmula <code>b²-4*a*c</code></li>
+<li>Delta não pode ser negativo</li>
+<li>Precisamos ter três valores (a, b e c)</li>
+<li>Temos que devolver duas raízes</li>
+<li>Para calcular as raízes usaremos (-b +- √delta) / 2*a</li>
+</ul>
+<p>Vamos escrever nossos testes:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod calculadora {
+
+    pub fn calcular(a: f64, b: f64, c: f64) -&gt; Result&lt;(f64, f64), String&gt; {
+        todo!()
+    }
+
+    pub(super) fn calcula_delta(a: f64, b: f64, c: f64) -&gt; Result&lt;f64, String&gt; {
+        todo!()
+    }
+
+}
+
+#[cfg(test)]
+mod tests {
+
+    use super::calculadora;
+
+   
+    #[test]
+    #[should_panic]
+    fn calcular_delta_negativo_esperado_error() {
+        calculadora::calcula_delta(1.0, 2.0, 3.0).unwrap();
+    }
+
+    #[test]
+    fn calcular_delta_nao_deve_haver_erro() {
+        let delta = calculadora::calcula_delta(8.0, 7.0, -2.0).unwrap();
+        assert_eq!(113.0, delta, &quot;o valor de desta esta errado&quot;)
+    }
+
+    #[test]
+    fn deve_calcular_as_duas_raizes() {
+        let resultado = calculadora::calcular(1.0, 3.0, -2.0).unwrap();
+        assert_eq!((0.5615528128088303, -3.5615528128088303), resultado);
+    }
+
+    #[test]
+    #[should_panic(expected = &quot;nao contem raiz real&quot;)]
+    fn calcular_raizes_com_delta_negativo_esperado_error() {
+        calculadora::calcular(1.0, 2.0, 3.0).unwrap();
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Ao executar o comando para os testes, teremos um teste que ira passar, que é o teste <code>calcular_delta_negativo_esperado_error</code>, isso acontece porque ele tem que causar um <code>panic</code>e o macro <code>todo!</code> causa o panic, porém não é o que queremos, então no último testes colocamos a mensagem que esperamos no <code>panic!</code>, que é &quot;nao contem raiz real&quot;.</p>
+<p>Vamos seguir com a implementação do nosso cálculo.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod calculadora {
+
+    pub fn calcular(a: f64, b: f64, c: f64) -&gt; Result&lt;(f64, f64), String&gt; {
+        todo!()
+    }
+
+    pub(super) fn calcula_delta(a: f64, b: f64, c: f64) -&gt; Result&lt;f64, String&gt; {
+        let delta = (b * b) - 4.0 * a * c;
+        if delta &lt; 0.0 {
+            return Err(&quot;nao contem raiz real&quot;.to_string())
+        } 
+        Ok(delta)
+    }
+
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Agora temos dois testes que passam e dois testes que falham. Veja a saída no console:</p>
+<pre><code class="language-bash">    Finished test [unoptimized + debuginfo] target(s) in 0.38s
+     Running unittests (target/debug/deps/testes-83f2e46ed2822f78)
+
+running 4 tests
+test tests::calcular_delta_nao_deve_haver_erro ... ok
+test tests::calcular_raizes_com_delta_negativo_esperado_error - should panic ... FAILED
+test tests::calcular_delta_negativo_esperado_error - should panic ... ok
+test tests::deve_calcular_as_duas_raizes ... FAILED
+
+failures:
+
+---- tests::calcular_raizes_com_delta_negativo_esperado_error stdout ----
+thread 'tests::calcular_raizes_com_delta_negativo_esperado_error' panicked at 'not yet implemented', src/lib.rs:4:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+note: panic did not contain expected string
+      panic message: `&quot;not yet implemented&quot;`,
+ expected substring: `&quot;nao contem raiz real&quot;`
+---- tests::deve_calcular_as_duas_raizes stdout ----
+thread 'tests::deve_calcular_as_duas_raizes' panicked at 'not yet implemented', src/lib.rs:4:9
+
+
+failures:
+    tests::calcular_raizes_com_delta_negativo_esperado_error
+    tests::deve_calcular_as_duas_raizes
+
+test result: FAILED. 2 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+</code></pre>
+<p>Como esperado aquele método que esta esperando uma mensagem especifica do panic, continua falhando. Vamos implementa-lo.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod calculadora {
+
+    pub fn calcular(a: f64, b: f64, c: f64) -&gt; Result&lt;(f64, f64), String&gt; {
+        let delta = calcula_delta(a, b, c)?;
+        let menos_b = -b;
+        let x1 = (menos_b + delta.sqrt()) / 2.0 * a;
+        let x2 = (menos_b - delta.sqrt()) / 2.0 * a;
+        Ok((x1, x2))
+    }
+
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Agora ao executar os testes teremos sucesso:</p>
+<pre><code class="language-bash">    Finished test [unoptimized + debuginfo] target(s) in 0.32s
+     Running unittests (target/debug/deps/testes-83f2e46ed2822f78)
+
+running 4 tests
+test tests::calcular_delta_nao_deve_haver_erro ... ok
+test tests::calcular_delta_negativo_esperado_error - should panic ... ok
+test tests::deve_calcular_as_duas_raizes ... ok
+test tests::calcular_raizes_com_delta_negativo_esperado_error - should panic ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests testes
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+</code></pre>
+<ul>
+<li><a href="intermediary-02/./13-snake.html">Próximo</a> - Snake Game</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="snake-game"><a class="header" href="#snake-game">Snake Game</a></h1>
+<p>Eu estava em dúvida em que projeto fazer neste ponto, foi difícil pensar em algo e, porque não  algo que eu nunca fiz?</p>
+<p>Então vamos lá fazer o &quot;jogo da cobrinha&quot;, vamos começar criando o projeto, usando o comando <code>cargo new snake-game</code>.</p>
+<p>Teremos a estrutura padrão do projeto:</p>
+<pre><code class="language-bash">├── Cargo.toml
+└── src
+    └── main.rs
+</code></pre>
+<p>Vamos adicionar um arquivo chamado <code>lib.rs</code> na pasta <code>src</code>, este arquivo sera usado para declarar os nossos módulos. Em seguida criamos um arquivo chamado &quot;ponto.rs&quot; e nele iremos criar uma <a href="intermediary-02/./01-structs.html">struct</a> para as localizações no nosso jogo, vamos criar uma implementação a essa struct para facilitar a instanciação dessa <code>strutc</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Ponto {
+    pub x: usize,
+    pub y: usize
+}
+
+impl Ponto {
+    pub fn new(x: usize, y: usize) -&gt; Self {
+        Self {
+            x,
+            y
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para que este arquivo seja reconhecido no projeto, vamos adicionar no nosso arquivo <code>lib.rs</code> a seguinte linha <code>pub mod point;</code>. Note que tanto a <code>struct</code> quanto seus atributos e a implementação do método <code>new</code> estão com a palavra <code>pub</code>, que faz eles serem visíveis fora desse módulo.</p>
+<p>Vamos printar o campo onde a cobrinha ira andar, e para testar vamos adicionar um ponto nesse tabuleiro.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let ponto = Ponto::new(7, 7);
+    let (x, y) = (15, 15);
+    for x in 0..x {
+        for y in 0..y {
+            if ponto == (x, y) {
+                print!(&quot;# &quot;)
+            }  else {
+                print!(&quot;- &quot;);   
+            }
+        }
+        println!();
+    }
+}
+
+</code></pre></pre>
+<p>Note que comparamos a nossa <code>struct</code> Ponto, com uma tupla de (x, y), para isso ser possível, precisamos implementar uma <a href="intermediary-02/./06-traits.html">trait</a> chamada <a href="https://doc.rust-lang.org/std/cmp/trait.PartialEq.html">PartialEq</a> a implementação para isso é relativamente simples. A <code>trait</code> recebe um parâmetro <a href="intermediary-02/./05-generics.html">genérico</a> na implementação vamos falar que esse parâmetro genérico é uma <code>tupla (usize, usize)</code>. E a partir dai implementamos nossa comparação.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl PartialEq&lt;(usize, usize)&gt; for Ponto {
+    fn eq(&amp;self, other: &amp;(usize, usize)) -&gt; bool {
+        self.x == other.0 &amp;&amp; self.y == other.1
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Agora quando rodarmos o projeto com <code>cargo run</code>, teremos um tabuleiro no console com um ponto na posição (7, 7).</p>
+<pre><code class="language-bash">   Compiling snake-game v0.1.0 (/home/paulo.bezerra/workspace/ws-rust/rust4noobs/projects/snake-game)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.31s
+     Running `target/debug/snake-game`
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - # - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - -
+</code></pre>
+<p>Agora vamos criar a <code>struct</code> da nossa cobrinha, para isso vamos adicionar a cabeça - que é um ponto - e uma lista de pontos para o corpo. Criamos o arquivo &quot;cobra.rs&quot; e adicionamos o <code>pub mod cobra</code> no arquivo <code>lib.rs</code>, e no arquivo &quot;cobra.rs&quot; adicionamos a struct.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Cobra {
+    pub cabeca: Ponto,
+    pub corpo: Vec&lt;Ponto&gt;,
+}
+
+impl Default for Cobra {
+    fn default() -&gt; Self {
+        Self { 
+            cabeca: Ponto::new(7, 7), 
+            corpo: vec![Ponto::new(6,7), Ponto::new(5,7)]
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A implementação da <code>trait</code> <a href="https://doc.rust-lang.org/std/default/trait.Default.html">default</a> serve para termos um valor padrão para a <code>struct</code>. Vamos separar a nossa função de desenhar o tabuleiro e vamos passar uma referência para a <code>struct</code> da <code>cobra</code>, então com base nos dados passados ali vamos desenhar a nossa cobra.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn print_board(cobra: &amp;Cobra) {
+    let (x, y) = (15, 15);
+    for y in 0..y {
+        for x in 0..x {
+            if cobra.cabeca == (x, y) {
+                print!(&quot;0 &quot;)
+            } else if cobra.corpo.contains(&amp;Ponto::new(x, y)) {
+                print!(&quot;# &quot;);   
+            } else {
+                print!(&quot;- &quot;);   
+            }
+        }
+        println!();
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Temos a função e agora é só chamar ela na nossa função <code>main</code>.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    print_board(&amp;Cobra::default())
+}
+</code></pre></pre>
+<p>Após executar o comando <code>cargo run</code> temos o output:</p>
+<pre><code class="language-bash">    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/snake-game`
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - # # 0 - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - 
+</code></pre>
+<p>Agora temos a cabeça e o corpo, precismos começar a definir uma direção que a cobra irá seguir e movimentar o corpo da cobra.</p>
+<p>Para isso criamos um enumarado de direções, seguimos o mesmo passo a passo, criamos um arquivo &quot;direcao.rs&quot; e adicionamos no arquivo <code>lib.rs</code> a declaração do módulo <code>pub mob direcao</code>.</p>
+<p>Então adicionamos as 4 direções possíveis ao nosso enum.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[derive(Clone, Copy)]
+pub enum Direcao {
+    Cima,
+    Baixo,
+    Direita,
+    Esquerda,
+}
+
+impl Default for Direcao {
+    fn default() -&gt; Self {
+        Self::Direita
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Criamos o enum já implementando a <code>trait default</code> para nos auxiliar, como o padrão de início da cobra sempre vai ser para a direita, colocamos o retorno do método o valor <code>Self::Direita</code>. Já derivamos as <code>traits</code>, <code>Clone</code> e <code>Copy</code> para não precisar passar esse enum como referência todas às vezes.</p>
+<p>Agora na nossa <code>struct</code> da cobra, vamos adicionar o atributo da direção.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Cobra {
+    pub cabeca: Ponto,
+    pub corpo: Vec&lt;Ponto&gt;,
+    direcao: Direcao
+}
+
+impl Default for Cobra {
+    fn default() -&gt; Self {
+        Self { 
+            cabeca: Ponto::new(7, 7), 
+            corpo: vec![Ponto::new(6,7), Ponto::new(5,7)],
+            direcao: Default::default() 
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Agora temos um modo de saber para qual direção a cobra está andando.</p>
+<p>Na nossa <code>struct Ponto</code> vamos adicionar a função para alterar o valor do ponto.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span>
+<span class="boring">fn main() {
+</span>impl Point {
+   ...
+
+    pub fn alterar(&amp;mut self, direcao: Direcao) {
+        match Direcao {
+            Direcao::Right =&gt; self.x += 1,
+            Direcao::Left =&gt; self.x -= 1,
+            Direcao::Up =&gt; self.y -= 1,
+            Direcao::Down =&gt; self.y += 1,
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Vamos aproveitar e adicionar testes unitários para o método de alterar:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(test)]
+mod ponto_tests {
+    use super::*;
+
+    #[test]
+    fn alterar_para_cima() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Cima);
+        assert_eq!(Ponto::new(1, 0), ponto);
+    }
+
+    #[test]
+    fn alterar_para_baixo() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Baixo);
+        assert_eq!(Ponto::new(1, 2), ponto);
+    }
+    
+    #[test]
+    fn alterar_para_direita() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Direita);
+        assert_eq!(Ponto::new(2, 1), ponto);
+    }
+
+
+    #[test]
+    fn alterar_para_esquerda() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Esquerda);
+        assert_eq!(Ponto::new(0, 1), ponto);
+    }
+
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Agora iremos adicionar a lógica para a cobra se mover, precisaremos de um método para mover a cabeça que é quem vai definir se o movimento é valido, se vai bater na parede, se vamos alterar a direção e já vamos adicionar os testes que consiste em, encerrar o jogo caso bata na parede, validar a posição dos pontos após algum movimento, etc.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Cobra {
+    pub fn passo(&amp;mut self, tabuleiro: (usize, usize)) -&gt; Result&lt;(), &amp;'static str&gt; {
+        let posicao_anterior_cabeca = self.cabeca;
+        self.mover_cabeca(&amp;tabuleiro)?;
+        self.mover_corpo(posicao_anterior_cabeca);
+        Ok(())
+    }
+
+    pub fn alterar_direcao(&amp;mut self, direcao: Direcao) {
+        self.direcao = direcao;
+    }
+
+    fn mover_cabeca(&amp;mut self, board: &amp;(usize, usize)) -&gt; Result&lt;(), &amp;'static str&gt; {
+        match self.direcao {
+            Direcao::Cima if self.cabeca.y == 0 =&gt; Err(&quot;fim de jogo, esbarrou na parede de cima&quot;),
+            Direcao::Baixo if self.cabeca.y &gt;= board.1 =&gt; Err(&quot;fim de jogo, esbarrou na parede de baixo&quot;),
+            Direcao::Esquerda if self.cabeca.x == 0 =&gt; Err(&quot;fim de jogo, esbarrou na parede da esquerda&quot;),
+            Direcao::Direita if self.cabeca.x &gt;= board.0 =&gt; Err(&quot;fim de jogo, esbarrou na parede da direita&quot;),
+            _ =&gt; {
+                self.cabeca.alterar(self.direcao);
+                Ok(())
+            }
+        }
+    }
+
+    fn mover_corpo(&amp;mut self, posicao_anterior_cabeca: Ponto) {
+        let corpo = &amp;mut self.corpo;
+        let mut posicao_anterior = posicao_anterior_cabeca;
+        for ponto in corpo.iter_mut() {
+            std::mem::swap(&amp;mut posicao_anterior, ponto);
+        }
+    }
+}
+
+...
+
+#[cfg(test)]
+mod cobra_tests {
+
+    use super::*;
+
+    #[test]
+    fn mover_cabeca_cobra_para_direita_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Right,
+        };
+        let expected_point = Ponto::new(8, 7);
+        cobra.mover_cabeca(&amp;(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
+    }
+
+    #[test]
+    fn mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Left,
+        };
+        let expected_point = Ponto::new(6, 7);
+        cobra.mover_cabeca(&amp;(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
+    }
+
+    #[test]
+    fn mover_cabeca_cobra_para_cima_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Up,
+        };
+        let expected_point = Ponto::new(7, 6);
+        cobra.mover_cabeca(&amp;(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
+    }
+
+    #[test]
+    fn mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_mover_com_sucesso() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Down,
+        };
+        let expected_point = Ponto::new(7, 8);
+        cobra.mover_cabeca(&amp;(8, 8)).unwrap();
+        assert_eq!(expected_point, cobra.cabeca);
+    }
+
+    #[test]
+    #[should_panic(expected = &quot;fim de jogo, esbarrou na parede da direita&quot;)]
+    fn mover_cabeca_cobra_para_direita_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![],
+            direcao: Direcao::Right,
+        };
+        cobra.mover_cabeca(&amp;(7, 7)).unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = &quot;fim de jogo, esbarrou na parede da esquerda&quot;)]
+    fn mover_cabeca_cobra_para_esquerda_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 7),
+            corpo: vec![],
+            direcao: Direcao::Left,
+        };
+        cobra.mover_cabeca(&amp;(7, 7)).unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = &quot;fim de jogo, esbarrou na parede de baixo&quot;)]
+    fn mover_cabeca_cobra_para_baixo_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 7),
+            corpo: vec![],
+            direcao: Direcao::Down,
+        };
+        cobra.mover_cabeca(&amp;(7, 7)).unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = &quot;fim de jogo, esbarrou na parede de cima&quot;)]
+    fn mover_cabeca_cobra_para_cima_no_tabuleiro_deve_esbarrar_na_parede() {
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(0, 0),
+            corpo: vec![],
+            direcao: Direcao::Up,
+        };
+        cobra.mover_cabeca(&amp;(7, 7)).unwrap();
+    }
+
+    #[test]
+    fn mover_cobra_inteira_para_a_direita_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
+            direcao: Direcao::Right,
+        };
+        cobra.passo(board).unwrap();
+        assert_eq!(Ponto::new(8, 7), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
+    }
+
+    #[test]
+    fn mover_cobra_inteira_para_a_esquerda_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
+            direcao: Direcao::Left,
+        };
+        cobra.passo(board).unwrap();
+        assert_eq!(Ponto::new(6, 7), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
+    }
+
+    #[test]
+    fn mover_cobra_inteira_para_cima_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
+            direcao: Direcao::Up,
+        };
+        cobra.passo(board).unwrap();
+        assert_eq!(Ponto::new(7, 6), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
+    }
+
+    #[test]
+    fn mover_cobra_inteira_para_baixo_deve_mover() {
+        let tabuleiro = (15, 15);
+        let mut cobra = Cobra {
+            cabeca: Ponto::new(7, 7),
+            corpo: vec![Ponto::new(6, 7)],
+            direcao: Direcao::Down,
+        };
+        cobra.passo(board).unwrap();
+        assert_eq!(Ponto::new(7, 8), cobra.cabeca);
+        assert_eq!(Ponto::new(7, 7), *cobra.corpo.first().unwrap());
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Notem o método de mover a cabeça da cobra:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn mover_cabeca(&amp;mut self, board: &amp;(usize, usize)) -&gt; Result&lt;(), &amp;'static str&gt; {
+    match self.direcao {
+        Direcao::Cima if self.cabeca.y == 0 =&gt; Err(&quot;fim de jogo, esbarrou na parede de cima&quot;),
+        Direcao::Baixo if self.cabeca.y &gt;= board.1 =&gt; Err(&quot;fim de jogo, esbarrou na parede de baixo&quot;),
+        Direcao::Esquerda if self.cabeca.x == 0 =&gt; Err(&quot;fim de jogo, esbarrou na parede da esquerda&quot;),
+        Direcao::Direita if self.cabeca.x &gt;= board.0 =&gt; Err(&quot;fim de jogo, esbarrou na parede da direita&quot;),
+        _ =&gt; {
+            self.cabeca.alterar(self.direcao);
+            Ok(())
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Temos nessa implementação o uso de um <code>if</code> que segue o valor do <a href="intermediary-02/./02-enums.html">enum</a>, afinal o que é isso?</p>
+<p>Isso faz parte do <a href="intermediary-02/./03-match.html">Pattern Match</a>, é algo que chamamos de <a href="https://doc.rust-lang.org/rust-by-example/flow_control/match/guard.html">guards</a>, do modo em que essa implementação é feita, temos duas validações para cair nesse ponto, o <code>enum</code> deve bater ali e a condição deve ser verdadeira, caso uma das duas condições falhe ele segue para o próximo <code>match</code>.</p>
+<p>Na função de mover o corpo temos a lógica para mover o restante da cobra, guardamos a posição do ponto antes de ser alterada e fazemos o próximo item a ser iterado a obter essa posição. Para isso usamos o método da biblioteca padrão do Rust, <code>swap</code>, esse método troca o valor de duas referencias que são passadas.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn mover_corpo(&amp;mut self, posicao_anterior_cabeca: Ponto) {
+    let corpo = &amp;mut self.corpo;
+    let mut posicao_anterior = posicao_anterior_cabeca;
+    for ponto in corpo.iter_mut() {
+        std::mem::swap(&amp;mut posicao_anterior, ponto);
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Agora temos a lógica de mover a cobra, mas temos um problema nela, no método de alterar a direção, não temos uma validação para saber se o jogador, selecionou a opção de direção contraria da que a cobra esta seguindo, vamos adicionar agora.</p>
+<p>No nosso enum de direção, vamos adicionar um método para pegar a direção contraria.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Direcao {
+    pub fn direcao_inversa(outro: Self) -&gt; Self {
+        match outro {
+            Self::Cima =&gt; Self::Baixo,
+            Self::Baixo =&gt; Self::Cima,
+            Self::Direita =&gt; Self::Esquerda,
+            Self::Esquerda =&gt; Self::Direita
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Deixo o teste deste método por sua conta.</p>
+<p>E agora no nosso método de alterar a direção, faremos a validação, também deixo por sua conta esta alteração, e os testes da mesma.</p>
+<p>Agora que temos o tabuleiro do jogo sendo desenhado, e temos a movimentação da cobra programada, vamos adicionar o petisco que iremos ter que pegar no jogo. O petisco é um ponto, então não precisamos criar outra <code>struct</code> para ela, apenas vamos gerar um ponto aleatório e fazer o nosso render renderiza-lo.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn gerar_petisco(cobra: &amp;Cobra, tabuleiro: &amp;(usize, usize)) -&gt; Point {
+    let mut petisco;
+    loop {
+        let x = rand::thread_rng().gen_range(0..=tabuleiro.0 - 1);
+        let y = rand::thread_rng().gen_range(0..=tabuleiro.1 - 1);
+        petisco = Point::new(x, y);
+        if cobra.cabeca != petisco &amp;&amp; !cobra.corpo.contains(&amp;petisco) {
+            break;
+        }
+    }
+    petisco
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para esse <a href="https://crates.io/crates/rand">rand</a> funcionar precisamos ir em nosso Cargo.toml e adicionar a seguinte dependência <code>rand = &quot;0.8.5&quot;</code> logo abaixo do <code>[dependencies]</code>, nesse método temos validações para não gerar um petisco em cima da cobra, ou seja, se o valor aleatório cair na cabeça ou em alguma parte do corpo da cobra, outro valor sera gerado. Quando o valor respeitar essa condição o <code>loop</code> para.</p>
+<p>Agora precisamos aumentar o tamanho da cobra, para isso adicionamos um método que ira adicionar um ponto, no fim do corpo da cobra.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Cobra
+    ...
+    pub fn aumentar_tamanho(&amp;mut self) {
+        let ultimo = self.body.last().unwrap().clone();
+        self.body.push(ultimo);
+    }
+
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>Para testar esse método é interessante, validarmos o tamanho do corpo e se a posição do ponto adicionado, é igual à posição do último ponto anterior após a cobra se mover.</p>
+<p>Agora temos que fazer o jogo funcionar, estamos quase lá.</p>
+<p>Vamos criar um arquivo <code>jogo</code> onde teremos a <code>struct Jogo</code>. Aquele mesmo processo de sempre, cria o arquivo, adiciona na <code>lib.rs</code>.</p>
+<p>A struct é a mais simples possível, ela é apenas.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Jogo;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Então vamos alterar o método que desenha o tabuleiro para gerar uma <a href="intermediary-02/../intermediary-01/01-strings.html">String</a>, vamos usa-la para desenhar o tabuleiro inteiro de uma vez e também vamos movê-la para a <code>struct Jogo</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Jogo {
+    fn gerar_tabuleuro(cobra: &amp;Cobra, petisco: &amp;Ponto, tabuleiro: &amp;(usize, usize)) -&gt; String {
+        let mut buffer = String::new();
+        for y in 0..tabuleiro.1 {
+            for x in 0..tabuleiro.0 {
+                if cobra.cabeca == (x, y) {
+                    buffer.push_str(&quot;0 &quot;)
+                } else if cobra.corpo.contains(&amp;Ponto::new(x, y)) {
+                    buffer.push_str(&quot;# &quot;);
+                } else if *petisco == (1x, y) {
+                    buffer.push_str(&quot;+ &quot;);
+                } else {
+                    buffer.push_str(&quot;- &quot;);
+                }
+            }
+            buffer.push('\n');
+        }
+        buffer
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Agora que fizemos essa alteração, vamos jogar o gerador do petisco para essa mesma struct.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Jogo {
+    ...
+    fn gerar_petisco(cobra: &amp;Cobra, tabuleiro: &amp;(usize, usize)) -&gt; Point {
+        let mut petisco;
+        loop {
+            let x = rand::thread_rng().gen_range(0..=tabuleiro.0 - 1);
+            let y = rand::thread_rng().gen_range(0..=tabuleiro.1 - 1);
+            petisco = Point::new(x, y);
+            if cobra.cabeca != petisco &amp;&amp; !cobra.corpo.contains(&amp;petisco) {
+                break;
+            }
+        }
+        petisco
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>E estamos quase lá, falta apenas um loop infinito, onde, movemos a cobra, limpamos a tela anterior, redesenhamos a tela e capturamos a tecla acionada.
+Para facilitar o processo vamos adicionar mais uma dependência no arquivo <code>Cargo.toml</code>, sera dependência <a href="https://crates.io/crates/termion">termion</a>.</p>
+<p>Então nosso arquivo ficará parecido com isso:</p>
+<pre><code class="language-toml">[package]
+name = &quot;snake-game&quot;
+version = &quot;0.1.0&quot;
+edition = &quot;2021&quot;
+
+[dependencies]
+
+rand = &quot;0.8.5&quot;
+termion = &quot;1.5.6&quot;
+</code></pre>
+<p>Vamos adicionar o método estático na <code>struct Jogo</code> que ira fazer a &quot;mágica&quot; acontecer.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Jogo {
+    pub fn run() -&gt; Result&lt;(), &amp;'static str&gt; {
+        let mut cobra: Cobra = Default::default();
+        let tabuleiro = (15, 15);
+        let mut petisco = Self::gerar_petisco(&amp;snake, &amp;tabuleiro);
+        let mut stdin = termion::async_stdin().keys();
+        loop {
+            if cobra.cabeca == snack {
+                cobra.aumentar_tamanho();
+                petisco = Self::gerar_petisco(&amp;cobra, &amp;tabuleiro);
+            } else if cobra.corpo.contains(&amp;cobra.cabeca) {
+                return Err(&quot;fim de jogo, a cobra bateu nela mesma&quot;);
+            }
+            let tabuleiro_jogo = Self::gerar_tabuleuro(&amp;cobra, &amp;petisco, &amp;tabuleiro);
+            print!(
+                &quot;{}{}{}&quot;,
+                termion::clear::All,
+                termion::cursor::Goto(1, 1),
+                termion::cursor::Hide
+            );
+            println!(&quot;{}&quot;, tabuleiro_jogo);
+            let stdout = io::stdout().into_raw_mode().unwrap();
+            let input = stdin.next();
+            if let Some(Ok(key)) = input {
+                match key {
+                    Key::Char('a') | Key::Left =&gt; cobra.alterar_direcao(Direcao::Esquerda),
+                    Key::Char('w') | Key::Up =&gt; cobra.alterar_direcao(Direcao::Cima),
+                    Key::Char('s') | Key::Down =&gt; cobra.alterar_direcao(Direcao::Baixo),
+                    Key::Char('d') | Key::Right =&gt; cobra.alterar_direcao(Direcao::Direita),
+                    _ =&gt; {},
+                }
+            }
+            stdout.lock().flush().unwrap();
+            thread::sleep(Duration::from_millis(500));
+            cobra.passo(tabuleiro)?;
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Esse método agrupa tudo o que nós precisamos, criamos a cobra, criamos o primeiro petisco, definimos o tamanho do tabuleiro e começamos a trabalhar.</p>
+<p>Na linha <code>let mut stdin = termion::async_stdin().keys();</code> criamos um modo <a href="https://en.wikipedia.org/wiki/Async/await">assincrono</a> de capturar as teclas digitadas pelo usuário, utilizando a dependencia do <code>termion</code>, assim que entramos no loop, fazemos as primeiras verificações, que são:</p>
+<ul>
+<li>Validar se a cabeça da cobra está na mesma posição de um petisco
+<ul>
+<li>Se sim =&gt; seu tamanho aumenta e outro petisco é gerado.</li>
+<li>Se não =&gt; valida se a cabeça está na mesma posição de seu corpo
+<ul>
+<li>Se sim =&gt; encerra o jogo com a mensagem de fim de jogo</li>
+<li>Se não =&gt; continua a execução</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Então geramos o tabuleiro e armazenamos em uma variável. Com um método do <code>termion</code>, limpamos o terminal, posicionamos o mouse na primeira posição e escondemos o cursor. Logo em sequência desenhamos tabuleiro do jogo. Transformamos a saída em <a href="https://en.wikipedia.org/wiki/Terminal_mode">raw mode</a>, lemos uma tecla e caso alguma tecla tenha sido pressionada validamos qual foi, em um <code>match</code> assim alteramos a direção que a cobra esta andando caso necessário. Limpamos a saída, esperamos meio segundo com o método <code>thread::sleep(Duration::from_milis(500))</code> e então fazemos a cobra dar mais um passo. O processo todo se repete.</p>
+<p>Adicionamos a o nosso <code>main</code> a chamada a esse método:</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    if let Err(msg) = Game::run() {
+        eprintln!(&quot;{}&quot;, msg)
+    }
+}
+</code></pre></pre>
+<p>E pronto, temos nosso jogo da cobrinha feito e funcionando, deixo para você os testes finais e adiciono alguns desafios:</p>
+<ul>
+<li>Faça o jogo pausar</li>
+<li>Adicione um placar ao jogo</li>
+<li>Quando a cobra alcançar o tamanho máximo (x * y) mostre uma mensagem de vitória e encerre o jogo</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

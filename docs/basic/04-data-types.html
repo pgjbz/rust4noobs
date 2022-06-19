@@ -1,881 +1,244 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="en" class="sidebar-visible no-js light">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Tipos de dados · HonKit</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Tipos de dados</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.7.1">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
-
-    
-    <link rel="next" href="05-operators.html" />
-    
-    
-    <link rel="prev" href="03-hello-world.html" />
-    
+        <!-- Custom theme stylesheets -->
 
     </head>
     <body>
-        
-<div class="book honkit-cloak">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-            
-                <nav role="navigation">
-                
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
 
-<ul class="summary">
-    
-    
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
 
-    
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
 
-    
-        
-        <li class="header">Sobre</li>
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    Introdução
-            
-                </a>
-            
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
 
-            
-        </li>
-    
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basico</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/01-about.html"><strong aria-hidden="true">2.1.</strong> Sobre a linguagem</a></li><li class="chapter-item expanded "><a href="../basic/02-environment.html"><strong aria-hidden="true">2.2.</strong> Ambiente</a></li><li class="chapter-item expanded "><a href="../basic/03-hello-world.html"><strong aria-hidden="true">2.3.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="../basic/04-data-types.html" class="active"><strong aria-hidden="true">2.4.</strong> Tipos de dados</a></li><li class="chapter-item expanded "><a href="../basic/05-operators.html"><strong aria-hidden="true">2.5.</strong> Operadores</a></li><li class="chapter-item expanded "><a href="../basic/06-conditions.html"><strong aria-hidden="true">2.6.</strong> Condicionais</a></li><li class="chapter-item expanded "><a href="../basic/07-loops.html"><strong aria-hidden="true">2.7.</strong> Loops</a></li><li class="chapter-item expanded "><a href="../basic/08-functions.html"><strong aria-hidden="true">2.8.</strong> Funções</a></li><li class="chapter-item expanded "><a href="../basic/09-arrays.html"><strong aria-hidden="true">2.9.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../basic/10-exercises.html"><strong aria-hidden="true">2.10.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-01/index.html"><strong aria-hidden="true">3.</strong> Intermediario 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-01/01-strings.html"><strong aria-hidden="true">3.1.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../intermediary-01/02-pointers-intro.html"><strong aria-hidden="true">3.2.</strong> Introdução a ponteiros</a></li><li class="chapter-item expanded "><a href="../intermediary-01/03-ownership.html"><strong aria-hidden="true">3.3.</strong> Ownership</a></li><li class="chapter-item expanded "><a href="../intermediary-01/04-tuples.html"><strong aria-hidden="true">3.4.</strong> Tuplas</a></li><li class="chapter-item expanded "><a href="../intermediary-01/05-slices.html"><strong aria-hidden="true">3.5.</strong> Slices</a></li><li class="chapter-item expanded "><a href="../intermediary-01/06-user-input.html"><strong aria-hidden="true">3.6.</strong> Entrada de dados</a></li><li class="chapter-item expanded "><a href="../intermediary-01/07-exercises.html"><strong aria-hidden="true">3.7.</strong> Exercicios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-02/index.html"><strong aria-hidden="true">4.</strong> Intermediario 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-02/01-structs.html"><strong aria-hidden="true">4.1.</strong> Struct</a></li><li class="chapter-item expanded "><a href="../intermediary-02/02-enums.html"><strong aria-hidden="true">4.2.</strong> Enum</a></li><li class="chapter-item expanded "><a href="../intermediary-02/03-match.html"><strong aria-hidden="true">4.3.</strong> Match</a></li><li class="chapter-item expanded "><a href="../intermediary-02/04-modules.html"><strong aria-hidden="true">4.4.</strong> Modulos</a></li><li class="chapter-item expanded "><a href="../intermediary-02/05-generics.html"><strong aria-hidden="true">4.5.</strong> Generics</a></li><li class="chapter-item expanded "><a href="../intermediary-02/06-traits.html"><strong aria-hidden="true">4.6.</strong> Traits</a></li><li class="chapter-item expanded "><a href="../intermediary-02/07-option.html"><strong aria-hidden="true">4.7.</strong> Enum especial Option</a></li><li class="chapter-item expanded "><a href="../intermediary-02/08-vec.html"><strong aria-hidden="true">4.8.</strong> Coleções: Vec</a></li><li class="chapter-item expanded "><a href="../intermediary-02/09-hashset.html"><strong aria-hidden="true">4.9.</strong> Coleções: HashSet</a></li><li class="chapter-item expanded "><a href="../intermediary-02/10-hashmap.html"><strong aria-hidden="true">4.10.</strong> Coleções: HashMap</a></li><li class="chapter-item expanded "><a href="../intermediary-02/11-result.html"><strong aria-hidden="true">4.11.</strong> Tratamento de erros</a></li><li class="chapter-item expanded "><a href="../intermediary-02/12-panic.html"><strong aria-hidden="true">4.12.</strong> Macro panic!</a></li><li class="chapter-item expanded "><a href="../intermediary-02/13-tests.html"><strong aria-hidden="true">4.13.</strong> Testes</a></li><li class="chapter-item expanded "><a href="../intermediary-02/14-snake.html"><strong aria-hidden="true">4.14.</strong> Mini projeto * Snake Game</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
 
-    
-        
-        <li class="header">Capítulos</li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Basico
-            
-                </a>
-            
+        <div id="page-wrapper" class="page-wrapper">
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="01-about.html">
-            
-                <a href="01-about.html">
-            
-                    
-                    Sobre a linguagem
-            
-                </a>
-            
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.2" data-path="02-environment.html">
-            
-                <a href="02-environment.html">
-            
-                    
-                    Ambiente
-            
-                </a>
-            
+                    <h1 class="menu-title"></h1>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.3" data-path="03-hello-world.html">
-            
-                <a href="03-hello-world.html">
-            
-                    
-                    Hello World
-            
-                </a>
-            
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
 
-            
-        </li>
-    
-        <li class="chapter active" data-level="2.1.4" data-path="04-data-types.html">
-            
-                <a href="04-data-types.html">
-            
-                    
-                    Tipos de dados
-            
-                </a>
-            
+                    </div>
+                </div>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="05-operators.html">
-            
-                <a href="05-operators.html">
-            
-                    
-                    Operadores
-            
-                </a>
-            
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6" data-path="06-conditions.html">
-            
-                <a href="06-conditions.html">
-            
-                    
-                    Condicionais
-            
-                </a>
-            
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" data-path="07-loops.html">
-            
-                <a href="07-loops.html">
-            
-                    
-                    Loops
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.8" data-path="08-functions.html">
-            
-                <a href="08-functions.html">
-            
-                    
-                    Funções
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.9" data-path="09-arrays.html">
-            
-                <a href="09-arrays.html">
-            
-                    
-                    Arrays
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.10" data-path="10-exercises.html">
-            
-                <a href="10-exercises.html">
-            
-                    
-                    Exercícios
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2" data-path="../intermediary-01/">
-            
-                <a href="../intermediary-01/">
-            
-                    
-                    Intermediario 1
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.2.1" data-path="../intermediary-01/01-strings.html">
-            
-                <a href="../intermediary-01/01-strings.html">
-            
-                    
-                    Strings
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.2" data-path="../intermediary-01/02-pointers-intro.html">
-            
-                <a href="../intermediary-01/02-pointers-intro.html">
-            
-                    
-                    Introdução a ponteiros
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.3" data-path="../intermediary-01/03-ownership.html">
-            
-                <a href="../intermediary-01/03-ownership.html">
-            
-                    
-                    Ownership
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.4" data-path="../intermediary-01/04-tuples.html">
-            
-                <a href="../intermediary-01/04-tuples.html">
-            
-                    
-                    Tuplas
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.5" data-path="../intermediary-01/05-slices.html">
-            
-                <a href="../intermediary-01/05-slices.html">
-            
-                    
-                    Slices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.6" data-path="../intermediary-01/06-user-input.html">
-            
-                <a href="../intermediary-01/06-user-input.html">
-            
-                    
-                    Entrada de dados
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.7" data-path="../intermediary-01/07-exercises.html">
-            
-                <a href="../intermediary-01/07-exercises.html">
-            
-                    
-                    Exercicios
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3" data-path="../intermediary-02/">
-            
-                <a href="../intermediary-02/">
-            
-                    
-                    Intermediario 2
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.3.1" data-path="../intermediary-02/01-structs.html">
-            
-                <a href="../intermediary-02/01-structs.html">
-            
-                    
-                    Struct
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.2" data-path="../intermediary-02/02-enums.html">
-            
-                <a href="../intermediary-02/02-enums.html">
-            
-                    
-                    Enum
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.3" data-path="../intermediary-02/03-match.html">
-            
-                <a href="../intermediary-02/03-match.html">
-            
-                    
-                    Match
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.4" data-path="../intermediary-02/04-modules.html">
-            
-                <a href="../intermediary-02/04-modules.html">
-            
-                    
-                    Modulos
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.5" data-path="../intermediary-02/05-generics.html">
-            
-                <a href="../intermediary-02/05-generics.html">
-            
-                    
-                    Generics
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.6" data-path="../intermediary-02/06-traits.html">
-            
-                <a href="../intermediary-02/06-traits.html">
-            
-                    
-                    Traits
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.7" data-path="../intermediary-02/07-option.html">
-            
-                <a href="../intermediary-02/07-option.html">
-            
-                    
-                    Enum especial Option
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.8" data-path="../intermediary-02/08-vec.html">
-            
-                <a href="../intermediary-02/08-vec.html">
-            
-                    
-                    Coleções: Vec
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.9" data-path="../intermediary-02/09-hashset.html">
-            
-                <a href="../intermediary-02/09-hashset.html">
-            
-                    
-                    Coleções: HashSet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.10" data-path="../intermediary-02/10-hashmap.html">
-            
-                <a href="../intermediary-02/10-hashmap.html">
-            
-                    
-                    Coleções: HashMap
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.11" data-path="../intermediary-02/11-result.html">
-            
-                <a href="../intermediary-02/11-result.html">
-            
-                    
-                    Tratamento de erros
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.12" data-path="../intermediary-02/12-panic.html">
-            
-                <a href="../intermediary-02/12-panic.html">
-            
-                    
-                    Macro panic!
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.13" data-path="../intermediary-02/13-tests.html">
-            
-                <a href="../intermediary-02/13-tests.html">
-            
-                    
-                    Testes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3.14" data-path="../intermediary-02/14-snake.html">
-            
-                <a href="../intermediary-02/14-snake.html">
-            
-                    
-                    Mini projeto * Snake Game
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
-            Published with HonKit
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Tipos de dados</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="tipos-de-dados">Tipos de dados</h1>
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="tipos-de-dados"><a class="header" href="#tipos-de-dados">Tipos de dados</a></h1>
 <p>Rust é uma linguagem fortemente e estaticamente tipada, nela temos alguns tipos</p>
-<h3 id="tipos">Tipos</h3>
-<table>
-<thead>
-<tr>
-<th>Tipo</th>
-<th>Tamanho</th>
-<th>Valor Máximo</th>
-<th>Valor Mínimo</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i8</td>
-<td>1 byte</td>
-<td>127</td>
-<td>-128</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>u8</td>
-<td>1 byte</td>
-<td>255</td>
-<td>0</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>i16</td>
-<td>2 bytes</td>
-<td>32767</td>
-<td>-32768</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>u16</td>
-<td>2 bytes</td>
-<td>65535</td>
-<td>0</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>i32</td>
-<td>4 bytes</td>
-<td>2147483647</td>
-<td>-2147483648</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>u32</td>
-<td>4 bytes</td>
-<td>4294967295</td>
-<td>0</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>i64</td>
-<td>8 bytes</td>
-<td>9223372036854775807</td>
-<td>-9223372036854775808</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>u64</td>
-<td>8 bytes</td>
-<td>18446744073709551615</td>
-<td>0</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>i128</td>
-<td>16 bytes</td>
-<td>170141183460469231731687303715884105727</td>
-<td>-170141183460469231731687303715884105728</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>u128</td>
-<td>16 bytes</td>
-<td>340282366920938463463374607431768211455</td>
-<td>0</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>f32</td>
-<td>4 bytes</td>
-<td>340282350...</td>
-<td>-340282350...</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>f64</td>
-<td>8 bytes</td>
-<td>1797693134862315700...</td>
-<td>-1797693134862315700...</td>
-<td>Numérico</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>1 byte</td>
-<td>true</td>
-<td>false</td>
-<td>booleano</td>
-</tr>
-<tr>
-<td>char</td>
-<td>depende</td>
-<td>depende</td>
-<td>depende</td>
-<td>character</td>
-</tr>
-</tbody>
-</table>
+<h3 id="tipos"><a class="header" href="#tipos">Tipos</a></h3>
+<table><thead><tr><th>Tipo</th><th>Tamanho</th><th>Valor Máximo</th><th>Valor Mínimo</th><th></th></tr></thead><tbody>
+<tr><td>i8</td><td>1 byte</td><td>127</td><td>-128</td><td>Numérico</td></tr>
+<tr><td>u8</td><td>1 byte</td><td>255</td><td>0</td><td>Numérico</td></tr>
+<tr><td>i16</td><td>2 bytes</td><td>32767</td><td>-32768</td><td>Numérico</td></tr>
+<tr><td>u16</td><td>2 bytes</td><td>65535</td><td>0</td><td>Numérico</td></tr>
+<tr><td>i32</td><td>4 bytes</td><td>2147483647</td><td>-2147483648</td><td>Numérico</td></tr>
+<tr><td>u32</td><td>4 bytes</td><td>4294967295</td><td>0</td><td>Numérico</td></tr>
+<tr><td>i64</td><td>8 bytes</td><td>9223372036854775807</td><td>-9223372036854775808</td><td>Numérico</td></tr>
+<tr><td>u64</td><td>8 bytes</td><td>18446744073709551615</td><td>0</td><td>Numérico</td></tr>
+<tr><td>i128</td><td>16 bytes</td><td>170141183460469231731687303715884105727</td><td>-170141183460469231731687303715884105728</td><td>Numérico</td></tr>
+<tr><td>u128</td><td>16 bytes</td><td>340282366920938463463374607431768211455</td><td>0</td><td>Numérico</td></tr>
+<tr><td>f32</td><td>4 bytes</td><td>340282350...</td><td>-340282350...</td><td>Numérico</td></tr>
+<tr><td>f64</td><td>8 bytes</td><td>1797693134862315700...</td><td>-1797693134862315700...</td><td>Numérico</td></tr>
+<tr><td>bool</td><td>1 byte</td><td>true</td><td>false</td><td>booleano</td></tr>
+<tr><td>char</td><td>depende</td><td>depende</td><td>depende</td><td>character</td></tr>
+</tbody></table>
 <p>Temos também o tipo <code>usize</code> que vai dependender da arquitetura do sistema operacional.</p>
-<h3 id="variáveis">Variáveis</h3>
+<h3 id="variáveis"><a class="header" href="#variáveis">Variáveis</a></h3>
 <p>Para declararmos &quot;variáveis&quot; em Rust utilizamos a palavra reservada <code>let</code>, mas o uso de apenas essa palavra para a declaração das &quot;variáveis&quot; armazena tipos imutáveis, para termos variáveis que podem ser alteradas temos que utilizar outra palavra reservada <code>mut</code>.</p>
 <p>Temos dois modos de declarar variáveis, uma em que falamos o tipo para o compilador e outra que o compilador &quot;decide o tipo&quot; para nós. Para a declaração que informamos o tipo temos a seguinte sintaxe <code>let nome: tipo = valor</code> e para a que o compilador decide temos a sintaxe <code>let nome = valor</code>;</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
-    <span class="hljs-keyword">let</span> idade_atual: <span class="hljs-built_in">u8</span> = <span class="hljs-number">22</span>;
-    <span class="hljs-keyword">let</span> ano_nascimento = <span class="hljs-number">1999</span>; <span class="hljs-comment">//inferencia de tipo</span>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let idade_atual: u8 = 22;
+    let ano_nascimento = 1999; //inferencia de tipo
 
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Idade atual {}, ano de nascimento: {}&quot;</span>, idade_atual, ano_nascimento);
+    println!(&quot;Idade atual {}, ano de nascimento: {}&quot;, idade_atual, ano_nascimento);
 }
-</code></pre>
+</code></pre></pre>
 <p>No exemplo acima utilizamos a declaração do tipo e inferência do mesmo, mas também podemos dar uma dica ao compilador ao tipo que iremos utilizar, o tipo padrão para números inteiros é <code>i32</code>, mas é um disperdicio de alguns bytes, podemos fazer da seguinte maneira.</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
-    <span class="hljs-keyword">let</span> idade_atual: <span class="hljs-built_in">u8</span> = <span class="hljs-number">22</span>;
-    <span class="hljs-keyword">let</span> ano_nascimento = <span class="hljs-number">1999_u16</span>;
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let idade_atual: u8 = 22;
+    let ano_nascimento = 1999_u16;
 
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Idade atual {}, ano de nascimento: {}&quot;</span>, idade_atual, ano_nascimento);
+    println!(&quot;Idade atual {}, ano de nascimento: {}&quot;, idade_atual, ano_nascimento);
 }
-</code></pre>
+</code></pre></pre>
 <p>Deste modo temos outro jeito de informar ao compilador que tipos queremos utilizar, porém, para este exemplo não faz muito sentido.</p>
-<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
-    <span class="hljs-keyword">let</span> crab_power = <span class="hljs-number">100_f32</span>;
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let crab_power = 100_f32;
 
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Poder do carangueijo {}%&quot;</span>, crab_power);
+    println!(&quot;Poder do carangueijo {}%&quot;, crab_power);
 }
-</code></pre>
+</code></pre></pre>
 <p>Mas para casos como este, esse tipo de abordagem faz mais sentido.</p>
 <ul>
-<li><a href="05-operators.html">Próximo</a> - Operadores</li>
+<li><a href="./05-operators.html">Próximo</a> - Operadores</li>
 </ul>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
+                    </main>
 
-                        </div>
-                    </div>
-                
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../basic/03-hello-world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../basic/05-operators.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="03-hello-world.html" class="navigation navigation-prev " aria-label="Previous page: Hello World">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="05-operators.html" class="navigation navigation-next " aria-label="Next page: Operadores">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
-    </div>
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../basic/03-hello-world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tipos de dados","level":"2.1.4","depth":2,"next":{"title":"Operadores","level":"2.1.5","depth":2,"path":"basic/05-operators.md","ref":"./basic/05-operators.md","articles":[]},"previous":{"title":"Hello World","level":"2.1.3","depth":2,"path":"basic/03-hello-world.md","ref":"./basic/03-hello-world.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basic/04-data-types.md","mtime":"2022-02-22T21:21:24.450Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-05-20T23:01:51.127Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+                    <a rel="next" href="../basic/05-operators.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
 
-        
-    <noscript>
-        <style>
-            .honkit-cloak {
-                display: block !important;
-            }
-        </style>
-    </noscript>
-    <script>
-        // Restore sidebar state as critical path for prevent layout shift
-        function __init__getSidebarState(defaultValue){
-            var baseKey = "";
-            var key = baseKey + ":sidebar";
-            try {
-                var value = localStorage[key];
-                if (value === undefined) {
-                    return defaultValue;
-                }
-                var parsed = JSON.parse(value);
-                return parsed == null ? defaultValue : parsed;
-            } catch (e) {
-                return defaultValue;
-            }
-        }
-        function __init__restoreLastSidebarState() {
-            var isMobile = window.matchMedia("(max-width: 600px)").matches;
-            if (isMobile) {
-                // Init last state if not mobile
-                return;
-            }
-            var sidebarState = __init__getSidebarState(true);
-            var book = document.querySelector(".book");
-            // Show sidebar if it enabled
-            if (sidebarState && book) {
-                book.classList.add("without-animation", "with-summary");
-            }
-        }
+        </div>
 
-        try {
-            __init__restoreLastSidebarState();
-        } finally {
-            var book = document.querySelector(".book");
-            book.classList.remove("honkit-cloak");
-        }
-    </script>
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
 
     </body>
 </html>
-
