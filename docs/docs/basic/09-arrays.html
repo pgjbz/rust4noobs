@@ -628,7 +628,7 @@
 </code></pre>
 <p>Deste modo temos um array de 7 posições preenchido com o valor 0, para acessarmos valores específicos dentro do array utilizamos os colchetes <code>[posicao]</code>, para modificarmos qualquer valor dentro do array também precisamos do uso da palavra <code>mut</code>.</p>
 <p>Em um array temos o método <code>len</code> onde conseguimos saber o tamanho do array, este método é muito util para realizar um <a href="07-loops.html">loop for</a> para percorrer o array.</p>
-<p>Iremos realizar uma simples operação com um array, teremos um array de 10 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.</p>
+<p>Iremos realizar uma simples operação com um array, teremos um array de 7 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.</p>
 <pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
     <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> array: [<span class="hljs-built_in">u8</span>; <span class="hljs-number">7</span>] = [<span class="hljs-number">0</span>; <span class="hljs-number">7</span>];
     <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..array.len() {
