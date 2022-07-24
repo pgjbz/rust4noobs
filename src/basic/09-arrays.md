@@ -20,7 +20,7 @@ Deste modo temos um array de 7 posições preenchido com o valor 0, para acessar
 
 Em um array temos o método `len` onde conseguimos saber o tamanho do array, este método é muito util para realizar um [loop for](./07-loops.md) para percorrer o array.
 
-Iremos realizar uma simples operação com um array, teremos um array de 10 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.
+Iremos realizar uma simples operação com um array, teremos um array de 7 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.
 
 ```rust
 fn main() {
