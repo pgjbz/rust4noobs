@@ -20,11 +20,11 @@ Deste modo temos um array de 7 posições preenchido com o valor 0, para acessar
 
 Em um array temos o método `len` onde conseguimos saber o tamanho do array, este método é muito util para realizar um [loop for](./07-loops.md) para percorrer o array.
 
-Iremos realizar uma simples operação com um array, teremos um array de 7 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.
+Iremos realizar uma simples operação com um array, teremos um array de 10 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.
 
 ```rust
 fn main() {
-    let mut array: [u8; 7] = [0; 7];
+    let mut array: [u8; 10] = [0; 10];
     for i in 0..array.len() {
         array[i] = i as u8 + 10u8;
     }
@@ -45,13 +45,16 @@ Pos: 3, val: 13
 Pos: 4, val: 14
 Pos: 5, val: 15
 Pos: 6, val: 16
+Pos: 7, val: 17
+Pos: 8, val: 18
+Pos: 9, val: 19
 ```
 
 Também temos outro modo de executar este loop para realizar o print dos valores:
 
 ```rust
 fn main() {
-    let mut array: [u8; 7] = [0; 7];
+    let mut array: [u8; 10] = [0; 10];
     for i in 0..array.len() {
         array[i] = i as u8 + 10u8;
     }
@@ -72,13 +75,16 @@ Val: 13
 Val: 14
 Val: 15
 Val: 16
+Val: 17
+Val: 18
+Val: 19
 ```
 
 Para termos o índice de volta podemos fazer da seguinte maneira:
 
 ```rust
 fn main() {
-    let mut array: [u8; 7] = [0; 7];
+    let mut array: [u8; 10] = [0; 10];
     for i in 0..array.len() {
         array[i] = i as u8 + 10u8;
     }
@@ -99,6 +105,9 @@ pos: 3, val: 13
 pos: 4, val: 14
 pos: 5, val: 15
 pos: 6, val: 16
+pos: 7, val: 17
+pos: 8, val: 18
+pos: 9, val: 19
 ```
 
 - [Próximo](./10-exercises.md) - Exercícios
