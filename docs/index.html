@@ -151,16 +151,7 @@
 <!-- Title -->
 <p align="center">
   <h2 align="center">Rust4Noobs</h2>
-<h1 align="center"><img src="./assets/rust.svg" alt="Imagem da linguagem" width="120"></h1>
-<p align="center">
-    <br />
-    <a href="#ROADMAP"><strong>Explore a documentação »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/pgjbz/rust4noobs/issues/new">Report Bug</a>
-    ·
-    <a href="https://github.com/pgjbz/rust4noobs/issues/new">Request Feature</a>
-  </p>
+<h1 align="center"><img src="./assets/rust.svg" alt="Imagem da linguagem width="120"></h1>
 </p>
 <h2 id="sobre-o-projeto"><a class="header" href="#sobre-o-projeto">Sobre o Projeto</a></h2>
 <p>Projeto para introdução a linguagem de programação Rust, o objetivo deste repositório é inserir o leitor aos conceitos da linguagem Rust, como o seu modo de gerenciamento de memória e conceitos da linguagem.</p>
@@ -210,24 +201,6 @@
 </ul>
 </li>
 </ul>
-<h2 id="como-contribuir"><a class="header" href="#como-contribuir">Como Contribuir</a></h2>
-<p>Contribuições fazem com que a comunidade open source seja um lugar incrível para aprender, inspirar e criar. Todas contribuições
-são <strong>extremamente apreciadas</strong></p>
-<ol>
-<li>Realize um Fork do projeto</li>
-<li>Crie um branch com a nova feature (<code>git checkout -b feature/featureBraba</code>)</li>
-<li>Realize o Commit (<code>git commit -m 'Adicionado conteudo brabo'</code>)</li>
-<li>Realize o Push no Branch (<code>git push origin feature/featureBraba</code>)</li>
-<li>Abra um Pull Request</li>
-</ol>
-<h2 id="honkit"><a class="header" href="#honkit"><a href="https://honkit.netlify.app/ebook.html">Honkit</a></a></h2>
-<p>Para realizar o build do projeto em livro você pode utilizar a ferramenta <a href="https://honkit.netlify.app/ebook.html">honkit</a>. Assim fica mais facil a leitura e você pode exportar até mesmo para o kindle. Para isso use um dos comandos abaixo:</p>
-<pre><code class="language-sh">$ honkit build
-$ honkit pdf nome.pdf
-$ honkit mobi nome.mobi
-$ honkit serve
-</code></pre>
-<p>Ou acesse <a href="https://rust4noobs.pgjbz.dev/">este link</a> para ter acesso ao livro online</p>
 <h2 id="autores"><a class="header" href="#autores">Autores</a></h2>
 <ul>
 <li>Paulo Gabriel Justino Bezerra - Desenvolvedor Java - <a href="https://www.linkedin.com/in/paulogjbezerra/">Linkedin</a></li>
@@ -261,6 +234,22 @@ $ honkit serve
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

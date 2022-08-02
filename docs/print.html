@@ -152,16 +152,7 @@
 <!-- Title -->
 <p align="center">
   <h2 align="center">Rust4Noobs</h2>
-<h1 align="center"><img src="./assets/rust.svg" alt="Imagem da linguagem" width="120"></h1>
-<p align="center">
-    <br />
-    <a href="index.html#ROADMAP"><strong>Explore a documentação »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/pgjbz/rust4noobs/issues/new">Report Bug</a>
-    ·
-    <a href="https://github.com/pgjbz/rust4noobs/issues/new">Request Feature</a>
-  </p>
+<h1 align="center"><img src="./assets/rust.svg" alt="Imagem da linguagem width="120"></h1>
 </p>
 <h2 id="sobre-o-projeto"><a class="header" href="#sobre-o-projeto">Sobre o Projeto</a></h2>
 <p>Projeto para introdução a linguagem de programação Rust, o objetivo deste repositório é inserir o leitor aos conceitos da linguagem Rust, como o seu modo de gerenciamento de memória e conceitos da linguagem.</p>
@@ -211,24 +202,6 @@
 </ul>
 </li>
 </ul>
-<h2 id="como-contribuir"><a class="header" href="#como-contribuir">Como Contribuir</a></h2>
-<p>Contribuições fazem com que a comunidade open source seja um lugar incrível para aprender, inspirar e criar. Todas contribuições
-são <strong>extremamente apreciadas</strong></p>
-<ol>
-<li>Realize um Fork do projeto</li>
-<li>Crie um branch com a nova feature (<code>git checkout -b feature/featureBraba</code>)</li>
-<li>Realize o Commit (<code>git commit -m 'Adicionado conteudo brabo'</code>)</li>
-<li>Realize o Push no Branch (<code>git push origin feature/featureBraba</code>)</li>
-<li>Abra um Pull Request</li>
-</ol>
-<h2 id="honkit"><a class="header" href="#honkit"><a href="https://honkit.netlify.app/ebook.html">Honkit</a></a></h2>
-<p>Para realizar o build do projeto em livro você pode utilizar a ferramenta <a href="https://honkit.netlify.app/ebook.html">honkit</a>. Assim fica mais facil a leitura e você pode exportar até mesmo para o kindle. Para isso use um dos comandos abaixo:</p>
-<pre><code class="language-sh">$ honkit build
-$ honkit pdf nome.pdf
-$ honkit mobi nome.mobi
-$ honkit serve
-</code></pre>
-<p>Ou acesse <a href="https://rust4noobs.pgjbz.dev/">este link</a> para ter acesso ao livro online</p>
 <h2 id="autores"><a class="header" href="#autores">Autores</a></h2>
 <ul>
 <li>Paulo Gabriel Justino Bezerra - Desenvolvedor Java - <a href="https://www.linkedin.com/in/paulogjbezerra/">Linkedin</a></li>
@@ -651,9 +624,9 @@ fn escreve_iss(iss: f32) {
 </code></pre></pre>
 <p>Deste modo temos um array de 7 posições preenchido com o valor 0, para acessarmos valores específicos dentro do array utilizamos os colchetes <code>[posicao]</code>, para modificarmos qualquer valor dentro do array também precisamos do uso da palavra <code>mut</code>.</p>
 <p>Em um array temos o método <code>len</code> onde conseguimos saber o tamanho do array, este método é muito util para realizar um <a href="basic/./07-loops.html">loop for</a> para percorrer o array.</p>
-<p>Iremos realizar uma simples operação com um array, teremos um array de 7 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.</p>
+<p>Iremos realizar uma simples operação com um array, teremos um array de 10 posições e iremos percorrer esse array e daremos o valor para cada posição com a seguinte regra: posição + 10, e logo depois iremos imprimir no console este array.</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
-    let mut array: [u8; 7] = [0; 7];
+    let mut array: [u8; 10] = [0; 10];
     for i in 0..array.len() {
         array[i] = i as u8 + 10u8;
     }
@@ -671,10 +644,13 @@ Pos: 3, val: 13
 Pos: 4, val: 14
 Pos: 5, val: 15
 Pos: 6, val: 16
+Pos: 7, val: 17
+Pos: 8, val: 18
+Pos: 9, val: 19
 </code></pre>
 <p>Também temos outro modo de executar este loop para realizar o print dos valores:</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
-    let mut array: [u8; 7] = [0; 7];
+    let mut array: [u8; 10] = [0; 10];
     for i in 0..array.len() {
         array[i] = i as u8 + 10u8;
     }
@@ -692,10 +668,13 @@ Val: 13
 Val: 14
 Val: 15
 Val: 16
+Val: 17
+Val: 18
+Val: 19
 </code></pre>
 <p>Para termos o índice de volta podemos fazer da seguinte maneira:</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
-    let mut array: [u8; 7] = [0; 7];
+    let mut array: [u8; 10] = [0; 10];
     for i in 0..array.len() {
         array[i] = i as u8 + 10u8;
     }
@@ -713,6 +692,9 @@ pos: 3, val: 13
 pos: 4, val: 14
 pos: 5, val: 15
 pos: 6, val: 16
+pos: 7, val: 17
+pos: 8, val: 18
+pos: 9, val: 19
 </code></pre>
 <ul>
 <li><a href="basic/./10-exercises.html">Próximo</a> - Exercícios</li>
@@ -721,6 +703,7 @@ pos: 6, val: 16
 <p>Nada melhor que exercícios para praticar o que aprendemos até agora, loops, arrays, operadores, tipos de dados e funções.</p>
 <p>1 - Faça um programa que tenha uma função que recebe um array de inteiros com sinal (aceite números negativos) e devolva a soma dos valores deste array e exiba no console.</p>
 <p>2 - Faça um programa que calcule a média entre quatro notas e informe se foi aprovado ou não e a média, para ser aprovado a média deve ser maior ou igual a 7.</p>
+<p>3 - Faça um programa que percorra um vetor com valores inteiros e verifique quais multiplos de 2.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="módulo-intermediário-1"><a class="header" href="#módulo-intermediário-1">Módulo intermediário 1</a></h1>
 <p>Decidi dividir o módulo intermediário em dois, esta parte do módulo intermediário iremos falar sobre as strings, introdução aos ponteiros, sistema de ownership, tuplas, tipos <code>slice</code>, parse e casting.</p>
 <p>Roadmap:</p>
@@ -3749,6 +3732,22 @@ termion = &quot;1.5.6&quot;
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

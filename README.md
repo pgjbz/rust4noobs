@@ -67,25 +67,25 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
 ## Como Contribuir
 
 Contribuições fazem com que a comunidade open source seja um lugar incrível para aprender, inspirar e criar. Todas contribuições
-são **extremamente apreciadas**
+são **extremamente apreciadas**, para verificar como contribuir [clique aqui](CONTRIBUTING.md)
 
-1. Realize um Fork do projeto
-2. Crie um branch com a nova feature (`git checkout -b feature/featureBraba`)
-3. Realize o Commit (`git commit -m 'Adicionado conteudo brabo'`)
-4. Realize o Push no Branch (`git push origin feature/featureBraba`)
-5. Abra um Pull Request
+
 
 ## [Honkit](https://honkit.netlify.app/ebook.html)
 
-Para realizar o build do projeto em livro você pode utilizar a ferramenta [honkit](https://honkit.netlify.app/ebook.html). Assim fica mais facil a leitura e você pode exportar até mesmo para o kindle. Para isso use um dos comandos abaixo:
+Para realizar o build do projeto em livro você pode utilizar a ferramenta [mdbook](https://rust-lang.github.io/mdBook/). Assim fica mais facil a leitura e você pode exportar até mesmo para o kindle. Para isso use um dos comandos abaixo:
 
 ```sh
-$ honkit build
-$ honkit pdf nome.pdf
-$ honkit mobi nome.mobi
-$ honkit serve
+$ mdbook build
 ```
 Ou acesse [este link](https://rust4noobs.pgjbz.dev/) para ter acesso ao livro online
+
+Para servir o livro localmente use:
+
+```sh
+$ mdbook serve
+```
+
 ## Autores
 
 - Paulo Gabriel Justino Bezerra - Desenvolvedor Java - [Linkedin](https://www.linkedin.com/in/paulogjbezerra/)
