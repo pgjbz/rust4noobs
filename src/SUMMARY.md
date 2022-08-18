@@ -39,3 +39,8 @@
     * [Macro panic!](./intermediary-02/12-panic.md)
     * [Testes](./intermediary-02/13-tests.md)
     * [Mini projeto * Snake Game](./intermediary-02/14-snake.md)
+* [Avançado 1](./advanced-01/README.md)
+    * [Lifetimes](./advanced-01/01-lifetimes.md)
+    * [Smart Pointers](./advanced-01/02-smart-pointers.md)
+    * [Closures](./advanced-01/03-closures.md)
+    * [Threads](./advanced-01/04-threads.md)
