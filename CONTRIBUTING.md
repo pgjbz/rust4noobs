@@ -12,6 +12,4 @@
 ## Informações importantes
 
 Todos os textos fican na pasta `src`.
-
-Se possivel realizar o build do livro com ```mdbook build```, 
-e aplicar as modificações na pasta `docs`. 
+O build do livro esta separado em outra branch.
