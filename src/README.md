@@ -19,8 +19,6 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
 
 ## ROADMAP
 
-FOO
-
 - [Basico](./basic)
     - [Sobre a linguagem](./basic/01-about.md)
     - [Ambiente](./basic/02-environment.md)
