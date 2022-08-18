@@ -12,4 +12,5 @@
 ## Informações importantes
 
 Todos os textos fican na pasta `src`.
+
 O build do livro esta separado em outra branch.
