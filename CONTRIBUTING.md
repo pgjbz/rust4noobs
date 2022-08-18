@@ -14,4 +14,4 @@
 Todos os textos fican na pasta `src`.
 
 Se possivel realizar o build do livro com ```mdbook build```, 
-deletar a pasta `docs` e mudar o nome da pasta `book`para `docs`.
+e aplicar as modificações na pasta `docs`. 
