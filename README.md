@@ -57,8 +57,8 @@ $ mdbook serve
 
 ## Pessoas que melhoraram este projeto
 
-<!-- readme: contributors -start -->
-<!-- readme: contributors -end -->
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
 
 <p align="center">
   <a href="https://github.com/he4rt/4noobs" target="_blank">
