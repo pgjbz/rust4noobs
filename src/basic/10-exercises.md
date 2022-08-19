@@ -6,4 +6,4 @@ Nada melhor que exercícios para praticar o que aprendemos até agora, loops, ar
 
 2 - Faça um programa que calcule a média entre quatro notas e informe se foi aprovado ou não e a média, para ser aprovado a média deve ser maior ou igual a 7.
 
-3 - Faça um programa que percorra um vetor com valores inteiros e verifique quais multiplos de 2.
+3 - Faça um programa que percorra um vetor com valores inteiros e verifique quais múltiplos de 2.

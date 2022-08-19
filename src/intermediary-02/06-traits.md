@@ -20,7 +20,7 @@ fn main() {
 }
 ```
 
-Afinal o que falta para esse código funciona? Falta determinamos que 'T' deve implementar algumas traits. O que são essas `traits`?? Elas são como contratos, um tipo deve implementar certas funções/métodos definidas por essa `trait`. E como declaramos uma? Seguimos o seguinte padrão `trait nome { assinaturas/metodos }`.
+Afinal o que falta para esse código funciona? Falta determinamos que 'T' deve implementar algumas traits. O que são essas `traits`?? Elas são como contratos, um tipo deve implementar certas funções/métodos definidas por essa `trait`. E como declaramos uma? Seguimos o seguinte padrão `trait nome { assinaturas/métodos }`.
 
 ```rust
 trait Pagavel  {
@@ -31,7 +31,7 @@ trait Pagavel  {
 Assim definimos uma `trait`, agora precisamos implementar, vamos criar uma `struct Pedido` que ira implementar essa `trait`. Para dizer que algo implementa uma `trait` usamos o seguinte padrão `impl NomeTrait for NomeStruct { implementação }`
 
 ```rust
-//--definição trait Pagavel
+//--definição trait Pagável
 
 struct Pedido {
     quantidade_items: u8,
@@ -256,7 +256,7 @@ struct Contador {
 
 impl Iterator for Contador {
     type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso, 
-    mas considere que é um modo de usar Generics de uma forma que impedimos multiplas implementações da mesma trait pra mesma coisa */
+    mas considere que é um modo de usar Generics de uma forma que impedimos múltiplas implementações da mesma trait pra mesma coisa */
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.contagem >= 100 {
@@ -333,5 +333,3 @@ Maior elemento: 11
 ```
 
 Este capitulo sobre `traits` ficou maior que do eu esperava, mas espero que tenha ficado claro o uso delas e a importância dessa funcionalidade.
-
-- [Próximo](./07-option.md) - Enum especial Option

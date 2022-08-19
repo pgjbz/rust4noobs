@@ -41,7 +41,7 @@ fn main() {
 
 ## Declarando comportamento para uma Struct
 
-Em Rust uma struct pode ter funções associadas a ela, essas funções são chamadas de métodos, aqui temos uma das características de [Programação Orientada a Objetos]() no Rust, como a linguagem é de multiparadigmas temos alguns recursos desse modo de programação disponível.
+Em Rust uma struct pode ter funções associadas a ela, essas funções são chamadas de métodos, aqui temos uma das características de [Programação Orientada a Objetos]() no Rust, como a linguagem é de multi-paradigmas temos alguns recursos desse modo de programação disponível.
 
 Para implementarmos métodos para a struct `Cliente` utilizamos a palavra reservada `impl` seguida do nome da estrutura `impl Cliente { implementações }`, vamos começar com a implementação de um método estático para nos auxiliar na criação de variáveis do tipo `Cliente`.
 
@@ -58,7 +58,7 @@ impl Cliente {
             nome: nome,
             ano_de_nascimento,
             /*
-                Como o atributo tem o mesmo nome do parametro/variavel eu não preciso colocar o padrão chave:valor
+                Como o atributo tem o mesmo nome do parâmetro/variável eu não preciso colocar o padrão chave:valor
             */
             documento
         }
@@ -89,7 +89,7 @@ impl Cliente {
             ano_de_nascimento,
             /*
                 Como o atributo tem o mesmo nome do 
-                parametro/variavel eu não preciso 
+                parâmetro/variável eu não preciso 
                 colocar o padrão chave:valor
             */
             documento
@@ -143,5 +143,3 @@ error: aborting due to previous error
 
 For more information about this error, try `rustc --explain E0382`.
 ```
-
-- [Próximo](./02-enums.md) - Enum

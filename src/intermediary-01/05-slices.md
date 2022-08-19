@@ -6,7 +6,7 @@ Temos o seguinte trecho de código:
 
 ```rust
 fn main() {
-    let texto: String = String::from("Rust 4 noobs");
+    let texto: String = String::from("Rust 4 Noobs");
 }
 ```
 
@@ -14,7 +14,7 @@ A partir da String acima, eu quero pegar os 4 primeiros caracteres desta String,
 
 ```rust
 fn main() {
-    let texto: String = String::from("Rust 4 noobs");
+    let texto: String = String::from("Rust 4 Noobs");
     let slice = quatro_primeiros(&texto);
     println!("{}", slice);
 }
@@ -28,7 +28,7 @@ Para criar um `slice` utilizamos os colchetes, e dentro dos colchetes informamos
 
 ```rust
 fn main() {
-    let texto: String = String::from("Rust 4 noobs");
+    let texto: String = String::from("Rust 4 Noobs");
     let slice = primeira_palavra(&texto);
     println!("{}", slice);
 }
@@ -44,13 +44,13 @@ fn primeira_palavra(texto: &String) -> &str {
 }
 ```
 
-# Referencia "perdurada"
+# Referencia "ausente"
 
 Sendo sincero não encontrei um modo melhor de traduzir "dangling reference", mas ela ocorre quando tentamos retornar uma referência de algo que já foi devolvido ao Sistema Operacional. Vamos utilizar o nosso primeiro exemplo para demonstrar, vamos remover a passagem por referência da nossa função, pegar o ownership e tentar devolver o `slice`
 
 ```rust
 fn main() {
-    let texto: String = String::from("Rust 4 noobs");
+    let texto: String = String::from("Rust 4 Noobs");
     let slice = quatro_primeiros(&texto);
     println!("{}", slice);
 }
@@ -77,5 +77,3 @@ help: consider using the `'static` lifetime
 
 error: aborting due to previous error
 ```
-
-- [Próximo](./06-user-input.md) - Entrada de dados

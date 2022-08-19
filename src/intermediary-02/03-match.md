@@ -159,7 +159,7 @@ fn main() {
 
     match rust4noobs {
         Repositorio::Este(url, stars) => println!("Repositorio {}, estrelas {}", url, stars),
-        Repositorio::Outros(url, stars, n) => println!("Repositorio {}, estrelas {}, numero aleatório para diferneciar {}", url, stars, n),
+        Repositorio::Outros(url, stars, n) => println!("Repositorio {}, estrelas {}, numero aleatório para diferenciar {}", url, stars, n),
     }
 }
 ```
@@ -210,5 +210,3 @@ fn main() {
 ```
 
 Match é uma estrutura bem poderosa, e seu uso é relativamente simples ~~por enquanto~~
-
-- [Próximo](./04-modules.md) - Módulos

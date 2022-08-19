@@ -2,7 +2,7 @@
 
 Os módulos são a forma em que o Rust tem para organizar o código, eles podem ser feitos no mesmo arquivo, em arquivos diferentes, ou em até subdiretórios do projeto.
 
-Vamos pegar aquele primeiro exemplo utilizado nas [structs](./01-structs.md) e colocar ele dentro de um módulo, para declarar um módulo fazemos da seguinte maneira `mod NomeDoModulo { conteudo }`.
+Vamos pegar aquele primeiro exemplo utilizado nas [structs](./01-structs.md) e colocar ele dentro de um módulo, para declarar um módulo fazemos da seguinte maneira `mod NomeDoModulo { conteúdo }`.
 
 ```rust
 mod nota_fiscal {
@@ -183,7 +183,7 @@ E teríamos a seguinte estrutura de projeto.
 
 O código de `nota_fiscal.rs` é transferido para `mod.rs` na pasta `nota_fiscal` e nada mais é mudado. Temos o mesmo comportamento e o código dividido em módulos.
 
-### Importando e re-exportando modulos
+### Importando e re-exportando módulos
 
 Vamos realizar a criação de um módulo chamado `pedido` dentro de nosso modulo `nota_fiscal` e dentro do módulo `pedido` vamos criar um módulo `produto`.
 
@@ -279,7 +279,7 @@ fn main() {
 }
 
 ```
-Nesse exemplo temos vários modos de imports, temos um impor com a palavra `crate` que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o `super` que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais facil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. 
+Nesse exemplo temos vários modos de imports, temos um impor com a palavra `crate` que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o `super` que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais fácil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. 
 
 Futuramente iremos utilizar outro modo de projeto que ira utilizar o arquivo `lib.rs`, onde também podemos declarar os módulos e remover isso do `main.rs`, com esse arquivo podemos importar conforme o nome do projeto no `Cargo.toml`
 
@@ -302,9 +302,8 @@ fn main() {
     let pedido = Pedido::new(cliente, produtos);
     println!("{:#?}", pedido)
 }
-
 ```
 
+Nota:
 
-- [Próximo](./05-generics.md) - Generics
-
+Quando declaramos um módulo interno e utilizamos o "use" como "pub" o modulo interno é exportado como se fosse parte do módulo que o declarou.

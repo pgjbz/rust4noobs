@@ -1,4 +1,4 @@
-# Basico
+# Básico
 
 Este é o início da nossa caminhada de aprendizado da linguagem de programação Rust, nesta seção você encontrara coisas como configurações de ambiente, tipos, estrutura de decisão, loops e funções.
 
@@ -16,5 +16,3 @@ Roadmap:
 - [Exercícios](./10-exercises.md)
 
 <hr>
-
-[Próximo Nivel](../intermediary-01/)
