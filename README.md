@@ -58,6 +58,44 @@ $ mdbook serve
 ## Pessoas que melhoraram este projeto
 
 <!-- readme: collaborators,contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/pgjbz">
+            <img src="https://avatars.githubusercontent.com/u/22059237?v=4" width="100;" alt="pgjbz"/>
+            <br />
+            <sub><b>Paulo Gabriel Justino Bezerra</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/RobertoAssumpcao">
+            <img src="https://avatars.githubusercontent.com/u/57875404?v=4" width="100;" alt="RobertoAssumpcao"/>
+            <br />
+            <sub><b>Roberto Assumpcao</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/silasms">
+            <img src="https://avatars.githubusercontent.com/u/84996376?v=4" width="100;" alt="silasms"/>
+            <br />
+            <sub><b>Silas Medeiros</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/danielcti">
+            <img src="https://avatars.githubusercontent.com/u/31549323?v=4" width="100;" alt="danielcti"/>
+            <br />
+            <sub><b>Daniel Cavalcanti</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/herniqeu">
+            <img src="https://avatars.githubusercontent.com/u/95002561?v=4" width="100;" alt="herniqeu"/>
+            <br />
+            <sub><b>Gzsr</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: collaborators,contributors -end -->
 
 <p align="center">
