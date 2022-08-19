@@ -154,15 +154,15 @@
 <p>E agora, ainda utilizando o exemplo acima, como eu faço para acessar o valor <code>i32</code> da tupla? Ou seja, o segundo item. Assim como no array começamos a contagem por <code>0</code> nas tuplas também fazemos isso, porém ao invés de utilizarmos os colchetes para acessar, utilizamos o <code>.0</code></p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
               //0,  1, , 2     , 3
-    let tuple: (u8, i32, String, char) = (10, 25, String::from(&quot;Rust4noobs&quot;), 'a');
+    let tuple: (u8, i32, String, char) = (10, 25, String::from(&quot;Rust4Noobs&quot;), 'a');
     println!(&quot;Valor i32: {}&quot;, tuple.1);
 }
 </code></pre></pre>
-<p>Acessamos o valor i32 e printamos ele.</p>
+<p>Acessamos o valor i32 e escrevemos ele na saída principal.</p>
 <p>Na parte sobre <a href="./03-ownership.html">ownership</a> utilizamos da estratégia de retornar o que foi passado por parâmetro para não perdemos a posse de memória da variável, podemos fazer isso com tuplas também.</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let texto1 = String::from(&quot;Rust&quot;);
-    let texto2 = String::from(&quot;4Noob&quot;);
+    let texto2 = String::from(&quot;4Noobs&quot;);
     let (mut devolve1, mut devolve2) = printa_duas_strings(texto1, texto2);
     devolve1.push_str(&quot; qualquercoisasópraterexemplo&quot;);
     devolve2.push_str(&quot; sérionaotiveideianenhuma&quot;);
@@ -177,9 +177,6 @@ fn printa_duas_strings(texto1: String, texto2: String) -&gt; (String, String) {
 }
 </code></pre></pre>
 <p>Conseguimos utilizar a mesma estratégia de retornar os parâmetros para não perder o ownership com uma tupla.</p>
-<ul>
-<li><a href="./05-slices.html">Próximo</a> - Slices</li>
-</ul>
 
                     </main>
 

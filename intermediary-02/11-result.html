@@ -203,9 +203,16 @@ fn abre_arquivo(caminho: &amp;str) -&gt; Result&lt;File, io::Error&gt; {
 <h2 id="criando-nossos-próprios-erros"><a class="header" href="#criando-nossos-próprios-erros">Criando nossos próprios erros.</a></h2>
 <p>Enquanto eu aprendo mais sobre Rust e escrevo este 4Noobs, eu estou aprendendo mais sobre interpretadores. Em alguns pontos código do meu interpretador eu preciso de <code>Result</code> ao invés de <code>Option</code>, isso quando é algo que pode falhar e ter tratativas diferentes dependendo do  erro. Por exemplo, no meu interpretador eu considero o fim do arquivo como um erro. Porém, não é um erro que para a execução do interpretador, é um erro que significa que não tenho mais tokens, então posso seguir para a próxima parte. Agora caso tenhamos um erro de sintaxe, salvamos isso em um erro para informar a quem estiver usando a linguagem.</p>
 <p>Temos abaixo um exemplo simples desse caso.</p>
-<pre><pre class="playground"><code class="language-rust">enum ParseError {
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+enum ParseError {
     Eof,
     Inaceitavel(String)
+}
+
+impl std::error::Error for ParseError {}
+
+impl std::fmt::Display for ParseError {
+    //implementação do display
 }
 
 fn faz_o_parse_ai(mock: u8) -&gt; Result&lt;(), ParseError&gt; {
@@ -231,9 +238,7 @@ fn main() {
 </code></pre></pre>
 <p>O uso do meu próprio <code>Enum</code> e é algo que facilita a minha leitura, por saber que se trata especificamente de um erro de <code>Parse</code>, assim como as <code>exceções</code>em <code>Java</code> ou qualquer outra linguagem, use algo que faça sentido, não retorne um erro de parse o erro for sobre não conseguir vender maçãs.</p>
 <p>Claro como <code>Result&lt;T, E&gt;</code> é um tipo genérico, não é obrigatório que o meu erro seja um <code>Enum</code> ou qualquer coisa, posso retornar um <code>i32</code>, <code>String</code>, qualquer coisa.</p>
-<ul>
-<li><a href="./12-panic.html">Próximo</a> - Macro Panic</li>
-</ul>
+<p>O único ponto que devemos ficar atentos é que caso implementemos a trait &quot;Error&quot; do pacote &quot;std::error&quot; precisamos também implementar a trait &quot;Debug&quot; e a trait &quot;Display&quot;, isso é util caso o nosso método retorne mais de um tipo de erro, no módulo avançado iremos ver como fazer isso.</p>
 
                     </main>
 

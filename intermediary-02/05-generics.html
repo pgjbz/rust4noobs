@@ -147,7 +147,7 @@
 <p>Afinal o que são Generics?</p>
 <p>Generics é um modo de reaproveitar um código substituindo um tipo 'T' por um tipo concreto. O compilador de Rust, gera implementações com o tipo concreto para cada uso do generic, ele faz isso para não perdemos performance em tempo de execução.</p>
 <h2 id="declaração-de-um-generic"><a class="header" href="#declaração-de-um-generic">Declaração de um Generic</a></h2>
-<p>Para declarar um generic. Utilizamos o seguinte padrão <code>struct Nome&lt;T&gt; { implementacao }</code></p>
+<p>Para declarar um generic. Utilizamos o seguinte padrão <code>struct Nome&lt;T&gt; { implementação }</code></p>
 <pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
 struct Cliente&lt;T&gt; {
     nome: String,
@@ -212,7 +212,7 @@ impl&lt;T, U&gt; Cliente&lt;T, U&gt; {
 }
 <span class="boring">}
 </span></code></pre></pre>
-<h3 id="funcõesmétodos-com-generics"><a class="header" href="#funcõesmétodos-com-generics">Funcões/Métodos com Generics</a></h3>
+<h3 id="funçõesmétodos-com-generics"><a class="header" href="#funçõesmétodos-com-generics">Funções/Métodos com Generics</a></h3>
 <p>Claro generics não apenas para structs, métodos/funções também podem ter. Vamos para o seguinte exemplo.</p>
 <pre><pre class="playground"><code class="language-rust">fn maior&lt;T&gt;(lista: &amp;[T]) -&gt; T {
     let mut maior = lista[0];
@@ -231,9 +231,6 @@ fn main() {
 }
 </code></pre></pre>
 <p>O código acima, esta quaaase funcionando, mas para funcionar precisamos explicar outro conceito, as 'traits'</p>
-<ul>
-<li><a href="./06-traits.html">Próximo</a> - Traits</li>
-</ul>
 
                     </main>
 

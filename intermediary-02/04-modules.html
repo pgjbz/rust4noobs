@@ -145,7 +145,7 @@
                     <main>
                         <h1 id="módulos"><a class="header" href="#módulos">Módulos</a></h1>
 <p>Os módulos são a forma em que o Rust tem para organizar o código, eles podem ser feitos no mesmo arquivo, em arquivos diferentes, ou em até subdiretórios do projeto.</p>
-<p>Vamos pegar aquele primeiro exemplo utilizado nas <a href="./01-structs.html">structs</a> e colocar ele dentro de um módulo, para declarar um módulo fazemos da seguinte maneira <code>mod NomeDoModulo { conteudo }</code>.</p>
+<p>Vamos pegar aquele primeiro exemplo utilizado nas <a href="./01-structs.html">structs</a> e colocar ele dentro de um módulo, para declarar um módulo fazemos da seguinte maneira <code>mod NomeDoModulo { conteúdo }</code>.</p>
 <pre><pre class="playground"><code class="language-rust">mod nota_fiscal {
     struct Cliente {
         nome: String,
@@ -305,7 +305,7 @@ impl Cliente {
         └── mod.rs
 </code></pre>
 <p>O código de <code>nota_fiscal.rs</code> é transferido para <code>mod.rs</code> na pasta <code>nota_fiscal</code> e nada mais é mudado. Temos o mesmo comportamento e o código dividido em módulos.</p>
-<h3 id="importando-e-re-exportando-modulos"><a class="header" href="#importando-e-re-exportando-modulos">Importando e re-exportando modulos</a></h3>
+<h3 id="importando-e-re-exportando-módulos"><a class="header" href="#importando-e-re-exportando-módulos">Importando e re-exportando módulos</a></h3>
 <p>Vamos realizar a criação de um módulo chamado <code>pedido</code> dentro de nosso modulo <code>nota_fiscal</code> e dentro do módulo <code>pedido</code> vamos criar um módulo <code>produto</code>.</p>
 <p>A estrutura do nosso projeto ficara da seguinte maneira:</p>
 <pre><code class="language-bash">.
@@ -400,7 +400,7 @@ fn main() {
 }
 
 </code></pre></pre>
-<p>Nesse exemplo temos vários modos de imports, temos um impor com a palavra <code>crate</code> que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o <code>super</code> que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais facil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. </p>
+<p>Nesse exemplo temos vários modos de imports, temos um impor com a palavra <code>crate</code> que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o <code>super</code> que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais fácil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. </p>
 <p>Futuramente iremos utilizar outro modo de projeto que ira utilizar o arquivo <code>lib.rs</code>, onde também podemos declarar os módulos e remover isso do <code>main.rs</code>, com esse arquivo podemos importar conforme o nome do projeto no <code>Cargo.toml</code></p>
 <p>lib.rs</p>
 <pre><pre class="playground"><code class="language-rust">
@@ -422,11 +422,9 @@ fn main() {
     let pedido = Pedido::new(cliente, produtos);
     println!(&quot;{:#?}&quot;, pedido)
 }
-
 </code></pre></pre>
-<ul>
-<li><a href="./05-generics.html">Próximo</a> - Generics</li>
-</ul>
+<p>Nota:</p>
+<p>Quando declaramos um módulo interno e utilizamos o &quot;use&quot; como &quot;pub&quot; o modulo interno é exportado como se fosse parte do módulo que o declarou.</p>
 
                     </main>
 

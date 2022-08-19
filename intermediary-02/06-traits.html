@@ -161,7 +161,7 @@ fn main() {
     println!(&quot;Maior elemento: {}&quot;, maior);
 }
 </code></pre></pre>
-<p>Afinal o que falta para esse código funciona? Falta determinamos que 'T' deve implementar algumas traits. O que são essas <code>traits</code>?? Elas são como contratos, um tipo deve implementar certas funções/métodos definidas por essa <code>trait</code>. E como declaramos uma? Seguimos o seguinte padrão <code>trait nome { assinaturas/metodos }</code>.</p>
+<p>Afinal o que falta para esse código funciona? Falta determinamos que 'T' deve implementar algumas traits. O que são essas <code>traits</code>?? Elas são como contratos, um tipo deve implementar certas funções/métodos definidas por essa <code>trait</code>. E como declaramos uma? Seguimos o seguinte padrão <code>trait nome { assinaturas/métodos }</code>.</p>
 <pre><pre class="playground"><code class="language-rust">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -171,7 +171,7 @@ fn main() {
 <span class="boring">}
 </span></code></pre></pre>
 <p>Assim definimos uma <code>trait</code>, agora precisamos implementar, vamos criar uma <code>struct Pedido</code> que ira implementar essa <code>trait</code>. Para dizer que algo implementa uma <code>trait</code> usamos o seguinte padrão <code>impl NomeTrait for NomeStruct { implementação }</code></p>
-<pre><pre class="playground"><code class="language-rust">//--definição trait Pagavel
+<pre><pre class="playground"><code class="language-rust">//--definição trait Pagável
 
 struct Pedido {
     quantidade_items: u8,
@@ -375,7 +375,7 @@ fn main() {
 
 impl Iterator for Contador {
     type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso, 
-    mas considere que é um modo de usar Generics de uma forma que impedimos multiplas implementações da mesma trait pra mesma coisa */
+    mas considere que é um modo de usar Generics de uma forma que impedimos múltiplas implementações da mesma trait pra mesma coisa */
 
     fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
         if self.contagem &gt;= 100 {
@@ -438,9 +438,6 @@ fn main() {
 <pre><code class="language-bash">Maior elemento: 11
 </code></pre>
 <p>Este capitulo sobre <code>traits</code> ficou maior que do eu esperava, mas espero que tenha ficado claro o uso delas e a importância dessa funcionalidade.</p>
-<ul>
-<li><a href="./07-option.html">Próximo</a> - Enum especial Option</li>
-</ul>
 
                     </main>
 

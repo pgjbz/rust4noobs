@@ -179,7 +179,7 @@ fn main() {
 }
 </code></pre></pre>
 <h2 id="declarando-comportamento-para-uma-struct"><a class="header" href="#declarando-comportamento-para-uma-struct">Declarando comportamento para uma Struct</a></h2>
-<p>Em Rust uma struct pode ter funções associadas a ela, essas funções são chamadas de métodos, aqui temos uma das características de <a href="">Programação Orientada a Objetos</a> no Rust, como a linguagem é de multiparadigmas temos alguns recursos desse modo de programação disponível.</p>
+<p>Em Rust uma struct pode ter funções associadas a ela, essas funções são chamadas de métodos, aqui temos uma das características de <a href="">Programação Orientada a Objetos</a> no Rust, como a linguagem é de multi-paradigmas temos alguns recursos desse modo de programação disponível.</p>
 <p>Para implementarmos métodos para a struct <code>Cliente</code> utilizamos a palavra reservada <code>impl</code> seguida do nome da estrutura <code>impl Cliente { implementações }</code>, vamos começar com a implementação de um método estático para nos auxiliar na criação de variáveis do tipo <code>Cliente</code>.</p>
 <pre><pre class="playground"><code class="language-rust">struct Cliente {
     nome: String,
@@ -193,7 +193,7 @@ impl Cliente {
             nome: nome,
             ano_de_nascimento,
             /*
-                Como o atributo tem o mesmo nome do parametro/variavel eu não preciso colocar o padrão chave:valor
+                Como o atributo tem o mesmo nome do parâmetro/variável eu não preciso colocar o padrão chave:valor
             */
             documento
         }
@@ -220,7 +220,7 @@ impl Cliente {
             ano_de_nascimento,
             /*
                 Como o atributo tem o mesmo nome do 
-                parametro/variavel eu não preciso 
+                parâmetro/variável eu não preciso 
                 colocar o padrão chave:valor
             */
             documento
@@ -271,9 +271,6 @@ error: aborting due to previous error
 
 For more information about this error, try `rustc --explain E0382`.
 </code></pre>
-<ul>
-<li><a href="./02-enums.html">Próximo</a> - Enum</li>
-</ul>
 
                     </main>
 

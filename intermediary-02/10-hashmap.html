@@ -144,7 +144,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="hashmap"><a class="header" href="#hashmap">HashMap</a></h1>
-<p>A última coleção que iremos falar é o <code>HashMap</code>, esta coleção funciona como um <a href="./09-hashset.html">HashSet</a>, porém com o conceito de <a href="./https://hazelcast.com/glossary/key-value-store/">chave-valor</a>, onde temos uma chave associada a um valor, esta chave <strong>NÃO</strong> se repete, assim como um valor em um <code>HashSet</code>, porém para inserirmos e recuperarmos valores, utilizamos a chave. Assim como no <code>HashSet</code>, essa chaved deve implementar <code>Eq</code> e <code>Hash</code> e para implementar <code>Eq</code> é necessário implementar <code>PartialEq</code>.</p>
+<p>A última coleção que iremos falar é o <code>HashMap</code>, esta coleção funciona como um <a href="./09-hashset.html">HashSet</a>, porém com o conceito de <a href="./https://hazelcast.com/glossary/key-value-store/">chave-valor</a>, onde temos uma chave associada a um valor, esta chave <strong>NÃO</strong> se repete, assim como um valor em um <code>HashSet</code>, porém para inserirmos e recuperarmos valores, utilizamos a chave. Assim como no <code>HashSet</code>, essa chave deve implementar <code>Eq</code> e <code>Hash</code> e para implementar <code>Eq</code> é necessário implementar <code>PartialEq</code>.</p>
 <h2 id="criando-um-hashmap"><a class="header" href="#criando-um-hashmap">Criando um HashMap</a></h2>
 <p>Para criar um <code>HashMap</code>, precisamos informar dois tipos genéricos.</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
@@ -183,7 +183,7 @@
     println!(&quot;{:?}&quot;, rust4_experts);
 }
 </code></pre></pre>
-<h3 id="métogo-get_mut"><a class="header" href="#métogo-get_mut">Métogo get_mut</a></h3>
+<h3 id="método-get_mut"><a class="header" href="#método-get_mut">Método get_mut</a></h3>
 <p>O método <code>get_mut</code> do mesmo modo que o método <code>get</code>, com a diferença de nos retornar uma referência mutável do valor e somente pode ser usado caso o <code>HashMap</code> seja mutável.</p>
 <pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
 
@@ -237,9 +237,6 @@ fn main() {
     println!(&quot;Tamanho do HashSet = {}&quot;, map.len());
 }
 </code></pre></pre>
-<ul>
-<li><a href="./11-result.html">Próximo</a> - Tratamento de erros</li>
-</ul>
 
                     </main>
 

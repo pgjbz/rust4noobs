@@ -147,12 +147,12 @@
 <p>Nesta parte do 4Noobs, iremos falar sobre os <a href="https://doc.rust-lang.org/rust-by-example/primitives/array.html">Slices</a> e para isso iremos utilizar <a href="./01-strings.html">String</a> <del>sim, ainda falando sobre esse tipo zZzzzZZZ</del>, claro não é algo exclusivo de String, é apenas um pedaço de algo <del>literalmente</del>, mas como já falamos sobre este cara, vamos usar ele mesmo. <del>Não eu não estou com preguiça</del>.</p>
 <p>Temos o seguinte trecho de código:</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
-    let texto: String = String::from(&quot;Rust 4 noobs&quot;);
+    let texto: String = String::from(&quot;Rust 4 Noobs&quot;);
 }
 </code></pre></pre>
 <p>A partir da String acima, eu quero pegar os 4 primeiros caracteres desta String, como faríamos isso? Utilizaríamos um <code>slice</code>, e com isso vamos ver outro modo de representar uma String.</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
-    let texto: String = String::from(&quot;Rust 4 noobs&quot;);
+    let texto: String = String::from(&quot;Rust 4 Noobs&quot;);
     let slice = quatro_primeiros(&amp;texto);
     println!(&quot;{}&quot;, slice);
 }
@@ -163,7 +163,7 @@ fn quatro_primeiros(texto: &amp;String) -&gt; &amp;str {
 </code></pre></pre>
 <p>Para criar um <code>slice</code> utilizamos os colchetes, e dentro dos colchetes informamos o valor <code>de</code> e o valor <code>até</code>, deste modo criamos um slice da nossa String. Vamos entrar com outro exemplo agora, vamos achar o primeiro espaço e retornar a primeira palavra, com algumas coisas que já vimos até aqui:</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
-    let texto: String = String::from(&quot;Rust 4 noobs&quot;);
+    let texto: String = String::from(&quot;Rust 4 Noobs&quot;);
     let slice = primeira_palavra(&amp;texto);
     println!(&quot;{}&quot;, slice);
 }
@@ -178,10 +178,10 @@ fn primeira_palavra(texto: &amp;String) -&gt; &amp;str {
     &amp;texto[..] //caso não ache retorna a string inteira como um slice
 }
 </code></pre></pre>
-<h1 id="referencia-perdurada"><a class="header" href="#referencia-perdurada">Referencia &quot;perdurada&quot;</a></h1>
+<h1 id="referencia-ausente"><a class="header" href="#referencia-ausente">Referencia &quot;ausente&quot;</a></h1>
 <p>Sendo sincero não encontrei um modo melhor de traduzir &quot;dangling reference&quot;, mas ela ocorre quando tentamos retornar uma referência de algo que já foi devolvido ao Sistema Operacional. Vamos utilizar o nosso primeiro exemplo para demonstrar, vamos remover a passagem por referência da nossa função, pegar o ownership e tentar devolver o <code>slice</code></p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
-    let texto: String = String::from(&quot;Rust 4 noobs&quot;);
+    let texto: String = String::from(&quot;Rust 4 Noobs&quot;);
     let slice = quatro_primeiros(&amp;texto);
     println!(&quot;{}&quot;, slice);
 }
@@ -205,9 +205,6 @@ help: consider using the `'static` lifetime
 
 error: aborting due to previous error
 </code></pre>
-<ul>
-<li><a href="./06-user-input.html">Próximo</a> - Entrada de dados</li>
-</ul>
 
                     </main>
 

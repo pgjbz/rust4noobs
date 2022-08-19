@@ -211,7 +211,7 @@ struct Cliente {
 
 fn main() {
     let mut set = HashSet::&lt;Cliente&gt;::new();
-    set.insert(Cliente { id: 10, nome: &quot;Rust4Noob&quot;.to_string() });
+    set.insert(Cliente { id: 10, nome: &quot;Rust4Noobs&quot;.to_string() });
 }
 </code></pre></pre>
 <p>Ao tentarmos utilizar o método <code>insert</code> teremos um problema.</p>
@@ -224,7 +224,7 @@ fn main() {
    | doesn't satisfy `Cliente: Eq`
    | doesn't satisfy `Cliente: Hash`
 ...
-10 |     set.insert(Cliente { id: 10, nome: &quot;Rust4Noob&quot;.to_string() });
+10 |     set.insert(Cliente { id: 10, nome: &quot;Rust4Noobs&quot;.to_string() });
    |         ^^^^^^ method cannot be called on `HashSet&lt;Cliente&gt;` due to unsatisfied trait bounds
    |
    = note: the following trait bounds were not satisfied:
@@ -245,7 +245,7 @@ struct Cliente {
 
 fn main() {
     let mut set = HashSet::&lt;Cliente&gt;::new();
-    set.insert(Cliente { id: 10, nome: &quot;Rust4Noob&quot;.to_string() });
+    set.insert(Cliente { id: 10, nome: &quot;Rust4Noobs&quot;.to_string() });
 }
 </code></pre></pre>
 <p>Essas traits servem para comparação e geração do Hash, ou podemos também implementar por nós mesmos.</p>
@@ -276,9 +276,6 @@ fn main() {
 }
 </code></pre></pre>
 <p>Agora podemos utilizar a nossa struct em um <code>HashSet</code></p>
-<ul>
-<li><a href="./10-hashmap.html">Próximo</a> - HashMap</li>
-</ul>
 
                     </main>
 
