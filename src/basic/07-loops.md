@@ -108,4 +108,3 @@ fn main() {
 ```
 
 Claro isso não se aplica somente ao for, é possível utilizar com `while` e com `loop` também
-- [Próximo](./08-functions.md) - Funções

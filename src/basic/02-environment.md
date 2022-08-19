@@ -80,7 +80,5 @@ Temos algumas [IDE](https://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_in
 - [IntelliJ](https://www.jetbrains.com/pt-br/idea/download/) com o Plugin para Rust
 - [VSCode](https://code.visualstudio.com/) com os seguintes plugins:
     - [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) para debug
-    - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) linguage server é util para lermos a documentação e termos o intellisense enquanto codamos
+    - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) language server é util para lermos a documentação e termos o intellisense enquanto escrevemos códigos
     - [crates](https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates) para nos ajudar no gerenciamento de dependência do projeto
-
-- [Próximo](./03-hello-world.md) - Hello World!

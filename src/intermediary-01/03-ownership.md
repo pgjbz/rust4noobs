@@ -11,11 +11,11 @@ fn main() {
     if a == 10 {
         let b = 1;
         /*
-            Neste ponto do código as variaveis 'a' e 'b' existem
+            Neste ponto do código as variáveis 'a' e 'b' existem
         */
     }
     /*
-        a partir deste ponto não é possivel acessar a variavel 'b',
+        a partir deste ponto não é possível acessar a variável 'b',
         pois ela esta fora de escopo
     */
     println!("Valor de b {}", b);
@@ -143,5 +143,3 @@ fn adiciona_texto(string: &mut String) {
 ```
 
 E temos sucesso novamente. 
-
-- [Próximo](./04-tuples.md) - Tuplas

@@ -76,9 +76,16 @@ Enquanto eu aprendo mais sobre Rust e escrevo este 4Noobs, eu estou aprendendo m
 Temos abaixo um exemplo simples desse caso.
 
 ```rust
+#[derive(Debug)]
 enum ParseError {
     Eof,
     Inaceitavel(String)
+}
+
+impl std::error::Error for ParseError {}
+
+impl std::fmt::Display for ParseError {
+    //implementação do display
 }
 
 fn faz_o_parse_ai(mock: u8) -> Result<(), ParseError> {
@@ -107,4 +114,4 @@ O uso do meu próprio `Enum` e é algo que facilita a minha leitura, por saber q
 
 Claro como `Result<T, E>` é um tipo genérico, não é obrigatório que o meu erro seja um `Enum` ou qualquer coisa, posso retornar um `i32`, `String`, qualquer coisa.
 
-- [Próximo](./12-panic.md) - Macro Panic
+O único ponto que devemos ficar atentos é que caso implementemos a trait "Error" do pacote "std::error" precisamos também implementar a trait "Debug" e a trait "Display", isso é util caso o nosso método retorne mais de um tipo de erro, no módulo avançado iremos ver como fazer isso.

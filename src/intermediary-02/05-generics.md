@@ -6,7 +6,7 @@ Generics é um modo de reaproveitar um código substituindo um tipo 'T' por um t
 
 ## Declaração de um Generic
 
-Para declarar um generic. Utilizamos o seguinte padrão `struct Nome<T> { implementacao }`
+Para declarar um generic. Utilizamos o seguinte padrão `struct Nome<T> { implementação }`
 
 ```rust
 #[derive(Debug)]
@@ -78,7 +78,7 @@ impl<T, U> Cliente<T, U> {
 }
 ```
 
-### Funcões/Métodos com Generics
+### Funções/Métodos com Generics
 
 Claro generics não apenas para structs, métodos/funções também podem ter. Vamos para o seguinte exemplo.
 
@@ -101,5 +101,3 @@ fn main() {
 ```
 
 O código acima, esta quaaase funcionando, mas para funcionar precisamos explicar outro conceito, as 'traits'
-
-- [Próximo](./06-traits.md) - Traits

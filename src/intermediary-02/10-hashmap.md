@@ -1,6 +1,6 @@
 # HashMap
 
-A última coleção que iremos falar é o `HashMap`, esta coleção funciona como um [HashSet](./09-hashset.md), porém com o conceito de [chave-valor](./https://hazelcast.com/glossary/key-value-store/ ), onde temos uma chave associada a um valor, esta chave <strong>NÃO</strong> se repete, assim como um valor em um `HashSet`, porém para inserirmos e recuperarmos valores, utilizamos a chave. Assim como no `HashSet`, essa chaved deve implementar `Eq` e `Hash` e para implementar `Eq` é necessário implementar `PartialEq`.
+A última coleção que iremos falar é o `HashMap`, esta coleção funciona como um [HashSet](./09-hashset.md), porém com o conceito de [chave-valor](./https://hazelcast.com/glossary/key-value-store/ ), onde temos uma chave associada a um valor, esta chave <strong>NÃO</strong> se repete, assim como um valor em um `HashSet`, porém para inserirmos e recuperarmos valores, utilizamos a chave. Assim como no `HashSet`, essa chave deve implementar `Eq` e `Hash` e para implementar `Eq` é necessário implementar `PartialEq`.
 
 ## Criando um HashMap
 
@@ -56,7 +56,7 @@ fn main() {
 }
 ```
 
-### Métogo get_mut
+### Método get_mut
 
 O método `get_mut` do mesmo modo que o método `get`, com a diferença de nos retornar uma referência mutável do valor e somente pode ser usado caso o `HashMap` seja mutável.
 
@@ -124,5 +124,3 @@ fn main() {
     println!("Tamanho do HashSet = {}", map.len());
 }
 ```
-
-- [Próximo](./11-result.md) - Tratamento de erros
