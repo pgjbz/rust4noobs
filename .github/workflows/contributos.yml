@@ -1,21 +1,14 @@
-name: Add contributors
 on:
-  push:
-    branches:
-     - main
+    push:
+        branches:
+            - main
 
 jobs:
-  add-contributors:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: BobAnkh/add-contributors@master
-      with:
-        CONTRIBUTOR: '### Contribuições'
-        COLUMN_PER_ROW: '6'
-        ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        IMG_WIDTH: '100'
-        FONT_SIZE: '14'
-        PATH: '/README.md'
-        COMMIT_MESSAGE: 'docs(README): update contributors'
-        AVATAR_SHAPE: 'round'
+    contrib-readme-job:
+        runs-on: ubuntu-latest
+        name: A job to automate contrib in readme
+        steps:
+            - name: Contribute List
+              uses: akhilmhdh/contributors-readme-action@v2.3.6
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

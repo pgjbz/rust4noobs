@@ -55,6 +55,11 @@ $ mdbook serve
 
 ---
 
+## Pessoas que melhoraram este projeto
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
+
 <p align="center">
   <a href="https://github.com/he4rt/4noobs" target="_blank">
     <img src="./src/assets/footer_4noobs.svg" width="380">
