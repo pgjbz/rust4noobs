@@ -164,3 +164,6 @@ For more information about this error, try `rustc --explain E0623`.
 ```
 
 Vamos entender um pouco melhor o que acontece ali. Temos dois lifetimes, então o compilador entende que podemos ter duas referencias que vivem tempos diferentes, porém não é possível retornar a variável `b`, pois não temos garantia que o parâmetro `b`ira viver mais ou menos que o parâmetro `a`, então não podemos ter ele como retorno, a função do modo que ficou agora somente pode retornar o parâmetro `a`.
+
+Mas qual seria a utilidade disso? Basicamente, você consegue utilizar essa variação de lifetimes para processar dados que vão viver tempos diferentes, como por exemplo um valor que vai viver apenas dentro daquela função como já foi explicado no capítulo de [slices](../intermediary-01/05-slices.md), caso um resultado de uma função dependa de dois lifetimes em uma struct por exemplo, podemos informar ao compilador utilizando mais de um parâmetro de lifetime. No livro [Rust for Rustaceans](https://nostarch.com/rust-rustaceans) podemos encontrar um exemplo bem interessante sobre este assunto.
+

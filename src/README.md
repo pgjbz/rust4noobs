@@ -19,7 +19,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
 
 ## ROADMAP
 
-- [Basico](./basic)
+- [Básico](./basic)
     - [Sobre a linguagem](./basic/01-about.md)
     - [Ambiente](./basic/02-environment.md)
     - [Hello World](./basic/03-hello-world.md)
@@ -30,15 +30,15 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Funções](./basic/08-functions.md)
     - [Arrays](./basic/09-arrays.md)
     - [Exercícios](./basic/10-exercises.md)
-- [Intermediario 1](./intermediary-01)
+- [Intermediário 1](./intermediary-01)
     - [Strings](./intermediary-01/01-strings.md)
     - [Introdução a ponteiros](./intermediary-01/02-pointers-intro.md)
     - [Ownership](./intermediary-01/03-ownership.md)
     - [Tuplas](./intermediary-01/04-tuples.md)
     - [Slices](./intermediary-01/05-slices.md)
     - [Entrada de dados](./intermediary-01/06-user-input.md)
-    - [Exercicios](./intermediary-01/07-exercises.md)
-- [Intermediario 2](./intermediary-02)
+    - [Exercícios](./intermediary-01/07-exercises.md)
+- [Intermediário 2](./intermediary-02)
     - [Struct](./intermediary-02/01-structs.md)
     - [Enum](./intermediary-02/02-enums.md)
     - [Match](./intermediary-02/03-match.md)
