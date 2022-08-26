@@ -25,3 +25,4 @@ Informações adicionais e exemplos extraídos das seguintes fontes:
 - https://nostarch.com/rust-rustaceans
 - https://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_integrado
 - https://simple.wikipedia.org/wiki/Operating_system).
+- https://www.techtarget.com/whatis/definition/stack-overflow
