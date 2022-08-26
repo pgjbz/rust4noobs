@@ -102,4 +102,54 @@ fn main() {
 }
 ```
 
-No livro [Rust Book](https://doc.rust-lang.org/book/ch15-01-box.html) é possivel ver um exemplo bem interessante utilizando uma [Cons List](https://en.wikipedia.org/wiki/Cons)
+No livro [Rust Book](https://doc.rust-lang.org/book/ch15-01-box.html) é possivel ver um exemplo bem interessante utilizando uma [Cons List](https://en.wikipedia.org/wiki/Cons).
+
+
+## Valores Dinâmicos
+
+Recuperando o exemplo das traits de animais do da capitulo sobre [traits](../intermediary-02/06-traits.md)
+
+
+Vamos supor que queremos ter uma lista de animais, sendo eles do tipo Cachorro, Gato e Papagaio. Podemos utilizar a palavra reservada `dyn` dentro de um `Box<T>`, para representar valores dinâmicos.
+
+```rust
+trait Animal {
+    fn comer(&self);
+}
+
+struct Cachorro {}
+
+impl Animal for Cachorro {
+    fn comer(&self) {
+        println!("Cachorro comendo...");
+    }
+}
+
+struct Gato {}
+
+impl Animal for Gato {
+    fn comer(&self) {
+        println!("gato comendo...");
+    }
+}
+
+struct Papagaio {}
+
+impl Animal for Papagaio {
+    fn comer(&self) {
+        println!("papagaio comendo...");
+    }
+}
+fn main() {
+    let animais: Vec<Box<dyn Animal>> = vec![
+        Box::new(Gato {}),
+        Box::new(Cachorro {}),
+        Box::new(Papagaio {}),
+    ];
+    for animal in animais {
+        animal.comer();
+    }
+}
+```
+
+Utilizando valores dinâmicos podemos ter tipos diferentes que implementam a mesma trait. Só devemos saber que, um ponteiro dinâmico ocupa o dobro do espaço que um ponteiro comum, isso por que temos um ponteiro para o tipo em questão e outro ponteiro para a implementação desta `trait`.
