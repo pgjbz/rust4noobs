@@ -47,4 +47,5 @@
         * [RefCell\<T>](./advanced-01/02-smart-pointers-refcell.md)
     * [Closures](./advanced-01/03-closures.md)
     * [Threads](./advanced-01/04-threads.md)
+        * [Arc e Mutex](./advanced-01/04-threads-arc-mutex.md)
 * [Referencias](./SOURCES.md)
