@@ -4,8 +4,8 @@ O `Smart Pointer` Box<T>, é bem versátil, ele aponta para a `heap` e também i
 
 ```rust
 fn main() {
-    let number: Box<usize> = Box::new(42);
-    println!("{}", number);
+    let numero: Box<usize> = Box::new(42);
+    println!("{}", numero);
 }
 ```
 
@@ -15,19 +15,19 @@ Como ele foi declarado como imutável, não podemos fazer o `DerefMut` e alterar
 
 ```rust
 fn main() {
-    let number: Box<usize> = Box::new(42);
-    *number = 69;
-    println!("{}", number);
+    let numero: Box<usize> = Box::new(42);
+    *numero = 69;
+    println!("{}", numero);
 }
 ```
 
 ```sh
-error[E0594]: cannot assign to `*number`, as `number` is not declared as mutable
+error[E0594]: cannot assign to `*numero`, as `numero` is not declared as mutable
  --> boxx.rs:4:5
   |
-3 |     let number = Box::new(1);
-  |         ------ help: consider changing this to be mutable: `mut number`
-4 |     *number = 69;
+3 |     let numero = Box::new(1);
+  |         ------ help: consider changing this to be mutable: `mut numero`
+4 |     *numero = 69;
   |     ^^^^^^^^^^^^ cannot assign
 
 error: aborting due to previous error
@@ -39,9 +39,9 @@ Declarando a variável como mutável podemos realizar essa alteração.
 
 ```rust
 fn main() {
-    let mut number: Box<usize> = Box::new(42);
-    *number = 69;
-    println!("{}", number);
+    let mut numero: Box<usize> = Box::new(42);
+    *numero = 69;
+    println!("{}", numero);
 }
 ```
 
@@ -50,10 +50,10 @@ fn main() {
 Tipos recursivos, são aqueles que tem algum atributo que é representa ele mesmo. Como por exemplo em uma arvore binaria, cada "galho" é um tipo recursivo.
 
 ```rust
-struct Node {
-    left: Option<Node>,
-    right: Option<Node>,
-    value: usize,
+struct Galho {
+    esquerda: Option<Galho>,
+    direita: Option<Galho>,
+    valor: usize,
 }
 
 fn main() {
@@ -64,20 +64,20 @@ fn main() {
 Caso tentarmos compilar o código acima teremos o seguinte output do compilador:
 
 ```sh
-error[E0072]: recursive type `Node` has infinite size
+error[E0072]: recursive type `Galho` has infinite size
  --> recursive.rs:2:1
   |
 2 | struct Node {
   | ^^^^^^^^^^^ recursive type has infinite size
-3 |     left: Option<Node>,
+3 |     esquerda: Option<Galho>,
   |           ------------ recursive without indirection
-4 |     right: Option<Node>,
+4 |     direita: Option<Galho>,
   |            ------------ recursive without indirection
   |
 help: insert some indirection (e.g., a `Box`, `Rc`, or `&`) to make `Node` representable
   |
-3 ~     left: Option<Box<Node>>,
-4 ~     right: Option<Box<Node>>,
+3 ~     esquerda: Option<Box<Galho>>,
+4 ~     direita: Option<Box<Galho>>,
   |
 
 error: aborting due to previous error
@@ -91,10 +91,10 @@ O próprio compilador já nos diz algo que podemos fazer para corrigir este prob
 Teoricamente tipos recursivos podem crescer ao infinito e o compilador do Rust não sabe o quanto de memoria sera necessário para esse tipo, por isso essa mensagem. Porém ele sabe exatamente quanta memoria é necessária para um `Box`, sendo possível a criação deste tipo recursivo utilizando esse `Box`.
 
 ```rust
-struct Node {
-    left: Option<Box<Node>>,
-    right: Option<Box<Node>>,
-    value: usize,
+struct Galho {
+    esquerda: Option<Box<Galho>>,
+    direita: Option<Box<Galho>>,
+    valor: usize,
 }
 
 fn main() {
