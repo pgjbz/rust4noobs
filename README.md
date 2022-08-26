@@ -29,7 +29,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
 
 ## ROADMAP
 
-- [Basico](./src/basic)
+- [Básico](./src/basic)
     - [Sobre a linguagem](./src/basic/01-about.md)
     - [Ambiente](./src/basic/02-environment.md)
     - [Hello World](./src/basic/03-hello-world.md)
@@ -40,19 +40,19 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Funções](./src/basic/08-functions.md)
     - [Arrays](./src/basic/09-arrays.md)
     - [Exercícios](./src/basic/10-exercises.md)
-- [Intermediario 1](./src/intermediary-01)
+- [Intermediário 1](./src/intermediary-01)
     - [Strings](./src/intermediary-01/01-strings.md)
     - [Introdução a ponteiros](./src/intermediary-01/02-pointers-intro.md)
     - [Ownership](./src/intermediary-01/03-ownership.md)
     - [Tuplas](./src/intermediary-01/04-tuples.md)
     - [Slices](./src/intermediary-01/05-slices.md)
     - [Entrada de dados](./src/intermediary-01/06-user-input.md)
-    - [Exercicios](./src/intermediary-01/07-exercises.md)
-- [Intermediario 2](./src/intermediary-02)
+    - [Exercícios](./src/intermediary-01/07-exercises.md)
+- [Intermediário 2](./src/intermediary-02)
     - [Struct](./src/intermediary-02/01-structs.md)
     - [Enum](./src/intermediary-02/02-enums.md)
     - [Match](./src/intermediary-02/03-match.md)
-    - [Modulos](./src/intermediary-02/04-modules.md)
+    - [Módulos](./src/intermediary-02/04-modules.md)
     - [Generics](./src/intermediary-02/05-generics.md)
     - [Traits](./src/intermediary-02/06-traits.md)
     - [Enum especial Option](./src/intermediary-02/07-option.md)
@@ -63,6 +63,15 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [Macro panic!](./src/intermediary-02/12-panic.md)
     - [Testes](./src/intermediary-02/13-tests.md)
     - [Mini projeto - Snake Game](./src/intermediary-02/14-snake.md)
+- [Avançado 1](./src/advanced-01/)
+  - [Lifetimes](./src/advanced-01/01-lifetimes.md)
+  - [Smart Pointers](./src/advanced-01/02-smart-pointers.md)
+    - [Box\<T>](./src/advanced-01/02-smart-pointers-box.md)
+    - [Rc\<T>](./src/advanced-01/02-smart-pointers-rc.md)
+    - [RefCell\<T>](./src/advanced-01/02-smart-pointers-refcell.md)
+  - [Closures](./src/advanced-01/03-closures.md)
+  - [Threads](./src/advanced-01/04-threads.md)
+    - [Arc\<T> e Mutex\<T>](./src/advanced-01/04-threads-arc-mutex.md)
     
 ## Como Contribuir
 
