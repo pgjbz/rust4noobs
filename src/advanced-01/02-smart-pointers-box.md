@@ -1,6 +1,6 @@
-# Box
+# Box\<T>
 
-O `Smart Pointer` Box, é bem versátil, ele aponta para a `heap` e também implementa as [traits](../intermediary-02/06-traits.md) `Deref` e `DerefMut`, sendo assim, é possível apontar para um endereço de moria na Heap e realizar modificações nesta região de memoria. Vamos a um exemplo mais simples.
+O `Smart Pointer` Box<T>, é bem versátil, ele aponta para a `heap` e também implementa as [traits](../intermediary-02/06-traits.md) `Deref` e `DerefMut`, sendo assim, é possível apontar para um endereço de moria na Heap e realizar modificações nesta região de memoria. Vamos a um exemplo mais simples.
 
 ```rust
 fn main() {
