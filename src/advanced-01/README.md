@@ -5,7 +5,11 @@ A partir deste ponto iremos abordar assuntos mais avançados da linguagem, decid
 
 Roadmap:
 
-- [Lifetimes](./01-lifetimes.md)
-- [Smart Pointers](./02-smart-pointers.md)
-- [Closures](./03-closures.md)
-- [Threads](./04-threads.md)
+- [Lifetimes](./advanced-01/01-lifetimes.md)
+- [Smart Pointers](./advanced-01/02-smart-pointers.md)
+    - [Box\<T>](./advanced-01/02-smart-pointers-box.md)
+    - [Rc\<T>](./advanced-01/02-smart-pointers-rc.md)
+    - [RefCell\<T>](./advanced-01/02-smart-pointers-refcell.md)
+- [Closures](./advanced-01/03-closures.md)
+- [Threads](./advanced-01/04-threads.md)
+    - [Arc\<T>, Mutex\<T> e RwLock\<T>](./advanced-01/04-threads-arc-mutex-rwlock.md)

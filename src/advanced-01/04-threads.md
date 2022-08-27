@@ -84,12 +84,10 @@ fn main() {
     let mut a = 10;
     let handle1 = thread::spawn(|| {
         a = 20;
-    });
+    }).join().unwrap();
     let handle2 = thread::spawn(|| {
         println!("a = {}", a);
-    });
-    handle1.join().unwrap();
-    handle2.join().unwrap();
+    }).join().unwrap();
 }
 ```
 
@@ -101,12 +99,10 @@ fn main() {
     let mut a = 10;
     let handle1 = thread::spawn(move || {
         a = 20;
-    });
+    }).join().unwrap();
     let handle2 = thread::spawn(move || {
         println!("a = {}", a);
-    });
-    handle1.join().unwrap();
-    handle2.join().unwrap();
+    }).join().unwrap();
 }
 ```
 
@@ -120,12 +116,10 @@ fn main() {
     let t2 = Rc::clone(&a);
     let handle1 = thread::spawn(move || {
         *t2.borrow_mut() = 42;
-    });
+    }).join().unwrap();
     let handle2 = thread::spawn(move || {
         println!("a = {:?}", a);
-    });
-    handle1.join().unwrap();
-    handle2.join().unwrap();
+    }).join().unwrap();
 }
 
 ```
@@ -164,4 +158,39 @@ error: could not compile `closures` due to previous error
 
 ```
 
+Vamos parar e pensar um pouco... Por que nossa primeira tentativa não deu certo?
 
+Quando utilizamos um tipo que implementa a `trait` Copy ao ser passada para outro contexto é feita uma cópia inteira de seu valor, ou seja, é feita uma passagem por valor e não por referencia, por isso apenas utilizar o `move` para mover a variável de contexto não nos da sucesso no que queremos fazer.
+
+O segundo erro acontece porque os tipos `Rc<T>` e `RefCell<T>`, não são tipos seguros para serem mandados através das threads, ou seja, eles não tem segurança para threads. Por isso iremos ver sobre os tipos `Arc<T>`, `Mutex<T>`, e `RwLock<T>`.
+
+## Scope
+
+A partir da versão ` 1.63.0` do Rust temos um novo modo de usar `threads` que é utilizando a função `scope`, essa função basicamente cria um escopo onde podemos criar `threads`, e manipular os dados, é feito um `join` automático em todas as threads criadas dentro deste escopo e os o compilador do Rust entende que esses dados podem ser usados "sem riscos".
+
+Vamos utilizar o exemplo do [Rust Blog](https://blog.rust-lang.org/2022/08/11/Rust-1.63.0.html) e entender o que acontece nele.
+
+```rust
+use std::thread::scope;
+
+fn main() {
+    let mut a = vec![1, 2, 3];
+    let mut x = 0;
+
+    scope(|s| {
+        s.spawn(|| {
+            println!("ola a partir da primeira thread por escopo");
+            dbg!(&a);
+        });
+        s.spawn(|| {
+            println!("ola a partir da segunda thread por escopo");
+            x += a[0] + a[2];
+        });
+        println!("ola da thread principal");
+    });
+    a.push(4);
+    assert_eq!(x, a.len());
+}
+```
+
+O que acontece é que ao criar o escopo, eu consigo fazer o empréstimo para o escopo, enquanto as threads deste escopo estiverem sendo executadas, eu consigo realizar operações com as variáveis externas sem a necessidade de utilizar o `move`, como só acessamos a variável `x` em uma das `threads` não temos problemas em modifica-la, ao fim do escopo temos acesso novamente as variáveis. Caso tentarmos modificar a variável "x" teremos um problema de [ownership](../intermediary-01/03-ownership.md), violando a regra de referencia exclusiva das referencias mutáveis.
