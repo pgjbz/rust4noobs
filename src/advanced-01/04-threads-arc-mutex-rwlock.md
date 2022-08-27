@@ -50,3 +50,6 @@ Estou na thread main e Arc tem 1 referencias fortes
 Note que não tivemos problemas na diminuição de referencias fortes mesmo após encerrar as duas `threads`.
 
 # Mutex\<T>
+
+O `Mutex<T>` assim como a `RefCell\<T>` contém mutabilidade interior, é possível realizar o empréstimo mutável a partir de referencias imutáveis, porém a sua peculiaridade é que para isso, o valor fica BLOQUEADO, mas como assim?
+Simples quando vamos acessar o valor dentro de um `Mutex<T>`, ele realiza um bloqueio deste valor, então outra thread que tentar acessar este mesmo endereço de memoria fica bloqueado até o momento em que a thread que realizou o bloqueio o liberar.
