@@ -162,7 +162,7 @@ Vamos parar e pensar um pouco... Por que nossa primeira tentativa não deu certo
 
 Quando utilizamos um tipo que implementa a `trait` Copy ao ser passada para outro contexto é feita uma cópia inteira de seu valor, ou seja, é feita uma passagem por valor e não por referencia, por isso apenas utilizar o `move` para mover a variável de contexto não nos da sucesso no que queremos fazer.
 
-O segundo erro acontece porque os tipos `Rc<T>` e `RefCell<T>`, não são tipos seguros para serem mandados através das threads, ou seja, eles não tem segurança para threads. Por isso iremos ver sobre os tipos `Arc<T>`, `Mutex<T>`, e `RwLock<T>`.
+O segundo erro acontece porque os tipos `Rc<T>` e `RefCell<T>`, não são tipos seguros para serem mandados através das threads, ou seja, eles não tem segurança para threads. Por isso iremos ver sobre os tipos `Arc<T>`, `Mutex<T>`, e `RwLock<T>` que implementam `traits` como `Send` e `Sync`.
 
 ## Scope
 
