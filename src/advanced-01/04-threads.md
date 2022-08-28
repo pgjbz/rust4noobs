@@ -82,10 +82,10 @@ Se tentarmos usar o código abaixo não teremos sucesso em sua compilação.
 fn main() {
     use std::thread;
     let mut a = 10;
-    let handle1 = thread::spawn(|| {
+    thread::spawn(|| {
         a = 20;
     }).join().unwrap();
-    let handle2 = thread::spawn(|| {
+    thread::spawn(|| {
         println!("a = {}", a);
     }).join().unwrap();
 }
@@ -97,10 +97,10 @@ Ai você pensa "hm... o compilador disse para eu mover o valor de um lugar para 
 fn main() {
     use std::thread;
     let mut a = 10;
-    let handle1 = thread::spawn(move || {
+    thread::spawn(move || {
         a = 20;
     }).join().unwrap();
-    let handle2 = thread::spawn(move || {
+    thread::spawn(move || {
         println!("a = {}", a);
     }).join().unwrap();
 }
@@ -114,10 +114,10 @@ use std::{cell::RefCell, rc::Rc, thread};
 fn main() {
     let mut a = Rc::new(RefCell::new(10));
     let t2 = Rc::clone(&a);
-    let handle1 = thread::spawn(move || {
+    thread::spawn(move || {
         *t2.borrow_mut() = 42;
     }).join().unwrap();
-    let handle2 = thread::spawn(move || {
+    thread::spawn(move || {
         println!("a = {:?}", a);
     }).join().unwrap();
 }
