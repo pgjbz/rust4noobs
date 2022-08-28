@@ -85,3 +85,32 @@ fn main() {
     println!("mutex desbloqueado: {:#?}", mutex);
 }
 ```
+
+## Retomando
+
+Lembra do exemplo inicial, que não conseguimos fazer a compilação dele, nem fazer com que o comportamento fosse o desejado? Agora que conhecemos `Arc<T>` e `Mutex<T>`, conseguimos alterar aquele código para obter sucesso.
+
+```rust
+use std::{
+    sync::{Arc, Mutex},
+    thread,
+};
+
+fn main() {
+    let a = Arc::new(Mutex::new(10));
+    let t2 = Arc::clone(&a);
+    thread::spawn(move || {
+        *t2.lock().unwrap() = 42;
+    })
+    .join()
+    .unwrap();
+    thread::spawn(move || {
+        println!("a = {}", a.lock().unwrap());
+    })
+    .join()
+    .unwrap();
+}
+```
+
+Agora o nosso projeto compila e roda da maneira correta, conseguimos compartilhar a mesma região de memoria em diversas threads diferentes, único ponto é que necessitamos de um bloqueio temporário na região de memoria. 
+Em aplicações reais, não teremos casos tão simples assim, como uma thread esperando outra para iniciar, varias threads podem estar rodando ao mesmo tempo e acessando a mesma região de memória. Felizmente Rust é uma linguagem segura para uso em multi-thread e já nos prove muitos recursos para nos auxiliar nessa jornadas de códigos assíncronos.
