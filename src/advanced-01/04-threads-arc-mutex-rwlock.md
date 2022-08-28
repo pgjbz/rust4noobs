@@ -52,4 +52,36 @@ Note que não tivemos problemas na diminuição de referencias fortes mesmo apó
 # Mutex\<T>
 
 O `Mutex<T>` assim como a `RefCell\<T>` contém mutabilidade interior, é possível realizar o empréstimo mutável a partir de referencias imutáveis, porém a sua peculiaridade é que para isso, o valor fica BLOQUEADO, mas como assim?
-Simples quando vamos acessar o valor dentro de um `Mutex<T>`, ele realiza um bloqueio deste valor, então outra thread que tentar acessar este mesmo endereço de memoria fica bloqueado até o momento em que a thread que realizou o bloqueio o liberar.
+Simples quando vamos acessar o valor dentro de um `Mutex<T>`, ele realiza um bloqueio deste valor, então outra thread que tentar acessar este mesmo endereço de memoria fica bloqueado até o momento em que a thread que realizou o bloqueio o liberar. Quando realizamos o bloqueio nos é retornado um `Result<MutexGuard<T>, PoisonError<...>>`.
+Este `MutexGuard<T>` que é o responsável por liberar o bloqueio dos dados.
+```rust
+use std::sync::Mutex;
+
+fn main() {
+    let mutex = Mutex::new(10);
+    let mutex_guard = mutex.lock().unwrap();
+    println!("mutex bloqueado: {:#?}", mutex);
+    drop(mutex_guard);
+    println!("mutex desbloqueado: {:#?}", mutex);
+}
+```
+
+Repare no exemplo acima, quando imprimimos as informações de debug do `Mutex<T>`, quando esta bloqueado, o valor do campo `data` aparece como `<locked>`, ou seja, o valor esta bloqueado até o `mutex_guard` ser liberado. No exemplo acima utilizamos do artificio do `drop`.
+
+Assim como `RefCell<T>` podemos realizar o bloqueio de maneira mutável.
+
+```rust
+use std::sync::Mutex;
+
+fn main() {
+    let mutex = Mutex::new(10);
+    let mutex_guard = mutex.lock();
+    println!("mutex bloqueado: {:#?}", mutex);
+    drop(mutex_guard);
+    {
+        let mut valor = mutex.lock().unwrap();
+        *valor = 69;
+    }
+    println!("mutex desbloqueado: {:#?}", mutex);
+}
+```
