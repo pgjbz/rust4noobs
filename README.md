@@ -80,9 +80,9 @@ são **extremamente apreciadas**, para verificar como contribuir [clique aqui](C
 
 
 
-## [Honkit](https://honkit.netlify.app/ebook.html)
+## [Mdbook](https://rust-lang.github.io/mdBook/)
 
-Para realizar o build do projeto em livro você pode utilizar a ferramenta [mdbook](https://rust-lang.github.io/mdBook/). Assim fica mais facil a leitura e você pode exportar até mesmo para o kindle. Para isso use um dos comandos abaixo:
+Para realizar o build do projeto em livro você pode utilizar a ferramenta [mdbook](https://rust-lang.github.io/mdBook/). Assim fica mais fácil a leitura e você pode exportar até mesmo para o kindle. Para isso use um dos comandos abaixo:
 
 ```sh
 $ mdbook build
