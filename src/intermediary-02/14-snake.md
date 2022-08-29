@@ -12,7 +12,7 @@ Teremos a estrutura padrão do projeto:
     └── main.rs
 ```
 
-Vamos adicionar um arquivo chamado `lib.rs` na pasta `src`, este arquivo sera usado para declarar os nossos módulos. Em seguida criamos um arquivo chamado "ponto.rs" e nele iremos criar uma [struct](./01-structs.md) para as localizações no nosso jogo, vamos criar uma implementação a essa struct para facilitar a instanciação dessa `strutc`.
+Vamos adicionar um arquivo chamado `lib.rs` na pasta `src`, este arquivo sera usado para declarar os nossos módulos. Em seguida criamos um arquivo chamado "ponto.rs" e nele iremos criar uma [struct](./01-structs.md) para as localizações no nosso jogo, vamos criar uma implementação a essa struct para facilitar a instânciação dessa `strutc`.
 
 ```rust
 pub struct Ponto {
@@ -468,7 +468,7 @@ Temos nessa implementação o uso de um `if` que segue o valor do [enum](./02-en
 Isso faz parte do [Pattern Match](./03-match.md), é algo que chamamos de [guards](https://doc.rust-lang.org/rust-by-example/flow_control/match/guard.html), do modo em que essa implementação é feita, temos duas validações para cair nesse ponto, o `enum` deve bater ali e a condição deve ser verdadeira, caso uma das duas condições falhe ele segue para o próximo `match`.
 
 
-Na função de mover o corpo temos a lógica para mover o restante da cobra, guardamos a posição do ponto antes de ser alterada e fazemos o próximo item a ser iterado a obter essa posição. Para isso usamos o método da biblioteca padrão do Rust, `swap`, esse método troca o valor de duas referencias que são passadas.
+Na função de mover o corpo temos a lógica para mover o restante da cobra, guardamos a posição do ponto antes de ser alterada e fazemos o próximo item a ser iterado a obter essa posição. Para isso usamos o método da biblioteca padrão do Rust, `swap`, esse método troca o valor de duas referências que são passadas.
 
 ```rust
 fn mover_corpo(&mut self, posicao_anterior_cabeca: Ponto) {

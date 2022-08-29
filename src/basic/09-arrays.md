@@ -4,7 +4,7 @@
 
 Chegou o momento daquele assunto que é um dos terrores para quem esta começando a programar, os [arrays](https://en.wikipedia.org/wiki/Array_data_structure).
 
-Array é uma estrutura de dados sequencial que armazena o mesmo tipo de dados, seriam como uma sequência de células de memória indexadas. Geralmente iniciamos sua contagem a partir do número 0.
+Array é uma estrutura de dados sequêncial que armazena o mesmo tipo de dados, seriam como uma sequência de células de memória indexadas. Geralmente iniciamos sua contagem a partir do número 0.
 
  <h1 align="center"><img src="../assets/arrays.svg" alt="arrays" width="100%"></h1>
 

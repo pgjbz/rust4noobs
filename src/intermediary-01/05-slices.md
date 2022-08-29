@@ -44,7 +44,7 @@ fn primeira_palavra(texto: &String) -> &str {
 }
 ```
 
-# Referencia "ausente"
+# referência "ausente"
 
 Sendo sincero não encontrei um modo melhor de traduzir "dangling reference", mas ela ocorre quando tentamos retornar uma referência de algo que já foi devolvido ao Sistema Operacional. Vamos utilizar o nosso primeiro exemplo para demonstrar, vamos remover a passagem por referência da nossa função, pegar o ownership e tentar devolver o `slice`
 

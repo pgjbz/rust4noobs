@@ -13,7 +13,7 @@ fn main() {
 }
 ```
 
-Da biblioteca padrão do Rust utilizamos o `stdin`, ou seja, a entrada padrão de dados, precisamos de um [buffer](https://en.wikipedia.org/wiki/Data_buffer), neste caso utilizamos uma `String` mutável e vazia, para isso utilizamos o método `new` e passamos esse `buffer` como uma referencia mutável para o método `read_line`, o método `unwrap` ira fazer a nossa aplicação parar caso a leitura da entrada padrão falhe.
+Da biblioteca padrão do Rust utilizamos o `stdin`, ou seja, a entrada padrão de dados, precisamos de um [buffer](https://en.wikipedia.org/wiki/Data_buffer), neste caso utilizamos uma `String` mutável e vazia, para isso utilizamos o método `new` e passamos esse `buffer` como uma referência mutável para o método `read_line`, o método `unwrap` ira fazer a nossa aplicação parar caso a leitura da entrada padrão falhe.
 
 ## Parse
 
