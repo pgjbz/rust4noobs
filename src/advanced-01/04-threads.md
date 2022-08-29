@@ -1,8 +1,8 @@
 # Threads
 
-Afinal o que são Threads? Podemos considerar threads como sub processos que compartilham da mesma memória, diferente de estratégias como "fork" que é feita uma copia do processo com espeço de memória isolado, as threads são sempre do mesmo processo e custam menos para serem criadas.
+Afinal, o que são Threads? Podemos considerar threads como sub processos que compartilham da mesma memória, diferente de estratégias como "fork" que é feita uma cópia do processo com espeço de memória isolado, as threads são sempre do mesmo processo e custam menos para serem criadas.
 
-Estas threads são executadas de forma assíncrona, ou seja todas de uma vez, claro existem estratégias para a execução dessa thread que o seu sistema operacional provavelmente usa. 
+Estas threads são executadas de forma assíncrona, ou seja, todas de uma vez, claro existem estratégias para a execução dessa thread que o seu sistema operacional provavelmente usa. 
 
 ## Threads em Rust
 
@@ -18,7 +18,7 @@ fn main() {
 }
 ```
 
-Notem que utilizamos uma [closure](./03-closures.md) para dizer qual o comportamento que esta thread terá. Ao executarmos este programa temos o segu... espera, não temos output, como assim? A thread não executou? Sim, ela executou, porém não teve tempo o suficiente para escrever a mensagem na saída, já que a criação de uma thread não bloqueia a thread que a criou, ela continua sendo executada, o que podemos fazer para bloquear a thread que criou a thread é chamar o método 'join', do valor retornado por esse método `thread::spawn`,  ele nos retorna um `JoinHandle<T>`.
+Notem que utilizamos uma [closure](./03-closures.md) para dizer qual o comportamento que esta thread terá. Ao executarmos este programa temos o segu... espera, não temos output, como assim? A thread não executou? Sim, ela executou, porém, não teve tempo o suficiente para escrever a mensagem na saída, já que a criação de uma thread não bloqueia a thread que a criou, ela continua sendo executada, o que podemos fazer para bloquear a thread que criou a thread é chamar o método 'join', do valor retornado por esse método `thread::spawn`,  ele nos retorna um `JoinHandle<T>`.
 
 ```rust
 use std::thread::{self, JoinHandle};
@@ -74,7 +74,7 @@ Note que cada execução vai gerar uma saída diferente, pode ser que a thread 1
 
 ## Concorrência e paralelismo
 
-Concorrência e paralelismo são temas diferentes que andam lado a lado, paralelismo foi o que fizemos no exemplo anterior, executamos códigos de modo paralelo, ou seja ao mesmo tempo, já a concorrência aconteceria quando esses códigos paralelos tentassem acessar o mesmo recurso, Rust foi pensado para ser `thread safe`, ou seja, seguro para trabalhar com threads.
+Concorrência e paralelismo são temas diferentes que andam lado a lado, paralelismo foi o que fizemos no exemplo anterior, executamos códigos de modo paralelo, ou seja, simultaneamente, já a concorrência aconteceria quando esses códigos paralelos tentassem acessar o mesmo recurso, Rust foi pensado para ser `thread safe`, ou seja, seguro para trabalhar com threads.
 
 Se tentarmos usar o código abaixo não teremos sucesso em sua compilação.
 
@@ -160,13 +160,13 @@ error: could not compile `closures` due to previous error
 
 Vamos parar e pensar um pouco... Por que nossa primeira tentativa não deu certo?
 
-Quando utilizamos um tipo que implementa a `trait` Copy ao ser passada para outro contexto é feita uma cópia inteira de seu valor, ou seja, é feita uma passagem por valor e não por referência, por isso apenas utilizar o `move` para mover a variável de contexto não nos da sucesso no que queremos fazer.
+Quando utilizamos um tipo que implementa a `trait` Copy ao ser passada para outro contexto é feita uma cópia inteira de seu valor, ou seja, é feita uma passagem por valor e não por referência, por isso apenas utilizar o `move` para mover a variável de contexto não da exito no que queremos fazer.
 
-O segundo erro acontece porque os tipos `Rc<T>` e `RefCell<T>`, não são tipos seguros para serem mandados através das threads, ou seja, eles não tem segurança para threads. Por isso iremos ver sobre os tipos `Arc<T>`, `Mutex<T>`, e `RwLock<T>` que implementam `traits` como `Send` e `Sync`.
+O segundo erro acontece porque os tipos `Rc<T>` e `RefCell<T>`, não são tipos seguros para serem mandados através das threads, ou seja, eles não têm segurança para threads. Por isso iremos ver sobre os tipos `Arc<T>`, `Mutex<T>`, e `RwLock<T>` que implementam `traits` como `Send` e `Sync`.
 
 ## Scope
 
-A partir da versão ` 1.63.0` do Rust temos um novo modo de usar `threads` que é utilizando a função `scope`, essa função basicamente cria um escopo onde podemos criar `threads`, e manipular os dados, é feito um `join` automático em todas as threads criadas dentro deste escopo e os o compilador do Rust entende que esses dados podem ser usados "sem riscos".
+A partir da versão ` 1.63.0` do Rust temos um novo modo de usar `threads` que é utilizando a função `scope`, essa função basicamente cria um escopo onde podemos criar `threads`, e manipular os dados, é feito um `join` automático em todas as threads criadas dentro deste escopo e o compilador do Rust entende que esses dados podem ser usados "sem riscos".
 
 Vamos utilizar o exemplo do [Rust Blog](https://blog.rust-lang.org/2022/08/11/Rust-1.63.0.html) e entender o que acontece nele.
 
@@ -193,4 +193,4 @@ fn main() {
 }
 ```
 
-O que acontece é que ao criar o escopo, eu consigo fazer o empréstimo para o escopo, enquanto as threads deste escopo estiverem sendo executadas, eu consigo realizar operações com as variáveis externas sem a necessidade de utilizar o `move`, como só acessamos a variável `x` em uma das `threads` não temos problemas em modifica-la, ao fim do escopo temos acesso novamente as variáveis. Caso tentarmos modificar a variável "x" teremos um problema de [ownership](../intermediary-01/03-ownership.md), violando a regra de referência exclusiva das referências mutáveis.
+O que acontece é que ao criar o escopo, eu consigo fazer o empréstimo para o escopo, enquanto as threads deste escopo estiverem sendo executadas, eu consigo realizar operações com as variáveis externas sem a necessidade de utilizar o `move`, como só acessamos a variável `x` em uma das `threads` não temos problemas em modificá-la, ao fim do escopo temos acesso novamente as variáveis. Caso tentarmos modificar a variável "x" teremos um problema de [ownership](../intermediary-01/03-ownership.md), violando a regra de referência exclusiva das referências mutáveis.
