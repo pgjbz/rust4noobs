@@ -12,7 +12,7 @@ Teremos a estrutura padrão do projeto:
     └── main.rs
 ```
 
-Vamos adicionar um arquivo chamado `lib.rs` na pasta `src`, este arquivo sera usado para declarar os nossos módulos. Em seguida criamos um arquivo chamado "ponto.rs" e nele iremos criar uma [struct](./01-structs.md) para as localizações no nosso jogo, vamos criar uma implementação a essa struct para facilitar a instanciação dessa `strutc`.
+Vamos adicionar um arquivo chamado `lib.rs` na pasta `src`, este arquivo sera usado para declarar os nossos módulos. Em seguida criamos um arquivo chamado "ponto.rs" e nele iremos criar uma [struct](./01-structs.md) para as localizações no nosso jogo, vamos criar uma implementação a essa struct para facilitar a instânciação dessa `strutc`.
 
 ```rust
 pub struct Ponto {

@@ -1,6 +1,6 @@
 # Rc\<T>
 
-Rc\<T> é um tipo de `Smart Pointer` com contagem de referências, o seu nome vem de `Reference Counting`, parecido com o [Box\<T>](02-smart-pointers-box.md), porém com contagem de referências e sem a implementação da `trait DerefMut`, sendo assim é um tipo de `Smart Pointer` imutável. Sua declaração é parecida com a de um Box\<T>, mas o que vai diferencia-lo?
+Rc\<T> é um tipo de `Smart Pointer` com contagem de referências, o seu nome vem de `Reference Counting`, parecido com o [Box\<T>](02-smart-pointers-box.md), porém com contagem de referências e sem a implementação da `trait DerefMut`, sendo assim é um tipo de `Smart Pointer` imutável. Sua declaração é parecida com a de um Box\<T>, mas o que vai diferenciá-lo?
 
 Vamos supor que temos o seguinte código:
 
@@ -58,9 +58,9 @@ fn escreva<T: std::fmt::Display>(valor: Rc<T>) {
 }
 ```
 
-Realizamos a o clone pelo chamando a implementação da `struct` Rc\<T>, mas nada nos impede de chamar o método `.clone()` da instancia, porém não é o padrão utilizado por ai.
+Realizamos o clone pelo chamando a implementação da `struct` Rc\<T>, mas nada nos impede de chamar o método `.clone()` da instância, porém não é o padrão utilizado por ai.
 
-Este tipo de ponteiro, somente ira liberar a memória alocada quando o seu contador de referências chegar a 0. Ou seja, ninguém mais, apontar para aquela região de memória. No exemplo abaixo, podemos ver como saber o atual valor deste contador.
+Este tipo de ponteiro, somente irá liberar a memória alocada quando o seu contador de referências chegar a 0. Ou seja, ninguém mais, apontar para aquela região de memória. No exemplo abaixo, podemos ver como saber o atual valor deste contador.
 
 ```rust
 use std::rc::Rc;

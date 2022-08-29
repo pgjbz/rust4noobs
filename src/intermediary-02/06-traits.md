@@ -218,7 +218,7 @@ error[E0034]: multiple applicable items in scope
    |
 ```
 
-Este erro acontece por termos múltiplas implementações de método com a mesma assinatura. Para chamar o método `comer` podemos fazer da seguinte maneira `trait::metodo(&instancia)`.
+Este erro acontece por termos múltiplas implementações de método com a mesma assinatura. Para chamar o método `comer` podemos fazer da seguinte maneira `trait::metodo(&instância)`.
 
 ```rust
 //--declarações e implementações

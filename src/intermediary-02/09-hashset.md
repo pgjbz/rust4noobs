@@ -10,7 +10,7 @@ Um `HashSet` é uma coleção genérica, e assim como o ela armazena dados de v�
 
 Temos alguns modos para criar um `HashSet`. 
 
-Temos um modo declarando o tipo e instanciando que segue o padrão `let nome: HashSet<tipo> = HashSet::new()`, o modo por inferência, `let nome = HashSet::<tipo>::new()`, claro podemos fazer `let nome: HashSet<tipo> = HashSet::<tipo>::new()` ou `let nome = HashSet::new()` e o tipo é definido pelo primeiro uso.
+Temos um modo declarando o tipo e instânciando que segue o padrão `let nome: HashSet<tipo> = HashSet::new()`, o modo por inferência, `let nome = HashSet::<tipo>::new()`, claro podemos fazer `let nome: HashSet<tipo> = HashSet::<tipo>::new()` ou `let nome = HashSet::new()` e o tipo é definido pelo primeiro uso.
 
 ```rust
 fn main() {
