@@ -332,4 +332,4 @@ Ao executar o nosso código finalmente terá sucesso e a seguinte saída no cons
 Maior elemento: 11
 ```
 
-Este capitulo sobre `traits` ficou maior que do eu esperava, mas espero que tenha ficado claro o uso delas e a importância dessa funcionalidade.
+Este capítulo sobre `traits` ficou maior que do eu esperava, mas espero que tenha ficado claro o uso delas e a importância dessa funcionalidade.

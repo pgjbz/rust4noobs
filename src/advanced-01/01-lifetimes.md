@@ -43,7 +43,7 @@ fn main() {
 
 Como assim lifetimes genéricos?
 
-Lembra do capitulo sobre [generics](../intermediary-02/05-generics.md), funciona quase da mesma maneira, temos a seguinte `struct`
+Lembra do capítulo sobre [generics](../intermediary-02/05-generics.md), funciona quase da mesma maneira, temos a seguinte `struct`
 
 ```rust
 struct Life {
@@ -51,7 +51,7 @@ struct Life {
 }
 ```
 
-Notem que temos uma referencia dentro da struct, isso é um problema, o compilador do Rust não sabe até quando essa referencia vai viver, e é neste ponto que o lifetime começa a deixar de ser apenas relacionado ao escopo.
+Notem que temos uma referência dentro da struct, isso é um problema, o compilador do Rust não sabe até quando essa referência irá viver, e é neste ponto que o lifetime começa a deixar de ser apenas relacionado ao escopo.
 
 Ao tentar compilar o código acima, temos o seguinte erro.
 
@@ -73,7 +73,7 @@ error: aborting due to previous error
 For more information about this error, try `rustc --explain E0106`.
 ```
 
-Nós precisamos informar o lifetime deste `string slice`, como sugere o compilador, note que a sintaxe é muito parecida com a dos `generics`.
+Precisamos, informar o lifetime deste `string slice`, como sugere o compilador, note que a sintaxe é muito parecida com a dos `generics`.
 
 ```rust
 struct Life<'a> {
@@ -81,7 +81,7 @@ struct Life<'a> {
 }
 ```
 
-E agora vemos que nosso código compila. Claro não perdemos os poderes dos `generics` fazendo isso e não nos limitamos apenas as `structs`.
+E agora vemos que nosso código compila. Claro, não perdemos os poderes dos `generics` fazendo isso e não nos limitamos apenas as `structs`.
 
 ```rust
 struct Life<'a, T> {
@@ -101,7 +101,7 @@ No exemplo acima adicionei os `generics` e o lifetime, juntos e também em uma i
 
 ### Menor lifetime
 
-Uma coisa que devemos considerar é que, quando tivermos duas referencias o compilador do rust sempre vai considerar o menor lifetime, por exemplo.
+Uma coisa que devemos considerar é que, quando tivermos duas referências, o compilador do rust sempre irá considerar o menor lifetime, por exemplo.
 
 ```rust
 fn main() {
@@ -163,7 +163,7 @@ For more information about this error, try `rustc --explain E0623`.
 
 ```
 
-Vamos entender um pouco melhor o que acontece ali. Temos dois lifetimes, então o compilador entende que podemos ter duas referencias que vivem tempos diferentes, porém não é possível retornar a variável `b`, pois não temos garantia que o parâmetro `b`ira viver mais ou menos que o parâmetro `a`, então não podemos ter ele como retorno, a função do modo que ficou agora somente pode retornar o parâmetro `a`.
+Vamos entender um pouco melhor o que acontece ali. Temos dois lifetimes, então o compilador entende que podemos ter duas referências que vivem tempos diferentes, porém não é possível retornar a variável `b`, pois não temos garantia que o parâmetro `b`ira viver mais ou menos que o parâmetro `a`, então não podemos ter ele como retorno, a função do modo que ficou agora somente pode retornar o parâmetro `a`.
 
-Mas qual seria a utilidade disso? Basicamente, você consegue utilizar essa variação de lifetimes para processar dados que vão viver tempos diferentes, como por exemplo um valor que vai viver apenas dentro daquela função como já foi explicado no capítulo de [slices](../intermediary-01/05-slices.md), caso um resultado de uma função dependa de dois lifetimes em uma struct por exemplo, podemos informar ao compilador utilizando mais de um parâmetro de lifetime. No livro [Rust for Rustaceans](https://nostarch.com/rust-rustaceans) podemos encontrar um exemplo bem interessante sobre este assunto.
+Mas qual seria a utilidade disso? Basicamente, você consegue utilizar essa variação de lifetimes para processar dados que vão viver tempos diferentes, como por exemplo um valor que irá viver apenas dentro daquela função como já foi explicado no capítulo de [slices](../intermediary-01/05-slices.md), caso um resultado de uma função dependa de dois lifetimes em uma struct por exemplo, podemos informar ao compilador utilizando mais de um parâmetro de lifetime. No livro [Rust for Rustaceans](https://nostarch.com/rust-rustaceans) podemos encontrar um exemplo bem interessante sobre este assunto.
 

@@ -106,7 +106,7 @@ fn main() {
 }
 ```
 
-Movemos o valor, e a bloqueamos a thread até o fim da execução e... 'a = 10'? Ué. Espera, aprendemos sobre o `Rc<T>` e sobre o `RefCell<T>`, vou criar uma referencia mutável e compartilhada.
+Movemos o valor, e a bloqueamos a thread até o fim da execução e... 'a = 10'? Ué. Espera, aprendemos sobre o `Rc<T>` e sobre o `RefCell<T>`, vou criar uma referência mutável e compartilhada.
 
 ```rust
 use std::{cell::RefCell, rc::Rc, thread};
@@ -160,7 +160,7 @@ error: could not compile `closures` due to previous error
 
 Vamos parar e pensar um pouco... Por que nossa primeira tentativa não deu certo?
 
-Quando utilizamos um tipo que implementa a `trait` Copy ao ser passada para outro contexto é feita uma cópia inteira de seu valor, ou seja, é feita uma passagem por valor e não por referencia, por isso apenas utilizar o `move` para mover a variável de contexto não nos da sucesso no que queremos fazer.
+Quando utilizamos um tipo que implementa a `trait` Copy ao ser passada para outro contexto é feita uma cópia inteira de seu valor, ou seja, é feita uma passagem por valor e não por referência, por isso apenas utilizar o `move` para mover a variável de contexto não nos da sucesso no que queremos fazer.
 
 O segundo erro acontece porque os tipos `Rc<T>` e `RefCell<T>`, não são tipos seguros para serem mandados através das threads, ou seja, eles não tem segurança para threads. Por isso iremos ver sobre os tipos `Arc<T>`, `Mutex<T>`, e `RwLock<T>` que implementam `traits` como `Send` e `Sync`.
 
@@ -193,4 +193,4 @@ fn main() {
 }
 ```
 
-O que acontece é que ao criar o escopo, eu consigo fazer o empréstimo para o escopo, enquanto as threads deste escopo estiverem sendo executadas, eu consigo realizar operações com as variáveis externas sem a necessidade de utilizar o `move`, como só acessamos a variável `x` em uma das `threads` não temos problemas em modifica-la, ao fim do escopo temos acesso novamente as variáveis. Caso tentarmos modificar a variável "x" teremos um problema de [ownership](../intermediary-01/03-ownership.md), violando a regra de referencia exclusiva das referencias mutáveis.
+O que acontece é que ao criar o escopo, eu consigo fazer o empréstimo para o escopo, enquanto as threads deste escopo estiverem sendo executadas, eu consigo realizar operações com as variáveis externas sem a necessidade de utilizar o `move`, como só acessamos a variável `x` em uma das `threads` não temos problemas em modifica-la, ao fim do escopo temos acesso novamente as variáveis. Caso tentarmos modificar a variável "x" teremos um problema de [ownership](../intermediary-01/03-ownership.md), violando a regra de referência exclusiva das referências mutáveis.

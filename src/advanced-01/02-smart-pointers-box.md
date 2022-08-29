@@ -107,7 +107,7 @@ No livro [Rust Book](https://doc.rust-lang.org/book/ch15-01-box.html) é possive
 
 ## Valores Dinâmicos
 
-Recuperando o exemplo das traits de animais do da capitulo sobre [traits](../intermediary-02/06-traits.md)
+Recuperando o exemplo das traits de animais do da capítulo sobre [traits](../intermediary-02/06-traits.md)
 
 
 Vamos supor que queremos ter uma lista de animais, sendo eles do tipo Cachorro, Gato e Papagaio. Podemos utilizar a palavra reservada `dyn` dentro de um `Box<T>`, para representar valores dinâmicos.

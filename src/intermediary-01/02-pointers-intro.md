@@ -14,7 +14,7 @@ Resumidamente os ponteiros simplismente dizem ~~"olha eu sei onde você mora, fi
 
 Lembra que acabamos de ver as [strings](./01-strings.md), o tipo String é de certa forma um ponteiro, ele aponta para um endereço de memória localizado no [heap](https://blog.pantuza.com/artigos/heap-vs-stack), é um "tipo especial" de ponteiro, mas agora iremos utilizar exemplos mais fáceis de manipular.
 
-### Referencia em Rust
+### referência em Rust
 
 Para representarmos ponteiros em Rust utilizamos o caractere `&`.
 
@@ -29,7 +29,7 @@ fn main() {
 
 No exemplo acima a variável 'b' faz referência a variável 'a' do tipo `u8`. 
 
-Podemos também ter referencias mutáveis, porém existem duas regras, a primeira é a variável referenciada também deve ser mutável, assim podemos alterar o valor de uma variável a partir de outra que a referência, mas para isso realizamos uma "desreferenciação" com o caractere `*`
+Podemos também ter referências mutáveis, porém existem duas regras, a primeira é a variável referênciada também deve ser mutável, assim podemos alterar o valor de uma variável a partir de outra que a referência, mas para isso realizamos uma "desreferênciação" com o caractere `*`
 
 ```rust
 fn main() {
