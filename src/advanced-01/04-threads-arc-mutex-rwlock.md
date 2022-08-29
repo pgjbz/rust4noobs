@@ -114,3 +114,43 @@ fn main() {
 
 Agora o nosso projeto compila e roda da maneira correta, conseguimos compartilhar a mesma região de memoria em diversas threads diferentes, único ponto é que necessitamos de um bloqueio temporário na região de memoria. 
 Em aplicações reais, não teremos casos tão simples assim, como uma thread esperando outra para iniciar, varias threads podem estar rodando ao mesmo tempo e acessando a mesma região de memória. Felizmente Rust é uma linguagem segura para uso em multi-thread e já nos prove muitos recursos para nos auxiliar nessa jornadas de códigos assíncronos.
+
+## RwLock\<T>
+
+O `RwLock<T>` é um ponteiro com o comportamento parecido com o `Mutex<T>`, usamos ele quando precisamos ler um valor a partir de várias threads e apenas uma delas pode realizar operação de escrita por vez.
+
+```rust
+use std::{
+    sync::{Arc, RwLock},
+    thread,
+    time::Duration,
+};
+
+fn main() {
+    let valor = Arc::new(RwLock::new(1));
+    let trocas = Arc::clone(&valor);
+    thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(5));
+        println!("thread de trocas mudando o valor para valor + 1 e esperando mais 5 segundos");
+        let mut write_lock = trocas.write().unwrap();
+        *write_lock += 1;
+        thread::sleep(Duration::from_secs(5));
+    });
+    let mut handles = vec![];
+
+    for i in 1..10 {
+        let v = Arc::clone(&valor);
+        let handle = thread::spawn(move || loop {
+            thread::sleep(Duration::from_secs(1));
+            let read = v.read().unwrap();
+            println!("thread {} lendo o valor = {}", i + 1, read);
+        });
+        handles.push(handle);
+    }
+    for handle in handles {
+        handle.join().unwrap();
+    }
+}
+```
+
+No exemplo acima, temos uma `thread` que a cada 5 segundos realiza um bloqueio de escrita, espera mais 5 segundos e libera o bloqueio, e também temos outras 10 `threads` que a cada 1 segundo realizam a leitura do valor, repare que o único momento em que as 10 threads pausam é o momento em que a thread de escrita realiza o bloqueio e espera por 5 segundos para liberar este bloqueio. Assim que o bloqueio é liberado as operações de leitura acontecem normalmente.
