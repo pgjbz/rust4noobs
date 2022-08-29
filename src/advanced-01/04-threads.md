@@ -70,7 +70,7 @@ fn main() {
 }
 ```
 
-Note que cada execução vai gerar uma saída diferente, pode ser que a thread 1 execute primeiro, e logo em sequencia a 3, pode ser que elas se misturem, isso acontece justamente por serem executadas de forma assíncrona.
+Note que cada execução vai gerar uma saída diferente, pode ser que a thread 1 execute primeiro, e logo em sequência a 3, pode ser que elas se misturem, isso acontece justamente por serem executadas de forma assíncrona.
 
 ## Concorrência e paralelismo
 

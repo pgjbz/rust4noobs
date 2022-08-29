@@ -62,7 +62,7 @@ Ele deve nos mostrar algo parecido com isso:
 cargo 1.56.0 (4ed5d137b 2021-10-04)
 ```
 
-E logo em sequencia o comando
+E logo em sequência o comando
 
 ```bash
 rustc --version
