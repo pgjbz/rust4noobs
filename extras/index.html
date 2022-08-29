@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Extras</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Básico</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/01-about.html"><strong aria-hidden="true">2.1.</strong> Sobre a linguagem</a></li><li class="chapter-item expanded "><a href="../basic/02-environment.html"><strong aria-hidden="true">2.2.</strong> Ambiente</a></li><li class="chapter-item expanded "><a href="../basic/03-hello-world.html"><strong aria-hidden="true">2.3.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="../basic/04-data-types.html"><strong aria-hidden="true">2.4.</strong> Tipos de dados</a></li><li class="chapter-item expanded "><a href="../basic/05-operators.html"><strong aria-hidden="true">2.5.</strong> Operadores</a></li><li class="chapter-item expanded "><a href="../basic/06-conditions.html"><strong aria-hidden="true">2.6.</strong> Condicionais</a></li><li class="chapter-item expanded "><a href="../basic/07-loops.html"><strong aria-hidden="true">2.7.</strong> Loops</a></li><li class="chapter-item expanded "><a href="../basic/08-functions.html"><strong aria-hidden="true">2.8.</strong> Funções</a></li><li class="chapter-item expanded "><a href="../basic/09-arrays.html"><strong aria-hidden="true">2.9.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../basic/10-exercises.html"><strong aria-hidden="true">2.10.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-01/index.html"><strong aria-hidden="true">3.</strong> Intermediário 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-01/01-strings.html"><strong aria-hidden="true">3.1.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../intermediary-01/02-pointers-intro.html"><strong aria-hidden="true">3.2.</strong> Introdução a ponteiros</a></li><li class="chapter-item expanded "><a href="../intermediary-01/03-ownership.html"><strong aria-hidden="true">3.3.</strong> Ownership</a></li><li class="chapter-item expanded "><a href="../intermediary-01/04-tuples.html"><strong aria-hidden="true">3.4.</strong> Tuplas</a></li><li class="chapter-item expanded "><a href="../intermediary-01/05-slices.html"><strong aria-hidden="true">3.5.</strong> Slices</a></li><li class="chapter-item expanded "><a href="../intermediary-01/06-user-input.html"><strong aria-hidden="true">3.6.</strong> Entrada de dados</a></li><li class="chapter-item expanded "><a href="../intermediary-01/07-exercises.html"><strong aria-hidden="true">3.7.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-02/index.html"><strong aria-hidden="true">4.</strong> Intermediário 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-02/01-structs.html"><strong aria-hidden="true">4.1.</strong> Struct</a></li><li class="chapter-item expanded "><a href="../intermediary-02/02-enums.html"><strong aria-hidden="true">4.2.</strong> Enum</a></li><li class="chapter-item expanded "><a href="../intermediary-02/03-match.html"><strong aria-hidden="true">4.3.</strong> Match</a></li><li class="chapter-item expanded "><a href="../intermediary-02/04-modules.html"><strong aria-hidden="true">4.4.</strong> Módulos</a></li><li class="chapter-item expanded "><a href="../intermediary-02/05-generics.html"><strong aria-hidden="true">4.5.</strong> Generics</a></li><li class="chapter-item expanded "><a href="../intermediary-02/06-traits.html"><strong aria-hidden="true">4.6.</strong> Traits</a></li><li class="chapter-item expanded "><a href="../intermediary-02/07-option.html"><strong aria-hidden="true">4.7.</strong> Enum especial Option</a></li><li class="chapter-item expanded "><a href="../intermediary-02/08-vec.html"><strong aria-hidden="true">4.8.</strong> Coleções: Vec</a></li><li class="chapter-item expanded "><a href="../intermediary-02/09-hashset.html"><strong aria-hidden="true">4.9.</strong> Coleções: HashSet</a></li><li class="chapter-item expanded "><a href="../intermediary-02/10-hashmap.html"><strong aria-hidden="true">4.10.</strong> Coleções: HashMap</a></li><li class="chapter-item expanded "><a href="../intermediary-02/11-result.html"><strong aria-hidden="true">4.11.</strong> Tratamento de erros</a></li><li class="chapter-item expanded "><a href="../intermediary-02/12-panic.html"><strong aria-hidden="true">4.12.</strong> Macro panic!</a></li><li class="chapter-item expanded "><a href="../intermediary-02/13-tests.html"><strong aria-hidden="true">4.13.</strong> Testes</a></li><li class="chapter-item expanded "><a href="../intermediary-02/14-snake.html"><strong aria-hidden="true">4.14.</strong> Mini projeto * Snake Game</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced-01/index.html"><strong aria-hidden="true">5.</strong> Avançado 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/01-lifetimes.html"><strong aria-hidden="true">5.1.</strong> Lifetimes</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers.html"><strong aria-hidden="true">5.2.</strong> Smart Pointers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-box.html"><strong aria-hidden="true">5.2.1.</strong> Box&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-rc.html"><strong aria-hidden="true">5.2.2.</strong> Rc&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-refcell.html"><strong aria-hidden="true">5.2.3.</strong> RefCell&lt;T&gt;</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced-01/03-closures.html"><strong aria-hidden="true">5.3.</strong> Closures</a></li><li class="chapter-item expanded "><a href="../advanced-01/04-threads.html"><strong aria-hidden="true">5.4.</strong> Threads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/04-threads-arc-mutex-rwlock.html"><strong aria-hidden="true">5.4.1.</strong> Arc&lt;T&gt;, Mutex&lt;T&gt; e RwLock&lt;T&gt;</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../extras/index.html" class="active"><strong aria-hidden="true">6.</strong> Extras</a></li><li class="chapter-item expanded "><a href="../SOURCES.html"><strong aria-hidden="true">7.</strong> Referências</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="recomendações-de-conteúdo-sobre-a-linguagem"><a class="header" href="#recomendações-de-conteúdo-sobre-a-linguagem">Recomendações de conteúdo sobre a linguagem</a></h1>
+<ul>
+<li><a href="https://nostarch.com/rust-rustaceans">Rust for Rustaceans</a>: livro que aborda Rust de uma maneira mais &quot;por debaixo dos panos&quot;, desde tópico mais básico até mais avançados.</li>
+<li><a href="https://www.youtube.com/watch?v=rAl-9HwD858&amp;list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOa">Crust of Rust</a>: série de videos abordando assuntos sobre Rust, série do autor do livro &quot;Rust for Rustceans&quot;.</li>
+<li><a href="https://www.youtube.com/playlist?list=PLwhLlO5Vugx6KCwTpW_4fUeES2jdkDSW9">300 seconds of Rust</a>: série de videos curtos sobre Rust feitos pelo <a href="https://www.twitch.tv/togglebit">togglebit</a>.</li>
+<li><a href="https://doc.rust-lang.org/nomicon/">Rustnomicon</a>: livro oficial da linguagem abordando assuntos sobre <code>Unsafe Rust</code>.</li>
+<li><a href="https://rust-lang.github.io/async-book/">Asynchronous Programming in Rust</a>: livro oficial da linguagem sobre programação assíncrona, abordando estratégias não somente relacionadas a <a href="../advanced-01/04-threads.html">threads</a></li>
+</ul>
+<h1 id="escrito-com-rust"><a class="header" href="#escrito-com-rust">Escrito com Rust</a></h1>
+<p>Softwares escritos em Rust</p>
+<h2 id="ripgrep"><a class="header" href="#ripgrep">Ripgrep</a></h2>
+<p>Ripgrep é uma ferramente de busca &quot;orientada a linha&quot; de modo recursivo, seu desempenho se mostra maior que outras ferramentas com o mesmo propósito.
+Para saber mais: <a href="https://github.com/BurntSushi/ripgrep">repositório</a>.</p>
+<h2 id="lapce"><a class="header" href="#lapce">Lapce</a></h2>
+<p>Lapce é um editor de código, leve e rápido escrito em Rust, atualmente (29/08/2022) se encontra na versão 0.1.3, com plugins, visual que lembra o VSCode e também com suporte a LSP.</p>
+<p>Para saber mais: <a href="https://github.com/lapce/lapce">repositório</a></p>
+<h2 id="exa"><a class="header" href="#exa">Exa</a></h2>
+<p>Exa pode ser utilizado no lugar do famoso comando &quot;ls&quot;.</p>
+<p>Para saber mais: <a href="https://github.com/ogham/exa">repositório</a></p>
+<h2 id="nushell"><a class="header" href="#nushell">Nushell</a></h2>
+<p>Um novo tipo de shell feito em cima da linguagem &quot;Nu&quot;, com comandos de maneira funcional.</p>
+<p>Para saber mais: <a href="https://www.nushell.sh/">site</a></p>
+<h2 id="bat"><a class="header" href="#bat">Bat</a></h2>
+<p>Substituo do comando &quot;cat&quot;, com &quot;Syntax highlighting&quot;, integração com git e paginação como o comando &quot;less&quot;.</p>
+<p>Para saber mais: <a href="https://github.com/sharkdp/bat">repositório</a></p>
+<h2 id="fd"><a class="header" href="#fd">Fd</a></h2>
+<p>Fd é uma alternativa ao comando &quot;find&quot;, basicamente ele busca por ocorrências no sistema de arquivos.</p>
+<p>Para saber mais: <a href="https://github.com/sharkdp/fd">repositório</a></p>
+<h2 id="oha"><a class="header" href="#oha">Oha</a></h2>
+<p>Gerador de carga HTTP para aplicações WEB com um TUI bem elegante.</p>
+<p>Para saber mais: <a href="https://github.com/hatoo/oha">repositório</a></p>
+<h2 id="mdbook"><a class="header" href="#mdbook">Mdbook</a></h2>
+<p>Ferramente utilizada para construir um livro a partir de arquivos <code>markdown</code>, a mesma foi utilizada pra construir este livro.</p>
+<p>Para saber mais: <a href="https://github.com/rust-lang/mdBook">repositório</a></p>
+<h2 id="redoxos"><a class="header" href="#redoxos">RedoxOS</a></h2>
+<p>RedoxOS é um Sistema Operacional Unix-like, com uma interface gráfica chamada Orbital, e com uma lib escrita em Rust (relibc).</p>
+<p>Para saber mais: <a href="https://www.redox-os.org/">site</a></p>
+<p><a href="https://github.com/rust-unofficial/awesome-rust">Neste outro</a> repositório do github você encontrara outras ferramentas escritas em Rust.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../advanced-01/04-threads-arc-mutex-rwlock.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../SOURCES.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../advanced-01/04-threads-arc-mutex-rwlock.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../SOURCES.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
