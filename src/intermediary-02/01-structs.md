@@ -116,7 +116,7 @@ fn main() {
     cliente.diz_oi();
     cliente.mudar_nome(String::from("Novo nome")); 
     cliente.diz_oi();
-    cliente.diz_tchau(); //a partir daqui a memoria deste               //cliente foi liberada não conseguimos mais utilizar
+    cliente.diz_tchau(); //a partir daqui a memória deste               //cliente foi liberada não conseguimos mais utilizar
 }
 ```
 
@@ -128,7 +128,7 @@ Caso tentarmos utilizar a instância de cliente após a chamada do método `diz_
 37 |     let mut cliente = Cliente::new(String::from("Paulo"), 1999, String::from("Onde?"));
    |         ----------- move occurs because `cliente` has type `Cliente`, which does not implement the `Copy` trait
 ...
-41 |     cliente.diz_tchau(); //a partir daqui a memoria deste      
+41 |     cliente.diz_tchau(); //a partir daqui a memória deste      
    |             ----------- `cliente` moved due to this method call
 42 |     cliente.diz_oi();         //cliente foi liberada não conseguimos mais utilizar
    |     ^^^^^^^ value borrowed here after move

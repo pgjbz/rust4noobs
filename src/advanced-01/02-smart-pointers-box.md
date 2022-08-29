@@ -1,6 +1,6 @@
 # Box\<T>
 
-O `Smart Pointer` Box<T>, é bem versátil, ele aponta para a `heap` e também implementa as [traits](../intermediary-02/06-traits.md) `Deref` e `DerefMut`, sendo assim, é possível apontar para um endereço de moria na Heap e realizar modificações nesta região de memoria. Vamos a um exemplo mais simples.
+O `Smart Pointer` Box<T>, é bem versátil, ele aponta para a `heap` e também implementa as [traits](../intermediary-02/06-traits.md) `Deref` e `DerefMut`, sendo assim, é possível apontar para um endereço de moria na Heap e realizar modificações nesta região de memória. Vamos a um exemplo mais simples.
 
 ```rust
 fn main() {
@@ -88,7 +88,7 @@ For more information about this error, try `rustc --explain E0072`.
 
 O próprio compilador já nos diz algo que podemos fazer para corrigir este problema, mas antes vamos entender o que seria essa mensagem aqui "recursive type has infinite size".
 
-Teoricamente tipos recursivos podem crescer ao infinito e o compilador do Rust não sabe o quanto de memoria sera necessário para esse tipo, por isso essa mensagem. Porém ele sabe exatamente quanta memoria é necessária para um `Box`, sendo possível a criação deste tipo recursivo utilizando esse `Box`.
+Teoricamente tipos recursivos podem crescer ao infinito e o compilador do Rust não sabe o quanto de memória sera necessário para esse tipo, por isso essa mensagem. Porém ele sabe exatamente quanta memória é necessária para um `Box`, sendo possível a criação deste tipo recursivo utilizando esse `Box`.
 
 ```rust
 struct Galho {

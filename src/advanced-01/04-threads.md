@@ -1,6 +1,6 @@
 # Threads
 
-Afinal o que são Threads? Podemos considerar threads como sub processos que compartilham da mesma memoria, diferente de estratégias como "fork" que é feita uma copia do processo com espeço de memoria isolado, as threads são sempre do mesmo processo e custam menos para serem criadas.
+Afinal o que são Threads? Podemos considerar threads como sub processos que compartilham da mesma memória, diferente de estratégias como "fork" que é feita uma copia do processo com espeço de memória isolado, as threads são sempre do mesmo processo e custam menos para serem criadas.
 
 Estas threads são executadas de forma assíncrona, ou seja todas de uma vez, claro existem estratégias para a execução dessa thread que o seu sistema operacional provavelmente usa. 
 

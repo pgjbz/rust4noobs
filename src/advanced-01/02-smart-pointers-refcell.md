@@ -117,7 +117,7 @@ RefCell {
 
 O valor do RefCell, teve um "borrow", ou seja, esta ali, mas não esta. Mas, esse não é o ponto que queremos chegar, reparem que eu tive duas referencias imutáveis, realizei um `borrow_mut` e não tive erro em tempo de execução? Perceba que "burlamos" este ponto que foi uma pequena dor de cabeça anteriormente. Note que não precisamos dar um `drop` em referencias anteriores, etc. Bem legal né?
 
-Agora temos que encarar um outro problema, referencia cíclica e vazamento de memoria.
+Agora temos que encarar um outro problema, referencia cíclica e vazamento de memória.
 
 ```rust
 use std::{
@@ -149,11 +149,11 @@ fn main() {
 
 Ao compilar o código acima e executar teremos uma chamada recursiva até um [stack overflow](https://www.techtarget.com/whatis/definition/stack-overflow) acontecer. Claro você não vai ver esse tipo de código a todo momento.
 
-O que pode causar o vazamento de memoria é o modo em que são ligados as referencias, podendo chegar a um ponto onde um `Rc<T>`, tenha o contador zerado e não exista mais referencias a serem "dropadas".
+O que pode causar o vazamento de memória é o modo em que são ligados as referencias, podendo chegar a um ponto onde um `Rc<T>`, tenha o contador zerado e não exista mais referencias a serem "dropadas".
 
 ## Referencia Fraca
 
-Um modo de contornarmos o problema acima é ao invés de utilizar um `Rc<T>` que é uma referencia forte, podemos usar um `Weak<T>`, a grande diferença é que um `Rc<T>` tem um contador de referencias fortes e fracas, as referencias fracas não são tão importantes assim, ou seja, caso o contador de referencias fortes chegue a 0 e ainda existirem referencias fracas, a memoria é liberada mesmo assim, em contrapartida se tentarmos acessar a memoria dessa referencia fraca podemos ter um problema de acesso a memoria indefinida, ou seja, memoria que não pertence aquele processo.
+Um modo de contornarmos o problema acima é ao invés de utilizar um `Rc<T>` que é uma referencia forte, podemos usar um `Weak<T>`, a grande diferença é que um `Rc<T>` tem um contador de referencias fortes e fracas, as referencias fracas não são tão importantes assim, ou seja, caso o contador de referencias fortes chegue a 0 e ainda existirem referencias fracas, a memória é liberada mesmo assim, em contrapartida se tentarmos acessar a memória dessa referencia fraca podemos ter um problema de acesso a memória indefinida, ou seja, memória que não pertence aquele processo.
 
 ```rust
 use std::{

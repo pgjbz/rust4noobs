@@ -87,7 +87,7 @@ fn main() {
 
 fn printa_string(string: String) {
     println!("{}", string);
-} //a partir daqui a memoria foi devolvida para o sistema
+} //a partir daqui a memória foi devolvida para o sistema
 ```
 
 Mas se ainda quisermos utilizar a variável `meu_texto`? Podemos fazer a função `printa_string` retornar a String passada por argumento e pegar o ownership de volta.

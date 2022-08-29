@@ -1,6 +1,6 @@
 # Lifetimes
 
-Lifetimes, a os lifetimes, eles são parte essencial do código Rust, com os lifetimes o [borrow checker](https://rustc-dev-guide.rust-lang.org/borrow_check.html) do Rust consegue saber quando liberar a memoria de algo, por quanto tempo algo fica "vivo".
+Lifetimes, a os lifetimes, eles são parte essencial do código Rust, com os lifetimes o [borrow checker](https://rustc-dev-guide.rust-lang.org/borrow_check.html) do Rust consegue saber quando liberar a memória de algo, por quanto tempo algo fica "vivo".
 
 É comum associarmos o lifetime com o escopo, e não esta errado, mas também não esta completamente correto.
 
@@ -13,22 +13,22 @@ fn main() {
         println!("{}", lifetime);
     } 
     /*
-        Terminou o escopo do bloco acima, a memoria é liberada,
+        Terminou o escopo do bloco acima, a memória é liberada,
         fim do lifetime.
     */
 }
 ```
 
-Outro ponto importante que devemos levar em consideração é que o dono do recurso é o responsável por devolver a memoria ao SO. No código abaixo vemos isso:
+Outro ponto importante que devemos levar em consideração é que o dono do recurso é o responsável por devolver a memória ao SO. No código abaixo vemos isso:
 
 ```rust
 
 fn escreva(texto: String) {
     /*
         Esta função é a responsável por devolver ao sistema operacional
-        Todo a memoria solicitada.
+        Todo a memória solicitada.
         Quando ela adquiri o ownership da String ela tem a responsabilidade de
-        liberar a memoria, vimos isso mais no inicio deste livro,
+        liberar a memória, vimos isso mais no inicio deste livro,
         até aqui nenhuma novidade.
     */
     println!("{}", texto);

@@ -52,7 +52,7 @@ Note que não tivemos problemas na diminuição de referencias fortes mesmo apó
 # Mutex\<T>
 
 O `Mutex<T>` assim como a `RefCell\<T>` contém mutabilidade interior, é possível realizar o empréstimo mutável a partir de referencias imutáveis, porém a sua peculiaridade é que para isso, o valor fica BLOQUEADO, mas como assim?
-Simples quando vamos acessar o valor dentro de um `Mutex<T>`, ele realiza um bloqueio deste valor, então outra thread que tentar acessar este mesmo endereço de memoria fica bloqueado até o momento em que a thread que realizou o bloqueio o liberar. Quando realizamos o bloqueio nos é retornado um `Result<MutexGuard<T>, PoisonError<...>>`.
+Simples quando vamos acessar o valor dentro de um `Mutex<T>`, ele realiza um bloqueio deste valor, então outra thread que tentar acessar este mesmo endereço de memória fica bloqueado até o momento em que a thread que realizou o bloqueio o liberar. Quando realizamos o bloqueio nos é retornado um `Result<MutexGuard<T>, PoisonError<...>>`.
 Este `MutexGuard<T>` que é o responsável por liberar o bloqueio dos dados.
 ```rust
 use std::sync::Mutex;
@@ -112,7 +112,7 @@ fn main() {
 }
 ```
 
-Agora o nosso projeto compila e roda da maneira correta, conseguimos compartilhar a mesma região de memoria em diversas threads diferentes, único ponto é que necessitamos de um bloqueio temporário na região de memoria. 
+Agora o nosso projeto compila e roda da maneira correta, conseguimos compartilhar a mesma região de memória em diversas threads diferentes, único ponto é que necessitamos de um bloqueio temporário na região de memória. 
 Em aplicações reais, não teremos casos tão simples assim, como uma thread esperando outra para iniciar, varias threads podem estar rodando ao mesmo tempo e acessando a mesma região de memória. Felizmente Rust é uma linguagem segura para uso em multi-thread e já nos prove muitos recursos para nos auxiliar nessa jornadas de códigos assíncronos.
 
 ## RwLock\<T>

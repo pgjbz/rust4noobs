@@ -38,7 +38,7 @@ error: aborting due to previous error; 1 warning emitted
 For more information about this error, try `rustc --explain E0382`.
 ```
 
-Isso acontece  justamente pelas regras de [ownership](../intermediary-01/03-ownership.md) do Rust. Um modo para contornarmos esse problema seria utilizando o Rc\<T>, e aqui que ele tem uma vantagem. Por ser uma referencia compartilhada podemos clonar esta referencia, claro apenas as informações necessárias, como o endereço de memoria e... Só.
+Isso acontece  justamente pelas regras de [ownership](../intermediary-01/03-ownership.md) do Rust. Um modo para contornarmos esse problema seria utilizando o Rc\<T>, e aqui que ele tem uma vantagem. Por ser uma referencia compartilhada podemos clonar esta referencia, claro apenas as informações necessárias, como o endereço de memória e... Só.
 
 ```rust
 use std::rc::Rc;
@@ -60,7 +60,7 @@ fn escreva<T: std::fmt::Display>(valor: Rc<T>) {
 
 Realizamos a o clone pelo chamando a implementação da `struct` Rc\<T>, mas nada nos impede de chamar o método `.clone()` da instancia, porém não é o padrão utilizado por ai.
 
-Este tipo de ponteiro, somente ira liberar a memória alocada quando o seu contador de referencias chegar a 0. Ou seja, ninguém mais, apontar para aquela região de memoria. No exemplo abaixo, podemos ver como saber o atual valor deste contador.
+Este tipo de ponteiro, somente ira liberar a memória alocada quando o seu contador de referencias chegar a 0. Ou seja, ninguém mais, apontar para aquela região de memória. No exemplo abaixo, podemos ver como saber o atual valor deste contador.
 
 ```rust
 use std::rc::Rc;
@@ -78,7 +78,7 @@ fn main() {
 } 
 /*
     após o fim do escopo da função main, o contador chega a '0'
-    a memoria é liberada.
+    a memória é liberada.
 */
 ```
 
@@ -91,4 +91,4 @@ contador atual esta em: 3
 contador atual esta em: 2
 ```
 
-Repare que o valor do contador muda, independente de realizar o `clone` a partir da primeira referencia, ou da segunda referencia, isso acontece, porque os dois apontam para o mesmo local da memoria.
+Repare que o valor do contador muda, independente de realizar o `clone` a partir da primeira referencia, ou da segunda referencia, isso acontece, porque os dois apontam para o mesmo local da memória.
