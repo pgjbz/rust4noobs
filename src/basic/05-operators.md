@@ -46,7 +46,5 @@ fn main() {
 
 O uso dos operadores lógicos iremos ver na [próxima](./06-conditions.md) parte
 
-- [Próximo](./06-conditions.md) - Condicionais 
-
 
 

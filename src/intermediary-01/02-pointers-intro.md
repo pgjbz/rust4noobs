@@ -68,6 +68,5 @@ error[E0499]: cannot borrow `a` as mutable more than once at a time
 error: aborting due to previous error
 ```
 
-Com isso entramos no sistema de ownership do Rust, que daremos continuidade na próxima parte desse 4noobs.
+Com isso entramos no sistema de ownership do Rust, que daremos continuidade na próxima parte desse 4Noobs.
 
-- [Próximo](./03-ownership.md)

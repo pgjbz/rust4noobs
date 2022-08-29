@@ -97,7 +97,7 @@ struct Cliente {
 
 fn main() {
     let mut set = HashSet::<Cliente>::new();
-    set.insert(Cliente { id: 10, nome: "Rust4Noob".to_string() });
+    set.insert(Cliente { id: 10, nome: "Rust4Noobs".to_string() });
 }
 ```
 
@@ -113,7 +113,7 @@ error[E0599]: the method `insert` exists for struct `HashSet<Cliente>`, but its 
    | doesn't satisfy `Cliente: Eq`
    | doesn't satisfy `Cliente: Hash`
 ...
-10 |     set.insert(Cliente { id: 10, nome: "Rust4Noob".to_string() });
+10 |     set.insert(Cliente { id: 10, nome: "Rust4Noobs".to_string() });
    |         ^^^^^^ method cannot be called on `HashSet<Cliente>` due to unsatisfied trait bounds
    |
    = note: the following trait bounds were not satisfied:
@@ -137,7 +137,7 @@ struct Cliente {
 
 fn main() {
     let mut set = HashSet::<Cliente>::new();
-    set.insert(Cliente { id: 10, nome: "Rust4Noob".to_string() });
+    set.insert(Cliente { id: 10, nome: "Rust4Noobs".to_string() });
 }
 ```
 
@@ -172,5 +172,3 @@ fn main() {
 ```
 
 Agora podemos utilizar a nossa struct em um `HashSet`
-
-- [Próximo](./10-hashmap.md) - HashMap

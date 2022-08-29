@@ -11,7 +11,7 @@ fn main() {
     panic!();
 }
 ```
-Ao executar o código acima temos a saida
+Ao executar o código acima temos a saída
 
 ```bash
 thread 'main' panicked at 'explicit panic', src/main.rs:2:5
@@ -26,11 +26,9 @@ fn main() {
 }
 ```
 
-Temos a saida com a mensagem abaixo:
+Temos a saída com a mensagem abaixo:
 
 ```bash
 thread 'main' panicked at 'Rust4Noobs', src/main.rs:2:5
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
-
-- [Próximo](./13-tests.md) - Testes

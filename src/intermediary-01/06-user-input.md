@@ -80,5 +80,3 @@ fn main() {
 }
 ```
 Lembrando este exemplo é apenas para tipos primitivos, futuramente iremos aprender outros tipos e iremos ver que nem sempre é possível realizar esta operação.
-
-- [Próximo](./07-exercises.md) - Exercicios

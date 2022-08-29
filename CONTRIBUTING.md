@@ -11,6 +11,7 @@
 
 ## Informações importantes
 
-Todos os textos fican na pasta `src`.
+Todos os textos ficam na pasta `src`.
 
 O build do livro esta separado em outra branch.
+O pull request ao ser aprovado automaticamente ira ser publicado nesta branch.

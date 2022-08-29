@@ -115,7 +115,7 @@ fn main() {
 ```
 
 ### Método is_empty
-O método `is_empty` retorna um boleano, sendo true caso esteja vazio e false caso o tenha algum elemento
+O método `is_empty` retorna um booleano, sendo true caso esteja vazio e false caso o tenha algum elemento
 
 ```rust
 fn main() {
@@ -127,7 +127,7 @@ fn main() {
 ```
 
 ### Método contains
-O método `contains`retorna um boleano, sendo true caso o valor exista e false caso não exista.
+O método `contains`retorna um booleano, sendo true caso o valor exista e false caso não exista.
 
 ```rust
 fn main() {
@@ -137,5 +137,3 @@ fn main() {
     }
 }
 ```
-
-- [Próximo](./09-hashset.md) - HashSet

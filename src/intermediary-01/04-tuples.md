@@ -16,19 +16,19 @@ E agora, ainda utilizando o exemplo acima, como eu faço para acessar o valor `i
 ```rust
 fn main() {
               //0,  1, , 2     , 3
-    let tuple: (u8, i32, String, char) = (10, 25, String::from("Rust4noobs"), 'a');
+    let tuple: (u8, i32, String, char) = (10, 25, String::from("Rust4Noobs"), 'a');
     println!("Valor i32: {}", tuple.1);
 }
 ```
 
-Acessamos o valor i32 e printamos ele.
+Acessamos o valor i32 e escrevemos ele na saída principal.
 
 Na parte sobre [ownership](./03-ownership.md) utilizamos da estratégia de retornar o que foi passado por parâmetro para não perdemos a posse de memória da variável, podemos fazer isso com tuplas também.
 
 ```rust
 fn main() {
     let texto1 = String::from("Rust");
-    let texto2 = String::from("4Noob");
+    let texto2 = String::from("4Noobs");
     let (mut devolve1, mut devolve2) = printa_duas_strings(texto1, texto2);
     devolve1.push_str(" qualquercoisasópraterexemplo");
     devolve2.push_str(" sérionaotiveideianenhuma");
@@ -44,5 +44,3 @@ fn printa_duas_strings(texto1: String, texto2: String) -> (String, String) {
 ```
 
 Conseguimos utilizar a mesma estratégia de retornar os parâmetros para não perder o ownership com uma tupla.
-
-- [Próximo](./05-slices.md) - Slices

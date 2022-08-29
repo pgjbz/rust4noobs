@@ -109,5 +109,3 @@ pos: 7, val: 17
 pos: 8, val: 18
 pos: 9, val: 19
 ```
-
-- [Próximo](./10-exercises.md) - Exercícios
