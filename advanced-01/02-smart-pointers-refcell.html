@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>RefCell&lt;T&gt;</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Básico</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/01-about.html"><strong aria-hidden="true">2.1.</strong> Sobre a linguagem</a></li><li class="chapter-item expanded "><a href="../basic/02-environment.html"><strong aria-hidden="true">2.2.</strong> Ambiente</a></li><li class="chapter-item expanded "><a href="../basic/03-hello-world.html"><strong aria-hidden="true">2.3.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="../basic/04-data-types.html"><strong aria-hidden="true">2.4.</strong> Tipos de dados</a></li><li class="chapter-item expanded "><a href="../basic/05-operators.html"><strong aria-hidden="true">2.5.</strong> Operadores</a></li><li class="chapter-item expanded "><a href="../basic/06-conditions.html"><strong aria-hidden="true">2.6.</strong> Condicionais</a></li><li class="chapter-item expanded "><a href="../basic/07-loops.html"><strong aria-hidden="true">2.7.</strong> Loops</a></li><li class="chapter-item expanded "><a href="../basic/08-functions.html"><strong aria-hidden="true">2.8.</strong> Funções</a></li><li class="chapter-item expanded "><a href="../basic/09-arrays.html"><strong aria-hidden="true">2.9.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../basic/10-exercises.html"><strong aria-hidden="true">2.10.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-01/index.html"><strong aria-hidden="true">3.</strong> Intermediário 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-01/01-strings.html"><strong aria-hidden="true">3.1.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../intermediary-01/02-pointers-intro.html"><strong aria-hidden="true">3.2.</strong> Introdução a ponteiros</a></li><li class="chapter-item expanded "><a href="../intermediary-01/03-ownership.html"><strong aria-hidden="true">3.3.</strong> Ownership</a></li><li class="chapter-item expanded "><a href="../intermediary-01/04-tuples.html"><strong aria-hidden="true">3.4.</strong> Tuplas</a></li><li class="chapter-item expanded "><a href="../intermediary-01/05-slices.html"><strong aria-hidden="true">3.5.</strong> Slices</a></li><li class="chapter-item expanded "><a href="../intermediary-01/06-user-input.html"><strong aria-hidden="true">3.6.</strong> Entrada de dados</a></li><li class="chapter-item expanded "><a href="../intermediary-01/07-exercises.html"><strong aria-hidden="true">3.7.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-02/index.html"><strong aria-hidden="true">4.</strong> Intermediário 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-02/01-structs.html"><strong aria-hidden="true">4.1.</strong> Struct</a></li><li class="chapter-item expanded "><a href="../intermediary-02/02-enums.html"><strong aria-hidden="true">4.2.</strong> Enum</a></li><li class="chapter-item expanded "><a href="../intermediary-02/03-match.html"><strong aria-hidden="true">4.3.</strong> Match</a></li><li class="chapter-item expanded "><a href="../intermediary-02/04-modules.html"><strong aria-hidden="true">4.4.</strong> Módulos</a></li><li class="chapter-item expanded "><a href="../intermediary-02/05-generics.html"><strong aria-hidden="true">4.5.</strong> Generics</a></li><li class="chapter-item expanded "><a href="../intermediary-02/06-traits.html"><strong aria-hidden="true">4.6.</strong> Traits</a></li><li class="chapter-item expanded "><a href="../intermediary-02/07-option.html"><strong aria-hidden="true">4.7.</strong> Enum especial Option</a></li><li class="chapter-item expanded "><a href="../intermediary-02/08-vec.html"><strong aria-hidden="true">4.8.</strong> Coleções: Vec</a></li><li class="chapter-item expanded "><a href="../intermediary-02/09-hashset.html"><strong aria-hidden="true">4.9.</strong> Coleções: HashSet</a></li><li class="chapter-item expanded "><a href="../intermediary-02/10-hashmap.html"><strong aria-hidden="true">4.10.</strong> Coleções: HashMap</a></li><li class="chapter-item expanded "><a href="../intermediary-02/11-result.html"><strong aria-hidden="true">4.11.</strong> Tratamento de erros</a></li><li class="chapter-item expanded "><a href="../intermediary-02/12-panic.html"><strong aria-hidden="true">4.12.</strong> Macro panic!</a></li><li class="chapter-item expanded "><a href="../intermediary-02/13-tests.html"><strong aria-hidden="true">4.13.</strong> Testes</a></li><li class="chapter-item expanded "><a href="../intermediary-02/14-snake.html"><strong aria-hidden="true">4.14.</strong> Mini projeto * Snake Game</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced-01/index.html"><strong aria-hidden="true">5.</strong> Avançado 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/01-lifetimes.html"><strong aria-hidden="true">5.1.</strong> Lifetimes</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers.html"><strong aria-hidden="true">5.2.</strong> Smart Pointers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-box.html"><strong aria-hidden="true">5.2.1.</strong> Box&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-rc.html"><strong aria-hidden="true">5.2.2.</strong> Rc&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-refcell.html" class="active"><strong aria-hidden="true">5.2.3.</strong> RefCell&lt;T&gt;</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced-01/03-closures.html"><strong aria-hidden="true">5.3.</strong> Closures</a></li><li class="chapter-item expanded "><a href="../advanced-01/04-threads.html"><strong aria-hidden="true">5.4.</strong> Threads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/04-threads-arc-mutex-rwlock.html"><strong aria-hidden="true">5.4.1.</strong> Arc&lt;T&gt;, Mutex&lt;T&gt; e RwLock&lt;T&gt;</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../SOURCES.html"><strong aria-hidden="true">6.</strong> referências</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="refcellt"><a class="header" href="#refcellt">RefCell&lt;T&gt;</a></h1>
+<p>Sinceramente, quando comecei a escrever este tópico sobre os <code>Smart Pointers</code> eu achei que seria mais fácil explicar sobre este carinha aqui. Porém, para estar mais enganado, somente se eu falar que Java é lento.</p>
+<p>RefCell&lt;T&gt; é como uma caixa de pandora, você precisa de muito cuidado e muita certeza do que esta fazendo quando o utiliza, este <code>Smart Pointer</code> tem checagem de &quot;empréstimo&quot;  em tempo de execução. Esta checagem obedece às mesmas regras de <a href="../intermediary-01/03-ownership.html">ownership</a> que já conhecemos:</p>
+<ul>
+<li>referências imutáveis = &quot;ilimitadas&quot;</li>
+<li>referências mutáveis = exclusivas</li>
+</ul>
+<p>O código abaixo, não tem problemas de compilação.</p>
+<pre><pre class="playground"><code class="language-rust">use std::cell::RefCell;
+
+fn main() {
+    let referência = RefCell::new(42);
+    let referência_imutavel = referência.borrow();
+    println!(&quot;{}&quot;, referência_imutavel);
+    {
+        let outra_imutavel = referência.borrow();
+        println!(&quot;{}&quot;, outra_imutavel);
+    }
+    let mut referência_mutavel = referência.borrow_mut();
+    *referência_mutavel = 69;
+    println!(&quot;{}&quot;, referência_mutavel);
+}
+</code></pre></pre>
+<p>Podemos pensar &quot;se compilou esta certo&quot;, porém temos um pequeno problema na hora de executar este programa.</p>
+<pre><code class="language-sh">42
+thread 'main' panicked at 'already borrowed: BorrowMutError', ref-cell.rs:7:45
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</code></pre>
+<p>E é aqui que as coisas começam a complicar, vamos no famoso <code>baby step</code>, com calma, uma coisa e cada vez. Eu sei que pode ser confuso a primeira vista o programa compilar, sem problemas de <code>ownership</code> e na hora da execução esses problemas estourarem.</p>
+<p>Os dados contidos dentro desse ponteiro são expostos de maneiras específicas, sendo possível expor de maneira imutável ou mutável. Tente pensar como se fosse uma caixa fechada com um conteúdo dentro dela. Esta caixa pode deixar várias pessoas verem o que tem dentro dela através de um furo, por exemplo, porém quando este conteúdo vai ser modificado este furo é tampado, não sendo mais possível que mais de uma pessoa visualize o que tem dentro desta caixa, até que esta mudança termine de ser feita.</p>
+<h2 id="mutabilidade-interior"><a class="header" href="#mutabilidade-interior">Mutabilidade interior</a></h2>
+<p>&quot;Em Rust alguns tipos precisam ser alterados enquanto compartilhados&quot;. - https://doc.rust-lang.org/reference/interior-mutability.html </p>
+<p>Isso soa meio confuso, mas pense um tipo tem uma mutabilidade interior, quando o seu conteúdo pode ser modificado por meio de uma referência compartilhada por ele mesmo. Isto vai contra muitas coisas que aprendemos até agora. Foi o que aconteceu no nosso exemplo de <code>RefCell\&lt;T&gt;</code>, claro este não é o único tipo a implementar este tipo de comportamento, temos também <code>Cell</code>. Podemos criar o nosso próprio tipo usando <code>UnsafeCell</code>.</p>
+<h2 id="retomando"><a class="header" href="#retomando">Retomando</a></h2>
+<p>Respeitando as regras de <code>ownership</code> podemos resolver os problemas do código mostrado.</p>
+<ul>
+<li>Não devemos permitir mais de uma referência, quando temos uma referência mutável.</li>
+<li>referências mutáveis, são &quot;infinitas&quot;, desde que não tenhamos referencias mutáveis.</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">use std::cell::RefCell;
+
+fn main() {
+    let referência = RefCell::new(42);
+    
+    let referência_imutavel = referência.borrow();
+    
+    println!(&quot;{}&quot;, referência_imutavel);
+    {
+        let outra_imutavel = referência.borrow();
+        println!(&quot;{}&quot;, outra_imutavel);
+    }
+    drop(referência_imutavel); 
+    let mut referência_mutavel = referência.borrow_mut();
+    *referência_mutavel = 69;
+    
+    println!(&quot;{}&quot;, referência_mutavel);
+}
+</code></pre></pre>
+<p>Podemos corrigir o problema com algo bem interessante, no Rust temos um modo dizer &quot;olha, pode devolver isso daqui pro sistema operacional&quot;, um método chamado <code>drop</code>, podemos utilizar ele para dizer que a referência imutável não sera mais utilizada, sendo assim podemos fazer um <code>borrow_mut</code>, naquele valor. </p>
+<h2 id="múltiplas-referências-mutáveis"><a class="header" href="#múltiplas-referências-mutáveis">Múltiplas referências mutáveis.</a></h2>
+<p>Até agora aprendemos sobre o <code>Rc&lt;T&gt;</code> e o <code>RefCell&lt;T&gt;</code>, e claro podemos combinar os dois para criar múltiplas referências de algo que também podem ser mutáveis, vamos ao exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">use std::{
+    cell::RefCell,
+    rc::Rc,
+};
+
+#[derive(Debug)]
+struct NomeGenerico {
+    criatividade: Option&lt;Rc&lt;RefCell&lt;NomeGenerico&gt;&gt;&gt;,
+    valor: usize
+}
+
+fn main() {
+    let nome_generico = Rc::new(RefCell::new(NomeGenerico {
+        criatividade: None,
+        valor: 10
+    }));
+    let outra_referência = Rc::clone(&amp;nome_generico);
+    let mut referência_mutavel = nome_generico.borrow_mut();
+    referência_mutavel.valor = 20;
+    println!(&quot;{:#?}&quot;, nome_generico);
+    println!(&quot;{:#?}&quot;, outra_referência);
+}
+</code></pre></pre>
+<p>Ao compilar e executar o código acima teremos o seguinte output:</p>
+<pre><code class="language-sh">RefCell {
+    value: &lt;borrowed&gt;,
+}
+RefCell {
+    value: &lt;borrowed&gt;,
+}
+</code></pre>
+<p>O valor do RefCell, teve um &quot;borrow&quot;, ou seja, esta ali, mas não está. Mas, esse não é o ponto que queremos chegar, reparem que eu tive duas referências imutáveis, realizei um <code>borrow_mut</code> e não tive erro em tempo de execução? Perceba que &quot;burlamos&quot; este ponto que foi uma pequena dor de cabeça anteriormente. Note que não precisamos dar um <code>drop</code> em referências anteriores, etc. Bem legal né?</p>
+<p>Agora temos que encarar outro problema, referência cíclica e vazamento de memória.</p>
+<pre><pre class="playground"><code class="language-rust">use std::{
+    cell::RefCell,
+    rc::Rc,
+};
+
+#[derive(Debug)]
+struct NomeGenerico {
+    criatividade: Option&lt;Rc&lt;RefCell&lt;NomeGenerico&gt;&gt;&gt;,
+    valor: usize
+}
+
+fn main() {
+    let nome_generico = Rc::new(RefCell::new(NomeGenerico {
+        criatividade: None,
+        valor: 10
+    }));
+    let outra_referência = Rc::clone(&amp;nome_generico);
+    {
+        let mut referência_mutavel = nome_generico.borrow_mut();
+        referência_mutavel.valor = 20;
+        referência_mutavel.criatividade = Some(Rc::clone(&amp;outra_referência));
+    }
+    println!(&quot;{:#?}&quot;, nome_generico);
+    println!(&quot;{:#?}&quot;, outra_referência);
+}
+</code></pre></pre>
+<p>Ao compilar o código acima e executar teremos uma chamada recursiva até um <a href="https://www.techtarget.com/whatis/definition/stack-overflow">stack overflow</a> acontecer. Claro você não vai ver esse tipo de código a todo momento.</p>
+<p>O que pode causar o vazamento de memória é o modo em que são ligados as referências, podendo chegar a um ponto onde um <code>Rc&lt;T&gt;</code>, tenha o contador zerado e não exista mais referências a serem &quot;dropadas&quot;.</p>
+<h2 id="referência-fraca"><a class="header" href="#referência-fraca">referência Fraca</a></h2>
+<p>Um modo de contornarmos o problema acima é ao invés de utilizar um <code>Rc&lt;T&gt;</code> que é uma referência forte, podemos usar um <code>Weak&lt;T&gt;</code>, a grande diferença é que um <code>Rc&lt;T&gt;</code> tem um contador de referências fortes e fracas, as referências fracas não são tão importantes assim, ou seja, caso o contador de referências fortes chegue a 0 e ainda existirem referências fracas, a memória é liberada mesmo assim, em contrapartida, se tentarmos acessar a memória dessa referência fraca podemos ter um problema de acesso à memória indefinida, ou seja, memória que não pertence aquele processo.</p>
+<pre><pre class="playground"><code class="language-rust">use std::{
+    cell::RefCell,
+    rc::{Rc, Weak},
+};
+
+#[derive(Debug)]
+struct NomeGenerico {
+    criatividade: Option&lt;Weak&lt;RefCell&lt;NomeGenerico&gt;&gt;&gt;,
+    valor: usize
+}
+
+fn main() {
+    let nome_generico = Rc::new(RefCell::new(NomeGenerico {
+        criatividade: None,
+        valor: 10
+    }));
+    let outra_referência = Rc::clone(&amp;nome_generico);
+    {
+        let mut referência_mutavel = nome_generico.borrow_mut();
+        referência_mutavel.valor = 20;
+        referência_mutavel.criatividade = Some(Rc::downgrade(&amp;outra_referência));
+    }
+    println!(&quot;referências fracas: {}&quot;, Rc::weak_count(&amp;nome_generico));
+    println!(&quot;referências fortes: {}&quot;, Rc::strong_count(&amp;nome_generico));
+    println!(&quot;{:#?}&quot;, nome_generico);
+    println!(&quot;{:#?}&quot;, outra_referência);
+}
+</code></pre></pre>
+<p>Ao compilar e executar o código acima teremos a seguinte saída:</p>
+<pre><code class="language-sh">referências fracas: 1
+referências fortes: 2
+RefCell {
+    value: NomeGenerico {
+        criatividade: Some(
+            (Weak),
+        ),
+        valor: 20,
+    },
+}
+RefCell {
+    value: NomeGenerico {
+        criatividade: Some(
+            (Weak),
+        ),
+        valor: 20,
+    },
+}
+
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../advanced-01/02-smart-pointers-rc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../advanced-01/03-closures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../advanced-01/02-smart-pointers-rc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../advanced-01/03-closures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

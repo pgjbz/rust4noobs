@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lifetimes</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Básico</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/01-about.html"><strong aria-hidden="true">2.1.</strong> Sobre a linguagem</a></li><li class="chapter-item expanded "><a href="../basic/02-environment.html"><strong aria-hidden="true">2.2.</strong> Ambiente</a></li><li class="chapter-item expanded "><a href="../basic/03-hello-world.html"><strong aria-hidden="true">2.3.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="../basic/04-data-types.html"><strong aria-hidden="true">2.4.</strong> Tipos de dados</a></li><li class="chapter-item expanded "><a href="../basic/05-operators.html"><strong aria-hidden="true">2.5.</strong> Operadores</a></li><li class="chapter-item expanded "><a href="../basic/06-conditions.html"><strong aria-hidden="true">2.6.</strong> Condicionais</a></li><li class="chapter-item expanded "><a href="../basic/07-loops.html"><strong aria-hidden="true">2.7.</strong> Loops</a></li><li class="chapter-item expanded "><a href="../basic/08-functions.html"><strong aria-hidden="true">2.8.</strong> Funções</a></li><li class="chapter-item expanded "><a href="../basic/09-arrays.html"><strong aria-hidden="true">2.9.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../basic/10-exercises.html"><strong aria-hidden="true">2.10.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-01/index.html"><strong aria-hidden="true">3.</strong> Intermediário 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-01/01-strings.html"><strong aria-hidden="true">3.1.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../intermediary-01/02-pointers-intro.html"><strong aria-hidden="true">3.2.</strong> Introdução a ponteiros</a></li><li class="chapter-item expanded "><a href="../intermediary-01/03-ownership.html"><strong aria-hidden="true">3.3.</strong> Ownership</a></li><li class="chapter-item expanded "><a href="../intermediary-01/04-tuples.html"><strong aria-hidden="true">3.4.</strong> Tuplas</a></li><li class="chapter-item expanded "><a href="../intermediary-01/05-slices.html"><strong aria-hidden="true">3.5.</strong> Slices</a></li><li class="chapter-item expanded "><a href="../intermediary-01/06-user-input.html"><strong aria-hidden="true">3.6.</strong> Entrada de dados</a></li><li class="chapter-item expanded "><a href="../intermediary-01/07-exercises.html"><strong aria-hidden="true">3.7.</strong> Exercícios</a></li></ol></li><li class="chapter-item expanded "><a href="../intermediary-02/index.html"><strong aria-hidden="true">4.</strong> Intermediário 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intermediary-02/01-structs.html"><strong aria-hidden="true">4.1.</strong> Struct</a></li><li class="chapter-item expanded "><a href="../intermediary-02/02-enums.html"><strong aria-hidden="true">4.2.</strong> Enum</a></li><li class="chapter-item expanded "><a href="../intermediary-02/03-match.html"><strong aria-hidden="true">4.3.</strong> Match</a></li><li class="chapter-item expanded "><a href="../intermediary-02/04-modules.html"><strong aria-hidden="true">4.4.</strong> Módulos</a></li><li class="chapter-item expanded "><a href="../intermediary-02/05-generics.html"><strong aria-hidden="true">4.5.</strong> Generics</a></li><li class="chapter-item expanded "><a href="../intermediary-02/06-traits.html"><strong aria-hidden="true">4.6.</strong> Traits</a></li><li class="chapter-item expanded "><a href="../intermediary-02/07-option.html"><strong aria-hidden="true">4.7.</strong> Enum especial Option</a></li><li class="chapter-item expanded "><a href="../intermediary-02/08-vec.html"><strong aria-hidden="true">4.8.</strong> Coleções: Vec</a></li><li class="chapter-item expanded "><a href="../intermediary-02/09-hashset.html"><strong aria-hidden="true">4.9.</strong> Coleções: HashSet</a></li><li class="chapter-item expanded "><a href="../intermediary-02/10-hashmap.html"><strong aria-hidden="true">4.10.</strong> Coleções: HashMap</a></li><li class="chapter-item expanded "><a href="../intermediary-02/11-result.html"><strong aria-hidden="true">4.11.</strong> Tratamento de erros</a></li><li class="chapter-item expanded "><a href="../intermediary-02/12-panic.html"><strong aria-hidden="true">4.12.</strong> Macro panic!</a></li><li class="chapter-item expanded "><a href="../intermediary-02/13-tests.html"><strong aria-hidden="true">4.13.</strong> Testes</a></li><li class="chapter-item expanded "><a href="../intermediary-02/14-snake.html"><strong aria-hidden="true">4.14.</strong> Mini projeto * Snake Game</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced-01/index.html"><strong aria-hidden="true">5.</strong> Avançado 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/01-lifetimes.html" class="active"><strong aria-hidden="true">5.1.</strong> Lifetimes</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers.html"><strong aria-hidden="true">5.2.</strong> Smart Pointers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-box.html"><strong aria-hidden="true">5.2.1.</strong> Box&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-rc.html"><strong aria-hidden="true">5.2.2.</strong> Rc&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="../advanced-01/02-smart-pointers-refcell.html"><strong aria-hidden="true">5.2.3.</strong> RefCell&lt;T&gt;</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced-01/03-closures.html"><strong aria-hidden="true">5.3.</strong> Closures</a></li><li class="chapter-item expanded "><a href="../advanced-01/04-threads.html"><strong aria-hidden="true">5.4.</strong> Threads</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-01/04-threads-arc-mutex-rwlock.html"><strong aria-hidden="true">5.4.1.</strong> Arc&lt;T&gt;, Mutex&lt;T&gt; e RwLock&lt;T&gt;</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../SOURCES.html"><strong aria-hidden="true">6.</strong> referências</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="lifetimes"><a class="header" href="#lifetimes">Lifetimes</a></h1>
+<p>Lifetimes, a os lifetimes, eles são parte essencial do código Rust, com os lifetimes o <a href="https://rustc-dev-guide.rust-lang.org/borrow_check.html">borrow checker</a> do Rust consegue saber quando liberar a memória de algo, por quanto tempo algo fica &quot;vivo&quot;.</p>
+<p>É comum associarmos o lifetime com o escopo, e não esta errado, mas também não esta completamente correto.</p>
+<p>Por exemplo no código abaixo o lifetime respeita completamente o escopo.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    {
+        let lifetime = &quot;lifetime&quot;;
+        println!(&quot;{}&quot;, lifetime);
+    } 
+    /*
+        Terminou o escopo do bloco acima, a memória é liberada,
+        fim do lifetime.
+    */
+}
+</code></pre></pre>
+<p>Outro ponto importante que devemos considerar é que o dono do recurso é o responsável por devolver a memória ao SO. No código abaixo vemos isso:</p>
+<pre><pre class="playground"><code class="language-rust">
+fn escreva(texto: String) {
+    /*
+        Esta função é a responsável por devolver ao sistema operacional
+        Todo a memória solicitada.
+        Quando ela adquiri o ownership da String ela tem a responsabilidade de
+        liberar a memória, vimos isso mais no inicio deste livro,
+        até aqui nenhuma novidade.
+    */
+    println!(&quot;{}&quot;, texto);
+}
+
+fn main() {
+    escreva(&quot;Rust4noobs&quot;.to_string());
+}
+</code></pre></pre>
+<h2 id="lifetimes-genéricos"><a class="header" href="#lifetimes-genéricos">Lifetimes genéricos</a></h2>
+<p>Como assim lifetimes genéricos?</p>
+<p>Lembra do capítulo sobre <a href="../intermediary-02/05-generics.html">generics</a>, funciona quase da mesma maneira, temos a seguinte <code>struct</code></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Life {
+    string_slice: &amp;str
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Notem que temos uma referência dentro da struct, isso é um problema, o compilador do Rust não sabe até quando essa referência irá viver, e é neste ponto que o lifetime começa a deixar de ser apenas relacionado ao escopo.</p>
+<p>Ao tentar compilar o código acima, temos o seguinte erro.</p>
+<pre><code class="language-sh">error[E0106]: missing lifetime specifier
+ --&gt; test.rs:3:23
+  |
+3 |         string_slice: &amp;str
+  |                       ^ expected named lifetime parameter
+  |
+help: consider introducing a named lifetime parameter
+  |
+2 ~     struct Life&lt;'a&gt; {
+3 ~         string_slice: &amp;'a str
+  |
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0106`.
+</code></pre>
+<p>Precisamos, informar o lifetime deste <code>string slice</code>, como sugere o compilador, note que a sintaxe é muito parecida com a dos <code>generics</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Life&lt;'a&gt; {
+    string_slice: &amp;'a str
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>E agora vemos que nosso código compila. Claro, não perdemos os poderes dos <code>generics</code> fazendo isso e não nos limitamos apenas as <code>structs</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Life&lt;'a, T&gt; {
+    data: &amp;'a T
+}
+
+impl&lt;'a, T&gt; Life&lt;'a, T&gt; {
+    fn new(data: &amp;'a T) -&gt; Self {
+        Self {
+            data
+        }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>No exemplo acima adicionei os <code>generics</code> e o lifetime, juntos e também em uma implementação. A lógica para fazer isto em um método é a mesma.</p>
+<h3 id="menor-lifetime"><a class="header" href="#menor-lifetime">Menor lifetime</a></h3>
+<p>Uma coisa que devemos considerar é que, quando tivermos duas referências, o compilador do rust sempre irá considerar o menor lifetime, por exemplo.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = &quot;abc&quot;;
+    {
+        let b = &quot;a&quot;;
+        let maior = maior(a, b);
+        println!(&quot;{}&quot;, maior);
+    }
+}
+
+fn maior&lt;'a&gt;(a: &amp;'a str, b: &amp;'a str) -&gt; &amp;'a str {
+    if a.len() &gt; b.len() {
+        a
+    } else {
+        b
+    }
+}
+</code></pre></pre>
+<p>Neste exemplo o compilador do Rust assume o lifetime da variável <code>b</code> para o lifetime da função. Outro ponto que devemos considerar é que podem existir mais de um lifetime, se pegarmos este mesmo código acima, adicionarmos um segundo lifetime e usarmos o mesmo para o parâmetro <code>b</code> para outro nome de lifetime, estaremos informando que esta função pode ter dois lifetimes possíveis.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = &quot;abc&quot;;
+    {
+        let b = &quot;a&quot;;
+        let maior = maior(a, b);
+        println!(&quot;{}&quot;, maior);
+    }
+}
+
+fn maior&lt;'a, 'b&gt;(a: &amp;'a str, b: &amp;'b str) -&gt; &amp;'a str {
+    if a.len() &gt; b.len() {
+        a
+    } else {
+        b
+    }
+}
+</code></pre></pre>
+<p>Ao tentarmos compilar o código acima teremos o seguinte erro</p>
+<pre><code class="language-sh">error[E0623]: lifetime mismatch
+  --&gt; test.rs:14:9
+   |
+10 | fn maior&lt;'a, 'b&gt;(a: &amp;'a str, b: &amp;'b str) -&gt; &amp;'a str {
+   |                                 -------     -------
+   |                                 |
+   |                                 this parameter and the return type are declared with different lifetimes...
+...
+14 |         b
+   |         ^ ...but data from `b` is returned here
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0623`.
+
+</code></pre>
+<p>Vamos entender um pouco melhor o que acontece ali. Temos dois lifetimes, então o compilador entende que podemos ter duas referências que vivem tempos diferentes, porém não é possível retornar a variável <code>b</code>, pois não temos garantia que o parâmetro <code>b</code>ira viver mais ou menos que o parâmetro <code>a</code>, então não podemos ter ele como retorno, a função do modo que ficou agora somente pode retornar o parâmetro <code>a</code>.</p>
+<p>Mas qual seria a utilidade disso? Basicamente, você consegue utilizar essa variação de lifetimes para processar dados que vão viver tempos diferentes, como por exemplo um valor que irá viver apenas dentro daquela função como já foi explicado no capítulo de <a href="../intermediary-01/05-slices.html">slices</a>, caso um resultado de uma função dependa de dois lifetimes em uma struct por exemplo, podemos informar ao compilador utilizando mais de um parâmetro de lifetime. No livro <a href="https://nostarch.com/rust-rustaceans">Rust for Rustaceans</a> podemos encontrar um exemplo bem interessante sobre este assunto.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../advanced-01/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../advanced-01/02-smart-pointers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../advanced-01/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../advanced-01/02-smart-pointers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
