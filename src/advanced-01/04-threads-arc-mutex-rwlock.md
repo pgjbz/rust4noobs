@@ -66,7 +66,7 @@ fn main() {
 }
 ```
 
-Repare no exemplo acima, quando imprimimos as informações de debug do `Mutex<T>`, quando esta bloqueado, o valor do campo `data` aparece como `<locked>`, ou seja, o valor esta bloqueado até o `mutex_guard` ser liberado. No exemplo acima utilizamos do artificio do `drop`.
+Repare no exemplo acima, quando imprimimos as informações de debug do `Mutex<T>`, quando está bloqueado, o valor do campo `data` aparece como `<locked>`, ou seja, o valor está bloqueado até o `mutex_guard` ser liberado. No exemplo acima utilizamos do artifício do `drop`.
 
 Assim como `RefCell<T>` podemos realizar o bloqueio de maneira mutável.
 
@@ -113,7 +113,7 @@ fn main() {
 ```
 
 Agora o nosso projeto compila e roda da maneira correta, conseguimos compartilhar a mesma região de memória em diversas threads diferentes, único ponto é que necessitamos de um bloqueio temporário na região de memória. 
-Em aplicações reais, não teremos casos tão simples assim, como uma thread esperando outra para iniciar, varias threads podem estar rodando ao mesmo tempo e acessando a mesma região de memória. Felizmente Rust é uma linguagem segura para uso em multi-thread e já nos prove muitos recursos para nos auxiliar nessa jornadas de códigos assíncronos.
+Em aplicações reais, não teremos casos tão simples assim, como uma thread esperando outra para iniciar, varias threads podem estar rodando em simultâneo, e acessando a mesma região de memória. Felizmente, Rust é uma linguagem segura para uso em multi-thread e já nos prove muitos recursos para nos auxiliar nessa jornadas de códigos assíncronos.
 
 ## RwLock\<T>
 
@@ -153,4 +153,4 @@ fn main() {
 }
 ```
 
-No exemplo acima, temos uma `thread` que a cada 5 segundos realiza um bloqueio de escrita, espera mais 5 segundos e libera o bloqueio, e também temos outras 10 `threads` que a cada 1 segundo realizam a leitura do valor, repare que o único momento em que as 10 threads pausam é o momento em que a thread de escrita realiza o bloqueio e espera por 5 segundos para liberar este bloqueio. Assim que o bloqueio é liberado as operações de leitura acontecem normalmente.
+No exemplo acima, temos uma `thread` que a cada 5 segundos realiza um bloqueio de escrita, espera mais 5 segundos e libera o bloqueio, e também temos outras 10 `threads` que a cada 1 segundo realizam a leitura do valor, repare que o único momento em que as 10 threads pausam é o momento em que a thread de escrita realiza o bloqueio e espera por 5 segundos para liberar este bloqueio. Assim que o bloqueio é liberado, as operações de leitura acontecem normalmente.
