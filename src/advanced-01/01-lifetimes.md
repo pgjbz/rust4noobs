@@ -19,7 +19,7 @@ fn main() {
 }
 ```
 
-Outro ponto importante que devemos levar em consideração é que o dono do recurso é o responsável por devolver a memória ao SO. No código abaixo vemos isso:
+Outro ponto importante que devemos considerar é que o dono do recurso é o responsável por devolver a memória ao SO. No código abaixo vemos isso:
 
 ```rust
 
@@ -101,7 +101,7 @@ No exemplo acima adicionei os `generics` e o lifetime, juntos e também em uma i
 
 ### Menor lifetime
 
-Uma coisa que devemos levar em consideração é que, quando tivermos duas referencias o compilador do rust sempre vai considerar o menor lifetime, por exemplo.
+Uma coisa que devemos considerar é que, quando tivermos duas referencias o compilador do rust sempre vai considerar o menor lifetime, por exemplo.
 
 ```rust
 fn main() {
@@ -122,7 +122,7 @@ fn maior<'a>(a: &'a str, b: &'a str) -> &'a str {
 }
 ```
 
-Neste exemplo o compilador do Rust assume o lifetime da variável `b` para o lifetime da função. Outro ponto que devemos levar em consideração é que podem existir mais de um lifetime, se pegarmos este mesmo código acima, adicionarmos um segundo lifetime e usarmos o mesmo para o parâmetro `b` para outro nome de lifetime, estaremos informando que esta função pode ter dois lifetimes possíveis.
+Neste exemplo o compilador do Rust assume o lifetime da variável `b` para o lifetime da função. Outro ponto que devemos considerar é que podem existir mais de um lifetime, se pegarmos este mesmo código acima, adicionarmos um segundo lifetime e usarmos o mesmo para o parâmetro `b` para outro nome de lifetime, estaremos informando que esta função pode ter dois lifetimes possíveis.
 
 ```rust
 fn main() {
