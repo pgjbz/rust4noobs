@@ -19,7 +19,7 @@ Rust é uma linguagem fortemente e estaticamente tipada, nela temos alguns tipos
 |  f32 | 4 bytes | 340282350... |-340282350... | Numérico |
 |  f64 | 8 bytes | 1797693134862315700... | -1797693134862315700... | Numérico |
 | bool | 1 byte  | true | false | booleano
-| char | depende  | depende  | depende | character
+| char | 4 bytes  | '\0'  | 􏿿 | character
 
 Temos também o tipo `usize` que vai dependender da arquitetura do sistema operacional.
 
