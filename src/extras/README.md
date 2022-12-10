@@ -5,6 +5,7 @@
 - [300 seconds of Rust](https://www.youtube.com/playlist?list=PLwhLlO5Vugx6KCwTpW_4fUeES2jdkDSW9): série de videos curtos sobre Rust feitos pelo [togglebit](https://www.twitch.tv/togglebit).
 - [Rustnomicon](https://doc.rust-lang.org/nomicon/): livro oficial da linguagem abordando assuntos sobre `Unsafe Rust`.
 - [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/): livro oficial da linguagem sobre programação assíncrona, abordando estratégias não somente relacionadas a [threads](../advanced-01/04-threads.md)
+- [Aprenda Rust - Bruno Rocha](https://bit.ly/aprendarust): playlist em português do Brasil para aprender Rust.
 
 # Escrito com Rust
 
