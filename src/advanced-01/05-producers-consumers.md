@@ -39,3 +39,60 @@ fn main() {
 ```
 
 O método `send` nos devolve um `Result<(), SendError>`, sendo que só é possivel acontecer o caso de erro caso o `Receiver` esteja fechado. Beleza, agora enviamos uma mensagem através do canal, e como consumimos ela? O `Receiver` tem um método chamado `recv` onde através dele, conseguimos ler todas as mensagens enviadas nesse canal, porém, só conseguimos ler uma mensagem por vez. 
+
+```rust
+use std::{
+    sync::mpsc::{channel, Receiver, Sender},
+    thread::{sleep, spawn},
+    time::Duration,
+};
+
+fn main() {
+    let (tx, rx): (Sender<String>, Receiver<String>) = channel::<String>();
+
+    let tx2 = tx.clone();
+
+    spawn(move || {
+        loop {
+            let _ = tx2.send("hello from thread 1".to_string()); 
+            sleep(Duration::from_millis(500));
+        }
+    });
+
+    let _ = spawn(move || {
+        while let Ok(message) = rx.recv() {
+            println!("message from thread: {message}");
+        }
+    }).join();
+}
+```
+
+Claro, podemos fazer com que várias threads produzam mensagems.
+
+```rust
+use std::{
+    sync::mpsc::{channel, Receiver, Sender},
+    thread,
+    time::Duration,
+};
+
+fn main() {
+    let (tx, rx): (Sender<String>, Receiver<String>) = channel::<String>();
+
+    (1..=10).map(|v| (tx.clone(), v)).for_each(|(tx, v)| {
+        thread::spawn(move || loop {
+            tx.send(format!("thread {v}")).unwrap();
+            thread::sleep(Duration::from_secs(v));
+        });
+    });
+
+    let _ = thread::spawn(move || {
+        while let Ok(value) = rx.recv() {
+            println!("message from {value}");
+        }
+    })
+    .join();
+}
+```
+
+Temos muitas possibilidades para os `channels`, recomendo fortemente a leitura da documentação dos modulo `mpsc`, temos também alguams `crates` que possibilitam, multiplos produtores e multiplos consumidores, ou outras implementações além da biblioteca padrão. Quando lidamos com programação paralela isso pode ser muito util, no [Rust Book](https://doc.rust-lang.org/book/ch20-02-multithreaded.html) temos um bom projeto que utiliza dos canais para criar um servidor Web multi-thread.
