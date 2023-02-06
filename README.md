@@ -115,6 +115,13 @@ $ mdbook serve
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/RobertoAssumpcao">
+            <img src="https://avatars.githubusercontent.com/u/57875404?v=4" width="100;" alt="RobertoAssumpcao"/>
+            <br />
+            <sub><b>Roberto Assumpcao</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/silasms">
             <img src="https://avatars.githubusercontent.com/u/84996376?v=4" width="100;" alt="silasms"/>
             <br />
