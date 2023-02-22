@@ -71,7 +71,8 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
     - [RefCell\<T>](https://rust4noobs.pgjbz.dev/advanced-01/02-smart-pointers-refcell.html)
   - [Closures](https://rust4noobs.pgjbz.dev/advanced-01/03-closures.html)
   - [Threads](https://rust4noobs.pgjbz.dev/advanced-01/04-threads.html)
-    - [Arc\<T>, Mutex\<T> e RwLock\<T>](https://rust4noobs.pgjbz.dev/advanced-01/04-threads-arc-mutex-rwlock.html)
+    - [Arc\<T>, Mutex\<T> e RwLock\<T>](https://rust4noobs.pgjbz.dev/advanced-01/04-threads-arc-mutex-rwlock.html)]
+  - [Produtores e Consumidores](https://rust4noobs.pgjbz.dev/advanced-01/05-producers-consumers.html)
 - [Extras](https://rust4noobs.pgjbz.dev/extras/index.html)
 - [Referências](https://rust4noobs.pgjbz.dev/SOURCES.html)
 ## Como Contribuir
