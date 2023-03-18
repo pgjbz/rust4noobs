@@ -1,6 +1,6 @@
 # Testes
 
-Em Rust temos opções já temos macros para testarmos nossas features, como os macros para "[assertions](https://en.wikipedia.org/wiki/Assertion)" sendo eles `assert!`, `assert_eq!` e `assert_ne!`. Podemos utiliza-los em nosso código para testar as nossas funcionalidades, utilizando a ideia de [módulos](./04-modules.md) podemos criar um módulo especifico para os testes. E para isso utilizamos o `macro procedural #[cfg(test)]`, sendo um macro que vai definir que aquele módulo é um módulo para testes e nesse módulo nós adicionamos nossos códigos de testes, e para informar que são testes utilizamos outro macro `#[test]`.
+Em Rust temos macros para testarmos nossas features, como os macros para "[assertions](https://en.wikipedia.org/wiki/Assertion)" sendo eles `assert!`, `assert_eq!` e `assert_ne!`. Podemos utiliza-los em nosso código para testar as nossas funcionalidades, utilizando a ideia de [módulos](./04-modules.md) podemos criar um módulo especifico para os testes. E para isso utilizamos a opção de compilação `#[cfg(test)]`, esta configuração irá definir que é um módulo para testes e nesse módulo nós adicionamos nossos códigos de testes, e para informar que são testes utilizamos outro macro `#[test]`.
 Este módulo de testes NÃO é compilado em nosso executável final.
 
 Abaixo temos um exemplo da declaração de um módulo de testes já contendo dois testes, utilizando os macros `assert!`, `assert_eq!` e `assert_ne!`:
