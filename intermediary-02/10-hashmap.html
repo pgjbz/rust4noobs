@@ -147,7 +147,9 @@
 <p>A última coleção que iremos falar é o <code>HashMap</code>, esta coleção funciona como um <a href="./09-hashset.html">HashSet</a>, porém com o conceito de <a href="./https://hazelcast.com/glossary/key-value-store/">chave-valor</a>, onde temos uma chave associada a um valor, esta chave <strong>NÃO</strong> se repete, assim como um valor em um <code>HashSet</code>, porém para inserirmos e recuperarmos valores, utilizamos a chave. Assim como no <code>HashSet</code>, essa chave deve implementar <code>Eq</code> e <code>Hash</code> e para implementar <code>Eq</code> é necessário implementar <code>PartialEq</code>.</p>
 <h2 id="criando-um-hashmap"><a class="header" href="#criando-um-hashmap">Criando um HashMap</a></h2>
 <p>Para criar um <code>HashMap</code>, precisamos informar dois tipos genéricos.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
     let mut map1 = HashMap::&lt;String, i32&gt;::new();
     let mut map2: HashMap&lt;String, i32&gt; = HashMap::new();
     let mut map3 = HashMap::new();
@@ -157,13 +159,17 @@
 <p>Temos vários métodos para criar um <code>HashMap</code>, acima temos alguns exemplos. Os métodos que iremos falar serão, <code>insert</code>, <code>remove</code>, <code>get</code>, <code>get_mut</code>, <code>len</code>, <code>remove</code>, <code>clear</code>.</p>
 <h3 id="método-insert"><a class="header" href="#método-insert">Método insert</a></h3>
 <p>Para inserirmos uma chave e valor em um <code>HashMap</code> precisamos utilizar o método <code>insert</code> passando como argumentos uma <code>chave</code>e um <code>valor</code> este método nos retorna um <a href="./07-option.html">Option</a>.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
     let mut map = HashMap::new();
     map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
 }
 </code></pre></pre>
 <p>O método <code>insert</code> tem uma peculiaridade, ao inserir um valor e este valor ainda não existe, o <code>Option</code> retornado sera um <code>None</code> e o valor será inserido no <code>HashMap</code>, caso o valor já exista o <code>Option</code> retornado sera um <code>Some</code> com o valor antigo e este valor é substituído na coleção.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
     let mut map = HashMap::new();
     let inserido = map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
     println!(&quot;{:?}&quot;, inserido);
@@ -173,7 +179,9 @@
 </code></pre></pre>
 <h3 id="método-get"><a class="header" href="#método-get">Método get</a></h3>
 <p>O método <code>get</code> funciona de maneira parecida com o <code>Vec</code> e o <code>Set</code>, porém passamos uma chave e nos é devolvido um <code>Option</code>. Caso o valor exista temos um <code>Some</code> com o valor caso não temos um <code>None</code>.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
     let mut map = HashMap::new();
     map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
     let rust4_noobs = map.get(&quot;Rust4Noobs&quot;);
@@ -208,7 +216,9 @@ fn main() {
 <p><small>Sim, podemos redeclarar uma variável com um nome já existente e eu só mostrei isso agora, eu errei, eu sei</small></p>
 <h3 id="método-len"><a class="header" href="#método-len">Método len</a></h3>
 <p>O método <code>len</code> nos retorna o tamanho do <code>HashMap</code>.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
     let mut map = HashMap::new();
     map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
     let len = map.len();
@@ -217,7 +227,9 @@ fn main() {
 </code></pre></pre>
 <h3 id="método-remove"><a class="header" href="#método-remove">Método remove</a></h3>
 <p>Utilizamos o método <code>remove</code> quando queremos remover alguma chave do nosso <code>HashMap</code>, nos retornando um <code>Option</code>, sendo <code>Some</code> contendo o valor removido, caso o valor exista e tenha sido removido e <code>None</code> caso o valor removido não exista.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
     let mut map = HashMap::new();
     map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
     let rust4_noobs = map.get(&quot;Rust4Noobs&quot;);
@@ -230,7 +242,9 @@ fn main() {
 </code></pre></pre>
 <h3 id="método-clear"><a class="header" href="#método-clear">Método clear</a></h3>
 <p>O método <code>clear</code> é o mais simples dentre todos, este método apenas, limpa o nosso <code>HashSet</code>.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
     let mut map = HashMap::new();
     map.insert(&quot;Rust4Noobs&quot;, i32::MAX);
     map.clear();
