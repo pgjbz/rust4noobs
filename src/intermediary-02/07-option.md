@@ -31,6 +31,10 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 A diferença entre o `unwrap`e o `expect`, é que com o `expect` podemos definir uma mensagem para este erro
 
 ```rust
+# struct Cliente {
+#     nome: String,
+#     idade: Option<u8>,
+# }
 //--declaração da struct
 fn main() {
     let cliente = Cliente {
@@ -51,6 +55,10 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 Mas se quisermos evitar este erro, como fazemos isso? Podemos utilizar os métodos `is_none` ou `is_some` para verificar isso.
 
 ```rust
+# struct Cliente {
+#     nome: String,
+#     idade: Option<u8>,
+# }
 //--declaração da struct
 fn main() {
     let cliente = Cliente {
@@ -60,13 +68,17 @@ fn main() {
     if cliente.idade.is_some() {
         let idade = cliente.idade.unwrap();
         println!("O cliente {} tem {} anos", cliente.nome, idade);
-    } 
+    }
 }
 ```
 
 Agora temos uma checagem se o valor existe, podemos usar o `is_none` para adicionar um tratamento para caso a idade não exista.
 
 ```rust
+# struct Cliente {
+#     nome: String,
+#     idade: Option<u8>,
+# }
 //--declaração da struct
 fn main() {
     let mut cliente = Cliente {
@@ -89,6 +101,10 @@ Mas esse talvez não seja o melhor modo de fazer isso.
 O operador [match](./03-match.md) pode ser utilizado para [enums](./02-enums.md), lembra dos `enums` com valores associados? O `Option` é um `enum` com valores associados. Então podemos utilizar o `match` para chegar se o valor existe.
 
 ```rust
+# struct Cliente {
+#     nome: String,
+#     idade: Option<u8>,
+# }
 //--declaração da struct
 fn main() {
     let cliente = Cliente {
@@ -109,6 +125,10 @@ Claro podemos utilizar de todos os aspectos do `match` nessa abordagem
 O operador `if let` é geralmente usado para tratativas pequenas. Onde realizamos uma validação e já atribuímos o valor a uma variável. Podendo ser feito da seguinte maneira `if let Some(nome ou ignora o valor) = expressao teste { codigo } else { se nao }`.
 
 ```rust
+# struct Cliente {
+#     nome: String,
+#     idade: Option<u8>,
+# }
 //--declaração da struct
 fn main() {
     let cliente = Cliente {
@@ -126,6 +146,11 @@ fn main() {
 O código acima tem o mesmo resultado do código com o `match`, claro o `if let` também pode retornar algo, assim como o `match`
 
 ```rust
+# struct Cliente {
+#     nome: String,
+#     idade: Option<u8>,
+# }
+//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: "Rust4Noobs".to_string(),
@@ -168,6 +193,21 @@ impl Iterator for Contador {
 Ao implementar essa trait, temos o método `next` que nos retorna um `Option`, podemos utilizar esse retorno para ir iterando o nosso contador.
 
 ```rust
+# struct Contador {
+#     contagem: u64
+# }
+# impl Iterator for Contador {
+#     type Item = u64;
+#
+#     fn next(&mut self) -> Option<Self::Item> {
+#         if self.contagem >= 100 {
+#             None
+#         } else {
+#             self.contagem += 1;
+#             Some(self.contagem)
+#         }
+#     }
+# }
 //--declaração do contador
 fn main() {
     let mut contador = Contador { contagem: 0 };
