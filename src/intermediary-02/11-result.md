@@ -17,6 +17,10 @@ fn main() {
 A variável file, esta recebendo um `Result<File, std::io::Error>`, podemos realizar apenas um `.unwrap()` para caso o arquivo não exista, ou não termos permissão para acesso, ou qualquer outro erro aconteça encerarmos a execução do programa, ou caso de sucesso prosseguirmos com a solução do problema. Mas não queremos fazer isso. Caso o tivermos algum erro, mais específico, o arquivo não existir, vamos criar este arquivo e escrever nele "Rust4Noobs", caso qualquer um destes processos do tratamento falhe, iremos simplesmente encerrar o programa.
 
 ```rust
+use std::fs::File;
+use std::io::Write;
+use std::process;
+
 fn main() {
     let file = abre_arquivo("rust4noobs.txt");
 }
@@ -41,9 +45,14 @@ fn abre_arquivo(caminho: &str) -> File {
 
 No código acima, tentamos abrir o arquivo, caso tenhamos sucesso, retornamos o arquivo, caso aconteça algum erro executamos o procedimento de validar o tipo do erro, caso o erro seja do tipo "NotFound", então criamos o arquivo e escrevemos nele, já dando `.unwrap` caso de algum erro, após isso já retornamos o arquivo, para ser utilizado. Caso o erro não seja do tipo `NotFound` apenas escrevemos o erro e finalizamos o processo.
 
-Agora vamos eliminar esses `unwrap` com o operador `?`, para isso precisamos realizar algumas modificações. 
+Agora vamos eliminar esses `unwrap` com o operador `?`, para isso precisamos realizar algumas modificações.
 
 ```rust
+use std::fs::File;
+use std::io;
+use std::io::Write;
+use std::process;
+
 fn main() -> Result<(), io::Error> {
     let file = abre_arquivo("rust4noobs.txt")?;
     Ok(())
@@ -89,7 +98,7 @@ impl std::fmt::Display for ParseError {
 }
 
 fn faz_o_parse_ai(mock: u8) -> Result<(), ParseError> {
-    
+
     if mock >= 100 && mock <= 199 {
         return Err(ParseError::Inaceitavel("como assim vc me deu esse valor?".to_string()));
     } else if mock > 200 {
