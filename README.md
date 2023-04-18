@@ -130,6 +130,13 @@ $ mdbook serve
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/cherryramatisdev">
+            <img src="https://avatars.githubusercontent.com/u/86631177?v=4" width="100;" alt="cherryramatisdev"/>
+            <br />
+            <sub><b>Cherry Ramatis</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/danielcti">
             <img src="https://avatars.githubusercontent.com/u/31549323?v=4" width="100;" alt="danielcti"/>
             <br />
