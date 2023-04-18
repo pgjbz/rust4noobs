@@ -9,7 +9,7 @@ fn maior<T>(lista: &[T]) -> T {
         if item > maior {
             maior = item;
         }
-    } 
+    }
     maior
 }
 
@@ -31,6 +31,9 @@ trait Pagavel  {
 Assim definimos uma `trait`, agora precisamos implementar, vamos criar uma `struct Pedido` que ira implementar essa `trait`. Para dizer que algo implementa uma `trait` usamos o seguinte padrão `impl NomeTrait for NomeStruct { implementação }`
 
 ```rust
+# trait Pagavel  {
+#     fn total(&self) -> f64;
+# }
 //--definição trait Pagável
 
 struct Pedido {
@@ -76,6 +79,24 @@ where
 Então podemos chamar o método genérico pagar passando o pedido como argumento.
 
 ```rust
+# trait Pagavel  {
+#     fn total(&self) -> f64;
+# }
+# struct Pedido {
+#     quantidade_items: u8,
+#     valor_items: f64
+# }
+# impl Pagavel for Pedido {
+#     fn total(&self) -> f64 {
+#         self.valor_items * self.quantidade_items as f64
+#     }
+# }
+# fn pagar<T>(pagavel: T)
+# where
+#     T: Pagavel,
+# {
+#     println!("Valor {} pago", pagavel.total());
+# }
 //--Definição pedido, trait e implementação
 fn main() {
     let pedido = Pedido {
@@ -86,11 +107,23 @@ fn main() {
 }
 ```
 
-E o programa ira compilar. 
+E o programa ira compilar.
 
 Podemos implementar mais de uma trait para algo.
 
 ```rust
+# trait Pagavel  {
+#     fn total(&self) -> f64;
+# }
+# struct Pedido {
+#     quantidade_items: u8,
+#     valor_items: f64
+# }
+# impl Pagavel for Pedido {
+#     fn total(&self) -> f64 {
+#         self.valor_items * self.quantidade_items as f64
+#     }
+# }
 //--declaração trait pagavel, struct e impl Pagavel
 trait Cancelavel {
     fn cancelar(self);
@@ -114,6 +147,26 @@ fn main() {
 Uma trait pode ter um método já implementado, que pode ou não ser sobrescrito.
 
 ```rust
+# trait Pagavel  {
+#     fn total(&self) -> f64;
+# }
+# struct Pedido {
+#     quantidade_items: u8,
+#     valor_items: f64
+# }
+# impl Pagavel for Pedido {
+#     fn total(&self) -> f64 {
+#         self.valor_items * self.quantidade_items as f64
+#     }
+# }
+#trait Cancelavel {
+#    fn cancelar(self);
+#}
+#impl Cancelavel for Pedido {
+#    fn cancelar(self) {
+#        println!("Pedido com {} itens cancelado", self.quantidade_items)
+#    }
+#}
 //--declaração trait pagavel, struct e impl Pagavel e cancelavel
 
 trait Tributavel {
@@ -122,7 +175,7 @@ trait Tributavel {
     }
 }
 
-impl Tributavel for Pedido {} 
+impl Tributavel for Pedido {}
 
 fn main() {
     let pedido = Pedido {
@@ -138,9 +191,9 @@ Caso queira sobrescrever a implementação de `Tributavel` seria feito como a im
 ```rust
 impl Tributavel for Pedido {
     fn calcular_imposto(&self) -> f64 {
-        self.valor_items * 0.01 
+        self.valor_items * 0.01
     }
-} 
+}
 ```
 
 E se eu quiser que para implementar `Tributavel` e `Cancelavel` eu precise implementar a `trait` `Pagavel`? Seria usado uma estratégia parecida com a dos generics `trait NomeTrait: TraitQuePrecisaImplementar`
@@ -171,7 +224,7 @@ impl Cancelavel for Pedido {
 
 impl Tributavel for Pedido {
     fn calcular_imposto(&self) -> f64 {
-        0.01 * self.total()   
+        0.01 * self.total()
     }
 }
 ```
@@ -221,6 +274,23 @@ error[E0034]: multiple applicable items in scope
 Este erro acontece por termos múltiplas implementações de método com a mesma assinatura. Para chamar o método `comer` podemos fazer da seguinte maneira `trait::metodo(&instância)`.
 
 ```rust
+# struct Cachorro {}
+# trait Animal {
+#     fn comer(&self);
+# }
+# trait Fome {
+#     fn comer(&self);
+# }
+# impl Animal for Cachorro {
+#     fn comer(&self) {
+#         println!("Cachorro comendo... animal");
+#     }
+# }
+# impl Fome for Cachorro {
+#     fn comer(&self) {
+#         println!("Cachorro comendo por estar com fome");
+#     }
+# }
 //--declarações e implementações
 fn main() {
     let cachorro = Cachorro {};
@@ -232,6 +302,10 @@ fn main() {
 Podemos também implementar traits para tipos já existentes.
 
 ```rust
+# trait Fome {
+#     fn comer(&self);
+# }
+//--declaração trait de fome
 impl Fome for i32 {
     fn comer(&self) {
         println!("Um numero esta comendo por estar com fome? Isso faz sentido?")
@@ -239,6 +313,7 @@ impl Fome for i32 {
 }
 
 fn main() {
+    let a: i32 = 10;
     a.comer();
 }
 ```
@@ -255,7 +330,7 @@ struct Contador {
 }
 
 impl Iterator for Contador {
-    type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso, 
+    type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso,
     mas considere que é um modo de usar Generics de uma forma que impedimos múltiplas implementações da mesma trait pra mesma coisa */
 
     fn next(&mut self) -> Option<Self::Item> {
