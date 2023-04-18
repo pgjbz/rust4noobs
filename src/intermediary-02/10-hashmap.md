@@ -7,6 +7,8 @@ A última coleção que iremos falar é o `HashMap`, esta coleção funciona com
 Para criar um `HashMap`, precisamos informar dois tipos genéricos.
 
 ```rust
+use std::collections::HashMap;
+
 fn main() {
     let mut map1 = HashMap::<String, i32>::new();
     let mut map2: HashMap<String, i32> = HashMap::new();
@@ -22,6 +24,8 @@ Temos vários métodos para criar um `HashMap`, acima temos alguns exemplos. Os 
 Para inserirmos uma chave e valor em um `HashMap` precisamos utilizar o método `insert` passando como argumentos uma `chave`e um `valor` este método nos retorna um [Option](./07-option.md).
 
 ```rust
+use std::collections::HashMap;
+
 fn main() {
     let mut map = HashMap::new();
     map.insert("Rust4Noobs", i32::MAX);
@@ -31,6 +35,8 @@ fn main() {
 O método `insert` tem uma peculiaridade, ao inserir um valor e este valor ainda não existe, o `Option` retornado sera um `None` e o valor será inserido no `HashMap`, caso o valor já exista o `Option` retornado sera um `Some` com o valor antigo e este valor é substituído na coleção.
 
 ```rust
+use std::collections::HashMap;
+
 fn main() {
     let mut map = HashMap::new();
     let inserido = map.insert("Rust4Noobs", i32::MAX);
@@ -45,6 +51,8 @@ fn main() {
 O método `get` funciona de maneira parecida com o `Vec` e o `Set`, porém passamos uma chave e nos é devolvido um `Option`. Caso o valor exista temos um `Some` com o valor caso não temos um `None`.
 
 ```rust
+use std::collections::HashMap;
+
 fn main() {
     let mut map = HashMap::new();
     map.insert("Rust4Noobs", i32::MAX);
@@ -83,11 +91,13 @@ fn main() {
 ```
 <small>Sim, podemos redeclarar uma variável com um nome já existente e eu só mostrei isso agora, eu errei, eu sei</small>
 
-### Método len 
+### Método len
 
 O método `len` nos retorna o tamanho do `HashMap`.
 
 ```rust
+use std::collections::HashMap;
+
 fn main() {
     let mut map = HashMap::new();
     map.insert("Rust4Noobs", i32::MAX);
@@ -101,6 +111,8 @@ fn main() {
 Utilizamos o método `remove` quando queremos remover alguma chave do nosso `HashMap`, nos retornando um `Option`, sendo `Some` contendo o valor removido, caso o valor exista e tenha sido removido e `None` caso o valor removido não exista.
 
 ```rust
+use std::collections::HashMap;
+
 fn main() {
     let mut map = HashMap::new();
     map.insert("Rust4Noobs", i32::MAX);
@@ -117,6 +129,8 @@ fn main() {
 O método `clear` é o mais simples dentre todos, este método apenas, limpa o nosso `HashSet`.
 
 ```rust
+use std::collections::HashMap;
+
 fn main() {
     let mut map = HashMap::new();
     map.insert("Rust4Noobs", i32::MAX);
