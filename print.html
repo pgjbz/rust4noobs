@@ -1043,24 +1043,34 @@ fn numero_maior_igual_a_dez(numero: i32) {
 <span class="boring">}
 </span></code></pre></pre>
 <p>O modo de declaração dos campos/atributos de uma struct lembra bastante o de um <a href="https://en.wikipedia.org/wiki/JSON">json</a>, para criarmos uma variável de uma struct podemos fazer da seguinte maneira:</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da estrutura Cliente
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    ano_de_nascimento: u16,
+</span><span class="boring">    documento: String,
+</span><span class="boring">}
+</span>//--declaração da estrutura Cliente
 
 fn main() {
-    let cliente: Cliente = Cliente { 
+    let cliente: Cliente = Cliente {
         nome: String::from(&quot;Paulo&quot;),
-        ano_de_nascimento: 1999, 
-        documento: String::from(&quot;Onde?&quot;) 
+        ano_de_nascimento: 1999,
+        documento: String::from(&quot;Onde?&quot;)
     };
 }
 </code></pre></pre>
 <p>Podemos acessar os campos da variável utilizando apenas um &quot;.nome_do_campo&quot;.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da estrutura Cliente
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    ano_de_nascimento: u16,
+</span><span class="boring">    documento: String,
+</span><span class="boring">}
+</span>//--declaração da estrutura Cliente
 
 fn main() {
-    let cliente = Cliente { 
+    let cliente = Cliente {
         nome: String::from(&quot;Paulo&quot;),
-        ano_de_nascimento: 1999, 
-        documento: String::from(&quot;Onde?&quot;) 
+        ano_de_nascimento: 1999,
+        documento: String::from(&quot;Onde?&quot;)
     };
     println!(&quot;Nome do cliente: {}&quot;, cliente.nome);
 }
@@ -1106,8 +1116,8 @@ impl Cliente {
             nome: nome,
             ano_de_nascimento,
             /*
-                Como o atributo tem o mesmo nome do 
-                parâmetro/variável eu não preciso 
+                Como o atributo tem o mesmo nome do
+                parâmetro/variável eu não preciso
                 colocar o padrão chave:valor
             */
             documento
@@ -1117,13 +1127,13 @@ impl Cliente {
     fn diz_oi(&amp;self) {
         println!(&quot;{} disse oi&quot;, self.nome);
     }
-    
+
     fn diz_tchau(self) {
         println!(&quot;{} disse tchau e foi embora&quot;, self.nome);
-    } 
+    }
 
     fn mudar_nome(&amp;mut self, novo_nome: String) {
-        //para utilizar este método a instância de 
+        //para utilizar este método a instância de
         //cliente deve ser mutável
         self.nome = novo_nome;
     }
@@ -1132,7 +1142,7 @@ impl Cliente {
 fn main() {
     let mut cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
     cliente.diz_oi();
-    cliente.mudar_nome(String::from(&quot;Novo nome&quot;)); 
+    cliente.mudar_nome(String::from(&quot;Novo nome&quot;));
     cliente.diz_oi();
     cliente.diz_tchau(); //a partir daqui a memória deste               //cliente foi liberada não conseguimos mais utilizar
 }
@@ -1143,7 +1153,7 @@ fn main() {
 37 |     let mut cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
    |         ----------- move occurs because `cliente` has type `Cliente`, which does not implement the `Copy` trait
 ...
-41 |     cliente.diz_tchau(); //a partir daqui a memória deste      
+41 |     cliente.diz_tchau(); //a partir daqui a memória deste
    |             ----------- `cliente` moved due to this method call
 42 |     cliente.diz_oi();         //cliente foi liberada não conseguimos mais utilizar
    |     ^^^^^^^ value borrowed here after move
@@ -1195,7 +1205,13 @@ enum Uf {
 <span class="boring">}
 </span></code></pre></pre>
 <p>Esta alteração que fizemos também pode ser aplicada as <a href="intermediary-02/./01-structs.html">structs</a>, para tirarmos proveito desta modificação iremos usar o macro <code>println!</code> da seguinte maneira.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">   Sp(String),
+</span><span class="boring">   Rj(String),
+</span><span class="boring">   Ce(String),
+</span><span class="boring">}
+</span>//--declaração do enum
 fn main() {
     let uf = Uf::Sp(String::from(&quot;São Paulo&quot;));
     println!(&quot;{:?}&quot;, uf);
@@ -1205,7 +1221,13 @@ fn main() {
 <p>Este modo de uso ira escrever no console o modo em que a estrutura foi declarada, tanto para os enums quanto para as <a href="intermediary-02/./01-structs.html">structs</a>.</p>
 <h2 id="métodos-em-enums"><a class="header" href="#métodos-em-enums">Métodos em enums.</a></h2>
 <p>Também conseguimos implementar métodos para nossos enums, do mesmo modo que fazemos com as <code>structs</code>.</p>
-<pre><pre class="playground"><code class="language-rust">//--Declaração do enum
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">   Sp(String),
+</span><span class="boring">   Rj(String),
+</span><span class="boring">   Ce(String),
+</span><span class="boring">}
+</span>//--Declaração do enum
 impl Uf {
     fn retorna_sp() -&gt; Self {
         Self::Sp(String::from(&quot;São Paulo&quot;))
@@ -1248,13 +1270,22 @@ fn main() {
     println!(&quot;{:#?}&quot;, uf);
 }
 </code></pre></pre>
-<p>Ficamos de implementar o método <code>quem_sou_eu</code> de propósito, nele iremos utilizar a estrutura de decisão <code>match</code>. </p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+<p>Ficamos de implementar o método <code>quem_sou_eu</code> de propósito, nele iremos utilizar a estrutura de decisão <code>match</code>.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">    Sp(String),
+</span><span class="boring">    Rj(String),
+</span><span class="boring">    Ce(String),
+</span><span class="boring">}
+</span>//--declaração do enum
 impl Uf {
-    //--outros métodos
+<span class="boring">    fn retorna_sp() -&gt; Self {
+</span><span class="boring">        Self::Sp(String::from(&quot;São Paulo&quot;))
+</span><span class="boring">    }
+</span>    //--outros métodos
     fn quem_sou_eu(&amp;self) {
         match self {
-            Sp(_) =&gt; println!(&quot;Eu sou São Paulo&quot;),
+            Uf::Sp(_) =&gt; println!(&quot;Eu sou São Paulo&quot;),
         }
     }
 }
@@ -1289,9 +1320,18 @@ For more information about this error, try `rustc --explain E0004`.
 </code></pre>
 <p>O porquê deste erro?</p>
 <p>Rust nos obriga a cobrir todos os casos que podem acontecer. Para isso vamos fazer a seguinte alteração.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">    Sp(String),
+</span><span class="boring">    Rj(String),
+</span><span class="boring">    Ce(String),
+</span><span class="boring">}
+</span>//--declaração do enum
 impl Uf {
-    //--outros métodos
+<span class="boring">    fn retorna_sp() -&gt; Self {
+</span><span class="boring">        Self::Sp(String::from(&quot;São Paulo&quot;))
+</span><span class="boring">    }
+</span>    //--outros métodos
     fn quem_sou_eu(&amp;self) {
         match self {
             Uf::Sp(_) =&gt; println!(&quot;Eu sou São Paulo&quot;),
@@ -1307,9 +1347,18 @@ fn main() {
 }
 </code></pre></pre>
 <p>Agora nosso código ira rodar, mas reparem que eu posso criar uma instância de <code>enum</code> com um valor e o código se repete nos 3 casos. Eu posso melhorar isso um pouco, realizando a troca do '_' por um nome, e também posso deixar todos no mesmo 'match' utilizando um pipe '|'.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">    Sp(String),
+</span><span class="boring">    Rj(String),
+</span><span class="boring">    Ce(String),
+</span><span class="boring">}
+</span>//--declaração do enum
 impl Uf {
-    //--outros métodos
+<span class="boring">    fn retorna_sp() -&gt; Self {
+</span><span class="boring">        Self::Sp(String::from(&quot;São Paulo&quot;))
+</span><span class="boring">    }
+</span>    //--outros métodos
     fn quem_sou_eu(&amp;self) {
         match self {
             Uf::Sp(nome) | Uf::Rj(nome) | Uf::Ce(nome) =&gt; println!(&quot;Eu sou {}&quot;, nome),
@@ -1376,7 +1425,7 @@ fn main() {
     }
 }
 </code></pre></pre>
-<p>Com o código acima cobrimos todas as possibilidades possíveis e qualquer valor que não seja 1, 2 ou 3 teremos a mesma tratativa. </p>
+<p>Com o código acima cobrimos todas as possibilidades possíveis e qualquer valor que não seja 1, 2 ou 3 teremos a mesma tratativa.</p>
 <p>A expressão match também pode ser utilizada comparar por uma faixa de valor. Utilizando a o 'match' da seguinte maneira 'inicio..=fim'</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let numero = 20;
@@ -1442,9 +1491,24 @@ For more information about this error, try `rustc --explain E0433`.
 error: could not compile `modulos` due to previous error
 </code></pre>
 <p>A struct não foi encontrada no escopo. O compilador esta dizendo para importamos o cliente, vamos importar utilizando o que o compilador diz para importar <code>use crate::nota_fiscal::Cliente;</code></p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do modulo
-
-use crate::nota_fiscal::Cliente;
+<pre><pre class="playground"><code class="language-rust"><span class="boring">mod nota_fiscal {
+</span><span class="boring">    struct Cliente {
+</span><span class="boring">        nome: String,
+</span><span class="boring">        ano_de_nascimento: u16,
+</span><span class="boring">        documento: String,
+</span><span class="boring">    }
+</span><span class="boring">
+</span><span class="boring">    impl Cliente {
+</span><span class="boring">        fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+</span><span class="boring">            Self {
+</span><span class="boring">                nome,
+</span><span class="boring">                ano_de_nascimento,
+</span><span class="boring">                documento
+</span><span class="boring">            }
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span><span class="boring">}
+</span>//--declaração do modulo
 
 use crate::nota_fiscal::Cliente;
 
@@ -1469,10 +1533,7 @@ For more information about this error, try `rustc --explain E0603`.
 error: could not compile `modulos` due to previous error
 </code></pre>
 <p>Por padrão todas as declarações dentro de um módulo são privadas, para resolvermos este problema utilizamos a palavra <code>pub</code>, vamos adicionar isso tanto para a struct quanto para a implementação do método estático <code>new</code>, porque ele também é privado.</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>mod nota_fiscal {
+<pre><pre class="playground"><code class="language-rust">mod nota_fiscal {
     pub struct Cliente {
         nome: String,
         ano_de_nascimento: u16,
@@ -1491,22 +1552,40 @@ error: could not compile `modulos` due to previous error
 }
 
 //--método main
-<span class="boring">}
+<span class="boring">use crate::nota_fiscal::Cliente;
+</span>
+<span class="boring">fn main() {
+</span><span class="boring">    let cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+</span><span class="boring">    println!(&quot;{} {} {}&quot;, cliente.nome, cliente.ano_de_nascimento, cliente.documento);
+</span><span class="boring">}
 </span></code></pre></pre>
 <p>Os atributos também são privados, caso tentarmos acessar qualquer um deles teremos outro erro de compilação, podemos acessar através de outros métodos públicos, ou deixando os atributos públicos.</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>mod nota_fiscal {
+<pre><pre class="playground"><code class="language-rust">mod nota_fiscal {
     pub struct Cliente {
         pub nome: String,
         pub ano_de_nascimento: u16,
         pub documento: String,
     }
 //--métodos
-}
+<span class="boring">    impl Cliente {
+</span><span class="boring">        pub fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+</span><span class="boring">            Self {
+</span><span class="boring">                nome,
+</span><span class="boring">                ano_de_nascimento,
+</span><span class="boring">                documento
+</span><span class="boring">            }
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span>}
 
-<span class="boring">}
+//--método main
+<span class="boring">use crate::nota_fiscal::Cliente;
+</span>
+<span class="boring">fn main() {
+</span><span class="boring">    let cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+</span>
+<span class="boring">    println!(&quot;{} {} {}&quot;, cliente.nome, cliente.ano_de_nascimento, cliente.documento);
+</span><span class="boring">}
 </span></code></pre></pre>
 <h2 id="separando-módulos-em-outros-arquivos"><a class="header" href="#separando-módulos-em-outros-arquivos">Separando módulos em outros arquivos</a></h2>
 <p>Não adianta muito criamos módulos para organizar o nosso código e mantermos tudo no mesmo arquivo. Vamos começar criando um arquivo <code>nota_fiscal.rs</code> e jogando o código do Cliente para este arquivo.</p>
@@ -1658,7 +1737,7 @@ fn main() {
 }
 
 </code></pre></pre>
-<p>Nesse exemplo temos vários modos de imports, temos um impor com a palavra <code>crate</code> que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o <code>super</code> que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais fácil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. </p>
+<p>Nesse exemplo temos vários modos de imports, temos um impor com a palavra <code>crate</code> que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o <code>super</code> que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais fácil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main.</p>
 <p>Futuramente iremos utilizar outro modo de projeto que ira utilizar o arquivo <code>lib.rs</code>, onde também podemos declarar os módulos e remover isso do <code>main.rs</code>, com esse arquivo podemos importar conforme o nome do projeto no <code>Cargo.toml</code></p>
 <p>lib.rs</p>
 <pre><pre class="playground"><code class="language-rust">
@@ -1696,11 +1775,11 @@ struct Cliente&lt;T&gt; {
 }
 
 fn main() {
-    let cliente: Cliente&lt;String&gt; = Cliente::&lt;String&gt; { 
-        nome: String::from(&quot;Rust4Noobs&quot;), 
+    let cliente: Cliente&lt;String&gt; = Cliente::&lt;String&gt; {
+        nome: String::from(&quot;Rust4Noobs&quot;),
         ano_nascimento: 2021,
-        documento: String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;) 
-    }; 
+        documento: String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;)
+    };
 
     println!(&quot;{:#?}&quot;, cliente);
 }
@@ -1708,7 +1787,13 @@ fn main() {
 <p>Do modo acima, o documento do <code>Cliente</code>, pode ser, uma String, um inteiro, um Enum, outra <code>struct</code>.</p>
 <h3 id="implementando-um-método-genérico"><a class="header" href="#implementando-um-método-genérico">Implementando um método genérico.</a></h3>
 <p>Continuando o exemplo acima, lembra da parte sobre as <a href="intermediary-02/./01-structs.html">structs</a> onde implementamos o método estático <code>new</code>, como que ficaria para este exemplo usando generic?</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">struct Cliente&lt;T&gt; {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    ano_nascimento: u16,
+</span><span class="boring">    documento: T
+</span><span class="boring">}
+</span>//--declaração da struct
 impl&lt;T&gt; Cliente&lt;T&gt; {
     fn new(nome: String, ano_nascimento: u16, documento: T) -&gt; Self {
         Self {
@@ -1720,12 +1805,12 @@ impl&lt;T&gt; Cliente&lt;T&gt; {
 }
 
 fn main() {
-    let cliente = Cliente::new(String::from(&quot;Rust4Noobs&quot;), 
-        2021, 
+    let cliente = Cliente::new(String::from(&quot;Rust4Noobs&quot;),
+        2021,
         String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;));
     println!(&quot;{:#?}&quot;, cliente);
-    let cliente2 = Cliente::new(String::from(&quot;Rust4Noobs&quot;), 
-        2021, 
+    let cliente2 = Cliente::new(String::from(&quot;Rust4Noobs&quot;),
+        2021,
         123456789);
     println!(&quot;{:#?}&quot;, cliente2);
 }
@@ -1760,7 +1845,7 @@ impl&lt;T, U&gt; Cliente&lt;T, U&gt; {
         if item &gt; maior {
             maior = item;
         }
-    } 
+    }
     maior
 }
 
@@ -1779,7 +1864,7 @@ fn main() {
         if item &gt; maior {
             maior = item;
         }
-    } 
+    }
     maior
 }
 
@@ -1799,7 +1884,10 @@ fn main() {
 <span class="boring">}
 </span></code></pre></pre>
 <p>Assim definimos uma <code>trait</code>, agora precisamos implementar, vamos criar uma <code>struct Pedido</code> que ira implementar essa <code>trait</code>. Para dizer que algo implementa uma <code>trait</code> usamos o seguinte padrão <code>impl NomeTrait for NomeStruct { implementação }</code></p>
-<pre><pre class="playground"><code class="language-rust">//--definição trait Pagável
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Pagavel  {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64;
+</span><span class="boring">}
+</span>//--definição trait Pagável
 
 struct Pedido {
     quantidade_items: u8,
@@ -1843,7 +1931,25 @@ where
 <span class="boring">}
 </span></code></pre></pre>
 <p>Então podemos chamar o método genérico pagar passando o pedido como argumento.</p>
-<pre><pre class="playground"><code class="language-rust">//--Definição pedido, trait e implementação
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Pagavel  {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64;
+</span><span class="boring">}
+</span><span class="boring">struct Pedido {
+</span><span class="boring">    quantidade_items: u8,
+</span><span class="boring">    valor_items: f64
+</span><span class="boring">}
+</span><span class="boring">impl Pagavel for Pedido {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64 {
+</span><span class="boring">        self.valor_items * self.quantidade_items as f64
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">fn pagar&lt;T&gt;(pagavel: T)
+</span><span class="boring">where
+</span><span class="boring">    T: Pagavel,
+</span><span class="boring">{
+</span><span class="boring">    println!(&quot;Valor {} pago&quot;, pagavel.total());
+</span><span class="boring">}
+</span>//--Definição pedido, trait e implementação
 fn main() {
     let pedido = Pedido {
         quantidade_items: 10,
@@ -1852,9 +1958,21 @@ fn main() {
     pagar(pedido);
 }
 </code></pre></pre>
-<p>E o programa ira compilar. </p>
+<p>E o programa ira compilar.</p>
 <p>Podemos implementar mais de uma trait para algo.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração trait pagavel, struct e impl Pagavel
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Pagavel  {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64;
+</span><span class="boring">}
+</span><span class="boring">struct Pedido {
+</span><span class="boring">    quantidade_items: u8,
+</span><span class="boring">    valor_items: f64
+</span><span class="boring">}
+</span><span class="boring">impl Pagavel for Pedido {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64 {
+</span><span class="boring">        self.valor_items * self.quantidade_items as f64
+</span><span class="boring">    }
+</span><span class="boring">}
+</span>//--declaração trait pagavel, struct e impl Pagavel
 trait Cancelavel {
     fn cancelar(self);
 }
@@ -1874,7 +1992,27 @@ fn main() {
 }
 </code></pre></pre>
 <p>Uma trait pode ter um método já implementado, que pode ou não ser sobrescrito.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração trait pagavel, struct e impl Pagavel e cancelavel
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Pagavel  {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64;
+</span><span class="boring">}
+</span><span class="boring">struct Pedido {
+</span><span class="boring">    quantidade_items: u8,
+</span><span class="boring">    valor_items: f64
+</span><span class="boring">}
+</span><span class="boring">impl Pagavel for Pedido {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64 {
+</span><span class="boring">        self.valor_items * self.quantidade_items as f64
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">trait Cancelavel {
+</span><span class="boring">   fn cancelar(self);
+</span><span class="boring">}
+</span><span class="boring">impl Cancelavel for Pedido {
+</span><span class="boring">   fn cancelar(self) {
+</span><span class="boring">       println!(&quot;Pedido com {} itens cancelado&quot;, self.quantidade_items)
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>//--declaração trait pagavel, struct e impl Pagavel e cancelavel
 
 trait Tributavel {
     fn calcular_imposto(&amp;self) -&gt; f64 {
@@ -1882,7 +2020,7 @@ trait Tributavel {
     }
 }
 
-impl Tributavel for Pedido {} 
+impl Tributavel for Pedido {}
 
 fn main() {
     let pedido = Pedido {
@@ -1898,9 +2036,9 @@ fn main() {
 </span><span class="boring">fn main() {
 </span>impl Tributavel for Pedido {
     fn calcular_imposto(&amp;self) -&gt; f64 {
-        self.valor_items * 0.01 
+        self.valor_items * 0.01
     }
-} 
+}
 <span class="boring">}
 </span></code></pre></pre>
 <p>E se eu quiser que para implementar <code>Tributavel</code> e <code>Cancelavel</code> eu precise implementar a <code>trait</code> <code>Pagavel</code>? Seria usado uma estratégia parecida com a dos generics <code>trait NomeTrait: TraitQuePrecisaImplementar</code></p>
@@ -1934,7 +2072,7 @@ trait Tributavel: Pagavel {
 
 impl Tributavel for Pedido {
     fn calcular_imposto(&amp;self) -&gt; f64 {
-        0.01 * self.total()   
+        0.01 * self.total()
     }
 }
 <span class="boring">}
@@ -1976,7 +2114,24 @@ fn main() {
    |
 </code></pre>
 <p>Este erro acontece por termos múltiplas implementações de método com a mesma assinatura. Para chamar o método <code>comer</code> podemos fazer da seguinte maneira <code>trait::metodo(&amp;instância)</code>.</p>
-<pre><pre class="playground"><code class="language-rust">//--declarações e implementações
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cachorro {}
+</span><span class="boring">trait Animal {
+</span><span class="boring">    fn comer(&amp;self);
+</span><span class="boring">}
+</span><span class="boring">trait Fome {
+</span><span class="boring">    fn comer(&amp;self);
+</span><span class="boring">}
+</span><span class="boring">impl Animal for Cachorro {
+</span><span class="boring">    fn comer(&amp;self) {
+</span><span class="boring">        println!(&quot;Cachorro comendo... animal&quot;);
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">impl Fome for Cachorro {
+</span><span class="boring">    fn comer(&amp;self) {
+</span><span class="boring">        println!(&quot;Cachorro comendo por estar com fome&quot;);
+</span><span class="boring">    }
+</span><span class="boring">}
+</span>//--declarações e implementações
 fn main() {
     let cachorro = Cachorro {};
     Animal::comer(&amp;cachorro);
@@ -1984,13 +2139,18 @@ fn main() {
 }
 </code></pre></pre>
 <p>Podemos também implementar traits para tipos já existentes.</p>
-<pre><pre class="playground"><code class="language-rust">impl Fome for i32 {
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Fome {
+</span><span class="boring">    fn comer(&amp;self);
+</span><span class="boring">}
+</span>//--declaração trait de fome
+impl Fome for i32 {
     fn comer(&amp;self) {
         println!(&quot;Um numero esta comendo por estar com fome? Isso faz sentido?&quot;)
     }
 }
 
 fn main() {
+    let a: i32 = 10;
     a.comer();
 }
 </code></pre></pre>
@@ -2002,7 +2162,7 @@ fn main() {
 }
 
 impl Iterator for Contador {
-    type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso, 
+    type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso,
     mas considere que é um modo de usar Generics de uma forma que impedimos múltiplas implementações da mesma trait pra mesma coisa */
 
     fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
@@ -2088,7 +2248,11 @@ fn main() {
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 </code></pre>
 <p>A diferença entre o <code>unwrap</code>e o <code>expect</code>, é que com o <code>expect</code> podemos definir uma mensagem para este erro</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -2102,7 +2266,11 @@ fn main() {
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 </code></pre>
 <p>Mas se quisermos evitar este erro, como fazemos isso? Podemos utilizar os métodos <code>is_none</code> ou <code>is_some</code> para verificar isso.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -2111,11 +2279,15 @@ fn main() {
     if cliente.idade.is_some() {
         let idade = cliente.idade.unwrap();
         println!(&quot;O cliente {} tem {} anos&quot;, cliente.nome, idade);
-    } 
+    }
 }
 </code></pre></pre>
 <p>Agora temos uma checagem se o valor existe, podemos usar o <code>is_none</code> para adicionar um tratamento para caso a idade não exista.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let mut cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -2132,7 +2304,11 @@ fn main() {
 <p>Mas esse talvez não seja o melhor modo de fazer isso.</p>
 <h2 id="extraindo-o-valor-com-um-match"><a class="header" href="#extraindo-o-valor-com-um-match">Extraindo o valor com um match</a></h2>
 <p>O operador <a href="intermediary-02/./03-match.html">match</a> pode ser utilizado para <a href="intermediary-02/./02-enums.html">enums</a>, lembra dos <code>enums</code> com valores associados? O <code>Option</code> é um <code>enum</code> com valores associados. Então podemos utilizar o <code>match</code> para chegar se o valor existe.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -2147,7 +2323,11 @@ fn main() {
 <p>Claro podemos utilizar de todos os aspectos do <code>match</code> nessa abordagem</p>
 <h2 id="operador-if-let"><a class="header" href="#operador-if-let">Operador if let</a></h2>
 <p>O operador <code>if let</code> é geralmente usado para tratativas pequenas. Onde realizamos uma validação e já atribuímos o valor a uma variável. Podendo ser feito da seguinte maneira <code>if let Some(nome ou ignora o valor) = expressao teste { codigo } else { se nao }</code>.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -2161,7 +2341,12 @@ fn main() {
 }
 </code></pre></pre>
 <p>O código acima tem o mesmo resultado do código com o <code>match</code>, claro o <code>if let</code> também pode retornar algo, assim como o <code>match</code></p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
+fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
         idade: None,
@@ -2199,7 +2384,22 @@ impl Iterator for Contador {
 <span class="boring">}
 </span></code></pre></pre>
 <p>Ao implementar essa trait, temos o método <code>next</code> que nos retorna um <code>Option</code>, podemos utilizar esse retorno para ir iterando o nosso contador.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do contador
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Contador {
+</span><span class="boring">    contagem: u64
+</span><span class="boring">}
+</span><span class="boring">impl Iterator for Contador {
+</span><span class="boring">    type Item = u64;
+</span><span class="boring">
+</span><span class="boring">    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+</span><span class="boring">        if self.contagem &gt;= 100 {
+</span><span class="boring">            None
+</span><span class="boring">        } else {
+</span><span class="boring">            self.contagem += 1;
+</span><span class="boring">            Some(self.contagem)
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span><span class="boring">}
+</span>//--declaração do contador
 fn main() {
     let mut contador = Contador { contagem: 0 };
 
@@ -2221,7 +2421,7 @@ fn main() {
 </code></pre></pre>
 <p>Iniciar um <code>Vec</code> já com uma capacidade o que nos da vantagem de deixar mais rápido a inserção de novos elementos nesse <code>Vec</code>, mas não vamos confundir a capacidade dele, com o tamanho dele, a capacidade é &quot;o quanto cabe&quot; e o tamanho é o &quot;o quanto tem&quot;.</p>
 <p>Note que declaramos todos os <code>Vec</code> como mutáveis, não é obrigatório serem declarados como mutáveis, nós só utilizamos isso caso queiramos realizar qualquer modificação no <code>Vec</code>, como adicionar, ou remover valores do mesmo.</p>
-<p>O compilador do Rust é inteligente o suficiente para saber o tipo de um <code>Vec</code> pelo primeiro elemento adicionado. </p>
+<p>O compilador do Rust é inteligente o suficiente para saber o tipo de um <code>Vec</code> pelo primeiro elemento adicionado.</p>
 <h2 id="métodos-de-vec"><a class="header" href="#métodos-de-vec">Métodos de Vec</a></h2>
 <p>Em Vec temos diversos métodos, mas agora iremos falar sobre os seguintes métodos: push, pop, len, clear, is_empty, contains, get, get_mut, insert e remove.</p>
 <h3 id="método-push"><a class="header" href="#método-push">Método push</a></h3>
@@ -2229,6 +2429,8 @@ fn main() {
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let mut lista = Vec::new();
     lista.push(10);
+
+    println!(&quot;{:?}&quot;, lista);
 }
 </code></pre></pre>
 <h3 id="método-insert"><a class="header" href="#método-insert">Método insert</a></h3>
@@ -2236,6 +2438,8 @@ fn main() {
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let mut lista = vec![1, 2, 3];
     lista.insert(0, 4);
+
+    println!(&quot;{:?}&quot;, lista);
 }
 </code></pre></pre>
 <h3 id="método-pop"><a class="header" href="#método-pop">Método pop</a></h3>
@@ -2243,6 +2447,8 @@ fn main() {
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let mut lista = vec![1, 2, 3];
     let ultimo: Option&lt;i32&gt; = lista.pop();
+
+    println!(&quot;{:?}&quot;, lista);
 }
 </code></pre></pre>
 <h3 id="método-len"><a class="header" href="#método-len">Método len</a></h3>
@@ -2250,6 +2456,8 @@ fn main() {
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let lista = vec![1,2,3];
     let tamanho = lista.len();
+
+    println!(&quot;{}&quot;, tamanho);
 }
 </code></pre></pre>
 <h3 id="método-get"><a class="header" href="#método-get">Método get</a></h3>
@@ -2308,9 +2516,11 @@ fn main() {
 <h2 id="usando-um-hashset"><a class="header" href="#usando-um-hashset">Usando um HashSet</a></h2>
 <p>Um <code>HashSet</code> é uma coleção genérica, e assim como o ela armazena dados de vários tipo, porém para tais dados serem armazenados eles precisam implementar certas <a href="intermediary-02/./06-traits.html">traits</a>, para começar vamos utilizar os tipos primitivos.</p>
 <h3 id="criando-um-hashset"><a class="header" href="#criando-um-hashset">Criando um HashSet</a></h3>
-<p>Temos alguns modos para criar um <code>HashSet</code>. </p>
+<p>Temos alguns modos para criar um <code>HashSet</code>.</p>
 <p>Temos um modo declarando o tipo e instânciando que segue o padrão <code>let nome: HashSet&lt;tipo&gt; = HashSet::new()</code>, o modo por inferência, <code>let nome = HashSet::&lt;tipo&gt;::new()</code>, claro podemos fazer <code>let nome: HashSet&lt;tipo&gt; = HashSet::&lt;tipo&gt;::new()</code> ou <code>let nome = HashSet::new()</code> e o tipo é definido pelo primeiro uso.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut hashSet: HashSet&lt;i32&gt; = HashSet::new();
     let mut hashSet2 = HashSet::&lt;i32&gt;::new();
     let mut hashSet3 = HashSet::new();
@@ -2321,7 +2531,9 @@ fn main() {
 Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exemplo, <code>insert</code>, <code>contains</code>, <code>remove</code>, <code>get</code></p>
 <h3 id="método-insert-1"><a class="header" href="#método-insert-1">Método insert</a></h3>
 <p>O método <code>insert</code> funciona para inserirmos um elemento ao <code>HashSet</code>. Já o utilizamos no exemplo de criação de um <code>HashSet</code>, este método nos retorna um booleano com <code>true</code> caso consiga inserir com sucesso e false caso não consiga.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut set = HashSet::new();
     if set.insert(10) {
         println!(&quot;Eitcha lele&quot;);
@@ -2333,7 +2545,9 @@ Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exem
 </code></pre></pre>
 <h3 id="método-contains-1"><a class="header" href="#método-contains-1">Método contains</a></h3>
 <p>O método contains, serve para verificarmos se um elemento existe no <code>HashSet</code> nos retornando um <code>true</code> caso exista e <code>false</code> caso não.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut set = HashSet::new();
     set.insert(10);
     if set.contains(&amp;10) {
@@ -2343,7 +2557,9 @@ Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exem
 </code></pre></pre>
 <h3 id="método-remove-1"><a class="header" href="#método-remove-1">Método remove</a></h3>
 <p>O método remove como o seu nome diz, remove um elemento da coleção. Nos retornando <code>true</code> caso consiga remover e <code>false</code> caso não.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut set = HashSet::new();
     set.insert(10);
     if set.remove(&amp;10) {
@@ -2353,7 +2569,9 @@ Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exem
 </code></pre></pre>
 <h3 id="método-get-1"><a class="header" href="#método-get-1">Método get</a></h3>
 <p>O método get recupera um valor da coleção, nos retornando um <a href="intermediary-02/./07-option.html">Option</a>.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut set = HashSet::new();
     set.insert(10);
     let num = set.get(&amp;10);
@@ -2410,6 +2628,7 @@ fn main() {
 </code></pre></pre>
 <p>Essas traits servem para comparação e geração do Hash, ou podemos também implementar por nós mesmos.</p>
 <pre><pre class="playground"><code class="language-rust">use std::hash::Hash;
+use std::collections::HashSet;
 
 struct Cliente {
     id: i32,
@@ -2555,7 +2774,11 @@ fn main() {
 }
 </code></pre></pre>
 <p>A variável file, esta recebendo um <code>Result&lt;File, std::io::Error&gt;</code>, podemos realizar apenas um <code>.unwrap()</code> para caso o arquivo não exista, ou não termos permissão para acesso, ou qualquer outro erro aconteça encerarmos a execução do programa, ou caso de sucesso prosseguirmos com a solução do problema. Mas não queremos fazer isso. Caso o tivermos algum erro, mais específico, o arquivo não existir, vamos criar este arquivo e escrever nele &quot;Rust4Noobs&quot;, caso qualquer um destes processos do tratamento falhe, iremos simplesmente encerrar o programa.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::fs::File;
+use std::io::Write;
+use std::process;
+
+fn main() {
     let file = abre_arquivo(&quot;rust4noobs.txt&quot;);
 }
 
@@ -2577,8 +2800,13 @@ fn abre_arquivo(caminho: &amp;str) -&gt; File {
 }
 </code></pre></pre>
 <p>No código acima, tentamos abrir o arquivo, caso tenhamos sucesso, retornamos o arquivo, caso aconteça algum erro executamos o procedimento de validar o tipo do erro, caso o erro seja do tipo &quot;NotFound&quot;, então criamos o arquivo e escrevemos nele, já dando <code>.unwrap</code> caso de algum erro, após isso já retornamos o arquivo, para ser utilizado. Caso o erro não seja do tipo <code>NotFound</code> apenas escrevemos o erro e finalizamos o processo.</p>
-<p>Agora vamos eliminar esses <code>unwrap</code> com o operador <code>?</code>, para isso precisamos realizar algumas modificações. </p>
-<pre><pre class="playground"><code class="language-rust">fn main() -&gt; Result&lt;(), io::Error&gt; {
+<p>Agora vamos eliminar esses <code>unwrap</code> com o operador <code>?</code>, para isso precisamos realizar algumas modificações.</p>
+<pre><pre class="playground"><code class="language-rust">use std::fs::File;
+use std::io;
+use std::io::Write;
+use std::process;
+
+fn main() -&gt; Result&lt;(), io::Error&gt; {
     let file = abre_arquivo(&quot;rust4noobs.txt&quot;)?;
     Ok(())
 }
@@ -2617,7 +2845,7 @@ impl std::fmt::Display for ParseError {
 }
 
 fn faz_o_parse_ai(mock: u8) -&gt; Result&lt;(), ParseError&gt; {
-    
+
     if mock &gt;= 100 &amp;&amp; mock &lt;= 199 {
         return Err(ParseError::Inaceitavel(&quot;como assim vc me deu esse valor?&quot;.to_string()));
     } else if mock &gt; 200 {
@@ -2828,7 +3056,7 @@ mod tests {
 
     use super::calculadora;
 
-   
+
     #[test]
     #[should_panic]
     fn calcular_delta_negativo_esperado_error() {
@@ -2870,7 +3098,7 @@ mod tests {
         let delta = (b * b) - 4.0 * a * c;
         if delta &lt; 0.0 {
             return Err(&quot;nao contem raiz real&quot;.to_string())
-        } 
+        }
         Ok(delta)
     }
 
@@ -2918,8 +3146,14 @@ test result: FAILED. 2 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; 
         let x2 = (menos_b - delta.sqrt()) / 2.0 * a;
         Ok((x1, x2))
     }
-
-}
+<span class="boring">    pub(super) fn calcula_delta(a: f64, b: f64, c: f64) -&gt; Result&lt;f64, String&gt; {
+</span><span class="boring">        let delta = (b * b) - 4.0 * a * c;
+</span><span class="boring">        if delta &lt; 0.0 {
+</span><span class="boring">            return Err(&quot;nao contem raiz real&quot;.to_string())
+</span><span class="boring">        }
+</span><span class="boring">        Ok(delta)
+</span><span class="boring">    }
+</span>}
 <span class="boring">}
 </span></code></pre></pre>
 <p>Agora ao executar os testes teremos sucesso:</p>

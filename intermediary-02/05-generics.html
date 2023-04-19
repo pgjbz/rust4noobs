@@ -156,11 +156,11 @@ struct Cliente&lt;T&gt; {
 }
 
 fn main() {
-    let cliente: Cliente&lt;String&gt; = Cliente::&lt;String&gt; { 
-        nome: String::from(&quot;Rust4Noobs&quot;), 
+    let cliente: Cliente&lt;String&gt; = Cliente::&lt;String&gt; {
+        nome: String::from(&quot;Rust4Noobs&quot;),
         ano_nascimento: 2021,
-        documento: String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;) 
-    }; 
+        documento: String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;)
+    };
 
     println!(&quot;{:#?}&quot;, cliente);
 }
@@ -168,7 +168,13 @@ fn main() {
 <p>Do modo acima, o documento do <code>Cliente</code>, pode ser, uma String, um inteiro, um Enum, outra <code>struct</code>.</p>
 <h3 id="implementando-um-método-genérico"><a class="header" href="#implementando-um-método-genérico">Implementando um método genérico.</a></h3>
 <p>Continuando o exemplo acima, lembra da parte sobre as <a href="./01-structs.html">structs</a> onde implementamos o método estático <code>new</code>, como que ficaria para este exemplo usando generic?</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">struct Cliente&lt;T&gt; {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    ano_nascimento: u16,
+</span><span class="boring">    documento: T
+</span><span class="boring">}
+</span>//--declaração da struct
 impl&lt;T&gt; Cliente&lt;T&gt; {
     fn new(nome: String, ano_nascimento: u16, documento: T) -&gt; Self {
         Self {
@@ -180,12 +186,12 @@ impl&lt;T&gt; Cliente&lt;T&gt; {
 }
 
 fn main() {
-    let cliente = Cliente::new(String::from(&quot;Rust4Noobs&quot;), 
-        2021, 
+    let cliente = Cliente::new(String::from(&quot;Rust4Noobs&quot;),
+        2021,
         String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;));
     println!(&quot;{:#?}&quot;, cliente);
-    let cliente2 = Cliente::new(String::from(&quot;Rust4Noobs&quot;), 
-        2021, 
+    let cliente2 = Cliente::new(String::from(&quot;Rust4Noobs&quot;),
+        2021,
         123456789);
     println!(&quot;{:#?}&quot;, cliente2);
 }
@@ -220,7 +226,7 @@ impl&lt;T, U&gt; Cliente&lt;T, U&gt; {
         if item &gt; maior {
             maior = item;
         }
-    } 
+    }
     maior
 }
 

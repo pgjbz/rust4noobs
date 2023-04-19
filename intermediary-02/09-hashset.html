@@ -148,9 +148,11 @@
 <h2 id="usando-um-hashset"><a class="header" href="#usando-um-hashset">Usando um HashSet</a></h2>
 <p>Um <code>HashSet</code> é uma coleção genérica, e assim como o ela armazena dados de vários tipo, porém para tais dados serem armazenados eles precisam implementar certas <a href="./06-traits.html">traits</a>, para começar vamos utilizar os tipos primitivos.</p>
 <h3 id="criando-um-hashset"><a class="header" href="#criando-um-hashset">Criando um HashSet</a></h3>
-<p>Temos alguns modos para criar um <code>HashSet</code>. </p>
+<p>Temos alguns modos para criar um <code>HashSet</code>.</p>
 <p>Temos um modo declarando o tipo e instânciando que segue o padrão <code>let nome: HashSet&lt;tipo&gt; = HashSet::new()</code>, o modo por inferência, <code>let nome = HashSet::&lt;tipo&gt;::new()</code>, claro podemos fazer <code>let nome: HashSet&lt;tipo&gt; = HashSet::&lt;tipo&gt;::new()</code> ou <code>let nome = HashSet::new()</code> e o tipo é definido pelo primeiro uso.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut hashSet: HashSet&lt;i32&gt; = HashSet::new();
     let mut hashSet2 = HashSet::&lt;i32&gt;::new();
     let mut hashSet3 = HashSet::new();
@@ -161,7 +163,9 @@
 Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exemplo, <code>insert</code>, <code>contains</code>, <code>remove</code>, <code>get</code></p>
 <h3 id="método-insert"><a class="header" href="#método-insert">Método insert</a></h3>
 <p>O método <code>insert</code> funciona para inserirmos um elemento ao <code>HashSet</code>. Já o utilizamos no exemplo de criação de um <code>HashSet</code>, este método nos retorna um booleano com <code>true</code> caso consiga inserir com sucesso e false caso não consiga.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut set = HashSet::new();
     if set.insert(10) {
         println!(&quot;Eitcha lele&quot;);
@@ -173,7 +177,9 @@ Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exem
 </code></pre></pre>
 <h3 id="método-contains"><a class="header" href="#método-contains">Método contains</a></h3>
 <p>O método contains, serve para verificarmos se um elemento existe no <code>HashSet</code> nos retornando um <code>true</code> caso exista e <code>false</code> caso não.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut set = HashSet::new();
     set.insert(10);
     if set.contains(&amp;10) {
@@ -183,7 +189,9 @@ Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exem
 </code></pre></pre>
 <h3 id="método-remove"><a class="header" href="#método-remove">Método remove</a></h3>
 <p>O método remove como o seu nome diz, remove um elemento da coleção. Nos retornando <code>true</code> caso consiga remover e <code>false</code> caso não.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut set = HashSet::new();
     set.insert(10);
     if set.remove(&amp;10) {
@@ -193,7 +201,9 @@ Temos alguns métodos para trabalhar com um <code>HashSet</code>, como, por exem
 </code></pre></pre>
 <h3 id="método-get"><a class="header" href="#método-get">Método get</a></h3>
 <p>O método get recupera um valor da coleção, nos retornando um <a href="./07-option.html">Option</a>.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
     let mut set = HashSet::new();
     set.insert(10);
     let num = set.get(&amp;10);
@@ -250,6 +260,7 @@ fn main() {
 </code></pre></pre>
 <p>Essas traits servem para comparação e geração do Hash, ou podemos também implementar por nós mesmos.</p>
 <pre><pre class="playground"><code class="language-rust">use std::hash::Hash;
+use std::collections::HashSet;
 
 struct Cliente {
     id: i32,

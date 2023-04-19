@@ -156,24 +156,34 @@
 <span class="boring">}
 </span></code></pre></pre>
 <p>O modo de declaração dos campos/atributos de uma struct lembra bastante o de um <a href="https://en.wikipedia.org/wiki/JSON">json</a>, para criarmos uma variável de uma struct podemos fazer da seguinte maneira:</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da estrutura Cliente
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    ano_de_nascimento: u16,
+</span><span class="boring">    documento: String,
+</span><span class="boring">}
+</span>//--declaração da estrutura Cliente
 
 fn main() {
-    let cliente: Cliente = Cliente { 
+    let cliente: Cliente = Cliente {
         nome: String::from(&quot;Paulo&quot;),
-        ano_de_nascimento: 1999, 
-        documento: String::from(&quot;Onde?&quot;) 
+        ano_de_nascimento: 1999,
+        documento: String::from(&quot;Onde?&quot;)
     };
 }
 </code></pre></pre>
 <p>Podemos acessar os campos da variável utilizando apenas um &quot;.nome_do_campo&quot;.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da estrutura Cliente
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    ano_de_nascimento: u16,
+</span><span class="boring">    documento: String,
+</span><span class="boring">}
+</span>//--declaração da estrutura Cliente
 
 fn main() {
-    let cliente = Cliente { 
+    let cliente = Cliente {
         nome: String::from(&quot;Paulo&quot;),
-        ano_de_nascimento: 1999, 
-        documento: String::from(&quot;Onde?&quot;) 
+        ano_de_nascimento: 1999,
+        documento: String::from(&quot;Onde?&quot;)
     };
     println!(&quot;Nome do cliente: {}&quot;, cliente.nome);
 }
@@ -219,8 +229,8 @@ impl Cliente {
             nome: nome,
             ano_de_nascimento,
             /*
-                Como o atributo tem o mesmo nome do 
-                parâmetro/variável eu não preciso 
+                Como o atributo tem o mesmo nome do
+                parâmetro/variável eu não preciso
                 colocar o padrão chave:valor
             */
             documento
@@ -230,13 +240,13 @@ impl Cliente {
     fn diz_oi(&amp;self) {
         println!(&quot;{} disse oi&quot;, self.nome);
     }
-    
+
     fn diz_tchau(self) {
         println!(&quot;{} disse tchau e foi embora&quot;, self.nome);
-    } 
+    }
 
     fn mudar_nome(&amp;mut self, novo_nome: String) {
-        //para utilizar este método a instância de 
+        //para utilizar este método a instância de
         //cliente deve ser mutável
         self.nome = novo_nome;
     }
@@ -245,7 +255,7 @@ impl Cliente {
 fn main() {
     let mut cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
     cliente.diz_oi();
-    cliente.mudar_nome(String::from(&quot;Novo nome&quot;)); 
+    cliente.mudar_nome(String::from(&quot;Novo nome&quot;));
     cliente.diz_oi();
     cliente.diz_tchau(); //a partir daqui a memória deste               //cliente foi liberada não conseguimos mais utilizar
 }
@@ -256,7 +266,7 @@ fn main() {
 37 |     let mut cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
    |         ----------- move occurs because `cliente` has type `Cliente`, which does not implement the `Copy` trait
 ...
-41 |     cliente.diz_tchau(); //a partir daqui a memória deste      
+41 |     cliente.diz_tchau(); //a partir daqui a memória deste
    |             ----------- `cliente` moved due to this method call
 42 |     cliente.diz_oi();         //cliente foi liberada não conseguimos mais utilizar
    |     ^^^^^^^ value borrowed here after move

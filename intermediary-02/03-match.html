@@ -168,13 +168,22 @@ fn main() {
     println!(&quot;{:#?}&quot;, uf);
 }
 </code></pre></pre>
-<p>Ficamos de implementar o método <code>quem_sou_eu</code> de propósito, nele iremos utilizar a estrutura de decisão <code>match</code>. </p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+<p>Ficamos de implementar o método <code>quem_sou_eu</code> de propósito, nele iremos utilizar a estrutura de decisão <code>match</code>.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">    Sp(String),
+</span><span class="boring">    Rj(String),
+</span><span class="boring">    Ce(String),
+</span><span class="boring">}
+</span>//--declaração do enum
 impl Uf {
-    //--outros métodos
+<span class="boring">    fn retorna_sp() -&gt; Self {
+</span><span class="boring">        Self::Sp(String::from(&quot;São Paulo&quot;))
+</span><span class="boring">    }
+</span>    //--outros métodos
     fn quem_sou_eu(&amp;self) {
         match self {
-            Sp(_) =&gt; println!(&quot;Eu sou São Paulo&quot;),
+            Uf::Sp(_) =&gt; println!(&quot;Eu sou São Paulo&quot;),
         }
     }
 }
@@ -209,9 +218,18 @@ For more information about this error, try `rustc --explain E0004`.
 </code></pre>
 <p>O porquê deste erro?</p>
 <p>Rust nos obriga a cobrir todos os casos que podem acontecer. Para isso vamos fazer a seguinte alteração.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">    Sp(String),
+</span><span class="boring">    Rj(String),
+</span><span class="boring">    Ce(String),
+</span><span class="boring">}
+</span>//--declaração do enum
 impl Uf {
-    //--outros métodos
+<span class="boring">    fn retorna_sp() -&gt; Self {
+</span><span class="boring">        Self::Sp(String::from(&quot;São Paulo&quot;))
+</span><span class="boring">    }
+</span>    //--outros métodos
     fn quem_sou_eu(&amp;self) {
         match self {
             Uf::Sp(_) =&gt; println!(&quot;Eu sou São Paulo&quot;),
@@ -227,9 +245,18 @@ fn main() {
 }
 </code></pre></pre>
 <p>Agora nosso código ira rodar, mas reparem que eu posso criar uma instância de <code>enum</code> com um valor e o código se repete nos 3 casos. Eu posso melhorar isso um pouco, realizando a troca do '_' por um nome, e também posso deixar todos no mesmo 'match' utilizando um pipe '|'.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">    Sp(String),
+</span><span class="boring">    Rj(String),
+</span><span class="boring">    Ce(String),
+</span><span class="boring">}
+</span>//--declaração do enum
 impl Uf {
-    //--outros métodos
+<span class="boring">    fn retorna_sp() -&gt; Self {
+</span><span class="boring">        Self::Sp(String::from(&quot;São Paulo&quot;))
+</span><span class="boring">    }
+</span>    //--outros métodos
     fn quem_sou_eu(&amp;self) {
         match self {
             Uf::Sp(nome) | Uf::Rj(nome) | Uf::Ce(nome) =&gt; println!(&quot;Eu sou {}&quot;, nome),
@@ -296,7 +323,7 @@ fn main() {
     }
 }
 </code></pre></pre>
-<p>Com o código acima cobrimos todas as possibilidades possíveis e qualquer valor que não seja 1, 2 ou 3 teremos a mesma tratativa. </p>
+<p>Com o código acima cobrimos todas as possibilidades possíveis e qualquer valor que não seja 1, 2 ou 3 teremos a mesma tratativa.</p>
 <p>A expressão match também pode ser utilizada comparar por uma faixa de valor. Utilizando a o 'match' da seguinte maneira 'inicio..=fim'</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let numero = 20;

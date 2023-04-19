@@ -184,9 +184,24 @@ For more information about this error, try `rustc --explain E0433`.
 error: could not compile `modulos` due to previous error
 </code></pre>
 <p>A struct não foi encontrada no escopo. O compilador esta dizendo para importamos o cliente, vamos importar utilizando o que o compilador diz para importar <code>use crate::nota_fiscal::Cliente;</code></p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do modulo
-
-use crate::nota_fiscal::Cliente;
+<pre><pre class="playground"><code class="language-rust"><span class="boring">mod nota_fiscal {
+</span><span class="boring">    struct Cliente {
+</span><span class="boring">        nome: String,
+</span><span class="boring">        ano_de_nascimento: u16,
+</span><span class="boring">        documento: String,
+</span><span class="boring">    }
+</span><span class="boring">
+</span><span class="boring">    impl Cliente {
+</span><span class="boring">        fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+</span><span class="boring">            Self {
+</span><span class="boring">                nome,
+</span><span class="boring">                ano_de_nascimento,
+</span><span class="boring">                documento
+</span><span class="boring">            }
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span><span class="boring">}
+</span>//--declaração do modulo
 
 use crate::nota_fiscal::Cliente;
 
@@ -211,10 +226,7 @@ For more information about this error, try `rustc --explain E0603`.
 error: could not compile `modulos` due to previous error
 </code></pre>
 <p>Por padrão todas as declarações dentro de um módulo são privadas, para resolvermos este problema utilizamos a palavra <code>pub</code>, vamos adicionar isso tanto para a struct quanto para a implementação do método estático <code>new</code>, porque ele também é privado.</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>mod nota_fiscal {
+<pre><pre class="playground"><code class="language-rust">mod nota_fiscal {
     pub struct Cliente {
         nome: String,
         ano_de_nascimento: u16,
@@ -233,22 +245,40 @@ error: could not compile `modulos` due to previous error
 }
 
 //--método main
-<span class="boring">}
+<span class="boring">use crate::nota_fiscal::Cliente;
+</span>
+<span class="boring">fn main() {
+</span><span class="boring">    let cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+</span><span class="boring">    println!(&quot;{} {} {}&quot;, cliente.nome, cliente.ano_de_nascimento, cliente.documento);
+</span><span class="boring">}
 </span></code></pre></pre>
 <p>Os atributos também são privados, caso tentarmos acessar qualquer um deles teremos outro erro de compilação, podemos acessar através de outros métodos públicos, ou deixando os atributos públicos.</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>mod nota_fiscal {
+<pre><pre class="playground"><code class="language-rust">mod nota_fiscal {
     pub struct Cliente {
         pub nome: String,
         pub ano_de_nascimento: u16,
         pub documento: String,
     }
 //--métodos
-}
+<span class="boring">    impl Cliente {
+</span><span class="boring">        pub fn new(nome: String, ano_de_nascimento: u16, documento: String) -&gt; Self {
+</span><span class="boring">            Self {
+</span><span class="boring">                nome,
+</span><span class="boring">                ano_de_nascimento,
+</span><span class="boring">                documento
+</span><span class="boring">            }
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span>}
 
-<span class="boring">}
+//--método main
+<span class="boring">use crate::nota_fiscal::Cliente;
+</span>
+<span class="boring">fn main() {
+</span><span class="boring">    let cliente = Cliente::new(String::from(&quot;Paulo&quot;), 1999, String::from(&quot;Onde?&quot;));
+</span>
+<span class="boring">    println!(&quot;{} {} {}&quot;, cliente.nome, cliente.ano_de_nascimento, cliente.documento);
+</span><span class="boring">}
 </span></code></pre></pre>
 <h2 id="separando-módulos-em-outros-arquivos"><a class="header" href="#separando-módulos-em-outros-arquivos">Separando módulos em outros arquivos</a></h2>
 <p>Não adianta muito criamos módulos para organizar o nosso código e mantermos tudo no mesmo arquivo. Vamos começar criando um arquivo <code>nota_fiscal.rs</code> e jogando o código do Cliente para este arquivo.</p>
@@ -400,7 +430,7 @@ fn main() {
 }
 
 </code></pre></pre>
-<p>Nesse exemplo temos vários modos de imports, temos um impor com a palavra <code>crate</code> que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o <code>super</code> que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais fácil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. </p>
+<p>Nesse exemplo temos vários modos de imports, temos um impor com a palavra <code>crate</code> que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o <code>super</code> que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais fácil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main.</p>
 <p>Futuramente iremos utilizar outro modo de projeto que ira utilizar o arquivo <code>lib.rs</code>, onde também podemos declarar os módulos e remover isso do <code>main.rs</code>, com esse arquivo podemos importar conforme o nome do projeto no <code>Cargo.toml</code></p>
 <p>lib.rs</p>
 <pre><pre class="playground"><code class="language-rust">

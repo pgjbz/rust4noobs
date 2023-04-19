@@ -155,7 +155,7 @@
 </code></pre></pre>
 <p>Iniciar um <code>Vec</code> já com uma capacidade o que nos da vantagem de deixar mais rápido a inserção de novos elementos nesse <code>Vec</code>, mas não vamos confundir a capacidade dele, com o tamanho dele, a capacidade é &quot;o quanto cabe&quot; e o tamanho é o &quot;o quanto tem&quot;.</p>
 <p>Note que declaramos todos os <code>Vec</code> como mutáveis, não é obrigatório serem declarados como mutáveis, nós só utilizamos isso caso queiramos realizar qualquer modificação no <code>Vec</code>, como adicionar, ou remover valores do mesmo.</p>
-<p>O compilador do Rust é inteligente o suficiente para saber o tipo de um <code>Vec</code> pelo primeiro elemento adicionado. </p>
+<p>O compilador do Rust é inteligente o suficiente para saber o tipo de um <code>Vec</code> pelo primeiro elemento adicionado.</p>
 <h2 id="métodos-de-vec"><a class="header" href="#métodos-de-vec">Métodos de Vec</a></h2>
 <p>Em Vec temos diversos métodos, mas agora iremos falar sobre os seguintes métodos: push, pop, len, clear, is_empty, contains, get, get_mut, insert e remove.</p>
 <h3 id="método-push"><a class="header" href="#método-push">Método push</a></h3>
@@ -163,6 +163,8 @@
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let mut lista = Vec::new();
     lista.push(10);
+
+    println!(&quot;{:?}&quot;, lista);
 }
 </code></pre></pre>
 <h3 id="método-insert"><a class="header" href="#método-insert">Método insert</a></h3>
@@ -170,6 +172,8 @@
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let mut lista = vec![1, 2, 3];
     lista.insert(0, 4);
+
+    println!(&quot;{:?}&quot;, lista);
 }
 </code></pre></pre>
 <h3 id="método-pop"><a class="header" href="#método-pop">Método pop</a></h3>
@@ -177,6 +181,8 @@
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let mut lista = vec![1, 2, 3];
     let ultimo: Option&lt;i32&gt; = lista.pop();
+
+    println!(&quot;{:?}&quot;, lista);
 }
 </code></pre></pre>
 <h3 id="método-len"><a class="header" href="#método-len">Método len</a></h3>
@@ -184,6 +190,8 @@
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let lista = vec![1,2,3];
     let tamanho = lista.len();
+
+    println!(&quot;{}&quot;, tamanho);
 }
 </code></pre></pre>
 <h3 id="método-get"><a class="header" href="#método-get">Método get</a></h3>

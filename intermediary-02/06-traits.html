@@ -151,7 +151,7 @@
         if item &gt; maior {
             maior = item;
         }
-    } 
+    }
     maior
 }
 
@@ -171,7 +171,10 @@ fn main() {
 <span class="boring">}
 </span></code></pre></pre>
 <p>Assim definimos uma <code>trait</code>, agora precisamos implementar, vamos criar uma <code>struct Pedido</code> que ira implementar essa <code>trait</code>. Para dizer que algo implementa uma <code>trait</code> usamos o seguinte padrão <code>impl NomeTrait for NomeStruct { implementação }</code></p>
-<pre><pre class="playground"><code class="language-rust">//--definição trait Pagável
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Pagavel  {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64;
+</span><span class="boring">}
+</span>//--definição trait Pagável
 
 struct Pedido {
     quantidade_items: u8,
@@ -215,7 +218,25 @@ where
 <span class="boring">}
 </span></code></pre></pre>
 <p>Então podemos chamar o método genérico pagar passando o pedido como argumento.</p>
-<pre><pre class="playground"><code class="language-rust">//--Definição pedido, trait e implementação
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Pagavel  {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64;
+</span><span class="boring">}
+</span><span class="boring">struct Pedido {
+</span><span class="boring">    quantidade_items: u8,
+</span><span class="boring">    valor_items: f64
+</span><span class="boring">}
+</span><span class="boring">impl Pagavel for Pedido {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64 {
+</span><span class="boring">        self.valor_items * self.quantidade_items as f64
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">fn pagar&lt;T&gt;(pagavel: T)
+</span><span class="boring">where
+</span><span class="boring">    T: Pagavel,
+</span><span class="boring">{
+</span><span class="boring">    println!(&quot;Valor {} pago&quot;, pagavel.total());
+</span><span class="boring">}
+</span>//--Definição pedido, trait e implementação
 fn main() {
     let pedido = Pedido {
         quantidade_items: 10,
@@ -224,9 +245,21 @@ fn main() {
     pagar(pedido);
 }
 </code></pre></pre>
-<p>E o programa ira compilar. </p>
+<p>E o programa ira compilar.</p>
 <p>Podemos implementar mais de uma trait para algo.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração trait pagavel, struct e impl Pagavel
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Pagavel  {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64;
+</span><span class="boring">}
+</span><span class="boring">struct Pedido {
+</span><span class="boring">    quantidade_items: u8,
+</span><span class="boring">    valor_items: f64
+</span><span class="boring">}
+</span><span class="boring">impl Pagavel for Pedido {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64 {
+</span><span class="boring">        self.valor_items * self.quantidade_items as f64
+</span><span class="boring">    }
+</span><span class="boring">}
+</span>//--declaração trait pagavel, struct e impl Pagavel
 trait Cancelavel {
     fn cancelar(self);
 }
@@ -246,7 +279,27 @@ fn main() {
 }
 </code></pre></pre>
 <p>Uma trait pode ter um método já implementado, que pode ou não ser sobrescrito.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração trait pagavel, struct e impl Pagavel e cancelavel
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Pagavel  {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64;
+</span><span class="boring">}
+</span><span class="boring">struct Pedido {
+</span><span class="boring">    quantidade_items: u8,
+</span><span class="boring">    valor_items: f64
+</span><span class="boring">}
+</span><span class="boring">impl Pagavel for Pedido {
+</span><span class="boring">    fn total(&amp;self) -&gt; f64 {
+</span><span class="boring">        self.valor_items * self.quantidade_items as f64
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">trait Cancelavel {
+</span><span class="boring">   fn cancelar(self);
+</span><span class="boring">}
+</span><span class="boring">impl Cancelavel for Pedido {
+</span><span class="boring">   fn cancelar(self) {
+</span><span class="boring">       println!(&quot;Pedido com {} itens cancelado&quot;, self.quantidade_items)
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>//--declaração trait pagavel, struct e impl Pagavel e cancelavel
 
 trait Tributavel {
     fn calcular_imposto(&amp;self) -&gt; f64 {
@@ -254,7 +307,7 @@ trait Tributavel {
     }
 }
 
-impl Tributavel for Pedido {} 
+impl Tributavel for Pedido {}
 
 fn main() {
     let pedido = Pedido {
@@ -270,9 +323,9 @@ fn main() {
 </span><span class="boring">fn main() {
 </span>impl Tributavel for Pedido {
     fn calcular_imposto(&amp;self) -&gt; f64 {
-        self.valor_items * 0.01 
+        self.valor_items * 0.01
     }
-} 
+}
 <span class="boring">}
 </span></code></pre></pre>
 <p>E se eu quiser que para implementar <code>Tributavel</code> e <code>Cancelavel</code> eu precise implementar a <code>trait</code> <code>Pagavel</code>? Seria usado uma estratégia parecida com a dos generics <code>trait NomeTrait: TraitQuePrecisaImplementar</code></p>
@@ -306,7 +359,7 @@ trait Tributavel: Pagavel {
 
 impl Tributavel for Pedido {
     fn calcular_imposto(&amp;self) -&gt; f64 {
-        0.01 * self.total()   
+        0.01 * self.total()
     }
 }
 <span class="boring">}
@@ -348,7 +401,24 @@ fn main() {
    |
 </code></pre>
 <p>Este erro acontece por termos múltiplas implementações de método com a mesma assinatura. Para chamar o método <code>comer</code> podemos fazer da seguinte maneira <code>trait::metodo(&amp;instância)</code>.</p>
-<pre><pre class="playground"><code class="language-rust">//--declarações e implementações
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cachorro {}
+</span><span class="boring">trait Animal {
+</span><span class="boring">    fn comer(&amp;self);
+</span><span class="boring">}
+</span><span class="boring">trait Fome {
+</span><span class="boring">    fn comer(&amp;self);
+</span><span class="boring">}
+</span><span class="boring">impl Animal for Cachorro {
+</span><span class="boring">    fn comer(&amp;self) {
+</span><span class="boring">        println!(&quot;Cachorro comendo... animal&quot;);
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">impl Fome for Cachorro {
+</span><span class="boring">    fn comer(&amp;self) {
+</span><span class="boring">        println!(&quot;Cachorro comendo por estar com fome&quot;);
+</span><span class="boring">    }
+</span><span class="boring">}
+</span>//--declarações e implementações
 fn main() {
     let cachorro = Cachorro {};
     Animal::comer(&amp;cachorro);
@@ -356,13 +426,18 @@ fn main() {
 }
 </code></pre></pre>
 <p>Podemos também implementar traits para tipos já existentes.</p>
-<pre><pre class="playground"><code class="language-rust">impl Fome for i32 {
+<pre><pre class="playground"><code class="language-rust"><span class="boring">trait Fome {
+</span><span class="boring">    fn comer(&amp;self);
+</span><span class="boring">}
+</span>//--declaração trait de fome
+impl Fome for i32 {
     fn comer(&amp;self) {
         println!(&quot;Um numero esta comendo por estar com fome? Isso faz sentido?&quot;)
     }
 }
 
 fn main() {
+    let a: i32 = 10;
     a.comer();
 }
 </code></pre></pre>
@@ -374,7 +449,7 @@ fn main() {
 }
 
 impl Iterator for Contador {
-    type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso, 
+    type Item = u64; /*futuramente iremos explicar com mais detalhes o que é isso,
     mas considere que é um modo de usar Generics de uma forma que impedimos múltiplas implementações da mesma trait pra mesma coisa */
 
     fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {

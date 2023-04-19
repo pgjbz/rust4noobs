@@ -154,7 +154,11 @@ fn main() {
 }
 </code></pre></pre>
 <p>A variável file, esta recebendo um <code>Result&lt;File, std::io::Error&gt;</code>, podemos realizar apenas um <code>.unwrap()</code> para caso o arquivo não exista, ou não termos permissão para acesso, ou qualquer outro erro aconteça encerarmos a execução do programa, ou caso de sucesso prosseguirmos com a solução do problema. Mas não queremos fazer isso. Caso o tivermos algum erro, mais específico, o arquivo não existir, vamos criar este arquivo e escrever nele &quot;Rust4Noobs&quot;, caso qualquer um destes processos do tratamento falhe, iremos simplesmente encerrar o programa.</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">use std::fs::File;
+use std::io::Write;
+use std::process;
+
+fn main() {
     let file = abre_arquivo(&quot;rust4noobs.txt&quot;);
 }
 
@@ -176,8 +180,13 @@ fn abre_arquivo(caminho: &amp;str) -&gt; File {
 }
 </code></pre></pre>
 <p>No código acima, tentamos abrir o arquivo, caso tenhamos sucesso, retornamos o arquivo, caso aconteça algum erro executamos o procedimento de validar o tipo do erro, caso o erro seja do tipo &quot;NotFound&quot;, então criamos o arquivo e escrevemos nele, já dando <code>.unwrap</code> caso de algum erro, após isso já retornamos o arquivo, para ser utilizado. Caso o erro não seja do tipo <code>NotFound</code> apenas escrevemos o erro e finalizamos o processo.</p>
-<p>Agora vamos eliminar esses <code>unwrap</code> com o operador <code>?</code>, para isso precisamos realizar algumas modificações. </p>
-<pre><pre class="playground"><code class="language-rust">fn main() -&gt; Result&lt;(), io::Error&gt; {
+<p>Agora vamos eliminar esses <code>unwrap</code> com o operador <code>?</code>, para isso precisamos realizar algumas modificações.</p>
+<pre><pre class="playground"><code class="language-rust">use std::fs::File;
+use std::io;
+use std::io::Write;
+use std::process;
+
+fn main() -&gt; Result&lt;(), io::Error&gt; {
     let file = abre_arquivo(&quot;rust4noobs.txt&quot;)?;
     Ok(())
 }
@@ -216,7 +225,7 @@ impl std::fmt::Display for ParseError {
 }
 
 fn faz_o_parse_ai(mock: u8) -&gt; Result&lt;(), ParseError&gt; {
-    
+
     if mock &gt;= 100 &amp;&amp; mock &lt;= 199 {
         return Err(ParseError::Inaceitavel(&quot;como assim vc me deu esse valor?&quot;.to_string()));
     } else if mock &gt; 200 {

@@ -180,7 +180,13 @@ enum Uf {
 <span class="boring">}
 </span></code></pre></pre>
 <p>Esta alteração que fizemos também pode ser aplicada as <a href="./01-structs.html">structs</a>, para tirarmos proveito desta modificação iremos usar o macro <code>println!</code> da seguinte maneira.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do enum
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">   Sp(String),
+</span><span class="boring">   Rj(String),
+</span><span class="boring">   Ce(String),
+</span><span class="boring">}
+</span>//--declaração do enum
 fn main() {
     let uf = Uf::Sp(String::from(&quot;São Paulo&quot;));
     println!(&quot;{:?}&quot;, uf);
@@ -190,7 +196,13 @@ fn main() {
 <p>Este modo de uso ira escrever no console o modo em que a estrutura foi declarada, tanto para os enums quanto para as <a href="./01-structs.html">structs</a>.</p>
 <h2 id="métodos-em-enums"><a class="header" href="#métodos-em-enums">Métodos em enums.</a></h2>
 <p>Também conseguimos implementar métodos para nossos enums, do mesmo modo que fazemos com as <code>structs</code>.</p>
-<pre><pre class="playground"><code class="language-rust">//--Declaração do enum
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#[derive(Debug)]
+</span><span class="boring">enum Uf {
+</span><span class="boring">   Sp(String),
+</span><span class="boring">   Rj(String),
+</span><span class="boring">   Ce(String),
+</span><span class="boring">}
+</span>//--Declaração do enum
 impl Uf {
     fn retorna_sp() -&gt; Self {
         Self::Sp(String::from(&quot;São Paulo&quot;))

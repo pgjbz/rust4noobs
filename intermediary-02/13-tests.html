@@ -310,7 +310,7 @@ mod tests {
 
     use super::calculadora;
 
-   
+
     #[test]
     #[should_panic]
     fn calcular_delta_negativo_esperado_error() {
@@ -352,7 +352,7 @@ mod tests {
         let delta = (b * b) - 4.0 * a * c;
         if delta &lt; 0.0 {
             return Err(&quot;nao contem raiz real&quot;.to_string())
-        } 
+        }
         Ok(delta)
     }
 
@@ -400,8 +400,14 @@ test result: FAILED. 2 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; 
         let x2 = (menos_b - delta.sqrt()) / 2.0 * a;
         Ok((x1, x2))
     }
-
-}
+<span class="boring">    pub(super) fn calcula_delta(a: f64, b: f64, c: f64) -&gt; Result&lt;f64, String&gt; {
+</span><span class="boring">        let delta = (b * b) - 4.0 * a * c;
+</span><span class="boring">        if delta &lt; 0.0 {
+</span><span class="boring">            return Err(&quot;nao contem raiz real&quot;.to_string())
+</span><span class="boring">        }
+</span><span class="boring">        Ok(delta)
+</span><span class="boring">    }
+</span>}
 <span class="boring">}
 </span></code></pre></pre>
 <p>Agora ao executar os testes teremos sucesso:</p>

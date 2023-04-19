@@ -165,7 +165,11 @@ fn main() {
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 </code></pre>
 <p>A diferença entre o <code>unwrap</code>e o <code>expect</code>, é que com o <code>expect</code> podemos definir uma mensagem para este erro</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -179,7 +183,11 @@ fn main() {
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 </code></pre>
 <p>Mas se quisermos evitar este erro, como fazemos isso? Podemos utilizar os métodos <code>is_none</code> ou <code>is_some</code> para verificar isso.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -188,11 +196,15 @@ fn main() {
     if cliente.idade.is_some() {
         let idade = cliente.idade.unwrap();
         println!(&quot;O cliente {} tem {} anos&quot;, cliente.nome, idade);
-    } 
+    }
 }
 </code></pre></pre>
 <p>Agora temos uma checagem se o valor existe, podemos usar o <code>is_none</code> para adicionar um tratamento para caso a idade não exista.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let mut cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -209,7 +221,11 @@ fn main() {
 <p>Mas esse talvez não seja o melhor modo de fazer isso.</p>
 <h2 id="extraindo-o-valor-com-um-match"><a class="header" href="#extraindo-o-valor-com-um-match">Extraindo o valor com um match</a></h2>
 <p>O operador <a href="./03-match.html">match</a> pode ser utilizado para <a href="./02-enums.html">enums</a>, lembra dos <code>enums</code> com valores associados? O <code>Option</code> é um <code>enum</code> com valores associados. Então podemos utilizar o <code>match</code> para chegar se o valor existe.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -224,7 +240,11 @@ fn main() {
 <p>Claro podemos utilizar de todos os aspectos do <code>match</code> nessa abordagem</p>
 <h2 id="operador-if-let"><a class="header" href="#operador-if-let">Operador if let</a></h2>
 <p>O operador <code>if let</code> é geralmente usado para tratativas pequenas. Onde realizamos uma validação e já atribuímos o valor a uma variável. Podendo ser feito da seguinte maneira <code>if let Some(nome ou ignora o valor) = expressao teste { codigo } else { se nao }</code>.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração da struct
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
 fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
@@ -238,7 +258,12 @@ fn main() {
 }
 </code></pre></pre>
 <p>O código acima tem o mesmo resultado do código com o <code>match</code>, claro o <code>if let</code> também pode retornar algo, assim como o <code>match</code></p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Cliente {
+</span><span class="boring">    nome: String,
+</span><span class="boring">    idade: Option&lt;u8&gt;,
+</span><span class="boring">}
+</span>//--declaração da struct
+fn main() {
     let cliente = Cliente {
         nome: &quot;Rust4Noobs&quot;.to_string(),
         idade: None,
@@ -276,7 +301,22 @@ impl Iterator for Contador {
 <span class="boring">}
 </span></code></pre></pre>
 <p>Ao implementar essa trait, temos o método <code>next</code> que nos retorna um <code>Option</code>, podemos utilizar esse retorno para ir iterando o nosso contador.</p>
-<pre><pre class="playground"><code class="language-rust">//--declaração do contador
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Contador {
+</span><span class="boring">    contagem: u64
+</span><span class="boring">}
+</span><span class="boring">impl Iterator for Contador {
+</span><span class="boring">    type Item = u64;
+</span><span class="boring">
+</span><span class="boring">    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+</span><span class="boring">        if self.contagem &gt;= 100 {
+</span><span class="boring">            None
+</span><span class="boring">        } else {
+</span><span class="boring">            self.contagem += 1;
+</span><span class="boring">            Some(self.contagem)
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span><span class="boring">}
+</span>//--declaração do contador
 fn main() {
     let mut contador = Contador { contagem: 0 };
 
