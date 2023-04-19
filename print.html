@@ -2464,7 +2464,7 @@ fn main() {
 <p>O método <code>get</code> retorna um <code>Option&lt;&amp;T&gt;</code> caso a posição solicitada exista, caso não exista é retornado um <code>None</code>, a vantagem de utilizar este método ao invés de um colchete e a posição <code>[pos]</code> é que se tentarmos acessar uma posição inexistente não paramos a execução da aplicação.</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let lista = vec![1,2,3];
-    let primeiro_elemento: Option&lt;i32&gt; = lista.get(0);
+    let primeiro_elemento: Option&lt;&amp;i32&gt; = lista.get(0);
     // let invalido = lista[1000]; //esta linha ira parar a execução do programa
 }
 </code></pre></pre>
