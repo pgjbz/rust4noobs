@@ -27,15 +27,24 @@ fn main() {
 }
 ```
 
-Ficamos de implementar o método `quem_sou_eu` de propósito, nele iremos utilizar a estrutura de decisão `match`. 
+Ficamos de implementar o método `quem_sou_eu` de propósito, nele iremos utilizar a estrutura de decisão `match`.
 
 ```rust
+# #[derive(Debug)]
+# enum Uf {
+#     Sp(String),
+#     Rj(String),
+#     Ce(String),
+# }
 //--declaração do enum
 impl Uf {
+    # fn retorna_sp() -> Self {
+    #     Self::Sp(String::from("São Paulo"))
+    # }
     //--outros métodos
     fn quem_sou_eu(&self) {
         match self {
-            Sp(_) => println!("Eu sou São Paulo"),
+            Uf::Sp(_) => println!("Eu sou São Paulo"),
         }
     }
 }
@@ -77,8 +86,17 @@ O porquê deste erro?
 Rust nos obriga a cobrir todos os casos que podem acontecer. Para isso vamos fazer a seguinte alteração.
 
 ```rust
+# #[derive(Debug)]
+# enum Uf {
+#     Sp(String),
+#     Rj(String),
+#     Ce(String),
+# }
 //--declaração do enum
 impl Uf {
+    # fn retorna_sp() -> Self {
+    #     Self::Sp(String::from("São Paulo"))
+    # }
     //--outros métodos
     fn quem_sou_eu(&self) {
         match self {
@@ -99,8 +117,17 @@ Agora nosso código ira rodar, mas reparem que eu posso criar uma instância de 
 
 
 ```rust
+# #[derive(Debug)]
+# enum Uf {
+#     Sp(String),
+#     Rj(String),
+#     Ce(String),
+# }
 //--declaração do enum
 impl Uf {
+    # fn retorna_sp() -> Self {
+    #     Self::Sp(String::from("São Paulo"))
+    # }
     //--outros métodos
     fn quem_sou_eu(&self) {
         match self {
@@ -178,7 +205,7 @@ fn main() {
 }
 ```
 
-Com o código acima cobrimos todas as possibilidades possíveis e qualquer valor que não seja 1, 2 ou 3 teremos a mesma tratativa. 
+Com o código acima cobrimos todas as possibilidades possíveis e qualquer valor que não seja 1, 2 ou 3 teremos a mesma tratativa.
 
 A expressão match também pode ser utilizada comparar por uma faixa de valor. Utilizando a o 'match' da seguinte maneira 'inicio..=fim'
 

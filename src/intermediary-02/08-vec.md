@@ -16,7 +16,7 @@ Iniciar um `Vec` já com uma capacidade o que nos da vantagem de deixar mais rá
 
 Note que declaramos todos os `Vec` como mutáveis, não é obrigatório serem declarados como mutáveis, nós só utilizamos isso caso queiramos realizar qualquer modificação no `Vec`, como adicionar, ou remover valores do mesmo.
 
-O compilador do Rust é inteligente o suficiente para saber o tipo de um `Vec` pelo primeiro elemento adicionado. 
+O compilador do Rust é inteligente o suficiente para saber o tipo de um `Vec` pelo primeiro elemento adicionado.
 
 ## Métodos de Vec
 
@@ -29,6 +29,8 @@ O método `push` é responsável por adicionar um elemento ao `Vec`, o método i
 fn main() {
     let mut lista = Vec::new();
     lista.push(10);
+
+    println!("{:?}", lista);
 }
 ```
 
@@ -40,6 +42,8 @@ Com o método insert conseguimos adicionar um valor na posição escolhida
 fn main() {
     let mut lista = vec![1, 2, 3];
     lista.insert(0, 4);
+
+    println!("{:?}", lista);
 }
 ```
 
@@ -51,6 +55,8 @@ O método `pop` remove o último elemento do `Vec` e nos retornar um `Option<T>`
 fn main() {
     let mut lista = vec![1, 2, 3];
     let ultimo: Option<i32> = lista.pop();
+
+    println!("{:?}", lista);
 }
 ```
 ### Método len
@@ -61,6 +67,8 @@ O método `len` retorna o tamanho do `Vec`
 fn main() {
     let lista = vec![1,2,3];
     let tamanho = lista.len();
+
+    println!("{}", tamanho);
 }
 ```
 

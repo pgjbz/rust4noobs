@@ -13,13 +13,18 @@ struct Cliente {
 O modo de declaração dos campos/atributos de uma struct lembra bastante o de um [json](https://en.wikipedia.org/wiki/JSON), para criarmos uma variável de uma struct podemos fazer da seguinte maneira:
 
 ```rust
+# struct Cliente {
+#     nome: String,
+#     ano_de_nascimento: u16,
+#     documento: String,
+# }
 //--declaração da estrutura Cliente
 
 fn main() {
-    let cliente: Cliente = Cliente { 
+    let cliente: Cliente = Cliente {
         nome: String::from("Paulo"),
-        ano_de_nascimento: 1999, 
-        documento: String::from("Onde?") 
+        ano_de_nascimento: 1999,
+        documento: String::from("Onde?")
     };
 }
 ```
@@ -27,13 +32,18 @@ fn main() {
 Podemos acessar os campos da variável utilizando apenas um ".nome_do_campo".
 
 ```rust
+# struct Cliente {
+#     nome: String,
+#     ano_de_nascimento: u16,
+#     documento: String,
+# }
 //--declaração da estrutura Cliente
 
 fn main() {
-    let cliente = Cliente { 
+    let cliente = Cliente {
         nome: String::from("Paulo"),
-        ano_de_nascimento: 1999, 
-        documento: String::from("Onde?") 
+        ano_de_nascimento: 1999,
+        documento: String::from("Onde?")
     };
     println!("Nome do cliente: {}", cliente.nome);
 }
@@ -88,8 +98,8 @@ impl Cliente {
             nome: nome,
             ano_de_nascimento,
             /*
-                Como o atributo tem o mesmo nome do 
-                parâmetro/variável eu não preciso 
+                Como o atributo tem o mesmo nome do
+                parâmetro/variável eu não preciso
                 colocar o padrão chave:valor
             */
             documento
@@ -99,13 +109,13 @@ impl Cliente {
     fn diz_oi(&self) {
         println!("{} disse oi", self.nome);
     }
-    
+
     fn diz_tchau(self) {
         println!("{} disse tchau e foi embora", self.nome);
-    } 
+    }
 
     fn mudar_nome(&mut self, novo_nome: String) {
-        //para utilizar este método a instância de 
+        //para utilizar este método a instância de
         //cliente deve ser mutável
         self.nome = novo_nome;
     }
@@ -114,7 +124,7 @@ impl Cliente {
 fn main() {
     let mut cliente = Cliente::new(String::from("Paulo"), 1999, String::from("Onde?"));
     cliente.diz_oi();
-    cliente.mudar_nome(String::from("Novo nome")); 
+    cliente.mudar_nome(String::from("Novo nome"));
     cliente.diz_oi();
     cliente.diz_tchau(); //a partir daqui a memória deste               //cliente foi liberada não conseguimos mais utilizar
 }
@@ -128,7 +138,7 @@ Caso tentarmos utilizar a instância de cliente após a chamada do método `diz_
 37 |     let mut cliente = Cliente::new(String::from("Paulo"), 1999, String::from("Onde?"));
    |         ----------- move occurs because `cliente` has type `Cliente`, which does not implement the `Copy` trait
 ...
-41 |     cliente.diz_tchau(); //a partir daqui a memória deste      
+41 |     cliente.diz_tchau(); //a partir daqui a memória deste
    |             ----------- `cliente` moved due to this method call
 42 |     cliente.diz_oi();         //cliente foi liberada não conseguimos mais utilizar
    |     ^^^^^^^ value borrowed here after move

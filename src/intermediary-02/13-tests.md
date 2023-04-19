@@ -172,7 +172,7 @@ mod tests {
 
     use super::calculadora;
 
-   
+
     #[test]
     #[should_panic]
     fn calcular_delta_negativo_esperado_error() {
@@ -214,7 +214,7 @@ mod calculadora {
         let delta = (b * b) - 4.0 * a * c;
         if delta < 0.0 {
             return Err("nao contem raiz real".to_string())
-        } 
+        }
         Ok(delta)
     }
 
@@ -264,7 +264,13 @@ mod calculadora {
         let x2 = (menos_b - delta.sqrt()) / 2.0 * a;
         Ok((x1, x2))
     }
-
+    # pub(super) fn calcula_delta(a: f64, b: f64, c: f64) -> Result<f64, String> {
+    #     let delta = (b * b) - 4.0 * a * c;
+    #     if delta < 0.0 {
+    #         return Err("nao contem raiz real".to_string())
+    #     }
+    #     Ok(delta)
+    # }
 }
 ```
 Agora ao executar os testes teremos sucesso:

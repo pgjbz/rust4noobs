@@ -36,6 +36,12 @@ enum Uf {
 Esta alteração que fizemos também pode ser aplicada as [structs](./01-structs.md), para tirarmos proveito desta modificação iremos usar o macro `println!` da seguinte maneira.
 
 ```rust
+# #[derive(Debug)]
+# enum Uf {
+#    Sp(String),
+#    Rj(String),
+#    Ce(String),
+# }
 //--declaração do enum
 fn main() {
     let uf = Uf::Sp(String::from("São Paulo"));
@@ -51,6 +57,12 @@ Este modo de uso ira escrever no console o modo em que a estrutura foi declarada
 Também conseguimos implementar métodos para nossos enums, do mesmo modo que fazemos com as `structs`.
 
 ```rust
+# #[derive(Debug)]
+# enum Uf {
+#    Sp(String),
+#    Rj(String),
+#    Ce(String),
+# }
 //--Declaração do enum
 impl Uf {
     fn retorna_sp() -> Self {

@@ -8,11 +8,13 @@ Um `HashSet` é uma coleção genérica, e assim como o ela armazena dados de v�
 
 ### Criando um HashSet
 
-Temos alguns modos para criar um `HashSet`. 
+Temos alguns modos para criar um `HashSet`.
 
 Temos um modo declarando o tipo e instânciando que segue o padrão `let nome: HashSet<tipo> = HashSet::new()`, o modo por inferência, `let nome = HashSet::<tipo>::new()`, claro podemos fazer `let nome: HashSet<tipo> = HashSet::<tipo>::new()` ou `let nome = HashSet::new()` e o tipo é definido pelo primeiro uso.
 
 ```rust
+use std::collections::HashSet;
+
 fn main() {
     let mut hashSet: HashSet<i32> = HashSet::new();
     let mut hashSet2 = HashSet::<i32>::new();
@@ -29,6 +31,8 @@ Temos alguns métodos para trabalhar com um `HashSet`, como, por exemplo, `inser
 O método `insert` funciona para inserirmos um elemento ao `HashSet`. Já o utilizamos no exemplo de criação de um `HashSet`, este método nos retorna um booleano com `true` caso consiga inserir com sucesso e false caso não consiga.
 
 ```rust
+use std::collections::HashSet;
+
 fn main() {
     let mut set = HashSet::new();
     if set.insert(10) {
@@ -46,6 +50,8 @@ O método contains, serve para verificarmos se um elemento existe no `HashSet` n
 
 
 ```rust
+use std::collections::HashSet;
+
 fn main() {
     let mut set = HashSet::new();
     set.insert(10);
@@ -60,6 +66,8 @@ fn main() {
 O método remove como o seu nome diz, remove um elemento da coleção. Nos retornando `true` caso consiga remover e `false` caso não.
 
 ```rust
+use std::collections::HashSet;
+
 fn main() {
     let mut set = HashSet::new();
     set.insert(10);
@@ -74,6 +82,8 @@ fn main() {
 O método get recupera um valor da coleção, nos retornando um [Option](./07-option.md).
 
 ```rust
+use std::collections::HashSet;
+
 fn main() {
     let mut set = HashSet::new();
     set.insert(10);
@@ -145,6 +155,7 @@ Essas traits servem para comparação e geração do Hash, ou podemos também im
 
 ```rust
 use std::hash::Hash;
+use std::collections::HashSet;
 
 struct Cliente {
     id: i32,

@@ -17,11 +17,11 @@ struct Cliente<T> {
 }
 
 fn main() {
-    let cliente: Cliente<String> = Cliente::<String> { 
-        nome: String::from("Rust4Noobs"), 
+    let cliente: Cliente<String> = Cliente::<String> {
+        nome: String::from("Rust4Noobs"),
         ano_nascimento: 2021,
-        documento: String::from("https://github.com/pgjbz/rust4noobs") 
-    }; 
+        documento: String::from("https://github.com/pgjbz/rust4noobs")
+    };
 
     println!("{:#?}", cliente);
 }
@@ -34,6 +34,12 @@ Do modo acima, o documento do `Cliente`, pode ser, uma String, um inteiro, um En
 Continuando o exemplo acima, lembra da parte sobre as [structs](./01-structs.md) onde implementamos o método estático `new`, como que ficaria para este exemplo usando generic?
 
 ```rust
+# #[derive(Debug)]
+# struct Cliente<T> {
+#     nome: String,
+#     ano_nascimento: u16,
+#     documento: T
+# }
 //--declaração da struct
 impl<T> Cliente<T> {
     fn new(nome: String, ano_nascimento: u16, documento: T) -> Self {
@@ -46,12 +52,12 @@ impl<T> Cliente<T> {
 }
 
 fn main() {
-    let cliente = Cliente::new(String::from("Rust4Noobs"), 
-        2021, 
+    let cliente = Cliente::new(String::from("Rust4Noobs"),
+        2021,
         String::from("https://github.com/pgjbz/rust4noobs"));
     println!("{:#?}", cliente);
-    let cliente2 = Cliente::new(String::from("Rust4Noobs"), 
-        2021, 
+    let cliente2 = Cliente::new(String::from("Rust4Noobs"),
+        2021,
         123456789);
     println!("{:#?}", cliente2);
 }
@@ -89,7 +95,7 @@ fn maior<T>(lista: &[T]) -> T {
         if item > maior {
             maior = item;
         }
-    } 
+    }
     maior
 }
 

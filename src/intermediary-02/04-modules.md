@@ -49,9 +49,24 @@ error: could not compile `modulos` due to previous error
 A struct não foi encontrada no escopo. O compilador esta dizendo para importamos o cliente, vamos importar utilizando o que o compilador diz para importar `use crate::nota_fiscal::Cliente;`
 
 ```rust
+# mod nota_fiscal {
+#     struct Cliente {
+#         nome: String,
+#         ano_de_nascimento: u16,
+#         documento: String,
+#     }
+#
+#     impl Cliente {
+#         fn new(nome: String, ano_de_nascimento: u16, documento: String) -> Self {
+#             Self {
+#                 nome,
+#                 ano_de_nascimento,
+#                 documento
+#             }
+#         }
+#     }
+# }
 //--declaração do modulo
-
-use crate::nota_fiscal::Cliente;
 
 use crate::nota_fiscal::Cliente;
 
@@ -101,6 +116,12 @@ mod nota_fiscal {
 }
 
 //--método main
+# use crate::nota_fiscal::Cliente;
+
+# fn main() {
+#     let cliente = Cliente::new(String::from("Paulo"), 1999, String::from("Onde?"));
+#     println!("{} {} {}", cliente.nome, cliente.ano_de_nascimento, cliente.documento);
+# }
 ```
 
 Os atributos também são privados, caso tentarmos acessar qualquer um deles teremos outro erro de compilação, podemos acessar através de outros métodos públicos, ou deixando os atributos públicos.
@@ -113,8 +134,25 @@ mod nota_fiscal {
         pub documento: String,
     }
 //--métodos
+    # impl Cliente {
+    #     pub fn new(nome: String, ano_de_nascimento: u16, documento: String) -> Self {
+    #         Self {
+    #             nome,
+    #             ano_de_nascimento,
+    #             documento
+    #         }
+    #     }
+    # }
 }
 
+//--método main
+# use crate::nota_fiscal::Cliente;
+
+# fn main() {
+#     let cliente = Cliente::new(String::from("Paulo"), 1999, String::from("Onde?"));
+
+#     println!("{} {} {}", cliente.nome, cliente.ano_de_nascimento, cliente.documento);
+# }
 ```
 
 ## Separando módulos em outros arquivos
@@ -279,7 +317,7 @@ fn main() {
 }
 
 ```
-Nesse exemplo temos vários modos de imports, temos um impor com a palavra `crate` que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o `super` que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais fácil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main. 
+Nesse exemplo temos vários modos de imports, temos um impor com a palavra `crate` que é a raiz do nosso projeto. Seria o modo de import do mesmo projeto com o path absoluto, temos também o `super` que é um import a partir do modulo anterior, ou seja, o modulo que declara aquele módulo como tal. Meio confuso, mas conforme vamos praticando fica mais fácil de entender. E temos o import a partir de `nota_fiscal' sendo um modulo do nosso projeto, podemos importar tudo a partir dele, é um modulo que foi declarado em nosso main.
 
 Futuramente iremos utilizar outro modo de projeto que ira utilizar o arquivo `lib.rs`, onde também podemos declarar os módulos e remover isso do `main.rs`, com esse arquivo podemos importar conforme o nome do projeto no `Cargo.toml`
 
