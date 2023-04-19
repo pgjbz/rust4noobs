@@ -80,7 +80,7 @@ O método `get` retorna um `Option<&T>` caso a posição solicitada exista, caso
 ```rust
 fn main() {
     let lista = vec![1,2,3];
-    let primeiro_elemento: Option<i32> = lista.get(0);
+    let primeiro_elemento: Option<&i32> = lista.get(0);
     // let invalido = lista[1000]; //esta linha ira parar a execução do programa
 }
 ```
