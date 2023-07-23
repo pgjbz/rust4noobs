@@ -1805,13 +1805,20 @@ impl&lt;T&gt; Cliente&lt;T&gt; {
 }
 
 fn main() {
-    let cliente = Cliente::new(String::from(&quot;Rust4Noobs&quot;),
+    // T = String
+    let cliente = Cliente::new(
+        String::from(&quot;Rust4Noobs&quot;),
         2021,
-        String::from(&quot;https://github.com/pgjbz/rust4noobs&quot;));
+        String::from(&quot;350.123.123-23&quot;)
+    );
     println!(&quot;{:#?}&quot;, cliente);
-    let cliente2 = Cliente::new(String::from(&quot;Rust4Noobs&quot;),
+
+    // T = u32
+    let cliente2 = Cliente::new(
+        String::from(&quot;Rust4Noobs&quot;),
         2021,
-        123456789);
+        35012312323
+    );
     println!(&quot;{:#?}&quot;, cliente2);
 }
 </code></pre></pre>
