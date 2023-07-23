@@ -137,6 +137,13 @@ $ mdbook serve
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/DanielHe4rt">
+            <img src="https://avatars.githubusercontent.com/u/6912596?v=4" width="100;" alt="DanielHe4rt"/>
+            <br />
+            <sub><b>Daniel Reis</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/herniqeu">
             <img src="https://avatars.githubusercontent.com/u/95002561?v=4" width="100;" alt="herniqeu"/>
             <br />
