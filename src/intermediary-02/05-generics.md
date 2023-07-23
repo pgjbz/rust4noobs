@@ -52,13 +52,20 @@ impl<T> Cliente<T> {
 }
 
 fn main() {
-    let cliente = Cliente::new(String::from("Rust4Noobs"),
+    // T = String
+    let cliente = Cliente::new(
+        String::from("Rust4Noobs"),
         2021,
-        String::from("https://github.com/pgjbz/rust4noobs"));
+        String::from("350.123.123-23")
+    );
     println!("{:#?}", cliente);
-    let cliente2 = Cliente::new(String::from("Rust4Noobs"),
+
+    // T = u32
+    let cliente2 = Cliente::new(
+        String::from("Rust4Noobs"),
         2021,
-        123456789);
+        35012312323
+    );
     println!("{:#?}", cliente2);
 }
 ```
