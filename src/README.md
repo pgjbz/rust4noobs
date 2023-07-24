@@ -23,6 +23,11 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste li
 
 ---
 
+## Pessoas que melhoraram este projeto
+
+<!-- readme: collaborators,contributors -start -->
+
+<!-- readme: collaborators,contributors -end -->
 <p align="center">
   <a href="https://github.com/he4rt/4noobs" target="_blank">
     <img src="./assets/footer_4noobs.svg" width="380">
