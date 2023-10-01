@@ -144,7 +144,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="boxt"><a class="header" href="#boxt">Box&lt;T&gt;</a></h1>
-<p>O <code>Smart Pointer</code> Box<T>, é bem versátil, ele aponta para a <code>heap</code> e também implementa as <a href="../intermediary-02/06-traits.html">traits</a> <code>Deref</code> e <code>DerefMut</code>, sendo assim, é possível apontar para um endereço de moria na Heap e realizar modificações nesta região de memória. Vamos a um exemplo mais simples.</p>
+<p>O <code>Smart Pointer</code> Box<T>, é bem versátil, ele aponta para a <code>heap</code> e também implementa as <a href="../intermediary-02/06-traits.html">traits</a> <code>Deref</code> e <code>DerefMut</code>, sendo assim, é possível apontar para um endereço de memória na Heap e realizar modificações nesta região de memória. Vamos a um exemplo mais simples.</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let numero: Box&lt;usize&gt; = Box::new(42);
     println!(&quot;{}&quot;, numero);

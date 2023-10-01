@@ -4061,7 +4061,7 @@ For more information about this error, try `rustc --explain E0623`.
 <p>Este é um ponto muito interessante na linguagem, Smart Pointers é um modo que podemos utilizar em Rust para acessar a <code>heap</code>, claro eles são mais do que isso, eles implementam traits como <code>Deref</code>, <code>DerefMut</code>, etc.
 Neste ponto, iremos falar sobre 3 Smart Pointers sendo eles: Box&lt;T&gt;, Rc&lt;T&gt; e RefCell&lt;T&gt;, todos com sua particularidade e casos de uso.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="boxt"><a class="header" href="#boxt">Box&lt;T&gt;</a></h1>
-<p>O <code>Smart Pointer</code> Box<T>, é bem versátil, ele aponta para a <code>heap</code> e também implementa as <a href="advanced-01/../intermediary-02/06-traits.html">traits</a> <code>Deref</code> e <code>DerefMut</code>, sendo assim, é possível apontar para um endereço de moria na Heap e realizar modificações nesta região de memória. Vamos a um exemplo mais simples.</p>
+<p>O <code>Smart Pointer</code> Box<T>, é bem versátil, ele aponta para a <code>heap</code> e também implementa as <a href="advanced-01/../intermediary-02/06-traits.html">traits</a> <code>Deref</code> e <code>DerefMut</code>, sendo assim, é possível apontar para um endereço de memória na Heap e realizar modificações nesta região de memória. Vamos a um exemplo mais simples.</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let numero: Box&lt;usize&gt; = Box::new(42);
     println!(&quot;{}&quot;, numero);
