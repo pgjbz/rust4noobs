@@ -49,5 +49,6 @@
     * [Threads](./advanced-01/04-threads.md)
         * [Arc\<T>, Mutex\<T> e RwLock\<T>](./advanced-01/04-threads-arc-mutex-rwlock.md)
     * [Produtores e Consumidores](./advanced-01/05-producers-consumers.md)
+    * [Destrutores](./advanced-01/06-destructors.md)
 * [Extras](./extras/README.md)
 * [Referências](./SOURCES.md)

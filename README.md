@@ -73,6 +73,7 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste re
   - [Threads](https://rust4noobs.pgjbz.dev/advanced-01/04-threads.html)
     - [Arc\<T>, Mutex\<T> e RwLock\<T>](https://rust4noobs.pgjbz.dev/advanced-01/04-threads-arc-mutex-rwlock.html)]
   - [Produtores e Consumidores](https://rust4noobs.pgjbz.dev/advanced-01/05-producers-consumers.html)
+  - [Destrutores](https://rust4noobs.pgjbz.dev/advanced-01/06-destructors.html)
 - [Extras](https://rust4noobs.pgjbz.dev/extras/index.html)
 - [Referências](https://rust4noobs.pgjbz.dev/SOURCES.html)
 ## Como Contribuir
