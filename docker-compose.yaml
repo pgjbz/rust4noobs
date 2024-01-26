@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  book4noobs:
+    image: docker.io/allfunc/mdbook
+    volumes:
+    - .:/book
+    command: [ "serve" ]
+    ports:
+    - "3000:3000"
