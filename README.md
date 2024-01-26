@@ -98,7 +98,7 @@ Para servir o livro localmente use:
 $ mdbook serve
 ```
 
-Caso deseje e tenha o [Docker](https://www.docker.com/get-started/) com [Docker compose](https://docs.docker.com/compose/) instalado em sua maquina, é possivel utilizar o comando abaixo para servir o livro localmente.
+Caso deseje e tenha o [Docker](https://www.docker.com/get-started/) com [Docker Compose](https://docs.docker.com/compose/) instalado em sua máquina, é possível utilizar o comando abaixo para servir o livro localmente.
 
 ```sh
 docker compose up
