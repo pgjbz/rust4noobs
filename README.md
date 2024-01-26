@@ -98,6 +98,12 @@ Para servir o livro localmente use:
 $ mdbook serve
 ```
 
+Caso deseje e tenha o [Docker]() com [Docker compose]() instalado em sua maquina, é possivel utilizar o comando abaixo para servir o livro localmente.
+
+```sh
+docker compose up
+```
+
 ## Autores
 
 - Paulo Gabriel Justino Bezerra - Desenvolvedor Java - [Linkedin](https://www.linkedin.com/in/paulogjbezerra/)
