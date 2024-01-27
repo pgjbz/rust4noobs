@@ -1,9 +1,8 @@
-FROM docker.io/allfunc/mdbook
+FROM docker.io/allfunc/mdbook:0.4.36 AS BUILDER
 WORKDIR /book
 COPY . .
-EXPOSE 3000
-RUN groupadd book && \
-    adduser --ingroup book --no-create-home book && \
-    chown -R book:book /book
-USER book
-ENTRYPOINT [ "mdbook", "serve" ]
+RUN [ "mdbook", "build" ]
+
+FROM docker.io/httpd:alpine3.19 as RUNNER
+COPY --from=BUILDER /book/book /usr/local/apache2/htdocs/
+EXPOSE 80
