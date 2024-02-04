@@ -90,7 +90,7 @@ fn main() {
 O código acima ira nos devolver os 10 primeiros números da sequência de Fibonacci, aqui temos dois assuntos interessantes para tratar, o primeiro a palavra "impl" no retorno, o segundo a trait "FnMut" e uma segunda declaração do tipo de retorno? Como assim?
 
 - impl: assim como a palavra reservada 'dyn', existe a palavra reservada 'impl' que pode ser usada para representar algum tipo dinâmico alocado na `stack` ao invés da `heap`.
-- FnMut: `FnMut` assim como `Fn` e `FnOnce`, são traits que podem ser implementadas por de Closures, sendo elas, `FnMut` com valores mutáveis, `Fn` com valores imutáveis e `FnOnce` com valores imutáveis, sendo possível apenas uma única chamada.
+- FnMut: `FnMut` assim como `Fn` e `FnOnce`, são traits que podem ser implementadas por Closures, sendo elas, `FnMut` com valores mutáveis, `Fn` com valores imutáveis e `FnOnce` com valores imutáveis, sendo possível apenas uma única chamada.
 - Segunda declaração de retorno: essa segunda declaração de retorno é nada mais nada menos que a declaração do retorno dessa `FnMut`, que também pode ser receber parâmetros como, por exemplo: `FnMut(i32) -> i32`, com argumentos na trait separados por virgula, `FnMut(Box<Foo>, i32) -> Bar`;
 
 No corpo de nossa função temos uma palavrinha nova ali que á o `move`, esta palavra reservada indica que as variáveis 'a' e 'b', serão movidas para dentro do contexto da Closure.
