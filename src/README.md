@@ -64,6 +64,14 @@ Projeto para introdução a linguagem de programação Rust, o objetivo deste li
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/flavin27">
+            <img src="https://avatars.githubusercontent.com/u/77132531?v=4" width="100;" alt="flavin27"/>
+            <br />
+            <sub><b>Flavio</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/herniqeu">
             <img src="https://avatars.githubusercontent.com/u/95002561?v=4" width="100;" alt="herniqeu"/>
             <br />
