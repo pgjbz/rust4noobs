@@ -211,7 +211,7 @@ fn main() {
 <p>O código acima ira nos devolver os 10 primeiros números da sequência de Fibonacci, aqui temos dois assuntos interessantes para tratar, o primeiro a palavra &quot;impl&quot; no retorno, o segundo a trait &quot;FnMut&quot; e uma segunda declaração do tipo de retorno? Como assim?</p>
 <ul>
 <li>impl: assim como a palavra reservada 'dyn', existe a palavra reservada 'impl' que pode ser usada para representar algum tipo dinâmico alocado na <code>stack</code> ao invés da <code>heap</code>.</li>
-<li>FnMut: <code>FnMut</code> assim como <code>Fn</code> e <code>FnOnce</code>, são traits que podem ser implementadas por de Closures, sendo elas, <code>FnMut</code> com valores mutáveis, <code>Fn</code> com valores imutáveis e <code>FnOnce</code> com valores imutáveis, sendo possível apenas uma única chamada.</li>
+<li>FnMut: <code>FnMut</code> assim como <code>Fn</code> e <code>FnOnce</code>, são traits que podem ser implementadas por Closures, sendo elas, <code>FnMut</code> com valores mutáveis, <code>Fn</code> com valores imutáveis e <code>FnOnce</code> com valores imutáveis, sendo possível apenas uma única chamada.</li>
 <li>Segunda declaração de retorno: essa segunda declaração de retorno é nada mais nada menos que a declaração do retorno dessa <code>FnMut</code>, que também pode ser receber parâmetros como, por exemplo: <code>FnMut(i32) -&gt; i32</code>, com argumentos na trait separados por virgula, <code>FnMut(Box&lt;Foo&gt;, i32) -&gt; Bar</code>;</li>
 </ul>
 <p>No corpo de nossa função temos uma palavrinha nova ali que á o <code>move</code>, esta palavra reservada indica que as variáveis 'a' e 'b', serão movidas para dentro do contexto da Closure.</p>
