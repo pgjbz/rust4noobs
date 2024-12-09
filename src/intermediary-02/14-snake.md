@@ -525,7 +525,7 @@ Agora precisamos aumentar o tamanho da cobra, para isso adicionamos um método q
 
 
 ```rust
-impl Cobra
+impl Cobra {
     ...
     pub fn aumentar_tamanho(&mut self) {
         let ultimo = self.body.last().unwrap().clone();
