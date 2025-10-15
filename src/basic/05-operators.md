@@ -42,7 +42,7 @@ fn main() {
 | Maior       | >       | Verifica se um valor é maior que outro        |
 | Menor       | <       | Verifica se um valor é menor que outro        |
 | Maior igual | >=      | Verifica se um valor é maior ou igual a outro |
-| Maior igual | <=      | Verifica se um valor é menor ou igual a outro |
+| Menor igual | <=      | Verifica se um valor é menor ou igual a outro |
 
 O uso dos operadores lógicos iremos ver na [próxima](./06-conditions.md) parte
 
