@@ -144,8 +144,8 @@ docker compose up
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/DanielHe4rt">
-            <img src="https://avatars.githubusercontent.com/u/6912596?v=4" width="100;" alt="DanielHe4rt"/>
+        <a href="https://github.com/danielhe4rt">
+            <img src="https://avatars.githubusercontent.com/u/6912596?v=4" width="100;" alt="danielhe4rt"/>
             <br />
             <sub><b>Daniel Reis</b></sub>
         </a>
@@ -158,6 +158,13 @@ docker compose up
         </a>
     </td></tr>
 <tr>
+    <td align="center">
+        <a href="https://github.com/KyroMusashi">
+            <img src="https://avatars.githubusercontent.com/u/157604770?v=4" width="100;" alt="KyroMusashi"/>
+            <br />
+            <sub><b>Kyro Musashi</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/herniqeu">
             <img src="https://avatars.githubusercontent.com/u/95002561?v=4" width="100;" alt="herniqeu"/>
